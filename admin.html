@@ -8,154 +8,188 @@
 <title>Smart Cool & Refrigerator - Owner Panel</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
+}
 
 body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
   background:#f1f7fb;
-  color:#172b3a;
+  color:#123;
 }
 
 header{
   background:linear-gradient(135deg,#0077b6,#00b4d8);
   color:white;
   padding:18px;
-  text-align:center;
-  box-shadow:0 4px 15px rgba(0,0,0,.12);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
 .logo{
-  font-size:25px;
-  font-weight:800;
+  font-size:21px;
+  font-weight:bold;
 }
 
-.sub{
-  margin-top:5px;
+.logo small{
+  display:block;
+  font-size:11px;
+  margin-top:4px;
+  opacity:.9;
+}
+
+button{
+  border:0;
+  border-radius:8px;
+  padding:10px 14px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.hidden{
+  display:none!important;
+}
+
+.login-box{
+  max-width:420px;
+  margin:70px auto;
+  background:white;
+  padding:30px;
+  border-radius:18px;
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
+}
+
+.login-box h2{
+  color:#0077b6;
+  text-align:center;
+  margin-bottom:8px;
+}
+
+.login-box p{
+  text-align:center;
+  color:#666;
+  margin-bottom:20px;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccd9e2;
+  border-radius:8px;
+  margin-top:6px;
+  margin-bottom:14px;
+  outline:none;
+}
+
+input:focus,select:focus,textarea:focus{
+  border-color:#00a8d6;
+}
+
+label{
+  font-weight:bold;
   font-size:13px;
 }
 
+.primary{
+  width:100%;
+  background:#0077b6;
+  color:white;
+}
+
+.logout{
+  background:white;
+  color:#0077b6;
+}
+
 .container{
-  max-width:1200px;
+  max-width:1250px;
   margin:auto;
   padding:20px;
+}
+
+.dashboard{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:15px;
+  margin-bottom:22px;
+}
+
+.stat{
+  background:white;
+  padding:18px;
+  border-radius:14px;
+  box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
+
+.stat h3{
+  font-size:13px;
+  color:#667;
+  margin-bottom:8px;
+}
+
+.stat strong{
+  font-size:24px;
+  color:#0077b6;
+}
+
+.toolbar{
+  background:white;
+  padding:15px;
+  border-radius:14px;
+  margin-bottom:18px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
+
+.toolbar input{
+  flex:1;
+  min-width:200px;
+  margin:0;
+}
+
+.toolbar select{
+  width:auto;
+  min-width:150px;
+  margin:0;
+}
+
+.refresh{
+  background:#0077b6;
+  color:white;
+}
+
+.requests{
+  display:grid;
+  gap:16px;
 }
 
 .card{
   background:white;
   border-radius:16px;
   padding:20px;
-  margin-bottom:20px;
-  box-shadow:0 5px 18px rgba(0,0,0,.08);
+  box-shadow:0 4px 18px rgba(0,0,0,.08);
 }
 
-.login-box{
-  max-width:430px;
-  margin:50px auto;
-}
-
-h2{
-  margin-top:0;
-  color:#0077b6;
-}
-
-input,select,textarea{
-  width:100%;
-  padding:12px;
-  margin:7px 0 13px;
-  border:1px solid #ccd9e2;
-  border-radius:9px;
-  font-size:15px;
-  outline:none;
-}
-
-input:focus,select:focus,textarea:focus{
-  border-color:#00a6d6;
-}
-
-textarea{
-  min-height:90px;
-  resize:vertical;
-}
-
-button{
-  border:0;
-  padding:11px 16px;
-  border-radius:9px;
-  cursor:pointer;
-  font-weight:bold;
-  margin:4px;
-}
-
-button:hover{
-  opacity:.88;
-}
-
-.primary{background:#0077b6;color:white}
-.success{background:#16a34a;color:white}
-.warning{background:#f59e0b;color:white}
-.danger{background:#dc2626;color:white}
-.dark{background:#172b3a;color:white}
-.whatsapp{background:#25d366;color:white}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:15px;
-  margin-bottom:20px;
-}
-
-.stat{
-  background:white;
-  padding:20px;
-  border-radius:14px;
-  box-shadow:0 4px 15px rgba(0,0,0,.07);
-  text-align:center;
-}
-
-.stat strong{
-  display:block;
-  font-size:28px;
-  color:#0077b6;
-}
-
-.stat span{
-  font-size:14px;
-}
-
-.topbar{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.filters{
-  display:grid;
-  grid-template-columns:2fr 1fr auto;
-  gap:10px;
-}
-
-.request{
-  border:1px solid #dbe7ee;
-  border-radius:14px;
-  padding:17px;
-  margin-top:15px;
-  background:#fbfdff;
-}
-
-.request-header{
+.card-top{
   display:flex;
   justify-content:space-between;
   gap:10px;
   flex-wrap:wrap;
+  margin-bottom:14px;
 }
 
 .booking-id{
-  color:#0077b6;
   font-weight:bold;
-  font-size:17px;
+  color:#0077b6;
+  font-size:16px;
 }
 
 .status{
@@ -163,112 +197,225 @@ button:hover{
   border-radius:20px;
   font-size:12px;
   font-weight:bold;
-  background:#e8f1f7;
 }
 
-.details{
+.pending{
+  background:#fff3cd;
+  color:#856404;
+}
+
+.accepted{
+  background:#d1ecf1;
+  color:#0c5460;
+}
+
+.progress{
+  background:#dbeafe;
+  color:#1d4ed8;
+}
+
+.completed{
+  background:#d4edda;
+  color:#155724;
+}
+
+.rejected{
+  background:#f8d7da;
+  color:#721c24;
+}
+
+.info{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:8px;
-  margin-top:12px;
+  gap:10px;
+  margin-bottom:15px;
 }
 
-.detail{
-  background:white;
-  padding:9px;
+.info div{
+  background:#f7fafc;
+  padding:10px;
   border-radius:8px;
+  font-size:13px;
+}
+
+.info b{
+  display:block;
+  color:#667;
+  font-size:11px;
+  margin-bottom:3px;
 }
 
 .actions{
-  margin-top:12px;
   display:flex;
   flex-wrap:wrap;
-  gap:4px;
+  gap:7px;
+}
+
+.accept{
+  background:#198754;
+  color:white;
+}
+
+.work{
+  background:#0d6efd;
+  color:white;
+}
+
+.complete{
+  background:#20c997;
+  color:white;
+}
+
+.reject{
+  background:#dc3545;
+  color:white;
+}
+
+.invoice-btn{
+  background:#6f42c1;
+  color:white;
+}
+
+.whatsapp{
+  background:#25d366;
+  color:white;
+}
+
+.delete{
+  background:#555;
+  color:white;
+}
+
+.payment{
+  display:inline-block;
+  font-weight:bold;
+  font-size:12px;
+  padding:5px 9px;
+  border-radius:15px;
+  margin-left:5px;
+}
+
+.paid{
+  background:#d4edda;
+  color:#155724;
+}
+
+.unpaid{
+  background:#fff3cd;
+  color:#856404;
 }
 
 .modal{
-  display:none;
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.6);
-  z-index:999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+  z-index:1000;
   overflow:auto;
-  padding:20px;
 }
 
 .modal-box{
-  max-width:850px;
-  margin:20px auto;
   background:white;
-  border-radius:16px;
-  padding:22px;
+  width:100%;
+  max-width:850px;
+  border-radius:18px;
+  padding:25px;
+  max-height:95vh;
+  overflow:auto;
+}
+
+.modal-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.close{
+  background:#eee;
+  font-size:20px;
 }
 
 .invoice-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:10px;
+  gap:12px;
 }
 
 .invoice-total{
-  background:#eaf8ff;
+  background:#0077b6;
+  color:white;
   padding:15px;
   border-radius:10px;
-  text-align:right;
-  font-size:22px;
+  font-size:20px;
   font-weight:bold;
-  color:#0077b6;
-}
-
-.message{
-  padding:12px;
-  border-radius:8px;
-  margin-bottom:15px;
-  display:none;
-}
-
-.invoice-list{
+  text-align:right;
   margin-top:15px;
 }
 
-.invoice-item{
-  padding:14px;
-  border:1px solid #dbe7ee;
+.modal-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+.save{
+  background:#198754;
+  color:white;
+}
+
+.print{
+  background:#0077b6;
+  color:white;
+}
+
+.empty{
+  text-align:center;
+  background:white;
+  padding:35px;
+  border-radius:15px;
+  color:#667;
+}
+
+#toast{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#123;
+  color:white;
+  padding:13px 18px;
   border-radius:10px;
-  margin-bottom:10px;
+  display:none;
+  z-index:3000;
 }
 
-.hidden{
-  display:none!important;
-}
-
-@media(max-width:800px){
-  .stats{
+@media(max-width:900px){
+  .dashboard{
     grid-template-columns:repeat(2,1fr);
   }
-
-  .filters{
-    grid-template-columns:1fr;
-  }
-
-  .details,
-  .invoice-grid{
-    grid-template-columns:1fr;
-  }
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
   .container{
-    padding:10px;
+    padding:12px;
   }
 
-  .stats{
+  .dashboard{
     grid-template-columns:1fr 1fr;
   }
 
-  button{
-    padding:10px 12px;
-    font-size:13px;
+  .info,
+  .invoice-grid{
+    grid-template-columns:1fr;
+  }
+
+  .actions button{
+    flex:1;
+    min-width:120px;
   }
 }
 
@@ -287,11 +434,8 @@ button:hover{
     left:0;
     top:0;
     width:100%;
-  }
-
-  .print-invoice{
+    background:white;
     padding:30px;
-    font-family:Arial;
   }
 }
 </style>
@@ -299,367 +443,505 @@ button:hover{
 
 <body>
 
-<header>
-  <div class="logo">❄️ SMART COOL & REFRIGERATOR</div>
-  <div class="sub">
-    AC • Fridge • Water Dispenser • Electrician | All Over Karachi
-  </div>
-</header>
+<!-- LOGIN SCREEN -->
 
+<div id="loginScreen">
 
-<!-- LOGIN -->
-<div id="loginSection" class="container">
+  <div class="login-box">
 
-  <div class="card login-box">
+    <h2>❄️ Smart Cool & Refrigerator</h2>
 
-    <h2>🔐 Owner Login</h2>
-
-    <div id="loginMessage" class="message"></div>
+    <p>Owner / Admin Login</p>
 
     <label>Email</label>
     <input
+      id="email"
       type="email"
-      id="loginEmail"
-      placeholder="Owner Email"
+      placeholder="Owner email"
     >
 
     <label>Password</label>
     <input
+      id="password"
       type="password"
-      id="loginPassword"
       placeholder="Password"
     >
 
     <button
       class="primary"
-      style="width:100%"
-      onclick="ownerLogin()">
-      Login
+      onclick="login()"
+    >
+      🔐 Login
     </button>
+
+    <p
+      id="loginError"
+      style="color:red;margin-top:12px;margin-bottom:0"
+    ></p>
 
   </div>
 
 </div>
 
 
-<!-- DASHBOARD -->
-<div id="dashboard" class="container hidden">
+<!-- ADMIN SCREEN -->
 
-  <div class="card">
+<div id="adminScreen" class="hidden">
 
-    <div class="topbar">
+<header>
 
-      <div>
-        <h2>📊 Owner Dashboard</h2>
-        <div>
-          Customer bookings aur invoices manage karein.
-        </div>
-      </div>
+  <div class="logo">
+    ❄️ SMART COOL & REFRIGERATOR
+    <small>Owner Management Panel</small>
+  </div>
 
-      <div>
-        <button
-          class="primary"
-          onclick="loadRequests()">
-          🔄 Refresh
-        </button>
+  <button
+    class="logout"
+    onclick="logout()"
+  >
+    Logout
+  </button>
 
-        <button
-          class="danger"
-          onclick="ownerLogout()">
-          Logout
-        </button>
-      </div>
+</header>
 
+
+<div class="container">
+
+  <!-- DASHBOARD -->
+
+  <div class="dashboard">
+
+    <div class="stat">
+      <h3>Total Requests</h3>
+      <strong id="totalRequests">0</strong>
+    </div>
+
+    <div class="stat">
+      <h3>New</h3>
+      <strong id="newRequests">0</strong>
+    </div>
+
+    <div class="stat">
+      <h3>In Progress</h3>
+      <strong id="progressRequests">0</strong>
+    </div>
+
+    <div class="stat">
+      <h3>Completed</h3>
+      <strong id="completedRequests">0</strong>
+    </div>
+
+    <div class="stat">
+      <h3>Total Earnings</h3>
+      <strong id="totalEarnings">Rs. 0</strong>
     </div>
 
   </div>
 
 
-  <!-- STATS -->
-  <div class="stats">
+  <!-- SEARCH -->
 
-    <div class="stat">
-      <strong id="totalCount">0</strong>
-      <span>Total Requests</span>
-    </div>
+  <div class="toolbar">
 
-    <div class="stat">
-      <strong id="newCount">0</strong>
-      <span>New</span>
-    </div>
+    <input
+      id="searchBox"
+      placeholder="🔍 Search booking, customer, mobile..."
+      oninput="renderRequests()"
+    >
 
-    <div class="stat">
-      <strong id="progressCount">0</strong>
-      <span>In Progress</span>
-    </div>
+    <select
+      id="statusFilter"
+      onchange="renderRequests()"
+    >
+      <option value="all">All Status</option>
+      <option value="Pending">New</option>
+      <option value="Accepted">Accepted</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Completed">Completed</option>
+      <option value="Rejected">Rejected</option>
+    </select>
 
-    <div class="stat">
-      <strong id="completedCount">0</strong>
-      <span>Completed</span>
-    </div>
-
-  </div>
-
-
-  <!-- CUSTOMER REQUESTS -->
-  <div class="card">
-
-    <h2>📋 Customer Requests</h2>
-
-    <div class="filters">
-
-      <input
-        id="searchInput"
-        placeholder="Search Booking ID, Name or Phone..."
-        oninput="renderRequests()"
-      >
-
-      <select
-        id="statusFilter"
-        onchange="renderRequests()">
-
-        <option value="all">All Status</option>
-        <option value="New">New</option>
-        <option value="Accepted">Accepted</option>
-        <option value="In Progress">In Progress</option>
-        <option value="Completed">Completed</option>
-        <option value="Rejected">Rejected</option>
-
-      </select>
-
-      <button
-        class="primary"
-        onclick="loadRequests()">
-        Refresh
-      </button>
-
-    </div>
-
-    <div id="requestsList"></div>
+    <button
+      class="refresh"
+      onclick="loadRequests()"
+    >
+      🔄 Refresh
+    </button>
 
   </div>
 
 
-  <!-- PREVIOUS INVOICES -->
-  <div class="card">
+  <div
+    id="requests"
+    class="requests"
+  ></div>
 
-    <h2>🧾 Previous Invoices</h2>
-
-    <div
-      id="invoiceList"
-      class="invoice-list">
-      Loading...
-    </div>
-
-  </div>
+</div>
 
 </div>
 
 
 <!-- INVOICE MODAL -->
-<div id="invoiceModal" class="modal">
 
-  <div class="modal-box">
+<div
+  id="invoiceModal"
+  class="modal hidden"
+>
 
-    <div class="topbar">
+<div class="modal-box">
 
-      <h2>🧾 Create Invoice</h2>
+<div class="modal-header">
 
-      <button
-        class="danger"
-        onclick="closeInvoice()">
-        ✕ Close
-      </button>
+  <h2>🧾 Create Invoice</h2>
 
-    </div>
-
-    <div
-      id="invoiceMessage"
-      class="message">
-    </div>
-
-
-    <div class="invoice-grid">
-
-      <div>
-        <label>Booking ID</label>
-        <input id="invoiceBookingId" readonly>
-      </div>
-
-      <div>
-        <label>Invoice Number</label>
-        <input id="invoiceNumber">
-      </div>
-
-      <div>
-        <label>Date</label>
-        <input type="date" id="invoiceDate">
-      </div>
-
-      <div>
-        <label>Customer Name</label>
-        <input id="invoiceCustomerName">
-      </div>
-
-      <div>
-        <label>Customer Phone</label>
-        <input id="invoicePhone">
-      </div>
-
-      <div>
-        <label>Address</label>
-        <input id="invoiceAddress">
-      </div>
-
-      <div>
-        <label>Service</label>
-        <input id="invoiceService">
-      </div>
-
-      <div>
-        <label>AC Ton</label>
-        <input
-          id="invoiceTon"
-          placeholder="1 Ton / 1.5 Ton / 2 Ton">
-      </div>
-
-    </div>
-
-
-    <label>Problem / Work Details</label>
-
-    <textarea id="invoiceProblem"></textarea>
-
-
-    <label>Quick Rate</label>
-
-    <select
-      id="quickRate"
-      onchange="applyRate()">
-
-      <option value="">
-        -- Select Rate --
-      </option>
-
-      <option value="AC Repair|1 Ton|10500">
-        AC Repair - 1 Ton - Rs. 10,500
-      </option>
-
-      <option value="AC Repair|1.5 Ton|13500">
-        AC Repair - 1.5 Ton - Rs. 13,500
-      </option>
-
-      <option value="AC Repair|2 Ton|16500">
-        AC Repair - 2 Ton - Rs. 16,500
-      </option>
-
-      <option value="AC Service|1 Ton|3000">
-        AC Service - 1 Ton - Rs. 3,000
-      </option>
-
-      <option value="AC Service|1.5 Ton|3500">
-        AC Service - 1.5 Ton - Rs. 3,500
-      </option>
-
-      <option value="AC Service|2 Ton|4000">
-        AC Service - 2 Ton - Rs. 4,000
-      </option>
-
-      <option value="Gas Charges|1 Ton|5500">
-        Gas Charges - 1 Ton - Rs. 5,500
-      </option>
-
-      <option value="Gas Charges|1.5 Ton|6500">
-        Gas Charges - 1.5 Ton - Rs. 6,500
-      </option>
-
-      <option value="Gas Charges|2 Ton|9500">
-        Gas Charges - 2 Ton - Rs. 9,500
-      </option>
-
-    </select>
-
-
-    <div class="invoice-grid">
-
-      <div>
-        <label>Item / Service</label>
-        <input
-          id="itemName"
-          placeholder="AC Repair">
-      </div>
-
-      <div>
-        <label>Quantity</label>
-        <input
-          type="number"
-          id="itemQty"
-          value="1"
-          min="1"
-          oninput="calculateTotal()">
-      </div>
-
-      <div>
-        <label>Price</label>
-        <input
-          type="number"
-          id="itemPrice"
-          value="0"
-          min="0"
-          oninput="calculateTotal()">
-      </div>
-
-      <div>
-        <label>Discount</label>
-        <input
-          type="number"
-          id="discount"
-          value="0"
-          min="0"
-          oninput="calculateTotal()">
-      </div>
-
-    </div>
-
-
-    <label>Warranty</label>
-
-    <input
-      id="warranty"
-      value="1 Month Warranty"
-      placeholder="Warranty">
-
-
-    <div class="invoice-total">
-      Total:
-      Rs.
-      <span id="invoiceTotal">0</span>
-    </div>
-
-
-    <div style="margin-top:15px;text-align:right">
-
-      <button
-        class="success"
-        onclick="saveInvoice()">
-        💾 Save Invoice
-      </button>
-
-      <button
-        class="dark"
-        onclick="printInvoice()">
-        🖨️ Print / PDF
-      </button>
-
-    </div>
-
-  </div>
+  <button
+    class="close"
+    onclick="closeInvoice()"
+  >
+    ×
+  </button>
 
 </div>
 
 
-<!-- PRINT AREA -->
-<div id="printArea" class="hidden"></div>
+<div class="invoice-grid">
+
+<div>
+<label>Booking ID</label>
+<input id="invBookingId" readonly>
+</div>
+
+<div>
+<label>Invoice Number</label>
+<input id="invNumber">
+</div>
+
+<div>
+<label>Customer Name</label>
+<input id="invCustomer">
+</div>
+
+<div>
+<label>Phone</label>
+<input id="invPhone">
+</div>
+
+<div>
+<label>Address</label>
+<input id="invAddress">
+</div>
+
+<div>
+<label>Service</label>
+<input id="invService">
+</div>
+
+<div>
+<label>AC Ton</label>
+
+<select id="invTon">
+
+<option value="">Select</option>
+<option>1 Ton</option>
+<option>1.5 Ton</option>
+<option>2 Ton</option>
+
+</select>
+
+</div>
+
+<div>
+<label>Problem</label>
+<input id="invProblem">
+</div>
+
+</div>
+
+
+<hr style="margin:20px 0;border:0;border-top:1px solid #ddd">
+
+
+<label>Quick Rate</label>
+
+<select
+  id="quickRate"
+  onchange="applyRate()"
+>
+
+<option value="">
+Select Quick Rate
+</option>
+
+<option value="10500|AC Repair - 1 Ton|1 month">
+AC Repair 1 Ton — Rs. 10,500
+</option>
+
+<option value="13500|AC Repair - 1.5 Ton|1 month">
+AC Repair 1.5 Ton — Rs. 13,500
+</option>
+
+<option value="16500|AC Repair - 2 Ton|1 month">
+AC Repair 2 Ton — Rs. 16,500
+</option>
+
+<option value="3000|AC Service - 1 Ton|No warranty">
+AC Service 1 Ton — Rs. 3,000
+</option>
+
+<option value="3500|AC Service - 1.5 Ton|No warranty">
+AC Service 1.5 Ton — Rs. 3,500
+</option>
+
+<option value="4000|AC Service - 2 Ton|No warranty">
+AC Service 2 Ton — Rs. 4,000
+</option>
+
+<option value="5500|AC Gas Charging - 1 Ton|No warranty">
+AC Gas 1 Ton — Rs. 5,500
+</option>
+
+<option value="6500|AC Gas Charging - 1.5 Ton|No warranty">
+AC Gas 1.5 Ton — Rs. 6,500
+</option>
+
+<option value="9500|AC Gas Charging - 2 Ton|No warranty">
+AC Gas 2 Ton — Rs. 9,500
+</option>
+
+</select>
+
+
+<label>Item / Service</label>
+
+<input
+  id="itemName"
+  placeholder="Service name"
+>
+
+
+<div class="invoice-grid">
+
+<div>
+<label>Quantity</label>
+
+<input
+  id="qty"
+  type="number"
+  value="1"
+  min="1"
+  oninput="calculateTotal()"
+>
+
+</div>
+
+<div>
+<label>Price</label>
+
+<input
+  id="price"
+  type="number"
+  value="0"
+  oninput="calculateTotal()"
+>
+
+</div>
+
+<div>
+<label>Discount</label>
+
+<input
+  id="discount"
+  type="number"
+  value="0"
+  oninput="calculateTotal()"
+>
+
+</div>
+
+<div>
+<label>Warranty</label>
+
+<input
+  id="warranty"
+  value="1 month"
+>
+
+</div>
+
+</div>
+
+
+<div class="invoice-total">
+
+Total:
+Rs. <span id="invoiceTotal">0</span>
+
+</div>
+
+
+<div class="modal-actions">
+
+<button
+  class="save"
+  onclick="saveInvoice()"
+>
+💾 Save Invoice
+</button>
+
+<button
+  class="print"
+  onclick="printInvoice()"
+>
+🖨️ Print / PDF
+</button>
+
+<button onclick="closeInvoice()">
+Cancel
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRINT INVOICE -->
+
+<div
+  id="printArea"
+  style="display:none"
+>
+
+<h1 style="color:#0077b6">
+SMART COOL & REFRIGERATOR
+</h1>
+
+<p>
+AC • Refrigerator • Water Dispenser • Electrician
+</p>
+
+<hr style="margin:20px 0">
+
+<h2>INVOICE</h2>
+
+<p>
+<b>Invoice No:</b>
+<span id="pInvoice"></span>
+</p>
+
+<p>
+<b>Booking ID:</b>
+<span id="pBooking"></span>
+</p>
+
+<p>
+<b>Date:</b>
+<span id="pDate"></span>
+</p>
+
+<br>
+
+<p>
+<b>Customer:</b>
+<span id="pCustomer"></span>
+</p>
+
+<p>
+<b>Phone:</b>
+<span id="pPhone"></span>
+</p>
+
+<p>
+<b>Address:</b>
+<span id="pAddress"></span>
+</p>
+
+<br>
+
+<table
+  style="width:100%;border-collapse:collapse"
+>
+
+<tr>
+
+<th style="border:1px solid #ddd;padding:10px;text-align:left">
+Service
+</th>
+
+<th style="border:1px solid #ddd;padding:10px">
+Qty
+</th>
+
+<th style="border:1px solid #ddd;padding:10px">
+Price
+</th>
+
+<th style="border:1px solid #ddd;padding:10px">
+Subtotal
+</th>
+
+</tr>
+
+<tr>
+
+<td
+  id="pItem"
+  style="border:1px solid #ddd;padding:10px"
+></td>
+
+<td
+  id="pQty"
+  style="border:1px solid #ddd;padding:10px"
+></td>
+
+<td
+  id="pPrice"
+  style="border:1px solid #ddd;padding:10px"
+></td>
+
+<td
+  id="pSubtotal"
+  style="border:1px solid #ddd;padding:10px"
+></td>
+
+</tr>
+
+</table>
+
+<br>
+
+<p>
+<b>Discount:</b>
+Rs. <span id="pDiscount"></span>
+</p>
+
+<h2 style="text-align:right">
+Total:
+Rs. <span id="pTotal"></span>
+</h2>
+
+<p>
+<b>Warranty:</b>
+<span id="pWarranty"></span>
+</p>
+
+<br><br>
+
+<p>
+Thank you for choosing Smart Cool & Refrigerator.
+</p>
+
+<p>
+Muhammad Rizwan<br>
+03208463110<br>
+All Over Karachi
+</p>
+
+</div>
+
+
+<div id="toast"></div>
 
 
 <script type="module">
@@ -673,6 +955,7 @@ import {
   addDoc,
   getDocs,
   updateDoc,
+  deleteDoc,
   doc,
   serverTimestamp
 }
@@ -687,11 +970,14 @@ import {
 from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
 
-/* FIREBASE CONFIG */
+// =====================================================
+// FIREBASE CONFIG
+// =====================================================
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Aapka diya hua EXACT Firebase config
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
+  apiKey: "AIzaSyAvnAL6gje0ly5XtxNotNl_dEhJ9pSHg",
   authDomain: "smart-cool-6f513.firebaseapp.com",
   projectId: "smart-cool-6f513",
   storageBucket: "smart-cool-6f513.firebasestorage.app",
@@ -700,6 +986,10 @@ const firebaseConfig = {
   measurementId: "G-Y5SPBHP57C"
 };
 
+
+// =====================================================
+// FIREBASE START
+// =====================================================
 
 const app =
   initializeApp(firebaseConfig);
@@ -713,39 +1003,43 @@ const auth =
 
 let allRequests = [];
 
-let selectedBooking = null;
-
 let allInvoices = [];
 
+let selectedRequest = null;
 
-/* LOGIN */
 
-window.ownerLogin = async function(){
+// =====================================================
+// LOGIN
+// =====================================================
+
+window.login = async function(){
 
   const email =
     document
-      .getElementById("loginEmail")
+      .getElementById("email")
       .value
       .trim();
 
   const password =
     document
-      .getElementById("loginPassword")
+      .getElementById("password")
       .value;
 
-  const box =
-    document.getElementById("loginMessage");
+  const error =
+    document
+      .getElementById("loginError");
+
+
+  error.textContent = "";
 
 
   if(!email || !password){
 
-    showMessage(
-      box,
-      "Email aur password enter karein.",
-      "error"
-    );
+    error.textContent =
+      "Email aur password enter karein.";
 
     return;
+
   }
 
 
@@ -757,14 +1051,132 @@ window.ownerLogin = async function(){
       password
     );
 
+  }catch(errorObject){
+
+    console.error(errorObject);
+
+    error.textContent =
+      "❌ Login failed: " +
+      errorObject.code;
+
+  }
+
+};
+
+
+// =====================================================
+// AUTH STATE
+// =====================================================
+
+onAuthStateChanged(
+  auth,
+  user=>{
+
+    if(user){
+
+      document
+        .getElementById("loginScreen")
+        .classList.add("hidden");
+
+      document
+        .getElementById("adminScreen")
+        .classList.remove("hidden");
+
+      loadRequests();
+
+    }else{
+
+      document
+        .getElementById("loginScreen")
+        .classList.remove("hidden");
+
+      document
+        .getElementById("adminScreen")
+        .classList.add("hidden");
+
+    }
+
+  }
+);
+
+
+// =====================================================
+// LOGOUT
+// =====================================================
+
+window.logout =
+async function(){
+
+  await signOut(auth);
+
+};
+
+
+// =====================================================
+// LOAD REQUESTS
+// =====================================================
+
+window.loadRequests =
+async function(){
+
+  try{
+
+    const snapshot =
+      await getDocs(
+        collection(
+          db,
+          "serviceRequests"
+        )
+      );
+
+
+    allRequests = [];
+
+
+    snapshot.forEach(
+      item=>{
+
+        allRequests.push({
+
+          id:item.id,
+
+          ...item.data()
+
+        });
+
+      }
+    );
+
+
+    allRequests.sort(
+      (a,b)=>{
+
+        const aTime =
+          a.createdAt?.seconds || 0;
+
+        const bTime =
+          b.createdAt?.seconds || 0;
+
+        return bTime-aTime;
+
+      }
+    );
+
+
+    await loadInvoices();
+
+
+    renderRequests();
+
+    updateDashboard();
+
+
   }catch(error){
 
     console.error(error);
 
-    showMessage(
-      box,
-      "❌ Login failed. Email/password check karein.",
-      "error"
+    showToast(
+      "❌ Requests load nahi hui."
     );
 
   }
@@ -772,343 +1184,531 @@ window.ownerLogin = async function(){
 };
 
 
-window.ownerLogout = async function(){
+// =====================================================
+// LOAD INVOICES
+// =====================================================
 
-  await signOut(auth);
-
-};
-
-
-onAuthStateChanged(auth,(user)=>{
-
-  if(user){
-
-    document
-      .getElementById("loginSection")
-      .classList.add("hidden");
-
-    document
-      .getElementById("dashboard")
-      .classList.remove("hidden");
-
-    loadRequests();
-
-    loadInvoices();
-
-  }else{
-
-    document
-      .getElementById("loginSection")
-      .classList.remove("hidden");
-
-    document
-      .getElementById("dashboard")
-      .classList.add("hidden");
-
-  }
-
-});
-
-
-/* NORMALIZE STATUS */
-
-function normalizeStatus(status){
-
-  const s =
-    String(status || "")
-      .trim()
-      .toLowerCase();
-
-
-  if(
-    s === "pending" ||
-    s === "new"
-  ){
-    return "New";
-  }
-
-
-  if(
-    s === "accepted" ||
-    s === "accept"
-  ){
-    return "Accepted";
-  }
-
-
-  if(
-    s === "in progress" ||
-    s === "inprogress" ||
-    s === "working"
-  ){
-    return "In Progress";
-  }
-
-
-  if(
-    s === "completed" ||
-    s === "complete" ||
-    s === "done"
-  ){
-    return "Completed";
-  }
-
-
-  if(
-    s === "rejected" ||
-    s === "cancelled" ||
-    s === "canceled"
-  ){
-    return "Rejected";
-  }
-
-
-  return status || "New";
-
-}
-
-
-/* LOAD REQUESTS */
-
-window.loadRequests = async function(){
-
-  const list =
-    document.getElementById("requestsList");
-
-  list.innerHTML =
-    "<p>⏳ Loading requests...</p>";
-
+async function loadInvoices(){
 
   try{
 
-    const snap =
+    const snapshot =
       await getDocs(
-        collection(db,"serviceRequests")
+        collection(
+          db,
+          "invoices"
+        )
       );
 
 
-    allRequests = [];
+    allInvoices = [];
 
 
-    snap.forEach((item)=>{
+    snapshot.forEach(
+      item=>{
 
-      const data =
-        item.data();
+        allInvoices.push({
 
+          id:item.id,
 
-      allRequests.push({
+          ...item.data()
 
-        id:item.id,
+        });
 
-        ...data,
-
-        normalizedStatus:
-          normalizeStatus(data.status)
-
-      });
-
-    });
-
-
-    allRequests.sort((a,b)=>{
-
-      const aTime =
-        a.createdAt?.seconds || 0;
-
-      const bTime =
-        b.createdAt?.seconds || 0;
-
-      return bTime-aTime;
-
-    });
-
-
-    updateDashboard();
-
-    renderRequests();
+      }
+    );
 
 
   }catch(error){
 
     console.error(error);
 
-    list.innerHTML =
-      "<p style='color:red'>❌ Requests load nahi ho rahi.</p>";
-
   }
-
-};
-
-
-/* DASHBOARD */
-
-function updateDashboard(){
-
-  const total =
-    allRequests.length;
-
-
-  const newCount =
-    allRequests.filter(
-      x=>x.normalizedStatus==="New"
-    ).length;
-
-
-  const progress =
-    allRequests.filter(
-      x=>x.normalizedStatus==="In Progress"
-    ).length;
-
-
-  const completed =
-    allRequests.filter(
-      x=>x.normalizedStatus==="Completed"
-    ).length;
-
-
-  document.getElementById("totalCount")
-    .textContent=total;
-
-  document.getElementById("newCount")
-    .textContent=newCount;
-
-  document.getElementById("progressCount")
-    .textContent=progress;
-
-  document.getElementById("completedCount")
-    .textContent=completed;
 
 }
 
 
-/* RENDER REQUESTS */
+// =====================================================
+// STATUS
+// =====================================================
 
-window.renderRequests = function(){
+function normalizeStatus(status){
 
-  const list =
-    document.getElementById("requestsList");
+  const s =
+    String(
+      status || "Pending"
+    )
+    .toLowerCase()
+    .trim();
+
+
+  if(
+    s==="accepted" ||
+    s==="confirmed"
+  ){
+
+    return "Accepted";
+
+  }
+
+
+  if(
+    s==="in progress" ||
+    s==="inprogress" ||
+    s==="working"
+  ){
+
+    return "In Progress";
+
+  }
+
+
+  if(
+    s==="completed" ||
+    s==="complete" ||
+    s==="done"
+  ){
+
+    return "Completed";
+
+  }
+
+
+  if(
+    s==="rejected" ||
+    s==="cancelled" ||
+    s==="canceled"
+  ){
+
+    return "Rejected";
+
+  }
+
+
+  return "Pending";
+
+}
+
+
+// =====================================================
+// DATE
+// =====================================================
+
+function formatDate(timestamp){
+
+  if(!timestamp){
+
+    return "-";
+
+  }
+
+
+  try{
+
+    const d =
+      timestamp.toDate
+      ? timestamp.toDate()
+      : new Date(timestamp);
+
+
+    return d.toLocaleString(
+      "en-PK",
+      {
+        dateStyle:"medium",
+        timeStyle:"short"
+      }
+    );
+
+  }catch{
+
+    return "-";
+
+  }
+
+}
+
+
+// =====================================================
+// FIND INVOICE
+// =====================================================
+
+function getInvoice(bookingId){
+
+  return allInvoices.find(
+    invoice=>
+      String(
+        invoice.bookingId || ""
+      )
+      ===
+      String(
+        bookingId || ""
+      )
+  );
+
+}
+
+
+// =====================================================
+// DASHBOARD
+// =====================================================
+
+function updateDashboard(){
+
+  let total =
+    allRequests.length;
+
+  let newCount = 0;
+
+  let progress = 0;
+
+  let completed = 0;
+
+
+  allRequests.forEach(
+    item=>{
+
+      const status =
+        normalizeStatus(
+          item.status
+        );
+
+
+      if(
+        status==="Pending"
+      ){
+
+        newCount++;
+
+      }
+
+
+      if(
+        status==="In Progress"
+      ){
+
+        progress++;
+
+      }
+
+
+      if(
+        status==="Completed"
+      ){
+
+        completed++;
+
+      }
+
+    }
+  );
+
+
+  let earnings = 0;
+
+
+  allInvoices.forEach(
+    invoice=>{
+
+      earnings +=
+        Number(
+          invoice.grandTotal ??
+          invoice.total ??
+          0
+        );
+
+    }
+  );
+
+
+  document.getElementById(
+    "totalRequests"
+  ).textContent =
+    total;
+
+
+  document.getElementById(
+    "newRequests"
+  ).textContent =
+    newCount;
+
+
+  document.getElementById(
+    "progressRequests"
+  ).textContent =
+    progress;
+
+
+  document.getElementById(
+    "completedRequests"
+  ).textContent =
+    completed;
+
+
+  document.getElementById(
+    "totalEarnings"
+  ).textContent =
+    "Rs. " +
+    earnings.toLocaleString();
+
+}
+
+
+// =====================================================
+// RENDER REQUESTS
+// =====================================================
+
+window.renderRequests =
+function(){
+
+  const container =
+    document.getElementById(
+      "requests"
+    );
 
 
   const search =
-    document
-      .getElementById("searchInput")
-      .value
-      .trim()
-      .toLowerCase();
+    document.getElementById(
+      "searchBox"
+    )
+    .value
+    .toLowerCase()
+    .trim();
 
 
   const filter =
-    document
-      .getElementById("statusFilter")
-      .value;
+    document.getElementById(
+      "statusFilter"
+    ).value;
 
 
-  const data =
-    allRequests.filter(item=>{
+  const filtered =
+    allRequests.filter(
+      item=>{
 
-      const phone =
-        String(
-          item.customerPhone ||
-          item.phone ||
-          ""
+        const status =
+          normalizeStatus(
+            item.status
+          );
+
+
+        if(
+          filter!=="all" &&
+          status!==filter
+        ){
+
+          return false;
+
+        }
+
+
+        const text = [
+
+          item.bookingId,
+
+          item.customerName,
+
+          item.customerPhone,
+
+          item.phone,
+
+          item.service,
+
+          item.area,
+
+          item.address
+
+        ]
+        .join(" ")
+        .toLowerCase();
+
+
+        return text.includes(
+          search
         );
 
-
-      const booking =
-        String(
-          item.bookingId ||
-          ""
-        );
+      }
+    );
 
 
-      const name =
-        String(
-          item.customerName ||
-          ""
-        );
+  if(!filtered.length){
 
+    container.innerHTML = `
 
-      const matchesSearch =
-        !search ||
-        booking.toLowerCase().includes(search) ||
-        name.toLowerCase().includes(search) ||
-        phone.toLowerCase().includes(search);
+      <div class="empty">
 
+        <h3>
+          📭 No bookings found
+        </h3>
 
-      const matchesStatus =
-        filter==="all" ||
-        item.normalizedStatus===filter;
+        <p>
+          Search ya filter change karein.
+        </p>
 
+      </div>
 
-      return matchesSearch &&
-             matchesStatus;
-
-    });
-
-
-  if(!data.length){
-
-    list.innerHTML =
-      "<p>📭 Koi booking nahi mili.</p>";
+    `;
 
     return;
 
   }
 
 
-  list.innerHTML =
-    data.map(item=>{
+  container.innerHTML =
+    filtered.map(
+      item=>{
 
-      const phone =
-        item.customerPhone ||
-        item.phone ||
-        "-";
-
-
-      const status =
-        item.normalizedStatus ||
-        "New";
+        const status =
+          normalizeStatus(
+            item.status
+          );
 
 
-      return `
+        const invoice =
+          getInvoice(
+            item.bookingId
+          );
 
-        <div class="request">
 
-          <div class="request-header">
+        const payment =
+          invoice?.paymentStatus ||
+          "Unpaid";
+
+
+        let statusClass =
+          "pending";
+
+
+        if(
+          status==="Accepted"
+        ){
+
+          statusClass =
+            "accepted";
+
+        }
+
+
+        if(
+          status==="In Progress"
+        ){
+
+          statusClass =
+            "progress";
+
+        }
+
+
+        if(
+          status==="Completed"
+        ){
+
+          statusClass =
+            "completed";
+
+        }
+
+
+        if(
+          status==="Rejected"
+        ){
+
+          statusClass =
+            "rejected";
+
+        }
+
+
+        const phone =
+          item.customerPhone ||
+          item.phone ||
+          "";
+
+
+        return `
+
+        <div class="card">
+
+          <div class="card-top">
 
             <div>
 
               <div class="booking-id">
-                ${escapeHtml(item.bookingId || "-")}
+
+                ${escapeHtml(
+                  item.bookingId || "-"
+                )}
+
               </div>
 
-              <strong>
-                ${escapeHtml(item.customerName || "-")}
-              </strong>
+              <small>
+                ${formatDate(
+                  item.createdAt
+                )}
+              </small>
 
             </div>
 
-            <div class="status">
-              ${escapeHtml(status)}
+
+            <div>
+
+              <span
+                class="status ${statusClass}"
+              >
+                ${status}
+              </span>
+
+
+              ${
+                invoice
+                ?
+                `
+                <span
+                  class="payment ${
+                    payment==="Paid"
+                    ? "paid"
+                    : "unpaid"
+                  }"
+                >
+                  ${payment}
+                </span>
+                `
+                :
+                ""
+              }
+
             </div>
 
           </div>
 
 
-          <div class="details">
+          <div class="info">
 
-            <div class="detail">
-              📞 <b>Phone:</b>
-              ${escapeHtml(phone)}
+            <div>
+              <b>Customer</b>
+              ${escapeHtml(
+                item.customerName || "-"
+              )}
             </div>
 
-            <div class="detail">
-              🔧 <b>Service:</b>
-              ${escapeHtml(item.service || "-")}
+
+            <div>
+              <b>Mobile</b>
+              ${escapeHtml(
+                phone || "-"
+              )}
             </div>
 
-            <div class="detail">
-              📍 <b>Area:</b>
+
+            <div>
+              <b>Service</b>
+              ${escapeHtml(
+                item.service || "-"
+              )}
+            </div>
+
+
+            <div>
+              <b>Area / Address</b>
               ${escapeHtml(
                 item.area ||
                 item.address ||
@@ -1116,9 +1716,31 @@ window.renderRequests = function(){
               )}
             </div>
 
-            <div class="detail">
-              📝 <b>Problem:</b>
-              ${escapeHtml(item.problem || "-")}
+
+            <div>
+              <b>Problem</b>
+              ${escapeHtml(
+                item.problem || "-"
+              )}
+            </div>
+
+
+            <div>
+              <b>Invoice</b>
+
+              ${
+                invoice
+                ?
+                "Rs. " +
+                Number(
+                  invoice.grandTotal ??
+                  invoice.total ??
+                  0
+                ).toLocaleString()
+                :
+                "Not created"
+              }
+
             </div>
 
           </div>
@@ -1126,56 +1748,169 @@ window.renderRequests = function(){
 
           <div class="actions">
 
-            <button
-              class="success"
-              onclick="changeStatus('${item.id}','Accepted')">
-              ✓ Accept
-            </button>
+            ${
+              status==="Pending"
+              ?
+              `
+              <button
+                class="accept"
+                onclick="changeStatus(
+                  '${item.id}',
+                  'Accepted'
+                )"
+              >
+                ✅ Accept
+              </button>
+              `
+              :
+              ""
+            }
+
+
+            ${
+              status==="Accepted"
+              ?
+              `
+              <button
+                class="work"
+                onclick="changeStatus(
+                  '${item.id}',
+                  'In Progress'
+                )"
+              >
+                🔧 In Progress
+              </button>
+              `
+              :
+              ""
+            }
+
+
+            ${
+              status==="In Progress"
+              ?
+              `
+              <button
+                class="complete"
+                onclick="changeStatus(
+                  '${item.id}',
+                  'Completed'
+                )"
+              >
+                ✅ Completed
+              </button>
+              `
+              :
+              ""
+            }
+
+
+            ${
+              status!=="Completed" &&
+              status!=="Rejected"
+              ?
+              `
+              <button
+                class="reject"
+                onclick="changeStatus(
+                  '${item.id}',
+                  'Rejected'
+                )"
+              >
+                ❌ Reject
+              </button>
+              `
+              :
+              ""
+            }
+
+
+            ${
+              status==="Completed" &&
+              !invoice
+              ?
+              `
+              <button
+                class="invoice-btn"
+                onclick="openInvoice(
+                  '${item.id}'
+                )"
+              >
+                🧾 Create Invoice
+              </button>
+              `
+              :
+              ""
+            }
+
+
+            ${
+              invoice
+              ?
+              `
+              <button
+                class="invoice-btn"
+                onclick="openInvoice(
+                  '${item.id}'
+                )"
+              >
+                🧾 Invoice
+              </button>
+              `
+              :
+              ""
+            }
+
+
+            ${
+              phone
+              ?
+              `
+              <button
+                class="whatsapp"
+                onclick="openWhatsApp(
+                  '${item.id}'
+                )"
+              >
+                📱 WhatsApp
+              </button>
+              `
+              :
+              ""
+            }
+
 
             <button
-              class="warning"
-              onclick="changeStatus('${item.id}','In Progress')">
-              🔧 In Progress
-            </button>
-
-            <button
-              class="primary"
-              onclick="changeStatus('${item.id}','Completed')">
-              ✓ Completed
-            </button>
-
-            <button
-              class="danger"
-              onclick="changeStatus('${item.id}','Rejected')">
-              ✕ Reject
-            </button>
-
-            <button
-              class="dark"
-              onclick="openInvoice('${item.id}')">
-              🧾 Create Invoice
-            </button>
-
-            <button
-              class="whatsapp"
-              onclick="contactCustomer('${item.id}')">
-              💬 WhatsApp
+              class="delete"
+              onclick="deleteRequest(
+                '${item.id}'
+              )"
+            >
+              🗑️ Delete
             </button>
 
           </div>
 
         </div>
 
-      `;
+        `;
 
-    }).join("");
+      }
+    )
+    .join("");
 
 };
 
 
-/* CHANGE STATUS + WHATSAPP */
+// =====================================================
+// CHANGE STATUS
+// =====================================================
 
-window.changeStatus = async function(id,status){
+window.changeStatus =
+async function(
+  id,
+  status
+){
 
   const item =
     allRequests.find(
@@ -1188,21 +1923,20 @@ window.changeStatus = async function(id,status){
 
   try{
 
-    /* FIREBASE STATUS UPDATE */
-
     await updateDoc(
+
       doc(
         db,
         "serviceRequests",
         id
       ),
+
       {
         status:status
       }
+
     );
 
-
-    /* CUSTOMER PHONE */
 
     const phone =
       item.customerPhone ||
@@ -1210,26 +1944,16 @@ window.changeStatus = async function(id,status){
       "";
 
 
-    let number =
-      String(phone)
-        .replace(/\D/g,"");
+    const number =
+      normalizePhone(phone);
 
-
-    if(number.startsWith("0")){
-
-      number =
-        "92" +
-        number.substring(1);
-
-    }
-
-
-    /* WHATSAPP MESSAGE */
 
     let message = "";
 
 
-    if(status==="Accepted"){
+    if(
+      status==="Accepted"
+    ){
 
       message =
 `Assalam-o-Alaikum ${item.customerName || ""},
@@ -1248,7 +1972,9 @@ Smart Cool & Refrigerator
     }
 
 
-    else if(status==="In Progress"){
+    if(
+      status==="In Progress"
+    ){
 
       message =
 `Assalam-o-Alaikum ${item.customerName || ""},
@@ -1267,7 +1993,9 @@ Smart Cool & Refrigerator
     }
 
 
-    else if(status==="Completed"){
+    if(
+      status==="Completed"
+    ){
 
       message =
 `Assalam-o-Alaikum ${item.customerName || ""},
@@ -1277,7 +2005,7 @@ Aapki service successfully COMPLETED ho gayi hai. ✅
 Booking ID: ${item.bookingId || ""}
 Service: ${item.service || ""}
 
-Aap apni invoice Customer Tracking page par dekh sakte hain.
+Invoice banne ke baad aap Customer Tracking Page par dekh sakte hain.
 
 Muhammad Rizwan
 Smart Cool & Refrigerator
@@ -1286,7 +2014,9 @@ Smart Cool & Refrigerator
     }
 
 
-    else if(status==="Rejected"){
+    if(
+      status==="Rejected"
+    ){
 
       message =
 `Assalam-o-Alaikum ${item.customerName || ""},
@@ -1305,21 +2035,27 @@ Smart Cool & Refrigerator
     }
 
 
-    alert(
+    await loadRequests();
+
+
+    showToast(
       "✅ Status updated: " +
       status
     );
 
 
-    /* OPEN WHATSAPP */
-
-    if(number && message){
+    if(
+      number &&
+      message
+    ){
 
       const whatsappUrl =
         "https://wa.me/" +
         number +
         "?text=" +
-        encodeURIComponent(message);
+        encodeURIComponent(
+          message
+        );
 
 
       window.open(
@@ -1330,14 +2066,11 @@ Smart Cool & Refrigerator
     }
 
 
-    await loadRequests();
-
-
   }catch(error){
 
     console.error(error);
 
-    alert(
+    showToast(
       "❌ Status update nahi hua."
     );
 
@@ -1346,9 +2079,12 @@ Smart Cool & Refrigerator
 };
 
 
-/* DIRECT WHATSAPP */
+// =====================================================
+// DIRECT WHATSAPP
+// =====================================================
 
-window.contactCustomer = function(id){
+window.openWhatsApp =
+function(id){
 
   const item =
     allRequests.find(
@@ -1365,10 +2101,14 @@ window.contactCustomer = function(id){
     "";
 
 
-  if(!phone){
+  const number =
+    normalizePhone(phone);
+
+
+  if(!number){
 
     alert(
-      "Customer phone number available nahi hai."
+      "Customer mobile number nahi mila."
     );
 
     return;
@@ -1376,12 +2116,55 @@ window.contactCustomer = function(id){
   }
 
 
+  const message =
+`Assalam-o-Alaikum ${item.customerName || ""},
+
+Smart Cool & Refrigerator se aapki service booking ke hawale se rabta kar rahe hain.
+
+Booking ID: ${item.bookingId || ""}
+Service: ${item.service || ""}
+Area: ${item.area || item.address || ""}
+
+Muhammad Rizwan
+Smart Cool & Refrigerator
+03208463110`;
+
+
+  window.open(
+
+    "https://wa.me/" +
+    number +
+    "?text=" +
+    encodeURIComponent(
+      message
+    ),
+
+    "_blank"
+
+  );
+
+};
+
+
+// =====================================================
+// PHONE FORMAT
+// =====================================================
+
+function normalizePhone(phone){
+
   let number =
-    String(phone)
-      .replace(/\D/g,"");
+    String(
+      phone || ""
+    )
+    .replace(
+      /\D/g,
+      ""
+    );
 
 
-  if(number.startsWith("0")){
+  if(
+    number.startsWith("0")
+  ){
 
     number =
       "92" +
@@ -1390,145 +2173,250 @@ window.contactCustomer = function(id){
   }
 
 
-  const message =
-`Assalam-o-Alaikum ${item.customerName || ""},
+  if(
+    number.length===10 &&
+    number.startsWith("3")
+  ){
 
-Smart Cool & Refrigerator se aapki booking ke hawale se rabta kar rahe hain.
+    number =
+      "92" +
+      number;
 
-Booking ID: ${item.bookingId || ""}
-Service: ${item.service || ""}
-
-Muhammad Rizwan
-03208463110`;
-
-
-  const url =
-    "https://wa.me/" +
-    number +
-    "?text=" +
-    encodeURIComponent(message);
+  }
 
 
-  window.open(
-    url,
-    "_blank"
-  );
+  return number;
 
-};
+}
 
 
-/* OPEN INVOICE */
+// =====================================================
+// DELETE REQUEST
+// =====================================================
 
-window.openInvoice = function(id){
+window.deleteRequest =
+async function(id){
 
-  selectedBooking =
+  const item =
     allRequests.find(
       x=>x.id===id
     );
 
 
-  if(!selectedBooking)return;
+  if(!item)return;
 
 
-  const now =
-    new Date();
+  const confirmDelete =
+    confirm(
+      "Kya aap is booking ko delete karna chahte hain?"
+    );
 
 
-  const date =
-    now.toISOString()
-      .split("T")[0];
+  if(!confirmDelete)return;
 
 
-  document.getElementById("invoiceBookingId")
-    .value =
-    selectedBooking.bookingId || "";
+  try{
+
+    await deleteDoc(
+
+      doc(
+        db,
+        "serviceRequests",
+        id
+      )
+
+    );
 
 
-  document.getElementById("invoiceNumber")
-    .value =
-    "INV-" + Date.now();
+    showToast(
+      "🗑️ Booking deleted."
+    );
 
 
-  document.getElementById("invoiceDate")
-    .value =
-    date;
+    await loadRequests();
 
 
-  document.getElementById("invoiceCustomerName")
-    .value =
-    selectedBooking.customerName || "";
+  }catch(error){
+
+    console.error(error);
+
+    showToast(
+      "❌ Delete nahi hui."
+    );
+
+  }
+
+};
 
 
-  document.getElementById("invoicePhone")
-    .value =
-    selectedBooking.customerPhone ||
-    selectedBooking.phone ||
+// =====================================================
+// OPEN INVOICE
+// =====================================================
+
+window.openInvoice =
+function(id){
+
+  const item =
+    allRequests.find(
+      x=>x.id===id
+    );
+
+
+  if(!item)return;
+
+
+  selectedRequest =
+    item;
+
+
+  const invoice =
+    getInvoice(
+      item.bookingId
+    );
+
+
+  document.getElementById(
+    "invBookingId"
+  ).value =
+    item.bookingId || "";
+
+
+  document.getElementById(
+    "invNumber"
+  ).value =
+    invoice?.invoiceNumber ||
+    "INV-" +
+    Date.now();
+
+
+  document.getElementById(
+    "invCustomer"
+  ).value =
+    invoice?.customerName ||
+    item.customerName ||
     "";
 
 
-  document.getElementById("invoiceAddress")
-    .value =
-    selectedBooking.address ||
-    selectedBooking.area ||
+  document.getElementById(
+    "invPhone"
+  ).value =
+    invoice?.phone ||
+    item.customerPhone ||
+    item.phone ||
     "";
 
 
-  document.getElementById("invoiceService")
-    .value =
-    selectedBooking.service || "";
+  document.getElementById(
+    "invAddress"
+  ).value =
+    invoice?.address ||
+    item.area ||
+    item.address ||
+    "";
 
 
-  document.getElementById("invoiceTon")
-    .value =
-    selectedBooking.ton || "";
+  document.getElementById(
+    "invService"
+  ).value =
+    invoice?.service ||
+    item.service ||
+    "";
 
 
-  document.getElementById("invoiceProblem")
-    .value =
-    selectedBooking.problem || "";
+  document.getElementById(
+    "invProblem"
+  ).value =
+    invoice?.problem ||
+    item.problem ||
+    "";
 
 
-  document.getElementById("itemName")
-    .value =
-    selectedBooking.service || "";
+  document.getElementById(
+    "invTon"
+  ).value =
+    invoice?.ton ||
+    "";
 
 
-  document.getElementById("itemQty")
-    .value=1;
+  document.getElementById(
+    "itemName"
+  ).value =
+    invoice?.itemName ||
+    item.service ||
+    "";
 
 
-  document.getElementById("itemPrice")
-    .value=0;
+  document.getElementById(
+    "qty"
+  ).value =
+    invoice?.qty ||
+    1;
 
 
-  document.getElementById("discount")
-    .value=0;
+  document.getElementById(
+    "price"
+  ).value =
+    invoice?.price ||
+    0;
 
 
-  document.getElementById("warranty")
-    .value="1 Month Warranty";
+  document.getElementById(
+    "discount"
+  ).value =
+    invoice?.discount ||
+    0;
 
 
-  document.getElementById("quickRate")
-    .value="";
+  document.getElementById(
+    "warranty"
+  ).value =
+    invoice?.warranty ||
+    "1 month";
 
 
   calculateTotal();
 
 
-  document.getElementById("invoiceModal")
-    .style.display="block";
+  document
+    .getElementById(
+      "invoiceModal"
+    )
+    .classList.remove(
+      "hidden"
+    );
 
 };
 
 
-/* APPLY RATE */
+// =====================================================
+// CLOSE INVOICE
+// =====================================================
 
-window.applyRate = function(){
+window.closeInvoice =
+function(){
+
+  document
+    .getElementById(
+      "invoiceModal"
+    )
+    .classList.add(
+      "hidden"
+    );
+
+};
+
+
+// =====================================================
+// QUICK RATE
+// =====================================================
+
+window.applyRate =
+function(){
 
   const value =
-    document.getElementById("quickRate")
-      .value;
+    document.getElementById(
+      "quickRate"
+    ).value;
 
 
   if(!value)return;
@@ -1538,34 +2426,22 @@ window.applyRate = function(){
     value.split("|");
 
 
-  const service =
+  document.getElementById(
+    "price"
+  ).value =
     parts[0];
 
-  const ton =
+
+  document.getElementById(
+    "itemName"
+  ).value =
     parts[1];
 
-  const price =
+
+  document.getElementById(
+    "warranty"
+  ).value =
     parts[2];
-
-
-  document.getElementById("invoiceService")
-    .value =
-    service;
-
-
-  document.getElementById("invoiceTon")
-    .value =
-    ton;
-
-
-  document.getElementById("itemName")
-    .value =
-    service + " - " + ton;
-
-
-  document.getElementById("itemPrice")
-    .value =
-    price;
 
 
   calculateTotal();
@@ -1573,54 +2449,63 @@ window.applyRate = function(){
 };
 
 
-/* CALCULATE TOTAL */
+// =====================================================
+// CALCULATE TOTAL
+// =====================================================
 
-window.calculateTotal = function(){
+window.calculateTotal =
+function(){
 
   const qty =
     Number(
-      document.getElementById("itemQty")
-        .value
+      document.getElementById(
+        "qty"
+      ).value
     ) || 0;
 
 
   const price =
     Number(
-      document.getElementById("itemPrice")
-        .value
+      document.getElementById(
+        "price"
+      ).value
     ) || 0;
 
 
   const discount =
     Number(
-      document.getElementById("discount")
-        .value
+      document.getElementById(
+        "discount"
+      ).value
     ) || 0;
-
-
-  const subtotal =
-    qty * price;
 
 
   const total =
     Math.max(
       0,
-      subtotal-discount
+      qty * price - discount
     );
 
 
-  document.getElementById("invoiceTotal")
-    .textContent =
+  document.getElementById(
+    "invoiceTotal"
+  ).textContent =
     total.toLocaleString();
+
+
+  return total;
 
 };
 
 
-/* SAVE INVOICE */
+// =====================================================
+// SAVE INVOICE
+// =====================================================
 
-window.saveInvoice = async function(){
+window.saveInvoice =
+async function(){
 
-  if(!selectedBooking){
+  if(!selectedRequest){
 
     alert(
       "Booking select nahi hai."
@@ -1632,79 +2517,87 @@ window.saveInvoice = async function(){
 
 
   const bookingId =
-    document.getElementById("invoiceBookingId")
-      .value.trim();
+    document.getElementById(
+      "invBookingId"
+    ).value;
 
 
   const invoiceNumber =
-    document.getElementById("invoiceNumber")
-      .value.trim();
-
-
-  const date =
-    document.getElementById("invoiceDate")
-      .value;
+    document.getElementById(
+      "invNumber"
+    ).value;
 
 
   const customerName =
-    document.getElementById("invoiceCustomerName")
-      .value.trim();
+    document.getElementById(
+      "invCustomer"
+    ).value;
 
 
   const phone =
-    document.getElementById("invoicePhone")
-      .value.trim();
+    document.getElementById(
+      "invPhone"
+    ).value;
 
 
   const address =
-    document.getElementById("invoiceAddress")
-      .value.trim();
+    document.getElementById(
+      "invAddress"
+    ).value;
 
 
   const service =
-    document.getElementById("invoiceService")
-      .value.trim();
+    document.getElementById(
+      "invService"
+    ).value;
 
 
   const ton =
-    document.getElementById("invoiceTon")
-      .value.trim();
+    document.getElementById(
+      "invTon"
+    ).value;
 
 
   const problem =
-    document.getElementById("invoiceProblem")
-      .value.trim();
+    document.getElementById(
+      "invProblem"
+    ).value;
 
 
   const itemName =
-    document.getElementById("itemName")
-      .value.trim();
+    document.getElementById(
+      "itemName"
+    ).value;
 
 
   const qty =
     Number(
-      document.getElementById("itemQty")
-        .value
-    ) || 0;
+      document.getElementById(
+        "qty"
+      ).value
+    ) || 1;
 
 
   const price =
     Number(
-      document.getElementById("itemPrice")
-        .value
+      document.getElementById(
+        "price"
+      ).value
     ) || 0;
 
 
   const discount =
     Number(
-      document.getElementById("discount")
-        .value
+      document.getElementById(
+        "discount"
+      ).value
     ) || 0;
 
 
   const warranty =
-    document.getElementById("warranty")
-      .value.trim();
+    document.getElementById(
+      "warranty"
+    ).value;
 
 
   const subtotal =
@@ -1714,135 +2607,163 @@ window.saveInvoice = async function(){
   const total =
     Math.max(
       0,
-      subtotal-discount
+      subtotal - discount
     );
-
-
-  if(!bookingId || !invoiceNumber){
-
-    alert(
-      "Booking ID aur Invoice Number zaroori hain."
-    );
-
-    return;
-
-  }
 
 
   try{
 
-    await addDoc(
-      collection(db,"invoices"),
-      {
+    const existing =
+      getInvoice(
+        bookingId
+      );
 
-        invoiceNumber,
 
-        bookingId,
+    const invoiceData = {
 
-        date,
+      invoiceNumber,
 
-        customerName,
+      bookingId,
 
-        phone,
+      date:
+        new Date().toISOString(),
 
-        address,
+      customerName,
 
-        service,
+      phone,
 
-        ton,
+      address,
 
-        problem,
+      service,
 
-        itemName,
+      ton,
 
-        qty,
+      problem,
 
-        price,
+      itemName,
 
-        subtotal,
+      qty,
 
-        discount,
+      price,
 
+      subtotal,
+
+      discount,
+
+      total,
+
+      grandTotal:
         total,
 
-        grandTotal:total,
+      warranty,
 
-        warranty,
+      paymentStatus:
+        existing?.paymentStatus ||
+        "Unpaid",
 
-        items:[
+      items:[
 
-          {
-            name:itemName,
-            qty:qty,
-            price:price,
-            subtotal:subtotal
-          }
+        {
 
-        ],
+          name:itemName,
 
-        source:"owner",
+          qty:qty,
 
-        createdAt:
-          serverTimestamp()
+          price:price,
 
-      }
-    );
+          subtotal:subtotal
 
+        }
 
-    /* COMPLETE BOOKING */
+      ],
 
-    await updateDoc(
-      doc(
-        db,
-        "serviceRequests",
-        selectedBooking.id
-      ),
-      {
-        status:"Completed"
-      }
-    );
+      source:
+        "owner",
+
+      updatedAt:
+        serverTimestamp(),
+
+      createdAt:
+        existing?.createdAt ||
+        serverTimestamp()
+
+    };
 
 
-    showMessage(
-      document.getElementById("invoiceMessage"),
-      "✅ Invoice save ho gayi aur booking Completed kar di gayi.",
-      "success"
-    );
+    if(existing){
+
+      await updateDoc(
+
+        doc(
+          db,
+          "invoices",
+          existing.id
+        ),
+
+        invoiceData
+
+      );
 
 
-    await loadRequests();
+      showToast(
+        "✅ Invoice updated."
+      );
 
-    await loadInvoices();
+    }else{
+
+      await addDoc(
+
+        collection(
+          db,
+          "invoices"
+        ),
+
+        invoiceData
+
+      );
 
 
-    /* WHATSAPP COMPLETED MESSAGE */
-
-    const phoneNumber =
-      phone.replace(/\D/g,"");
-
-
-    let whatsappNumber =
-      phoneNumber;
-
-
-    if(
-      whatsappNumber.startsWith("0")
-    ){
-
-      whatsappNumber =
-        "92" +
-        whatsappNumber.substring(1);
+      showToast(
+        "✅ Invoice created."
+      );
 
     }
 
 
-    if(whatsappNumber){
+    await updateDoc(
 
-      const trackingUrl =
-        "https://rizwanmughal63110-ux.github.io/smart-cool-refrigerator/tracking.html";
+      doc(
+        db,
+        "serviceRequests",
+        selectedRequest.id
+      ),
+
+      {
+        status:"Completed"
+      }
+
+    );
 
 
-      const message =
+    closeInvoice();
+
+
+    await loadRequests();
+
+
+    // WhatsApp invoice message
+
+    const number =
+      normalizePhone(
+        phone
+      );
+
+
+    const trackingUrl =
+      "https://rizwanmughal63110-ux.github.io/smart-cool-refrigerator/tracking.html";
+
+
+    const message =
 `Assalam-o-Alaikum ${customerName},
 
 Aapki service successfully COMPLETED ho gayi hai. ✅
@@ -1851,7 +2772,7 @@ Booking ID: ${bookingId}
 Invoice No: ${invoiceNumber}
 Total: Rs. ${total.toLocaleString()}
 
-Aap apni invoice yahan dekh sakte hain:
+Aap apni invoice Customer Tracking Page par yahan dekh sakte hain:
 
 ${trackingUrl}
 
@@ -1860,40 +2781,37 @@ Smart Cool & Refrigerator
 03208463110`;
 
 
-      const whatsappUrl =
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
-        encodeURIComponent(message);
+    if(number){
 
+      setTimeout(
+        ()=>{
 
-      setTimeout(()=>{
+          window.open(
 
-        window.open(
-          whatsappUrl,
-          "_blank"
-        );
+            "https://wa.me/" +
+            number +
+            "?text=" +
+            encodeURIComponent(
+              message
+            ),
 
-      },500);
+            "_blank"
+
+          );
+
+        },
+        500
+      );
 
     }
-
-
-    setTimeout(()=>{
-
-      closeInvoice();
-
-    },1200);
 
 
   }catch(error){
 
     console.error(error);
 
-    showMessage(
-      document.getElementById("invoiceMessage"),
-      "❌ Invoice save nahi hui. Firebase error check karein.",
-      "error"
+    alert(
+      "❌ Invoice save nahi hui."
     );
 
   }
@@ -1901,640 +2819,223 @@ Smart Cool & Refrigerator
 };
 
 
-/* CLOSE INVOICE */
+// =====================================================
+// PRINT
+// =====================================================
 
-window.closeInvoice = function(){
+window.printInvoice =
+function(){
 
-  document.getElementById("invoiceModal")
-    .style.display="none";
+  const total =
+    calculateTotal();
 
-  selectedBooking=null;
 
-};
+  document.getElementById(
+    "pInvoice"
+  ).textContent =
+    document.getElementById(
+      "invNumber"
+    ).value;
 
 
-/* LOAD INVOICES */
+  document.getElementById(
+    "pBooking"
+  ).textContent =
+    document.getElementById(
+      "invBookingId"
+    ).value;
 
-window.loadInvoices = async function(){
 
-  const box =
-    document.getElementById("invoiceList");
+  document.getElementById(
+    "pDate"
+  ).textContent =
+    new Date().toLocaleDateString();
 
 
-  box.innerHTML =
-    "<p>⏳ Loading invoices...</p>";
+  document.getElementById(
+    "pCustomer"
+  ).textContent =
+    document.getElementById(
+      "invCustomer"
+    ).value;
 
 
-  try{
+  document.getElementById(
+    "pPhone"
+  ).textContent =
+    document.getElementById(
+      "invPhone"
+    ).value;
 
-    const snap =
-      await getDocs(
-        collection(db,"invoices")
-      );
 
+  document.getElementById(
+    "pAddress"
+  ).textContent =
+    document.getElementById(
+      "invAddress"
+    ).value;
 
-    allInvoices=[];
 
+  document.getElementById(
+    "pItem"
+  ).textContent =
+    document.getElementById(
+      "itemName"
+    ).value;
 
-    snap.forEach(item=>{
 
-      allInvoices.push({
-
-        id:item.id,
-
-        ...item.data()
-
-      });
-
-    });
-
-
-    allInvoices.sort((a,b)=>{
-
-      const aTime =
-        a.createdAt?.seconds || 0;
-
-      const bTime =
-        b.createdAt?.seconds || 0;
-
-      return bTime-aTime;
-
-    });
-
-
-    if(!allInvoices.length){
-
-      box.innerHTML =
-        "<p>📭 Abhi koi invoice nahi bani.</p>";
-
-      return;
-
-    }
-
-
-    box.innerHTML =
-      allInvoices.map(inv=>`
-
-        <div class="invoice-item">
-
-          <strong>
-            ${escapeHtml(
-              inv.invoiceNumber || "-"
-            )}
-          </strong>
-
-          <br>
-
-          Booking:
-          ${escapeHtml(
-            inv.bookingId || "-"
-          )}
-
-          <br>
-
-          Customer:
-          ${escapeHtml(
-            inv.customerName || "-"
-          )}
-
-          <br>
-
-          Total:
-          <b>
-            Rs.
-            ${Number(
-              inv.total || 0
-            ).toLocaleString()}
-          </b>
-
-          <br><br>
-
-          <button
-            class="dark"
-            onclick="printSavedInvoice('${inv.id}')">
-            🖨️ Print / PDF
-          </button>
-
-        </div>
-
-      `).join("");
-
-
-  }catch(error){
-
-    console.error(error);
-
-    box.innerHTML =
-      "<p style='color:red'>❌ Invoices load nahi ho rahi.</p>";
-
-  }
-
-};
-
-
-/* PRINT CURRENT INVOICE */
-
-window.printInvoice = function(){
-
-  const invoice =
-    collectInvoiceData();
-
-
-  fillPrintArea(invoice);
-
-  window.print();
-
-};
-
-
-/* COLLECT INVOICE */
-
-function collectInvoiceData(){
-
-  const qty =
-    Number(
-      document.getElementById("itemQty")
-        .value
-    ) || 0;
+  document.getElementById(
+    "pQty"
+  ).textContent =
+    document.getElementById(
+      "qty"
+    ).value;
 
 
   const price =
     Number(
-      document.getElementById("itemPrice")
-        .value
+      document.getElementById(
+        "price"
+      ).value
     ) || 0;
 
 
-  const discount =
+  document.getElementById(
+    "pPrice"
+  ).textContent =
+    "Rs. " +
+    price.toLocaleString();
+
+
+  const qty =
     Number(
-      document.getElementById("discount")
-        .value
+      document.getElementById(
+        "qty"
+      ).value
     ) || 0;
 
 
   const subtotal =
-    qty*price;
+    qty * price;
 
 
-  const total =
-    Math.max(
-      0,
-      subtotal-discount
-    );
+  document.getElementById(
+    "pSubtotal"
+  ).textContent =
+    "Rs. " +
+    subtotal.toLocaleString();
 
 
-  return {
-
-    invoiceNumber:
-      document.getElementById("invoiceNumber").value,
-
-    bookingId:
-      document.getElementById("invoiceBookingId").value,
-
-    date:
-      document.getElementById("invoiceDate").value,
-
-    customerName:
-      document.getElementById("invoiceCustomerName").value,
-
-    phone:
-      document.getElementById("invoicePhone").value,
-
-    address:
-      document.getElementById("invoiceAddress").value,
-
-    service:
-      document.getElementById("invoiceService").value,
-
-    ton:
-      document.getElementById("invoiceTon").value,
-
-    problem:
-      document.getElementById("invoiceProblem").value,
-
-    itemName:
-      document.getElementById("itemName").value,
-
-    qty,
-
-    price,
-
-    subtotal,
-
-    discount,
-
-    total,
-
-    warranty:
-      document.getElementById("warranty").value
-
-  };
-
-}
+  document.getElementById(
+    "pDiscount"
+  ).textContent =
+    Number(
+      document.getElementById(
+        "discount"
+      ).value
+    ).toLocaleString();
 
 
-/* PRINT SAVED INVOICE */
-
-window.printSavedInvoice = function(id){
-
-  const inv =
-    allInvoices.find(
-      x=>x.id===id
-    );
+  document.getElementById(
+    "pTotal"
+  ).textContent =
+    total.toLocaleString();
 
 
-  if(!inv)return;
+  document.getElementById(
+    "pWarranty"
+  ).textContent =
+    document.getElementById(
+      "warranty"
+    ).value;
 
 
-  const invoice = {
+  document.getElementById(
+    "printArea"
+  ).style.display =
+    "block";
 
-    invoiceNumber:
-      inv.invoiceNumber || "",
-
-    bookingId:
-      inv.bookingId || "",
-
-    date:
-      inv.date || "",
-
-    customerName:
-      inv.customerName || "",
-
-    phone:
-      inv.phone || "",
-
-    address:
-      inv.address || "",
-
-    service:
-      inv.service || "",
-
-    ton:
-      inv.ton || "",
-
-    problem:
-      inv.problem || "",
-
-    itemName:
-      inv.itemName ||
-      inv.service ||
-      "",
-
-    qty:
-      Number(inv.qty || 1),
-
-    price:
-      Number(inv.price || 0),
-
-    subtotal:
-      Number(inv.subtotal || 0),
-
-    discount:
-      Number(inv.discount || 0),
-
-    total:
-      Number(
-        inv.total ||
-        inv.grandTotal ||
-        0
-      ),
-
-    warranty:
-      inv.warranty || ""
-
-  };
-
-
-  fillPrintArea(invoice);
 
   window.print();
+
+
+  setTimeout(
+    ()=>{
+
+      document.getElementById(
+        "printArea"
+      ).style.display =
+        "none";
+
+    },
+    1000
+  );
 
 };
 
 
-/* PRINT AREA */
-
-function fillPrintArea(invoice){
-
-  const area =
-    document.getElementById("printArea");
-
-
-  area.innerHTML = `
-
-    <div class="print-invoice">
-
-      <div style="text-align:center">
-
-        <h1>
-          SMART COOL & REFRIGERATOR
-        </h1>
-
-        <p>
-          AC • Fridge • Water Dispenser • Electrician
-        </p>
-
-        <p>
-          <b>All Over Karachi</b>
-        </p>
-
-      </div>
-
-
-      <hr>
-
-
-      <div style="
-        display:flex;
-        justify-content:space-between;
-        gap:20px;
-      ">
-
-        <div>
-
-          <b>Invoice No:</b>
-          ${escapeHtml(
-            invoice.invoiceNumber
-          )}
-
-          <br>
-
-          <b>Booking ID:</b>
-          ${escapeHtml(
-            invoice.bookingId
-          )}
-
-          <br>
-
-          <b>Date:</b>
-          ${escapeHtml(
-            invoice.date
-          )}
-
-        </div>
-
-
-        <div>
-
-          <b>Customer:</b>
-          ${escapeHtml(
-            invoice.customerName
-          )}
-
-          <br>
-
-          <b>Phone:</b>
-          ${escapeHtml(
-            invoice.phone
-          )}
-
-          <br>
-
-          <b>Address:</b>
-          ${escapeHtml(
-            invoice.address
-          )}
-
-        </div>
-
-      </div>
-
-
-      <hr>
-
-
-      <h3>
-        Service Details
-      </h3>
-
-
-      <table style="
-        width:100%;
-        border-collapse:collapse;
-      ">
-
-        <tr>
-
-          <th style="
-            border:1px solid #333;
-            padding:8px;
-            text-align:left;
-          ">
-            Item / Service
-          </th>
-
-          <th style="
-            border:1px solid #333;
-            padding:8px;
-          ">
-            Qty
-          </th>
-
-          <th style="
-            border:1px solid #333;
-            padding:8px;
-          ">
-            Price
-          </th>
-
-          <th style="
-            border:1px solid #333;
-            padding:8px;
-          ">
-            Total
-          </th>
-
-        </tr>
-
-
-        <tr>
-
-          <td style="
-            border:1px solid #333;
-            padding:8px;
-          ">
-            ${escapeHtml(
-              invoice.itemName
-            )}
-          </td>
-
-          <td style="
-            border:1px solid #333;
-            padding:8px;
-            text-align:center;
-          ">
-            ${invoice.qty}
-          </td>
-
-          <td style="
-            border:1px solid #333;
-            padding:8px;
-            text-align:right;
-          ">
-            Rs.
-            ${Number(
-              invoice.price
-            ).toLocaleString()}
-          </td>
-
-          <td style="
-            border:1px solid #333;
-            padding:8px;
-            text-align:right;
-          ">
-            Rs.
-            ${Number(
-              invoice.subtotal
-            ).toLocaleString()}
-          </td>
-
-        </tr>
-
-      </table>
-
-
-      <br>
-
-
-      <p>
-        <b>Service:</b>
-        ${escapeHtml(
-          invoice.service
-        )}
-      </p>
-
-
-      <p>
-        <b>AC Ton:</b>
-        ${escapeHtml(
-          invoice.ton
-        )}
-      </p>
-
-
-      <p>
-        <b>Problem / Work:</b>
-        ${escapeHtml(
-          invoice.problem
-        )}
-      </p>
-
-
-      <hr>
-
-
-      <div style="text-align:right">
-
-        <p>
-          Subtotal:
-          <b>
-            Rs.
-            ${Number(
-              invoice.subtotal
-            ).toLocaleString()}
-          </b>
-        </p>
-
-        <p>
-          Discount:
-          <b>
-            Rs.
-            ${Number(
-              invoice.discount
-            ).toLocaleString()}
-          </b>
-        </p>
-
-        <h2>
-          Total:
-          Rs.
-          ${Number(
-            invoice.total
-          ).toLocaleString()}
-        </h2>
-
-      </div>
-
-
-      <hr>
-
-
-      <p>
-        <b>Warranty:</b>
-        ${escapeHtml(
-          invoice.warranty
-        )}
-      </p>
-
-
-      <br><br>
-
-
-      <div style="text-align:center">
-
-        <b>Muhammad Rizwan</b>
-
-        <br>
-
-        03208463110
-
-        <br><br>
-
-        Thank you for choosing
-        Smart Cool & Refrigerator
-
-      </div>
-
-    </div>
-
-  `;
-
-
-  area.classList.remove("hidden");
-
-}
-
-
-/* ESCAPE HTML */
+// =====================================================
+// ESCAPE HTML
+// =====================================================
 
 function escapeHtml(value){
 
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  return String(
+    value ?? ""
+  )
+  .replaceAll(
+    "&",
+    "&amp;"
+  )
+  .replaceAll(
+    "<",
+    "&lt;"
+  )
+  .replaceAll(
+    ">",
+    "&gt;"
+  )
+  .replaceAll(
+    '"',
+    "&quot;"
+  )
+  .replaceAll(
+    "'",
+    "&#039;"
+  );
 
 }
 
 
-/* MESSAGE */
+// =====================================================
+// TOAST
+// =====================================================
 
-function showMessage(
-  element,
-  text,
-  type
-){
+function showToast(message){
 
-  element.style.display="block";
-
-  element.textContent=text;
+  const toast =
+    document.getElementById(
+      "toast"
+    );
 
 
-  if(type==="success"){
+  toast.textContent =
+    message;
 
-    element.style.background="#dcfce7";
 
-    element.style.color="#166534";
+  toast.style.display =
+    "block";
 
-  }else{
 
-    element.style.background="#fee2e2";
+  setTimeout(
+    ()=>{
 
-    element.style.color="#991b1b";
+      toast.style.display =
+        "none";
 
-  }
+    },
+    3000
+  );
 
 }
 
