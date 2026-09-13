@@ -1,1354 +1,1060 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<title>Track Booking | Smart Cool & Refrigerator</title>
+  <title>
+    Track Booking | Smart Cool & Refrigerator
+  </title>
 
-<style>
+  <style>
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body{
-  font-family:Arial,sans-serif;
-  background:#f4f8fb;
-  color:#222;
-  min-height:100vh;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8fb;
+      color: #222;
+      line-height: 1.6;
+    }
 
-header{
-  background:#0077b6;
-  color:white;
-  padding:15px 5%;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
+    header {
+      background: #0b6efd;
+      color: white;
+      padding: 15px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
 
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-}
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
 
-.logo{
-  font-size:22px;
-  font-weight:bold;
-}
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+    }
 
-nav a{
-  color:white;
-  text-decoration:none;
-  margin:5px 8px;
-  font-weight:bold;
-  font-size:14px;
-}
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
 
-.container{
-  max-width:700px;
-  margin:45px auto;
-  padding:0 18px;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 7px 10px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
 
-.title{
-  text-align:center;
-  color:#0077b6;
-  font-size:30px;
-  margin-bottom:10px;
-}
+    nav a:hover {
+      background: rgba(255,255,255,0.18);
+    }
 
-.subtitle{
-  text-align:center;
-  color:#666;
-  margin-bottom:25px;
-}
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-.box{
-  background:white;
-  padding:25px;
-  border-radius:14px;
-  box-shadow:0 3px 15px rgba(0,0,0,.1);
-  margin-bottom:20px;
-}
+    .title {
+      text-align: center;
+      color: #075bb5;
+      margin-bottom: 30px;
+    }
 
-label{
-  display:block;
-  font-weight:bold;
-  margin-bottom:7px;
-}
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow:
+        0 4px 15px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+    }
 
-input{
-  width:100%;
-  padding:13px;
-  border:1px solid #ccc;
-  border-radius:7px;
-  font-size:16px;
-  margin-bottom:12px;
-  text-transform:uppercase;
-}
+    .login-required {
+      text-align: center;
+      display: none;
+    }
 
-button{
-  width:100%;
-  padding:13px;
-  border:none;
-  border-radius:7px;
-  background:#0077b6;
-  color:white;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
+    .login-required h2 {
+      color: #dc3545;
+      margin-bottom: 10px;
+    }
 
-button:disabled{
-  background:#999;
-}
+    .login-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 22px;
+      background: #0b6efd;
+      color: white;
+      text-decoration: none;
+      border-radius: 7px;
+      font-weight: bold;
+    }
 
-.message{
-  display:none;
-  padding:12px;
-  border-radius:7px;
-  margin-bottom:15px;
-  font-weight:bold;
-}
+    .tracking-box {
+      display: none;
+    }
 
-.error{
-  background:#f8d7da;
-  color:#721c24;
-}
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 7px;
+    }
 
-.success{
-  background:#d4edda;
-  color:#155724;
-}
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 7px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
 
-.login-box{
-  text-align:center;
-}
+    button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 7px;
+      background: #0b6efd;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-.login-box h2{
-  margin-bottom:12px;
-}
+    button:hover {
+      background: #075bb5;
+    }
 
-.login-box p{
-  margin-bottom:15px;
-  color:#555;
-}
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+    }
 
-.login-btn{
-  display:inline-block;
-  width:auto;
-  padding:11px 25px;
-  text-decoration:none;
-  background:#0077b6;
-  color:white;
-  border-radius:7px;
-  font-weight:bold;
-}
+    .result {
+      display: none;
+      margin-top: 25px;
+      background: #f8fbff;
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #dbeafe;
+    }
 
-.booking-card{
-  display:none;
-}
+    .result h3 {
+      color: #075bb5;
+      margin-bottom: 15px;
+    }
 
-.booking-header{
-  text-align:center;
-  margin-bottom:20px;
-}
+    .row {
+      padding: 9px 0;
+      border-bottom: 1px solid #ddd;
+    }
 
-.booking-id{
-  font-size:22px;
-  font-weight:bold;
-  color:#0077b6;
-  margin-top:10px;
-}
+    .row:last-child {
+      border-bottom: none;
+    }
 
-.status{
-  display:inline-block;
-  padding:8px 18px;
-  border-radius:20px;
-  margin-top:10px;
-  font-weight:bold;
-  background:#fff3cd;
-  color:#856404;
-}
+    .row strong {
+      display: inline-block;
+      min-width: 130px;
+    }
 
-.details{
-  border-top:1px solid #ddd;
-}
+    .status {
+      display: inline-block;
+      padding: 6px 13px;
+      border-radius: 20px;
+      font-weight: bold;
+      background: #ffc107;
+      color: #000;
+    }
 
-.detail-row{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  padding:12px 0;
-  border-bottom:1px solid #eee;
-}
+    .status.confirmed {
+      background: #0d6efd;
+      color: white;
+    }
 
-.detail-label{
-  font-weight:bold;
-  color:#555;
-}
+    .status.on-the-way {
+      background: #6f42c1;
+      color: white;
+    }
 
-.detail-value{
-  text-align:right;
-  max-width:60%;
-  word-break:break-word;
-}
+    .status.completed {
+      background: #198754;
+      color: white;
+    }
 
-.status-pending{
-  background:#fff3cd;
-  color:#856404;
-}
+    .status.cancelled {
+      background: #dc3545;
+      color: white;
+    }
 
-.status-confirmed{
-  background:#cfe2ff;
-  color:#084298;
-}
+    .home-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 18px;
+      background: #198754;
+      color: white;
+      text-decoration: none;
+      border-radius: 7px;
+    }
 
-.status-on-the-way{
-  background:#cff4fc;
-  color:#055160;
-}
+    footer {
+      background: #082b4c;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 40px;
+    }
 
-.status-completed{
-  background:#d1e7dd;
-  color:#0f5132;
-}
+    @media (max-width: 700px) {
 
-.status-cancelled{
-  background:#f8d7da;
-  color:#842029;
-}
+      .header-inner {
+        flex-direction: column;
+      }
 
-.logout{
-  background:#dc3545;
-  margin-top:15px;
-}
+      .row strong {
+        display: block;
+        margin-bottom: 3px;
+      }
 
-.back{
-  text-align:center;
-  margin-top:20px;
-}
+    }
 
-.back a{
-  color:#0077b6;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-footer{
-  margin-top:50px;
-  background:#023e8a;
-  color:white;
-  text-align:center;
-  padding:25px 15px;
-}
-
-.loading{
-  text-align:center;
-  padding:15px;
-  display:none;
-}
-
-@media(max-width:600px){
-
-  .logo{
-    font-size:19px;
-  }
-
-  nav{
-    margin-top:8px;
-  }
-
-  nav a{
-    display:inline-block;
-    margin:4px;
-  }
-
-  .title{
-    font-size:26px;
-  }
-
-  .detail-row{
-    flex-direction:column;
-    gap:4px;
-  }
-
-  .detail-value{
-    max-width:100%;
-    text-align:left;
-  }
-
-}
-
-</style>
+  </style>
 
 </head>
+
 
 <body>
 
 
-<header>
+  <!-- HEADER -->
 
-<div class="nav">
+  <header>
 
-<div class="logo">
-Smart Cool & Refrigerator
-</div>
+    <div class="header-inner">
 
-<nav>
+      <div class="logo">
+        ❄️ Smart Cool & Refrigerator
+      </div>
 
-<a href="index.html">
-Home
-</a>
+      <nav>
 
-<a href="index.html#services">
-Services
-</a>
+        <a href="index.html">
+          Home
+        </a>
 
-<a href="index.html#account">
-Account
-</a>
+        <a href="index.html#services">
+          Services
+        </a>
 
-<a href="index.html#booking">
-Book Service
-</a>
+        <a href="index.html#account">
+          Account
+        </a>
 
-<a href="tracking.html">
-Track Booking
-</a>
+        <a href="index.html#booking">
+          Book Service
+        </a>
 
-<a href="index.html#contact">
-Contact
-</a>
+        <a href="tracking.html">
+          Track Booking
+        </a>
 
-</nav>
+        <a href="index.html#contact">
+          Contact
+        </a>
 
-</div>
+      </nav>
 
-</header>
+    </div>
 
+  </header>
 
-<div class="container">
 
-<h1 class="title">
-🔎 Track Your Booking
-</h1>
+  <!-- MAIN -->
 
-<p class="subtitle">
-Enter your Booking ID to check your service status.
-</p>
+  <div class="container">
 
+    <h1 class="title">
+      🔎 Track Your Booking
+    </h1>
 
-<!-- LOGIN REQUIRED -->
 
-<div
-id="loginBox"
-class="box login-box"
-style="display:none;">
+    <!-- LOADING -->
 
-<h2>
-🔐 Login Required
-</h2>
+    <div
+      id="loadingBox"
+      class="box"
+      style="text-align:center;"
+    >
 
-<p>
-Please login to your customer account before tracking your booking.
-</p>
+      <h3>
+        Checking your login...
+      </h3>
 
-<a
-href="index.html#account"
-class="login-btn">
+      <p style="margin-top:10px;">
+        Please wait a moment.
+      </p>
 
-Login / Sign Up
+    </div>
 
-</a>
 
-</div>
+    <!-- LOGIN REQUIRED -->
 
+    <div
+      id="loginRequired"
+      class="box login-required"
+    >
 
-<!-- TRACKING BOX -->
+      <h2>
+        🔐 Login Required
+      </h2>
 
-<div
-id="trackingBox"
-class="box"
-style="display:none;">
+      <p>
+        Please login to your customer account
+        before tracking your booking.
+      </p>
 
-<div
-id="message"
-class="message">
-</div>
+      <a
+        href="index.html#account"
+        class="login-btn"
+      >
+        Login / Signup
+      </a>
 
-<form id="trackingForm">
+    </div>
 
-<label for="bookingId">
-Booking ID
-</label>
 
-<input
-type="text"
-id="bookingId"
-placeholder="Example: BK-12345678"
-required>
+    <!-- TRACKING -->
 
-<button
-type="submit"
-id="trackBtn">
+    <div
+      id="trackingBox"
+      class="box tracking-box"
+    >
 
-🔎 Track Booking
+      <h2
+        style="
+          color:#075bb5;
+          margin-bottom:20px;
+        "
+      >
+        Track Booking
+      </h2>
 
-</button>
+      <p
+        style="margin-bottom:20px;"
+      >
+        Enter your Booking ID to check
+        your service status.
+      </p>
 
-</form>
 
-<div
-id="loading"
-class="loading">
+      <label>
+        Booking ID
+      </label>
 
-Checking your booking...
+      <input
+        type="text"
+        id="bookingId"
+        placeholder="Example: BK-12345678"
+      >
 
-</div>
 
-</div>
+      <button id="trackBtn">
+        🔎 Track Booking
+      </button>
 
 
-<!-- BOOKING RESULT -->
+      <p
+        id="message"
+        class="message"
+      ></p>
 
-<div
-id="bookingCard"
-class="box booking-card">
 
-<div class="booking-header">
+      <!-- RESULT -->
 
-<h2>
-Booking Details
-</h2>
+      <div
+        id="result"
+        class="result"
+      >
 
-<div
-id="displayBookingId"
-class="booking-id">
-</div>
+        <h3>
+          Booking Details
+        </h3>
 
-<div
-id="displayStatus"
-class="status">
-</div>
 
-</div>
+        <div class="row">
 
+          <strong>
+            Booking ID:
+          </strong>
 
-<div class="details">
+          <span id="resultBookingId">
+          </span>
 
+        </div>
 
-<div class="detail-row">
 
-<div class="detail-label">
-Customer
-</div>
+        <div class="row">
 
-<div
-id="displayCustomer"
-class="detail-value">
-</div>
+          <strong>
+            Status:
+          </strong>
 
-</div>
+          <span
+            id="resultStatus"
+            class="status"
+          >
+          </span>
 
+        </div>
 
-<div class="detail-row">
 
-<div class="detail-label">
-Phone
-</div>
+        <div class="row">
 
-<div
-id="displayPhone"
-class="detail-value">
-</div>
+          <strong>
+            Customer:
+          </strong>
 
-</div>
+          <span id="resultName">
+          </span>
 
+        </div>
 
-<div class="detail-row">
 
-<div class="detail-label">
-Service
-</div>
+        <div class="row">
 
-<div
-id="displayService"
-class="detail-value">
-</div>
+          <strong>
+            Phone:
+          </strong>
 
-</div>
+          <span id="resultPhone">
+          </span>
 
+        </div>
 
-<div class="detail-row">
 
-<div class="detail-label">
-Area
-</div>
+        <div class="row">
 
-<div
-id="displayArea"
-class="detail-value">
-</div>
+          <strong>
+            Service:
+          </strong>
 
-</div>
+          <span id="resultService">
+          </span>
 
+        </div>
 
-<div class="detail-row">
 
-<div class="detail-label">
-Address
-</div>
+        <div class="row">
 
-<div
-id="displayAddress"
-class="detail-value">
-</div>
+          <strong>
+            Area:
+          </strong>
 
-</div>
+          <span id="resultArea">
+          </span>
 
+        </div>
 
-<div class="detail-row">
 
-<div class="detail-label">
-Problem
-</div>
+        <div class="row">
 
-<div
-id="displayProblem"
-class="detail-value">
-</div>
+          <strong>
+            Address:
+          </strong>
 
-</div>
+          <span id="resultAddress">
+          </span>
 
+        </div>
 
-<div class="detail-row">
 
-<div class="detail-label">
-Booking Date
-</div>
+        <div class="row">
 
-<div
-id="displayDate"
-class="detail-value">
-</div>
+          <strong>
+            Problem:
+          </strong>
 
-</div>
+          <span id="resultProblem">
+          </span>
 
+        </div>
 
-</div>
 
+        <div class="row">
 
-<button
-id="logoutBtn"
-class="logout">
+          <strong>
+            Booking Date:
+          </strong>
 
-Logout
+          <span id="resultDate">
+          </span>
 
-</button>
+        </div>
 
-</div>
+      </div>
 
 
-<div class="back">
+      <a
+        href="index.html"
+        class="home-btn"
+      >
+        ← Back to Home
+      </a>
 
-<a href="index.html">
-← Back to Website
-</a>
+    </div>
 
-</div>
+  </div>
 
-</div>
 
+  <!-- FOOTER -->
 
-<footer>
+  <footer>
 
-<p>
-© 2026 Smart Cool & Refrigerator
-</p>
+    <p>
+      © 2026 Smart Cool & Refrigerator
+    </p>
 
-<p>
-AC • Refrigerator • Water Dispenser • Electrician
-</p>
+    <p>
+      AC • Refrigerator • Water Dispenser • Electrician
+    </p>
 
-<p>
-All Over Karachi
-</p>
+  </footer>
 
-</footer>
 
+  <!-- FIREBASE -->
 
-<script type="module">
+  <script type="module">
 
+    import {
+      initializeApp
+    } from
+    "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-/* ================================
-   FIREBASE APP
-================================ */
 
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      setPersistence,
+      browserLocalPersistence
+    } from
+    "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
-/* ================================
-   FIREBASE AUTH
-================================ */
+    import {
+      getFirestore,
+      collection,
+      query,
+      where,
+      limit,
+      getDocs
+    } from
+    "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-import {
-  getAuth,
-  onAuthStateChanged,
-  signOut,
-  setPersistence,
-  browserLocalPersistence
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
+    /* FIREBASE CONFIG */
 
-/* ================================
-   FIRESTORE
-================================ */
+    const firebaseConfig = {
 
-import {
-  getFirestore,
-  collection,
-  query,
-  where,
-  getDocs,
-  limit
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+      apiKey:
+        "AIzaSyAvnAL6gje0ly5XtxNotNl_dJhEhJ9pSHg",
 
+      authDomain:
+        "smart-cool-6f513.firebaseapp.com",
 
-/* ================================
-   FIREBASE CONFIG
-================================ */
+      projectId:
+        "smart-cool-6f513",
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
-  authDomain: "smart-cool-6f513.firebaseapp.com",
-  projectId: "smart-cool-6f513",
-  storageBucket: "smart-cool-6f513.firebasestorage.app",
-  messagingSenderId: "10468224529",
-  appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
-  measurementId: "G-Y5SPBHP57C"
-};
+      storageBucket:
+        "smart-cool-6f513.firebasestorage.app",
 
+      messagingSenderId:
+        "10468224529",
 
-/* ================================
-   INITIALIZE FIREBASE
-================================ */
+      appId:
+        "1:10468224529:web:51026a5b4ac67a4ad40bb0",
 
-const app =
-  initializeApp(firebaseConfig);
+      measurementId:
+        "G-Y5SPBHP57C"
 
-const auth =
-  getAuth(app);
+    };
 
-const db =
-  getFirestore(app);
 
+    /* INITIALIZE */
 
-/* ================================
-   KEEP LOGIN ACTIVE
-   ACROSS PAGES
-================================ */
+    const app =
+      initializeApp(firebaseConfig);
 
-setPersistence(
-  auth,
-  browserLocalPersistence
-)
-.then(() => {
+    const auth =
+      getAuth(app);
 
-  console.log(
-    "Firebase login persistence enabled"
-  );
+    const db =
+      getFirestore(app);
 
-})
-.catch((error) => {
 
-  console.error(
-    "Persistence error:",
-    error
-  );
+    /*
+      IMPORTANT:
+      KEEP USER LOGIN ACTIVE
+    */
 
-});
+    setPersistence(
+      auth,
+      browserLocalPersistence
+    )
+    .then(() => {
 
-
-/* ================================
-   ELEMENTS
-================================ */
-
-const loginBox =
-  document.getElementById(
-    "loginBox"
-  );
-
-const trackingBox =
-  document.getElementById(
-    "trackingBox"
-  );
-
-const trackingForm =
-  document.getElementById(
-    "trackingForm"
-  );
-
-const bookingCard =
-  document.getElementById(
-    "bookingCard"
-  );
-
-const message =
-  document.getElementById(
-    "message"
-  );
-
-const loading =
-  document.getElementById(
-    "loading"
-  );
-
-const trackBtn =
-  document.getElementById(
-    "trackBtn"
-  );
-
-const logoutBtn =
-  document.getElementById(
-    "logoutBtn"
-  );
-
-
-/* ================================
-   MESSAGE
-================================ */
-
-function showMessage(
-  text,
-  type
-){
-
-  message.textContent =
-    text;
-
-  message.className =
-    "message " + type;
-
-  message.style.display =
-    "block";
-
-}
-
-
-function hideMessage(){
-
-  message.style.display =
-    "none";
-
-}
-
-
-/* ================================
-   DATE FORMAT
-================================ */
-
-function formatDate(
-  timestamp
-){
-
-  if(!timestamp){
-
-    return "Not available";
-
-  }
-
-
-  try{
-
-    const date =
-      timestamp.toDate();
-
-
-    return date.toLocaleString(
-      "en-PK",
-      {
-        day:"2-digit",
-        month:"2-digit",
-        year:"numeric",
-        hour:"2-digit",
-        minute:"2-digit"
-      }
-    );
-
-  }
-
-  catch(error){
-
-    return "Not available";
-
-  }
-
-}
-
-
-/* ================================
-   STATUS TEXT
-================================ */
-
-function getStatusText(
-  status
-){
-
-  if(!status){
-
-    return "⏳ Pending";
-
-  }
-
-
-  const value =
-    String(status)
-      .toLowerCase()
-      .trim();
-
-
-  if(value === "pending"){
-
-    return "⏳ Pending";
-
-  }
-
-
-  if(value === "confirmed"){
-
-    return "✅ Confirmed";
-
-  }
-
-
-  if(
-    value === "on the way" ||
-    value === "on-the-way"
-  ){
-
-    return "🚗 Technician On The Way";
-
-  }
-
-
-  if(value === "completed"){
-
-    return "✅ Completed";
-
-  }
-
-
-  if(
-    value === "cancelled" ||
-    value === "canceled"
-  ){
-
-    return "❌ Cancelled";
-
-  }
-
-
-  return status;
-
-}
-
-
-/* ================================
-   STATUS CLASS
-================================ */
-
-function getStatusClass(
-  status
-){
-
-  if(!status){
-
-    return "status-pending";
-
-  }
-
-
-  const value =
-    String(status)
-      .toLowerCase()
-      .trim();
-
-
-  if(value === "pending"){
-
-    return "status-pending";
-
-  }
-
-
-  if(value === "confirmed"){
-
-    return "status-confirmed";
-
-  }
-
-
-  if(
-    value === "on the way" ||
-    value === "on-the-way"
-  ){
-
-    return "status-on-the-way";
-
-  }
-
-
-  if(value === "completed"){
-
-    return "status-completed";
-
-  }
-
-
-  if(
-    value === "cancelled" ||
-    value === "canceled"
-  ){
-
-    return "status-cancelled";
-
-  }
-
-
-  return "status-pending";
-
-}
-
-
-/* ================================
-   AUTH STATE
-================================ */
-
-onAuthStateChanged(
-  auth,
-  function(user){
-
-    console.log(
-      "Current Firebase user:",
-      user
-    );
-
-
-    if(user){
-
-      /* USER LOGGED IN */
-
-      loginBox.style.display =
-        "none";
-
-      trackingBox.style.display =
-        "block";
-
-    }
-
-    else{
-
-      /* USER NOT LOGGED IN */
-
-      loginBox.style.display =
-        "block";
-
-      trackingBox.style.display =
-        "none";
-
-      bookingCard.style.display =
-        "none";
-
-    }
-
-  }
-);
-
-
-/* ================================
-   TRACK BOOKING
-================================ */
-
-trackingForm.addEventListener(
-  "submit",
-  async function(e){
-
-    e.preventDefault();
-
-
-    hideMessage();
-
-
-    bookingCard.style.display =
-      "none";
-
-
-    const user =
-      auth.currentUser;
-
-
-    /* CHECK LOGIN */
-
-    if(!user){
-
-      showMessage(
-        "Please login first.",
-        "error"
+      console.log(
+        "Login persistence enabled"
       );
 
-      return;
-
-    }
-
-
-    /* GET BOOKING ID */
-
-    const bookingId =
-      document
-        .getElementById(
-          "bookingId"
-        )
-        .value
-        .trim()
-        .toUpperCase();
-
-
-    if(!bookingId){
-
-      showMessage(
-        "Please enter your Booking ID.",
-        "error"
-      );
-
-      return;
-
-    }
-
-
-    /* BUTTON LOADING */
-
-    trackBtn.disabled =
-      true;
-
-    trackBtn.textContent =
-      "Checking...";
-
-    loading.style.display =
-      "block";
-
-
-    try{
-
-
-      /* ================================
-         SEARCH CUSTOMER'S OWN BOOKING
-      ================================= */
-
-      const bookingQuery =
-        query(
-
-          collection(
-            db,
-            "serviceRequests"
-          ),
-
-          where(
-            "bookingId",
-            "==",
-            bookingId
-          ),
-
-          where(
-            "customerUid",
-            "==",
-            user.uid
-          ),
-
-          limit(1)
-
-        );
-
-
-      const snapshot =
-        await getDocs(
-          bookingQuery
-        );
-
-
-      /* ================================
-         BOOKING NOT FOUND
-      ================================= */
-
-      if(
-        snapshot.empty
-      ){
-
-        showMessage(
-          "Booking nahi mili. Booking ID check karein.",
-          "error"
-        );
-
-        return;
-
-      }
-
-
-      /* ================================
-         GET BOOKING
-      ================================= */
-
-      const booking =
-        snapshot
-          .docs[0]
-          .data();
-
-
-      /* ================================
-         BOOKING ID
-      ================================= */
-
-      document.getElementById(
-        "displayBookingId"
-      ).textContent =
-        booking.bookingId ||
-        bookingId;
-
-
-      /* ================================
-         STATUS
-      ================================= */
-
-      const status =
-        booking.status ||
-        "pending";
-
-
-      const statusElement =
-        document.getElementById(
-          "displayStatus"
-        );
-
-
-      statusElement.textContent =
-        getStatusText(
-          status
-        );
-
-
-      statusElement.className =
-        "status " +
-        getStatusClass(
-          status
-        );
-
-
-      /* ================================
-         CUSTOMER
-      ================================= */
-
-      document.getElementById(
-        "displayCustomer"
-      ).textContent =
-        booking.customerName ||
-        "N/A";
-
-
-      /* ================================
-         PHONE
-      ================================= */
-
-      document.getElementById(
-        "displayPhone"
-      ).textContent =
-        booking.customerPhone ||
-        "N/A";
-
-
-      /* ================================
-         SERVICE
-      ================================= */
-
-      document.getElementById(
-        "displayService"
-      ).textContent =
-        booking.service ||
-        "N/A";
-
-
-      /* ================================
-         AREA
-      ================================= */
-
-      document.getElementById(
-        "displayArea"
-      ).textContent =
-        booking.area ||
-        "N/A";
-
-
-      /* ================================
-         ADDRESS
-      ================================= */
-
-      document.getElementById(
-        "displayAddress"
-      ).textContent =
-        booking.address ||
-        "N/A";
-
-
-      /* ================================
-         PROBLEM
-      ================================= */
-
-      document.getElementById(
-        "displayProblem"
-      ).textContent =
-        booking.problem ||
-        "N/A";
-
-
-      /* ================================
-         DATE
-      ================================= */
-
-      document.getElementById(
-        "displayDate"
-      ).textContent =
-        formatDate(
-          booking.createdAt
-        );
-
-
-      /* ================================
-         SHOW RESULT
-      ================================= */
-
-      bookingCard.style.display =
-        "block";
-
-
-      showMessage(
-        "✅ Booking mil gayi!",
-        "success"
-      );
-
-
-    }
-
-    catch(error){
+    })
+    .catch((error) => {
 
       console.error(
-        "Tracking Error:",
+        "Persistence error:",
         error
       );
 
-
-      /* FIRESTORE PERMISSION ERROR */
-
-      if(
-        error.code ===
-        "permission-denied"
-      ){
-
-        showMessage(
-          "Firebase permission denied. Firestore rules check karni hongi.",
-          "error"
-        );
-
-      }
-
-      else{
-
-        showMessage(
-          "Booking check karte waqt error aaya: " +
-          (
-            error.message ||
-            "Unknown error"
-          ),
-          "error"
-        );
-
-      }
-
-    }
-
-    finally{
-
-      trackBtn.disabled =
-        false;
-
-      trackBtn.textContent =
-        "🔎 Track Booking";
-
-      loading.style.display =
-        "none";
-
-    }
-
-  }
-);
+    });
 
 
-/* ================================
-   LOGOUT
-================================ */
+    /* ELEMENTS */
 
-logoutBtn.addEventListener(
-  "click",
-  async function(){
-
-    try{
-
-      await signOut(
-        auth
-      );
-
-
-      bookingCard.style.display =
-        "none";
-
-
+    const loadingBox =
       document.getElementById(
-        "bookingId"
-      ).value =
-        "";
+        "loadingBox"
+      );
 
+    const loginRequired =
+      document.getElementById(
+        "loginRequired"
+      );
 
-      showMessage(
-        "You have been logged out.",
-        "success"
+    const trackingBox =
+      document.getElementById(
+        "trackingBox"
       );
 
 
-    }
+    /*
+      IMPORTANT:
+      DO NOT CHECK auth.currentUser
+      IMMEDIATELY.
 
-    catch(error){
+      Firebase needs time to restore
+      the existing login session.
 
-      showMessage(
-        "Logout error: " +
-        error.message,
-        "error"
+      onAuthStateChanged waits for that.
+    */
+
+    onAuthStateChanged(
+      auth,
+      (user) => {
+
+        console.log(
+          "Firebase user:",
+          user
+        );
+
+
+        loadingBox.style.display =
+          "none";
+
+
+        if (user) {
+
+          console.log(
+            "USER IS LOGGED IN:",
+            user.email
+          );
+
+
+          loginRequired.style.display =
+            "none";
+
+          trackingBox.style.display =
+            "block";
+
+        }
+        else {
+
+          console.log(
+            "USER IS NOT LOGGED IN"
+          );
+
+
+          loginRequired.style.display =
+            "block";
+
+          trackingBox.style.display =
+            "none";
+
+        }
+
+      }
+    );
+
+
+    /*
+      TRACK BOOKING
+    */
+
+    document
+      .getElementById("trackBtn")
+      .addEventListener(
+        "click",
+        async () => {
+
+          const user =
+            auth.currentUser;
+
+
+          if (!user) {
+
+            document
+              .getElementById(
+                "message"
+              )
+              .style.color =
+              "red";
+
+            document
+              .getElementById(
+                "message"
+              )
+              .textContent =
+              "Your login session was not found. Please login again.";
+
+            return;
+
+          }
+
+
+          let bookingId =
+            document
+              .getElementById(
+                "bookingId"
+              )
+              .value
+              .trim()
+              .toUpperCase();
+
+
+          if (!bookingId) {
+
+            document
+              .getElementById(
+                "message"
+              )
+              .style.color =
+              "red";
+
+            document
+              .getElementById(
+                "message"
+              )
+              .textContent =
+              "Please enter your Booking ID.";
+
+            return;
+
+          }
+
+
+          const message =
+            document.getElementById(
+              "message"
+            );
+
+
+          const result =
+            document.getElementById(
+              "result"
+            );
+
+
+          message.style.color =
+            "#075bb5";
+
+          message.textContent =
+            "Searching booking...";
+
+
+          result.style.display =
+            "none";
+
+
+          try {
+
+            /*
+              ONLY SEARCH THIS CUSTOMER'S
+              BOOKINGS
+            */
+
+            const bookingQuery =
+              query(
+
+                collection(
+                  db,
+                  "serviceRequests"
+                ),
+
+                where(
+                  "bookingId",
+                  "==",
+                  bookingId
+                ),
+
+                where(
+                  "customerUid",
+                  "==",
+                  user.uid
+                ),
+
+                limit(1)
+
+              );
+
+
+            const snapshot =
+              await getDocs(
+                bookingQuery
+              );
+
+
+            if (snapshot.empty) {
+
+              message.style.color =
+                "red";
+
+              message.textContent =
+                "Booking not found. Please check your Booking ID.";
+
+              return;
+
+            }
+
+
+            const booking =
+              snapshot.docs[0].data();
+
+
+            /*
+              SHOW DATA
+            */
+
+            document
+              .getElementById(
+                "resultBookingId"
+              )
+              .textContent =
+              booking.bookingId || "-";
+
+
+            const status =
+              (
+                booking.status ||
+                "pending"
+              ).toLowerCase();
+
+
+            const statusElement =
+              document.getElementById(
+                "resultStatus"
+              );
+
+
+            statusElement.textContent =
+              status
+                .replace(
+                  /-/g,
+                  " "
+                )
+                .replace(
+                  /\b\w/g,
+                  c => c.toUpperCase()
+                );
+
+
+            statusElement.className =
+              "status";
+
+
+            if (
+              status ===
+              "confirmed"
+            ) {
+
+              statusElement.classList.add(
+                "confirmed"
+              );
+
+            }
+
+            else if (
+              status ===
+              "on the way" ||
+              status ===
+              "on-the-way"
+            ) {
+
+              statusElement.classList.add(
+                "on-the-way"
+              );
+
+            }
+
+            else if (
+              status ===
+              "completed"
+            ) {
+
+              statusElement.classList.add(
+                "completed"
+              );
+
+            }
+
+            else if (
+              status ===
+              "cancelled"
+            ) {
+
+              statusElement.classList.add(
+                "cancelled"
+              );
+
+            }
+
+
+            document
+              .getElementById(
+                "resultName"
+              )
+              .textContent =
+              booking.customerName || "-";
+
+
+            document
+              .getElementById(
+                "resultPhone"
+              )
+              .textContent =
+              booking.customerPhone || "-";
+
+
+            document
+              .getElementById(
+                "resultService"
+              )
+              .textContent =
+              booking.service || "-";
+
+
+            document
+              .getElementById(
+                "resultArea"
+              )
+              .textContent =
+              booking.area || "-";
+
+
+            document
+              .getElementById(
+                "resultAddress"
+              )
+              .textContent =
+              booking.address || "-";
+
+
+            document
+              .getElementById(
+                "resultProblem"
+              )
+              .textContent =
+              booking.problem || "-";
+
+
+            let dateText =
+              "-";
+
+
+            if (
+              booking.createdAt &&
+              booking.createdAt.toDate
+            ) {
+
+              dateText =
+                booking.createdAt
+                  .toDate()
+                  .toLocaleString();
+
+            }
+
+
+            document
+              .getElementById(
+                "resultDate"
+              )
+              .textContent =
+              dateText;
+
+
+            result.style.display =
+              "block";
+
+
+            message.style.color =
+              "green";
+
+            message.textContent =
+              "✅ Booking found successfully.";
+
+
+          }
+          catch (error) {
+
+            console.error(
+              "Tracking error:",
+              error
+            );
+
+
+            message.style.color =
+              "red";
+
+            message.textContent =
+              "Error: " +
+              error.message;
+
+          }
+
+        }
       );
 
-    }
-
-  }
-);
-
-</script>
+  </script>
 
 </body>
+
 </html>
