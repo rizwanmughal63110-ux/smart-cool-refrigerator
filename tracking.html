@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +40,6 @@ header h2{
   padding:25px;
   border-radius:15px;
   box-shadow:0 4px 18px rgba(0,0,0,.1);
-  margin-bottom:20px;
 }
 
 h1{
@@ -77,17 +75,6 @@ button:hover{
   display:none;
 }
 
-#debugBox{
-  background:#111;
-  color:#00ff66;
-  padding:15px;
-  border-radius:10px;
-  font-family:monospace;
-  font-size:13px;
-  line-height:1.6;
-  word-break:break-word;
-}
-
 .status{
   padding:15px;
   border-radius:8px;
@@ -96,12 +83,22 @@ button:hover{
 }
 
 .booking-details{
-  line-height:1.8;
+  line-height:1.9;
 }
 
 .label{
   font-weight:bold;
   color:#0877d1;
+}
+
+.success{
+  background:#eaf8ee;
+  border-left:5px solid #28a745;
+}
+
+.error{
+  background:#fff0f0;
+  border-left:5px solid #dc3545;
 }
 </style>
 </head>
@@ -114,83 +111,77 @@ button:hover{
 
 <div class="container">
 
-  <div class="card">
+<div class="card">
 
-    <h1>🔎 Track Your Booking</h1>
+<h1>🔎 Track Your Booking</h1>
 
-    <div id="loading">
-      Checking your login...
-    </div>
+<div id="loading">
+  Checking your login...
+</div>
 
-    <div id="loginRequired" class="hidden">
-      <div class="status">
-        🔐 <b>Login Required</b><br><br>
-        Please login to your customer account before tracking your booking.
-      </div>
+<div id="loginRequired" class="hidden">
 
-      <br>
-
-      <button onclick="window.location.href='index.html#account'">
-        Login / Signup
-      </button>
-    </div>
-
-    <div id="loggedIn" class="hidden">
-
-      <div class="status">
-        ✅ <b>Customer Logged In</b>
-        <br>
-        <span id="loggedUser"></span>
-      </div>
-
-      <br>
-
-      <label>Enter your Booking ID</label>
-
-      <input
-        type="text"
-        id="bookingId"
-        placeholder="Example: BK-12345678"
-      >
-
-      <button id="trackBtn">
-        🔎 Track Booking
-      </button>
-
-      <div id="result" class="status hidden"></div>
-
-    </div>
-
+  <div class="status">
+    🔐 <b>Login Required</b>
+    <br><br>
+    Please login to your customer account before tracking your booking.
   </div>
 
+  <br>
 
-  <!-- DEBUG BOX -->
+  <button onclick="window.location.href='index.html#account'">
+    Login / Signup
+  </button>
 
-  <div class="card">
+</div>
 
-    <h3>🔧 Firebase Login Diagnostic</h3>
+<div id="loggedIn" class="hidden">
 
-    <div id="debugBox">
-      Starting Firebase...
-    </div>
-
+  <div class="status success">
+    ✅ <b>Customer Logged In</b>
+    <br>
+    <span id="loggedUser"></span>
   </div>
+
+  <br>
+
+  <label><b>Enter your Booking ID</b></label>
+
+  <input
+    type="text"
+    id="bookingId"
+    placeholder="Example: BK-12345678"
+  >
+
+  <button id="trackBtn">
+    🔎 Track Booking
+  </button>
+
+  <div id="result" class="status hidden"></div>
+
+</div>
+
+</div>
 
 </div>
 
 
 <script type="module">
 
-import { initializeApp }
+import {
+  initializeApp
+}
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
+
 import {
-  getAuth,
-  onAuthStateChanged,
-  setPersistence,
-  browserLocalPersistence
+  initializeAuth,
+  indexedDBLocalPersistence,
+  browserLocalPersistence,
+  onAuthStateChanged
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
 
 import {
   getFirestore,
@@ -206,27 +197,61 @@ from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 /* FIREBASE CONFIG */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAvnAL6gje0ly5XtxNotNl_dJhEhJ9pSHg",
-  authDomain: "smart-cool-6f513.firebaseapp.com",
-  projectId: "smart-cool-6f513",
-  storageBucket: "smart-cool-6f513.firebasestorage.app",
-  messagingSenderId: "10468224529",
-  appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
-  measurementId: "G-Y5SPBHP57C"
+
+  apiKey:
+  "AIzaSyAvnAL6gje0ly5XtxNotNl_dJhEhJ9pSHg",
+
+  authDomain:
+  "smart-cool-6f513.firebaseapp.com",
+
+  projectId:
+  "smart-cool-6f513",
+
+  storageBucket:
+  "smart-cool-6f513.firebasestorage.app",
+
+  messagingSenderId:
+  "10468224529",
+
+  appId:
+  "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+
+  measurementId:
+  "G-Y5SPBHP57C"
+
 };
 
 
-/* INITIALIZE */
+/* FIREBASE */
 
 const app = initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
+
+/*
+ IMPORTANT:
+ Same authentication method as index.html
+*/
+
+const auth = initializeAuth(app, {
+
+  persistence: [
+
+    indexedDBLocalPersistence,
+
+    browserLocalPersistence
+
+  ]
+
+});
+
 
 const db = getFirestore(app);
 
-const debugBox = document.getElementById("debugBox");
 
-const loading = document.getElementById("loading");
+/* ELEMENTS */
+
+const loading =
+document.getElementById("loading");
 
 const loginRequired =
 document.getElementById("loginRequired");
@@ -237,313 +262,238 @@ document.getElementById("loggedIn");
 const loggedUser =
 document.getElementById("loggedUser");
 
-
-function debug(message){
-
-  console.log(message);
-
-  debugBox.innerHTML +=
-    "<br>" + message;
-
-}
+const result =
+document.getElementById("result");
 
 
-/* BASIC INFORMATION */
+/* AUTH CHECK */
 
-debug("Page: " + window.location.href);
+onAuthStateChanged(auth, (user) => {
 
-debug("Origin: " + window.location.origin);
-
-debug("Firebase Project: " + firebaseConfig.projectId);
+  loading.classList.add("hidden");
 
 
-/* START AUTH */
+  if(user){
 
-async function startAuthentication(){
+    console.log("Logged in:", user.email);
 
-  try{
+    loggedIn.classList.remove("hidden");
 
-    debug("Setting browserLocalPersistence...");
+    loginRequired.classList.add("hidden");
 
-    await setPersistence(
-      auth,
-      browserLocalPersistence
-    );
-
-    debug("Persistence: OK");
+    loggedUser.innerHTML =
+      "Email: " + user.email;
 
   }
 
-  catch(error){
+  else{
 
-    debug(
-      "Persistence ERROR: " +
-      error.code
-    );
+    console.log("No logged-in user");
 
-    debug(
-      "Message: " +
-      error.message
-    );
+    loggedIn.classList.add("hidden");
+
+    loginRequired.classList.remove("hidden");
 
   }
 
-
-  debug("Waiting for Firebase Auth...");
-
-
-  onAuthStateChanged(
-    auth,
-    (user) => {
-
-      loading.classList.add("hidden");
-
-
-      if(user){
-
-        debug("AUTH USER FOUND ✅");
-
-        debug(
-          "Email: " +
-          user.email
-        );
-
-        debug(
-          "UID: " +
-          user.uid
-        );
-
-
-        loggedIn.classList.remove(
-          "hidden"
-        );
-
-        loginRequired.classList.add(
-          "hidden"
-        );
-
-
-        loggedUser.innerHTML =
-          "Email: " +
-          user.email;
-
-
-      }else{
-
-        debug("AUTH USER NOT FOUND ❌");
-
-        debug(
-          "Firebase currentUser = null"
-        );
-
-
-        loggedIn.classList.add(
-          "hidden"
-        );
-
-        loginRequired.classList.remove(
-          "hidden"
-        );
-
-      }
-
-    }
-  );
-
-}
-
-
-/* START */
-
-startAuthentication();
+});
 
 
 /* TRACK BOOKING */
 
 document
 .getElementById("trackBtn")
-.addEventListener(
-  "click",
-  async () => {
-
-    const user = auth.currentUser;
-
-    const bookingId =
-      document
-      .getElementById("bookingId")
-      .value
-      .trim();
+.addEventListener("click", async () => {
 
 
-    const result =
-      document.getElementById("result");
+  const user = auth.currentUser;
 
 
-    if(!user){
-
-      result.classList.remove(
-        "hidden"
-      );
-
-      result.innerHTML =
-        "❌ You are not logged in.";
-
-      return;
-
-    }
+  const bookingId =
+    document
+    .getElementById("bookingId")
+    .value
+    .trim()
+    .toUpperCase();
 
 
-    if(!bookingId){
+  if(!user){
 
-      result.classList.remove(
-        "hidden"
-      );
-
-      result.innerHTML =
-        "⚠️ Please enter your Booking ID.";
-
-      return;
-
-    }
-
-
-    result.classList.remove(
-      "hidden"
-    );
+    result.className =
+      "status error";
 
     result.innerHTML =
-      "⏳ Searching booking...";
+      "❌ Your login session was not found. Please login again.";
+
+    return;
+
+  }
 
 
-    try{
+  if(!bookingId){
 
-      const bookingQuery = query(
+    result.className =
+      "status error";
 
-        collection(
-          db,
-          "serviceRequests"
-        ),
+    result.innerHTML =
+      "⚠️ Please enter your Booking ID.";
 
-        where(
-          "bookingId",
-          "==",
-          bookingId
-        ),
+    return;
 
-        where(
-          "customerUid",
-          "==",
-          user.uid
-        ),
+  }
 
-        limit(1)
 
+  result.className =
+    "status";
+
+  result.classList.remove("hidden");
+
+  result.innerHTML =
+    "⏳ Searching booking...";
+
+
+  try{
+
+
+    const bookingQuery = query(
+
+      collection(
+        db,
+        "serviceRequests"
+      ),
+
+      where(
+        "bookingId",
+        "==",
+        bookingId
+      ),
+
+      where(
+        "customerUid",
+        "==",
+        user.uid
+      ),
+
+      limit(1)
+
+    );
+
+
+    const snapshot =
+      await getDocs(
+        bookingQuery
       );
 
 
-      const snapshot =
-        await getDocs(
-          bookingQuery
-        );
+    if(snapshot.empty){
 
-
-      if(snapshot.empty){
-
-        result.innerHTML =
-          "❌ Booking not found.";
-
-        return;
-
-      }
-
-
-      const data =
-        snapshot.docs[0].data();
-
+      result.className =
+        "status error";
 
       result.innerHTML = `
-
-        <div class="booking-details">
-
-          <div>
-            <span class="label">
-              Booking ID:
-            </span>
-            ${data.bookingId || ""}
-          </div>
-
-          <div>
-            <span class="label">
-              Status:
-            </span>
-            ${data.status || ""}
-          </div>
-
-          <div>
-            <span class="label">
-              Customer:
-            </span>
-            ${data.customerName || ""}
-          </div>
-
-          <div>
-            <span class="label">
-              Phone:
-            </span>
-            ${data.customerPhone || ""}
-          </div>
-
-          <div>
-            <span class="label">
-              Service:
-            </span>
-            ${data.service || ""}
-          </div>
-
-          <div>
-            <span class="label">
-              Area:
-            </span>
-            ${data.area || ""}
-          </div>
-
-          <div>
-            <span class="label">
-              Address:
-            </span>
-            ${data.address || ""}
-          </div>
-
-          <div>
-            <span class="label">
-              Problem:
-            </span>
-            ${data.problem || ""}
-          </div>
-
-        </div>
-
+        ❌ <b>Booking not found.</b>
+        <br><br>
+        Please check your Booking ID.
       `;
 
-    }
-
-    catch(error){
-
-      console.error(error);
-
-      result.innerHTML =
-        "❌ Error: " +
-        error.code +
-        "<br>" +
-        error.message;
+      return;
 
     }
+
+
+    const data =
+      snapshot.docs[0].data();
+
+
+    result.className =
+      "status success";
+
+
+    result.innerHTML = `
+
+      <div class="booking-details">
+
+        <div>
+          <span class="label">
+            Booking ID:
+          </span>
+          ${data.bookingId || "-"}
+        </div>
+
+        <div>
+          <span class="label">
+            Status:
+          </span>
+          ${data.status || "-"}
+        </div>
+
+        <div>
+          <span class="label">
+            Customer:
+          </span>
+          ${data.customerName || "-"}
+        </div>
+
+        <div>
+          <span class="label">
+            Phone:
+          </span>
+          ${data.customerPhone || "-"}
+        </div>
+
+        <div>
+          <span class="label">
+            Service:
+          </span>
+          ${data.service || "-"}
+        </div>
+
+        <div>
+          <span class="label">
+            Area:
+          </span>
+          ${data.area || "-"}
+        </div>
+
+        <div>
+          <span class="label">
+            Address:
+          </span>
+          ${data.address || "-"}
+        </div>
+
+        <div>
+          <span class="label">
+            Problem:
+          </span>
+          ${data.problem || "-"}
+        </div>
+
+      </div>
+
+    `;
 
   }
-);
+
+
+  catch(error){
+
+    console.error(error);
+
+    result.className =
+      "status error";
+
+    result.innerHTML =
+      "❌ Error: " +
+      error.code +
+      "<br>" +
+      error.message;
+
+  }
+
+});
 
 </script>
 
 </body>
 </html>
-```
