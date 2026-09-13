@@ -1,0 +1,330 @@
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f3f9ff;
+  color: #16345c;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 190px;
+  height: 75px;
+  object-fit: contain;
+  display: block;
+}
+
+.menu {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #16345c;
+  font-weight: 600;
+}
+
+.menu a:hover {
+  color: #007bff;
+}
+
+.mobile-menu-btn {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.hero {
+  background: linear-gradient(135deg, #007bff, #004aad);
+  color: #fff;
+  padding: 80px 20px;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 52px;
+  margin: 0 0 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-white {
+  background: #fff;
+  color: #0066cc;
+}
+
+.btn-green {
+  background: #25d366;
+  color: #fff;
+}
+
+section {
+  padding: 70px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.services-grid,
+.rates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.service-card,
+.rate-card {
+  background: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.service-card h3,
+.rate-card h3 {
+  margin-top: 0;
+  color: #0066cc;
+}
+
+.service-card p {
+  line-height: 1.7;
+}
+
+.rate-card ul {
+  padding-left: 20px;
+  line-height: 2;
+}
+
+.rate-card strong {
+  color: #007bff;
+}
+
+.trust {
+  background: #e8f4ff;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.trust-box {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.06);
+}
+
+.contact {
+  background: #fff;
+}
+
+.contact-box {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+
+.booking-form {
+  background: #f3f9ff;
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 30px;
+  text-align: left;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 15px;
+  border: 1px solid #ccd8e6;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.booking-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.booking-form button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.faq-item {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.05);
+}
+
+.faq-item h3 {
+  margin-top: 0;
+  color: #0066cc;
+}
+
+.about-box {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  line-height: 1.8;
+}
+
+footer {
+  background: #062c5c;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 27px;
+  box-shadow: 0 5px 18px rgba(0,0,0,.25);
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+
+  .logo img {
+    width: 145px;
+    height: 60px;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 84px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 20px;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+  }
+
+  .menu.active {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .services-grid,
+  .rates-grid,
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 50px 15px;
+  }
+
+  .section-title h2 {
+    font-size: 30px;
+  }
+}
