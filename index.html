@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="google-site-verification" content="IAjv12fSMJ48W2jgMAsZ1zNJgBdSnteaa2CxKhES0oA">
 
 <title>Smart Cool & Refrigerator | Karachi</title>
 
-<meta name="description" content="Smart Cool & Refrigerator provides AC, refrigerator, water dispenser and electrician services all over Karachi.">
+<meta
+  name="description"
+  content="Smart Cool & Refrigerator provides AC, refrigerator, water dispenser and electrician services all over Karachi."
+>
 
 <style>
+
+/* =========================
+   BASIC
+========================= */
 
 *{
   box-sizing:border-box;
@@ -24,13 +33,20 @@ body{
   color:#17365d;
 }
 
-/* HEADER */
+a{
+  -webkit-tap-highlight-color:transparent;
+}
+
+
+/* =========================
+   HEADER
+========================= */
 
 header{
   background:white;
   position:sticky;
   top:0;
-  z-index:100;
+  z-index:1000;
   box-shadow:0 3px 15px rgba(0,0,0,.12);
 }
 
@@ -43,7 +59,8 @@ header{
   justify-content:space-between;
 }
 
-/* TEXT LOGO */
+
+/* LOGO */
 
 .logo-area{
   display:flex;
@@ -77,6 +94,7 @@ header{
   margin-top:3px;
 }
 
+
 /* NAVIGATION */
 
 nav a{
@@ -90,7 +108,10 @@ nav a:hover{
   color:#007bff;
 }
 
-/* HERO */
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
   background:linear-gradient(135deg,#007bff,#003f91);
@@ -133,6 +154,11 @@ nav a:hover{
   font-weight:bold;
 }
 
+
+/* =========================
+   BUTTONS
+========================= */
+
 .btn{
   display:inline-block;
   padding:14px 25px;
@@ -140,6 +166,9 @@ nav a:hover{
   border-radius:9px;
   text-decoration:none;
   font-weight:bold;
+  border:none;
+  cursor:pointer;
+  font-size:15px;
 }
 
 .call{
@@ -152,7 +181,17 @@ nav a:hover{
   color:white;
 }
 
-/* SECTIONS */
+.primary-btn{
+  background:linear-gradient(135deg,#007bff,#0051a8);
+  color:white;
+  width:100%;
+  margin:10px 0 0;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
 
 section{
   padding:65px 20px;
@@ -169,7 +208,10 @@ h2{
   margin-bottom:40px;
 }
 
-/* CARDS */
+
+/* =========================
+   SERVICE CARDS
+========================= */
 
 .grid{
   display:grid;
@@ -205,7 +247,10 @@ h2{
   margin:12px 0;
 }
 
-/* RATES */
+
+/* =========================
+   RATES
+========================= */
 
 .rates{
   background:#eef7ff;
@@ -227,14 +272,98 @@ h2{
   font-weight:bold;
 }
 
-/* WHY US */
+
+/* =========================
+   BOOKING SECTION
+========================= */
+
+.booking{
+  background:#f4f9ff;
+}
+
+.booking-box{
+  max-width:720px;
+  margin:auto;
+  background:white;
+  padding:35px;
+  border-radius:18px;
+  box-shadow:0 7px 28px rgba(0,0,0,.10);
+}
+
+.booking-box h3{
+  text-align:center;
+  color:#006dcc;
+  font-size:25px;
+  margin-top:0;
+}
+
+.booking-box .subtitle{
+  text-align:center;
+  color:#66778b;
+  margin-bottom:28px;
+}
+
+.form-group{
+  margin-bottom:18px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:7px;
+  color:#17365d;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid #d2dce8;
+  border-radius:9px;
+  font-size:16px;
+  font-family:Arial,sans-serif;
+  outline:none;
+  background:#fff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+  border-color:#007bff;
+  box-shadow:0 0 0 3px rgba(0,123,255,.10);
+}
+
+.form-group textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.required{
+  color:red;
+}
+
+.booking-note{
+  text-align:center;
+  font-size:13px;
+  color:#718096;
+  margin-top:15px;
+}
+
+
+/* =========================
+   WHY US
+========================= */
 
 .trust{
   background:white;
   text-align:center;
 }
 
-/* CONTACT */
+
+/* =========================
+   CONTACT
+========================= */
 
 .contact{
   background:linear-gradient(135deg,#007bff,#00438f);
@@ -254,7 +383,10 @@ h2{
   color:#006dcc;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
   background:#062c5c;
@@ -271,7 +403,10 @@ footer p{
   margin:8px 0;
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:800px){
 
@@ -323,15 +458,49 @@ footer p{
     font-size:28px;
   }
 
+  .booking-box{
+    padding:24px 18px;
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:400px){
+
+  .logo-text{
+    font-size:15px;
+  }
+
+  .logo-text span{
+    font-size:10px;
+  }
+
+  nav a{
+    margin:0 3px;
+    font-size:12px;
+  }
+
+  .hero h1{
+    font-size:28px;
+  }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -350,6 +519,7 @@ footer p{
 
     </div>
 
+
     <nav>
 
       <a href="#home">Home</a>
@@ -357,6 +527,8 @@ footer p{
       <a href="#services">Services</a>
 
       <a href="#rates">Rates</a>
+
+      <a href="#booking">Book Service</a>
 
       <a href="#contact">Contact</a>
 
@@ -367,7 +539,10 @@ footer p{
 </header>
 
 
-<!-- HERO -->
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero" id="home">
 
@@ -390,23 +565,32 @@ footer p{
 
   <br>
 
+
   <a
     class="btn call"
     href="tel:+923208463110">
+
     📞 Call Now
+
   </a>
+
 
   <a
     class="btn whatsapp"
     href="https://wa.me/923208463110"
     target="_blank">
+
     WhatsApp
+
   </a>
 
 </section>
 
 
-<!-- SERVICES -->
+
+<!-- =========================
+     SERVICES
+========================= -->
 
 <section id="services">
 
@@ -508,7 +692,10 @@ footer p{
 </section>
 
 
-<!-- RATES -->
+
+<!-- =========================
+     RATES
+========================= -->
 
 <section class="rates" id="rates">
 
@@ -546,6 +733,7 @@ footer p{
       </div>
 
 
+
       <div class="card">
 
         <h3>🔧 AC Service</h3>
@@ -567,6 +755,7 @@ footer p{
         </ul>
 
       </div>
+
 
 
       <div class="card">
@@ -599,7 +788,171 @@ footer p{
 </section>
 
 
-<!-- WHY CHOOSE US -->
+
+<!-- =========================
+     BOOKING FORM
+========================= -->
+
+<section class="booking" id="booking">
+
+  <div class="container">
+
+    <h2>Book a Service</h2>
+
+
+    <div class="booking-box">
+
+      <h3>Service Request</h3>
+
+      <p class="subtitle">
+        Fill in your details and contact us for service.
+      </p>
+
+
+      <form id="bookingForm">
+
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+          <label for="customerName">
+            Your Name <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            id="customerName"
+            placeholder="Enter your name"
+            required>
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div class="form-group">
+
+          <label for="customerPhone">
+            Mobile Number <span class="required">*</span>
+          </label>
+
+          <input
+            type="tel"
+            id="customerPhone"
+            placeholder="03XXXXXXXXX"
+            required>
+
+        </div>
+
+
+        <!-- SERVICE -->
+
+        <div class="form-group">
+
+          <label for="service">
+            Select Service <span class="required">*</span>
+          </label>
+
+          <select id="service" required>
+
+            <option value="">
+              Select a service
+            </option>
+
+            <option value="AC Repairing">
+              AC Repairing
+            </option>
+
+            <option value="AC Service">
+              AC Service
+            </option>
+
+            <option value="AC Installation">
+              AC Installation
+            </option>
+
+            <option value="AC Gas Charging">
+              AC Gas Charging
+            </option>
+
+            <option value="Refrigerator Repair">
+              Refrigerator Repair
+            </option>
+
+            <option value="Water Dispenser Repair">
+              Water Dispenser Repair
+            </option>
+
+            <option value="Electrician Work">
+              Electrician Work
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- AREA -->
+
+        <div class="form-group">
+
+          <label for="area">
+            Area / Address <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            id="area"
+            placeholder="Enter your area or address"
+            required>
+
+        </div>
+
+
+        <!-- PROBLEM -->
+
+        <div class="form-group">
+
+          <label for="problem">
+            Problem Details
+          </label>
+
+          <textarea
+            id="problem"
+            placeholder="Tell us about the problem..."></textarea>
+
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <button
+          type="submit"
+          class="btn primary-btn">
+
+          📲 Book Service on WhatsApp
+
+        </button>
+
+
+        <p class="booking-note">
+          Your request will open WhatsApp with your service details.
+        </p>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     WHY CHOOSE US
+========================= -->
 
 <section class="trust">
 
@@ -652,7 +1005,10 @@ footer p{
 </section>
 
 
-<!-- CONTACT -->
+
+<!-- =========================
+     CONTACT
+========================= -->
 
 <section class="contact" id="contact">
 
@@ -674,7 +1030,9 @@ footer p{
   <a
     class="btn call"
     href="tel:+923208463110">
+
     Call Now
+
   </a>
 
 
@@ -682,13 +1040,18 @@ footer p{
     class="btn whatsapp"
     href="https://wa.me/923208463110"
     target="_blank">
+
     WhatsApp Book Service
+
   </a>
 
 </section>
 
 
-<!-- FOOTER -->
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -709,6 +1072,104 @@ footer p{
   </p>
 
 </footer>
+
+
+
+<!-- =========================
+     BOOKING JAVASCRIPT
+========================= -->
+
+<script>
+
+document
+  .getElementById("bookingForm")
+  .addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+
+    const name =
+      document
+      .getElementById("customerName")
+      .value
+      .trim();
+
+
+    const phone =
+      document
+      .getElementById("customerPhone")
+      .value
+      .trim();
+
+
+    const service =
+      document
+      .getElementById("service")
+      .value;
+
+
+    const area =
+      document
+      .getElementById("area")
+      .value
+      .trim();
+
+
+    const problem =
+      document
+      .getElementById("problem")
+      .value
+      .trim();
+
+
+    const message =
+      "New Service Booking%0A%0A" +
+
+      "Name: " +
+      encodeURIComponent(name) +
+
+      "%0A" +
+
+      "Mobile: " +
+      encodeURIComponent(phone) +
+
+      "%0A" +
+
+      "Service: " +
+      encodeURIComponent(service) +
+
+      "%0A" +
+
+      "Area/Address: " +
+      encodeURIComponent(area) +
+
+      "%0A" +
+
+      "Problem: " +
+      encodeURIComponent(
+        problem || "Not provided"
+      );
+
+
+    const whatsappNumber =
+      "923208463110";
+
+
+    const whatsappURL =
+      "https://wa.me/" +
+      whatsappNumber +
+      "?text=" +
+      message;
+
+
+    window.open(
+      whatsappURL,
+      "_blank"
+    );
+
+  });
+
+</script>
 
 
 </body>
