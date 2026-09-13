@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Track Booking | Smart Cool & Refrigerator</title>
+
+<meta
+    name="description"
+    content="Track your Smart Cool & Refrigerator service booking and invoice."
+>
+
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f3f9ff;
+    color:#123;
+    min-height:100vh;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:linear-gradient(
+        135deg,
+        #0077ff,
+        #00c6ff
+    );
+
+    color:white;
+    padding:15px 5%;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.15);
+}
+
+.navbar{
+    max-width:1100px;
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-icon{
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    background:white;
+    color:#008cff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:25px;
+}
+
+.logo-text{
+    line-height:1.1;
+}
+
+.logo-text strong{
+    display:block;
+    font-size:19px;
+}
+
+.logo-text span{
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+    max-width:900px;
+    margin:0 auto;
+
+    padding:50px 20px 80px;
+}
+
+
+/* =========================
+   SEARCH BOX
+========================= */
+
+.search-box{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 8px 30px rgba(0,80,160,.10);
+
+    text-align:center;
+
+    margin-bottom:25px;
+}
+
+.search-box h1{
+    color:#0077dd;
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.search-box p{
+    color:#666;
+    margin-bottom:22px;
+}
+
+.search-form{
+    display:flex;
+    gap:10px;
+}
+
+.search-form input{
+
+    flex:1;
+
+    padding:15px;
+
+    border:1px solid #cddfeb;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    outline:none;
+
+    text-transform:uppercase;
+}
+
+.search-form input:focus{
+    border-color:#008cff;
+}
+
+.search-btn{
+
+    padding:15px 25px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0077ff,
+            #00bfff
+        );
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.search-btn:disabled{
+    opacity:.6;
+}
+
+
+/* =========================
+   STATUS MESSAGE
+========================= */
+
+.message{
+
+    display:none;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+    font-weight:bold;
+}
+
+.error{
+    display:block;
+
+    background:#ffecec;
+    color:#c00000;
+}
+
+.success{
+    display:block;
+
+    background:#e7fff1;
+    color:#087a3d;
+}
+
+
+/* =========================
+   BOOKING CARD
+========================= */
+
+.result{
+    display:none;
+}
+
+.booking-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 8px 30px rgba(0,80,160,.10);
+
+    margin-bottom:25px;
+}
+
+.card-header{
+
+    background:
+        linear-gradient(
+            135deg,
+            #0077ff,
+            #00bfff
+        );
+
+    color:white;
+
+    padding:22px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.card-header h2{
+    font-size:21px;
+}
+
+.booking-id{
+    font-size:14px;
+    opacity:.95;
+}
+
+
+/* =========================
+   STATUS BADGE
+========================= */
+
+.status-badge{
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+    background:white;
+
+    color:#0077dd;
+
+    white-space:nowrap;
+}
+
+
+/* =========================
+   BOOKING DETAILS
+========================= */
+
+.details{
+
+    padding:25px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:16px;
+}
+
+.detail{
+
+    background:#f7fbff;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    border:1px solid #e4f0fa;
+}
+
+.detail label{
+
+    display:block;
+
+    color:#777;
+
+    font-size:12px;
+
+    margin-bottom:5px;
+}
+
+.detail strong{
+    color:#123;
+}
+
+
+/* =========================
+   PROBLEM
+========================= */
+
+.problem-box{
+
+    margin:0 25px 25px;
+
+    background:#fff9e8;
+
+    border:1px solid #ffe8a8;
+
+    padding:16px;
+
+    border-radius:12px;
+}
+
+.problem-box label{
+
+    display:block;
+
+    color:#8a6500;
+
+    font-size:12px;
+
+    margin-bottom:5px;
+}
+
+.problem-box p{
+    color:#543f00;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-section{
+
+    padding:0 25px 30px;
+}
+
+.progress-section h3{
+
+    color:#0077dd;
+
+    margin-bottom:20px;
+}
+
+.progress{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    position:relative;
+
+    gap:5px;
+}
+
+.progress::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:17px;
+
+    left:8%;
+
+    right:8%;
+
+    height:4px;
+
+    background:#dcebf7;
+
+    z-index:0;
+}
+
+.step{
+
+    position:relative;
+
+    z-index:1;
+
+    text-align:center;
+
+    width:25%;
+}
+
+.circle{
+
+    width:35px;
+    height:35px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#dcebf7;
+
+    color:#789;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:bold;
+}
+
+.step.active .circle{
+
+    background:#0077ff;
+
+    color:white;
+
+}
+
+.step.completed .circle{
+
+    background:#16a05d;
+
+    color:white;
+
+}
+
+.step span{
+
+    display:block;
+
+    font-size:11px;
+
+    margin-top:8px;
+
+    color:#777;
+}
+
+.step.active span,
+.step.completed span{
+
+    color:#0077dd;
+
+    font-weight:bold;
+}
+
+
+/* =========================
+   INVOICE
+========================= */
+
+.invoice{
+
+    display:none;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 8px 30px rgba(0,80,160,.10);
+
+    overflow:hidden;
+
+    margin-top:25px;
+}
+
+.invoice-header{
+
+    padding:25px;
+
+    background:#06294a;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:20px;
+}
+
+.invoice-header h2{
+    font-size:25px;
+}
+
+.invoice-header p{
+    color:#bcd5e8;
+    margin-top:5px;
+}
+
+.invoice-number{
+    text-align:right;
+}
+
+.invoice-number strong{
+    display:block;
+    font-size:18px;
+}
+
+
+.invoice-body{
+    padding:25px;
+}
+
+.invoice-customer{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+
+    margin-bottom:25px;
+}
+
+.invoice-customer div{
+
+    background:#f7fbff;
+
+    padding:13px;
+
+    border-radius:10px;
+}
+
+.invoice-customer small{
+    color:#777;
+    display:block;
+}
+
+.invoice-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-bottom:20px;
+}
+
+.invoice-table th,
+.invoice-table td{
+
+    padding:13px;
+
+    border-bottom:1px solid #e5e5e5;
+
+    text-align:left;
+}
+
+.invoice-table th{
+    background:#f1f7fc;
+    color:#0077dd;
+}
+
+.invoice-table td:last-child,
+.invoice-table th:last-child{
+    text-align:right;
+}
+
+.total-row td{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#0077dd;
+}
+
+.invoice-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:20px;
+}
+
+.print-btn{
+
+    padding:13px 22px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0077ff;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    background:#06294a;
+
+    color:#bcd5e8;
+
+    text-align:center;
+
+    padding:25px 15px;
+}
+
+footer strong{
+    color:white;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+    .navbar{
+        flex-direction:column;
+    }
+
+    .main{
+        padding:30px 12px 60px;
+    }
+
+    .search-box{
+        padding:22px 16px;
+    }
+
+    .search-box h1{
+        font-size:25px;
+    }
+
+    .search-form{
+        flex-direction:column;
+    }
+
+    .search-btn{
+        width:100%;
+    }
+
+    .card-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .details{
+        grid-template-columns:1fr;
+        padding:18px;
+    }
+
+    .problem-box{
+        margin:0 18px 20px;
+    }
+
+    .progress-section{
+        padding:0 15px 25px;
+    }
+
+    .progress::before{
+        left:10%;
+        right:10%;
+    }
+
+    .step span{
+        font-size:9px;
+    }
+
+    .invoice-header{
+        flex-direction:column;
+    }
+
+    .invoice-number{
+        text-align:left;
+    }
+
+    .invoice-body{
+        padding:18px;
+    }
+
+    .invoice-customer{
+        grid-template-columns:1fr;
+    }
+
+    .invoice-table{
+        font-size:13px;
+    }
+
+    .invoice-table th,
+    .invoice-table td{
+        padding:9px 5px;
+    }
+}
+
+
+/* =========================
+   PRINT
+========================= */
+
+@media print{
+
+    body{
+        background:white;
+    }
+
+    header,
+    .search-box,
+    .booking-card,
+    .invoice-actions,
+    footer{
+        display:none !important;
+    }
+
+    .main{
+        max-width:none;
+        padding:0;
+    }
+
+    .invoice{
+        display:block !important;
+        box-shadow:none;
+        margin:0;
+    }
+
+    .invoice-header{
+        background:#06294a !important;
+        -webkit-print-color-adjust:exact;
+        print-color-adjust:exact;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+
+<div class="logo-icon">
+❄️
+</div>
+
+<div class="logo-text">
+
+<strong>
+SMART COOL
+</strong>
+
+<span>
+& REFRIGERATOR
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="main">
+
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+<h1>
+🔎 Track Your Booking
+</h1>
+
+<p>
+Enter your Booking ID to check your service status.
+</p>
+
+<form
+    class="search-form"
+    id="trackingForm"
+>
+
+<input
+    type="text"
+    id="bookingId"
+    placeholder="Example: BK-77131886"
+    required
+>
+
+<button
+    type="submit"
+    class="search-btn"
+    id="searchBtn"
+>
+Track Booking
+</button>
+
+</form>
+
+</div>
+
+
+<!-- MESSAGE -->
+
+<div
+    id="message"
+    class="message"
+></div>
+
+
+<!-- RESULT -->
+
+<div
+    id="result"
+    class="result"
+>
+
+
+<!-- =========================
+     BOOKING CARD
+========================= -->
+
+<div class="booking-card">
+
+
+<div class="card-header">
+
+<div>
+
+<h2>
+📋 Service Booking
+</h2>
+
+<div
+    class="booking-id"
+    id="displayBookingId"
+>
+</div>
+
+</div>
+
+<div
+    class="status-badge"
+    id="statusBadge"
+>
+Pending
+</div>
+
+</div>
+
+
+<!-- DETAILS -->
+
+<div class="details">
+
+
+<div class="detail">
+
+<label>
+Customer Name
+</label>
+
+<strong id="customerName">
+-
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<label>
+Mobile Number
+</label>
+
+<strong id="customerPhone">
+-
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<label>
+Service
+</label>
+
+<strong id="service">
+-
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<label>
+Area / Address
+</label>
+
+<strong id="area">
+-
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<label>
+Booking Date
+</label>
+
+<strong id="bookingDate">
+-
+</strong>
+
+</div>
+
+
+<div class="detail">
+
+<label>
+Current Status
+</label>
+
+<strong id="currentStatus">
+-
+</strong>
+
+</div>
+
+
+</div>
+
+
+<!-- PROBLEM -->
+
+<div class="problem-box">
+
+<label>
+Problem Details
+</label>
+
+<p id="problem">
+-
+</p>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<h3>
+Service Progress
+</h3>
+
+
+<div class="progress">
+
+
+<div
+    class="step"
+    id="stepPending"
+>
+
+<div class="circle">
+1
+</div>
+
+<span>
+Pending
+</span>
+
+</div>
+
+
+<div
+    class="step"
+    id="stepAccepted"
+>
+
+<div class="circle">
+2
+</div>
+
+<span>
+Accepted
+</span>
+
+</div>
+
+
+<div
+    class="step"
+    id="stepProgress"
+>
+
+<div class="circle">
+3
+</div>
+
+<span>
+In Progress
+</span>
+
+</div>
+
+
+<div
+    class="step"
+    id="stepCompleted"
+>
+
+<div class="circle">
+4
+</div>
+
+<span>
+Completed
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================
+     INVOICE
+========================= -->
+
+<div
+    class="invoice"
+    id="invoice"
+>
+
+
+<div class="invoice-header">
+
+<div>
+
+<h2>
+SMART COOL & REFRIGERATOR
+</h2>
+
+<p>
+AC • Refrigerator • Water Dispenser • Electrician
+</p>
+
+</div>
+
+
+<div class="invoice-number">
+
+<small>
+Invoice
+</small>
+
+<strong id="invoiceNumber">
+-
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="invoice-body">
+
+
+<div class="invoice-customer">
+
+
+<div>
+
+<small>
+Customer
+</small>
+
+<strong id="invoiceCustomer">
+-
+</strong>
+
+</div>
+
+
+<div>
+
+<small>
+Booking ID
+</small>
+
+<strong id="invoiceBooking">
+-
+</strong>
+
+</div>
+
+
+<div>
+
+<small>
+Mobile
+</small>
+
+<strong id="invoicePhone">
+-
+</strong>
+
+</div>
+
+
+<div>
+
+<small>
+Date
+</small>
+
+<strong id="invoiceDate">
+-
+</strong>
+
+</div>
+
+
+</div>
+
+
+
+<table class="invoice-table">
+
+<thead>
+
+<tr>
+
+<th>
+Description
+</th>
+
+<th>
+Amount
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="invoiceItems">
+</tbody>
+
+
+<tfoot>
+
+<tr class="total-row">
+
+<td>
+Total
+</td>
+
+<td id="invoiceTotal">
+Rs. 0
+</td>
+
+</tr>
+
+</tfoot>
+
+</table>
+
+
+<div class="invoice-actions">
+
+<button
+    class="print-btn"
+    onclick="window.print()"
+>
+🖨️ Print Invoice
+</button>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</main>
+
+
+
+<footer>
+
+<p>
+
+© 2026
+
+<strong>
+Smart Cool & Refrigerator
+</strong>
+
+— All Rights Reserved
+
+</p>
+
+</footer>
+
+
+
+<!-- =========================
+     FIREBASE
+========================= -->
+
+<script type="module">
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getFirestore,
+    collection,
+    query,
+    where,
+    getDocs,
+    limit
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
+/* =========================
+   FIREBASE CONFIG
+========================= */
+
+const firebaseConfig = {
+
+    apiKey:
+    "AIzaSyAvnAL6gje0ly5XtxNotNl_dEhJhJ9pSHg",
+
+    authDomain:
+    "smart-cool-6f513.firebaseapp.com",
+
+    projectId:
+    "smart-cool-6f513",
+
+    storageBucket:
+    "smart-cool-6f513.firebasestorage.app",
+
+    messagingSenderId:
+    "10468224529",
+
+    appId:
+    "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+
+    measurementId:
+    "G-Y5SPBHP57C"
+
+};
+
+
+
+/* =========================
+   FIREBASE START
+========================= */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const db =
+    getFirestore(app);
+
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const trackingForm =
+    document.getElementById(
+        "trackingForm"
+    );
+
+const bookingInput =
+    document.getElementById(
+        "bookingId"
+    );
+
+const searchBtn =
+    document.getElementById(
+        "searchBtn"
+    );
+
+const messageBox =
+    document.getElementById(
+        "message"
+    );
+
+const result =
+    document.getElementById(
+        "result"
+    );
+
+const invoice =
+    document.getElementById(
+        "invoice"
+    );
+
+
+
+/* =========================
+   HELPER
+========================= */
+
+function showMessage(
+    text,
+    type
+){
+
+    messageBox.className =
+        "message " + type;
+
+    messageBox.innerHTML =
+        text;
+
+}
+
+
+
+function hideMessage(){
+
+    messageBox.className =
+        "message";
+
+    messageBox.innerHTML =
+        "";
+
+}
+
+
+
+function formatDate(
+    timestamp
+){
+
+    if(!timestamp){
+        return "-";
+    }
+
+    try{
+
+        const date =
+            timestamp.toDate();
+
+        return date.toLocaleDateString(
+            "en-PK",
+            {
+                day:"2-digit",
+                month:"2-digit",
+                year:"numeric"
+            }
+        );
+
+    }
+    catch(error){
+
+        return "-";
+
+    }
+
+}
+
+
+
+function formatMoney(
+    amount
+){
+
+    const number =
+        Number(amount || 0);
+
+    return (
+        "Rs. " +
+        number.toLocaleString(
+            "en-PK"
+        )
+    );
+
+}
+
+
+
+/* =========================
+   STATUS
+========================= */
+
+function normalizeStatus(
+    status
+){
+
+    if(!status){
+        return "pending";
+    }
+
+    return String(status)
+        .toLowerCase()
+        .trim()
+        .replace(/_/g," ")
+        .replace(/-/g," ");
+
+}
+
+
+
+function setStatus(
+    status
+){
+
+    const normalized =
+        normalizeStatus(status);
+
+
+    const statusBadge =
+        document.getElementById(
+            "statusBadge"
+        );
+
+    const currentStatus =
+        document.getElementById(
+            "currentStatus"
+        );
+
+
+    statusBadge.innerText =
+        status || "Pending";
+
+    currentStatus.innerText =
+        status || "Pending";
+
+
+    const steps = [
+
+        document.getElementById(
+            "stepPending"
+        ),
+
+        document.getElementById(
+            "stepAccepted"
+        ),
+
+        document.getElementById(
+            "stepProgress"
+        ),
+
+        document.getElementById(
+            "stepCompleted"
+        )
+
+    ];
+
+
+    steps.forEach(
+        step => {
+
+            step.classList.remove(
+                "active"
+            );
+
+            step.classList.remove(
+                "completed"
+            );
+
+        }
+    );
+
+
+    let level = 1;
+
+
+    if(
+        normalized === "accepted" ||
+        normalized === "confirmed"
+    ){
+
+        level = 2;
+
+    }
+
+
+    if(
+        normalized === "in progress" ||
+        normalized === "inprogress" ||
+        normalized === "working"
+    ){
+
+        level = 3;
+
+    }
+
+
+    if(
+        normalized === "completed" ||
+        normalized === "complete" ||
+        normalized === "done"
+    ){
+
+        level = 4;
+
+    }
+
+
+    if(
+        normalized === "rejected" ||
+        normalized === "cancelled" ||
+        normalized === "canceled"
+    ){
+
+        statusBadge.style.color =
+            "#c00000";
+
+        statusBadge.innerText =
+            "Rejected";
+
+        return;
+
+    }
+
+
+    for(
+        let i = 0;
+        i < level - 1;
+        i++
+    ){
+
+        steps[i].classList.add(
+            "completed"
+        );
+
+    }
+
+
+    steps[level - 1]
+        .classList.add(
+            "active"
+        );
+
+}
+
+
+
+/* =========================
+   SHOW BOOKING
+========================= */
+
+function showBooking(
+    data
+){
+
+    document.getElementById(
+        "displayBookingId"
+    ).innerText =
+        data.bookingId || "-";
+
+
+    document.getElementById(
+        "customerName"
+    ).innerText =
+        data.customerName || "-";
+
+
+    document.getElementById(
+        "customerPhone"
+    ).innerText =
+        data.customerPhone || "-";
+
+
+    document.getElementById(
+        "service"
+    ).innerText =
+        data.service || "-";
+
+
+    document.getElementById(
+        "area"
+    ).innerText =
+        data.area ||
+        data.address ||
+        "-";
+
+
+    document.getElementById(
+        "bookingDate"
+    ).innerText =
+        formatDate(
+            data.createdAt
+        );
+
+
+    document.getElementById(
+        "problem"
+    ).innerText =
+        data.problem || "-";
+
+
+    setStatus(
+        data.status
+    );
+
+
+    result.style.display =
+        "block";
+
+}
+
+
+
+/* =========================
+   FIND BOOKING
+========================= */
+
+async function findBooking(
+    bookingId
+){
+
+    const bookingQuery =
+        query(
+
+            collection(
+                db,
+                "serviceRequests"
+            ),
+
+            where(
+                "bookingId",
+                "==",
+                bookingId
+            ),
+
+            limit(1)
+
+        );
+
+
+    const snapshot =
+        await getDocs(
+            bookingQuery
+        );
+
+
+    if(
+        snapshot.empty
+    ){
+
+        return null;
+
+    }
+
+
+    return snapshot.docs[0].data();
+
+}
+
+
+
+/* =========================
+   FIND INVOICE
+========================= */
+
+async function findInvoice(
+    bookingId
+){
+
+    try{
+
+        const invoiceQuery =
+            query(
+
+                collection(
+                    db,
+                    "invoices"
+                ),
+
+                where(
+                    "bookingId",
+                    "==",
+                    bookingId
+                ),
+
+                limit(1)
+
+            );
+
+
+        const snapshot =
+            await getDocs(
+                invoiceQuery
+            );
+
+
+        if(
+            snapshot.empty
+        ){
+
+            return null;
+
+        }
+
+
+        return snapshot.docs[0].data();
+
+    }
+    catch(error){
+
+        console.log(
+            "Invoice search:",
+            error
+        );
+
+        return null;
+
+    }
+
+}
+
+
+
+/* =========================
+   SHOW INVOICE
+========================= */
+
+function showInvoice(
+    data,
+    booking
+){
+
+    if(!data){
+
+        invoice.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    invoice.style.display =
+        "block";
+
+
+    document.getElementById(
+        "invoiceNumber"
+    ).innerText =
+
+        data.invoiceNumber ||
+        data.invoiceId ||
+        (
+            "INV-" +
+            booking.bookingId.replace(
+                "BK-",
+                ""
+            )
+        );
+
+
+    document.getElementById(
+        "invoiceCustomer"
+    ).innerText =
+
+        data.customerName ||
+        booking.customerName ||
+        "-";
+
+
+    document.getElementById(
+        "invoiceBooking"
+    ).innerText =
+
+        booking.bookingId ||
+        "-";
+
+
+    document.getElementById(
+        "invoicePhone"
+    ).innerText =
+
+        data.customerPhone ||
+        booking.customerPhone ||
+        "-";
+
+
+    document.getElementById(
+        "invoiceDate"
+    ).innerText =
+
+        formatDate(
+            data.createdAt ||
+            data.date
+        );
+
+
+
+    const itemsBox =
+        document.getElementById(
+            "invoiceItems"
+        );
+
+
+    itemsBox.innerHTML =
+        "";
+
+
+    let items =
+        data.items ||
+        data.services ||
+        data.invoiceItems ||
+        [];
+
+
+    /*
+       If Owner App stores one
+       service instead of items.
+    */
+
+    if(
+        !Array.isArray(items)
+    ){
+
+        items = [];
+
+    }
+
+
+    /*
+       Use booking service if
+       invoice has no items.
+    */
+
+    if(
+        items.length === 0
+    ){
+
+        const amount =
+            data.total ||
+            data.amount ||
+            data.grandTotal ||
+            0;
+
+
+        items = [
+
+            {
+
+                description:
+                    booking.service ||
+                    "Service",
+
+                amount:
+                    amount
+
+            }
+
+        ];
+
+    }
+
+
+
+    let total = 0;
+
+
+    items.forEach(
+        item => {
+
+
+            const description =
+
+                item.description ||
+                item.name ||
+                item.service ||
+                "Service";
+
+
+            const amount =
+
+                Number(
+                    item.amount ??
+                    item.price ??
+                    item.total ??
+                    0
+                );
+
+
+            total += amount;
+
+
+            const row =
+                document.createElement(
+                    "tr"
+                );
+
+
+            row.innerHTML = `
+
+                <td>
+                    ${escapeHtml(
+                        String(
+                            description
+                        )
+                    )}
+                </td>
+
+                <td>
+                    ${formatMoney(
+                        amount
+                    )}
+                </td>
+
+            `;
+
+
+            itemsBox.appendChild(
+                row
+            );
+
+        }
+    );
+
+
+    /*
+       If invoice has explicit total,
+       use that instead.
+    */
+
+    if(
+        data.total !== undefined
+    ){
+
+        total =
+            Number(
+                data.total
+            );
+
+    }
+    else if(
+        data.grandTotal !== undefined
+    ){
+
+        total =
+            Number(
+                data.grandTotal
+            );
+
+    }
+    else if(
+        data.amount !== undefined
+        &&
+        items.length <= 1
+    ){
+
+        total =
+            Number(
+                data.amount
+            );
+
+    }
+
+
+    document.getElementById(
+        "invoiceTotal"
+    ).innerText =
+        formatMoney(
+            total
+        );
+
+}
+
+
+
+/* =========================
+   SECURITY
+========================= */
+
+function escapeHtml(
+    text
+){
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+    div.textContent =
+        text;
+
+    return div.innerHTML;
+
+}
+
+
+
+/* =========================
+   SEARCH SUBMIT
+========================= */
+
+trackingForm.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+
+        const bookingId =
+            bookingInput
+                .value
+                .trim()
+                .toUpperCase();
+
+
+        if(!bookingId){
+
+            showMessage(
+                "❌ Please enter your Booking ID.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        hideMessage();
+
+
+        result.style.display =
+            "none";
+
+
+        invoice.style.display =
+            "none";
+
+
+        searchBtn.disabled =
+            true;
+
+
+        searchBtn.innerText =
+            "Searching...";
+
+
+        try{
+
+
+            /*
+               FIND BOOKING
+            */
+
+            const booking =
+                await findBooking(
+                    bookingId
+                );
+
+
+            if(!booking){
+
+                showMessage(
+                    "❌ Booking ID not found. Please check your Booking ID and try again.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            /*
+               SHOW BOOKING
+            */
+
+            showBooking(
+                booking
+            );
+
+
+            /*
+               FIND INVOICE
+            */
+
+            const invoiceData =
+                await findInvoice(
+                    bookingId
+                );
+
+
+            if(invoiceData){
+
+                showInvoice(
+                    invoiceData,
+                    booking
+                );
+
+            }
+
+
+            showMessage(
+                "✅ Booking found successfully.",
+                "success"
+            );
+
+
+            /*
+               Scroll to result
+            */
+
+            setTimeout(
+                function(){
+
+                    result.scrollIntoView({
+                        behavior:"smooth",
+                        block:"start"
+                    });
+
+                },
+                200
+            );
+
+
+        }
+        catch(error){
+
+            console.error(
+                "Tracking error:",
+                error
+            );
+
+
+            showMessage(
+                "❌ Booking check nahi ho saki. Please try again.",
+                "error"
+            );
+
+        }
+        finally{
+
+            searchBtn.disabled =
+                false;
+
+            searchBtn.innerText =
+                "Track Booking";
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
