@@ -1,63 +1,60 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Smart Cool & Refrigerator | AC, Fridge & Electrician</title>
+  <title>Smart Cool & Refrigerator | AC & Fridge Services Karachi</title>
 
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
     }
 
     body {
-      font-family: Arial, sans-serif;
       background: #f4f8fb;
       color: #222;
       line-height: 1.6;
     }
 
     header {
-      background: #0b6efd;
+      background: #0077b6;
       color: white;
       padding: 15px 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
 
     .header-inner {
       max-width: 1200px;
       margin: auto;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      align-items: center;
+      gap: 15px;
     }
 
     .logo {
-      font-size: 22px;
+      font-size: 21px;
       font-weight: bold;
-      white-space: nowrap;
     }
 
     nav {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 8px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      padding: 8px 10px;
-      border-radius: 6px;
+      padding: 8px 11px;
+      border-radius: 5px;
       font-size: 14px;
     }
 
@@ -66,105 +63,110 @@
     }
 
     .hero {
-      background:
-        linear-gradient(
-          rgba(0,80,160,0.80),
-          rgba(0,80,160,0.80)
-        ),
-        linear-gradient(135deg,#0b6efd,#00b4d8);
+      background: linear-gradient(135deg, #0077b6, #00b4d8);
       color: white;
-      padding: 80px 20px;
+      padding: 70px 20px;
       text-align: center;
     }
 
     .hero h1 {
-      font-size: 42px;
+      font-size: 38px;
       margin-bottom: 15px;
     }
 
     .hero p {
-      font-size: 19px;
-      max-width: 750px;
+      font-size: 18px;
+      max-width: 700px;
       margin: auto;
     }
 
-    .btn {
-      display: inline-block;
+    .hero-buttons {
       margin-top: 25px;
-      padding: 12px 22px;
-      background: white;
-      color: #0b6efd;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
     }
 
-    .btn:hover {
-      opacity: 0.9;
+    .hero-btn {
+      display: inline-block;
+      background: white;
+      color: #0077b6;
+      padding: 12px 22px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 5px;
+    }
+
+    .hero-btn:hover {
+      background: #eaf7ff;
     }
 
     section {
-      padding: 55px 20px;
-    }
-
-    .container {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: auto;
+      padding: 55px 20px;
     }
 
     .section-title {
       text-align: center;
+      color: #0077b6;
+      margin-bottom: 30px;
       font-size: 30px;
-      margin-bottom: 35px;
-      color: #075bb5;
     }
 
-    .services-grid {
+    .services {
       display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
     }
 
     .service-card {
       background: white;
-      padding: 25px;
-      border-radius: 12px;
+      padding: 25px 20px;
+      border-radius: 10px;
       text-align: center;
-      box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      transition: 0.2s;
     }
 
-    .service-card .icon {
+    .service-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
       font-size: 42px;
       margin-bottom: 10px;
     }
 
     .service-card h3 {
-      color: #075bb5;
-      margin-bottom: 10px;
+      color: #0077b6;
+      margin-bottom: 8px;
     }
 
-    .account-section {
-      background: #eaf5ff;
-    }
-
-    .auth-box {
-      max-width: 450px;
+    .account-wrapper {
+      max-width: 850px;
       margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
     }
 
-    .auth-box h3 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #075bb5;
+    .account-box {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      margin-bottom: 25px;
+    }
+
+    .account-box h3 {
+      color: #0077b6;
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
     }
 
     input,
@@ -172,172 +174,168 @@
     textarea {
       width: 100%;
       padding: 12px;
-      margin-top: 7px;
-      margin-bottom: 15px;
       border: 1px solid #ccc;
-      border-radius: 7px;
+      border-radius: 6px;
       font-size: 15px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #0077b6;
     }
 
     textarea {
-      min-height: 100px;
+      min-height: 110px;
       resize: vertical;
     }
 
-    label {
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .auth-box button,
-    .booking-box button {
-      width: 100%;
-      padding: 12px;
+    button {
       border: none;
-      border-radius: 7px;
-      background: #0b6efd;
-      color: white;
-      font-size: 16px;
       cursor: pointer;
+      padding: 12px 20px;
+      border-radius: 7px;
+      font-size: 15px;
+      font-weight: bold;
     }
 
-    .auth-box button:hover,
-    .booking-box button:hover {
-      background: #075bb5;
+    .primary-btn {
+      background: #0077b6;
+      color: white;
     }
 
-    .switch-btn {
-      background: none !important;
-      color: #0b6efd !important;
-      margin-top: 8px;
-      font-size: 14px !important;
+    .primary-btn:hover {
+      background: #005f91;
+    }
+
+    .success-btn {
+      background: #198754;
+      color: white;
+    }
+
+    .success-btn:hover {
+      background: #146c43;
+    }
+
+    .logout-btn {
+      background: #dc3545;
+      color: white;
+    }
+
+    .logout-btn:hover {
+      background: #bb2d3b;
     }
 
     .message {
       margin-top: 12px;
-      text-align: center;
-      font-weight: bold;
+      padding: 10px;
+      border-radius: 6px;
+      display: none;
+    }
+
+    .message.success {
+      display: block;
+      background: #d1e7dd;
+      color: #0f5132;
+    }
+
+    .message.error {
+      display: block;
+      background: #f8d7da;
+      color: #842029;
     }
 
     .user-panel {
-      max-width: 600px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
-      text-align: center;
+      background: #e9f7ff;
+      border-left: 5px solid #0077b6;
+      padding: 20px;
+      border-radius: 8px;
       display: none;
     }
 
     .user-panel h3 {
-      color: #075bb5;
-      margin-bottom: 10px;
+      color: #0077b6;
+      margin-bottom: 8px;
     }
 
-    .logout-btn {
-      background: #dc3545 !important;
-      margin-top: 15px;
-      width: 100%;
-      padding: 12px;
-      border: none;
-      border-radius: 7px;
-      color: white;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .logout-btn:hover {
-      background: #bb2d3b !important;
-    }
-
-    .track-btn {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 12px 20px;
-      background: #198754;
-      color: white;
-      text-decoration: none;
-      border-radius: 7px;
-      font-weight: bold;
-    }
-
-    .track-btn:hover {
-      background: #146c43;
+    .user-panel p {
+      margin-bottom: 12px;
     }
 
     .booking-section {
-      background: white;
+      background: #eef9ff;
+      border-top: 1px solid #d5edf8;
+      border-bottom: 1px solid #d5edf8;
     }
 
     .booking-box {
-      max-width: 700px;
+      max-width: 800px;
       margin: auto;
-      background: #f8fbff;
+      background: white;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
     }
 
-    .booking-box h3 {
-      color: #075bb5;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    #bookingLoginMessage {
+    .login-required {
       text-align: center;
       background: #fff3cd;
       color: #664d03;
-      padding: 12px;
+      padding: 15px;
       border-radius: 7px;
-      margin-bottom: 15px;
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .why-card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
     }
 
     .contact-box {
-      max-width: 700px;
-      margin: auto;
-      background: #0b6efd;
-      color: white;
-      padding: 35px;
-      border-radius: 12px;
       text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
     }
 
-    .contact-box a {
-      color: white;
+    .contact-box h3 {
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+
+    .contact-number {
+      font-size: 22px;
       font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      background: #25D366;
+      color: white;
       text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 7px;
+      font-weight: bold;
+      margin-top: 10px;
     }
 
     footer {
-      background: #082b4c;
+      background: #023e8a;
       color: white;
       text-align: center;
       padding: 25px 15px;
+      margin-top: 30px;
+    }
+
+    .hidden {
+      display: none !important;
     }
 
     @media (max-width: 700px) {
       .header-inner {
         flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
       }
 
       .hero h1 {
@@ -348,8 +346,8 @@
         font-size: 16px;
       }
 
-      nav a {
-        font-size: 13px;
+      section {
+        padding: 40px 15px;
       }
     }
   </style>
@@ -357,261 +355,272 @@
 
 <body>
 
-<header>
-  <div class="header-inner">
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
 
-    <div class="logo">
-      ❄️ Smart Cool & Refrigerator
+      <div class="logo">
+        Smart Cool & Refrigerator
+      </div>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#account">Account</a>
+        <a href="#booking">Book Service</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <h1>Smart Cool & Refrigerator</h1>
+
+    <p>
+      Professional AC, Refrigerator, Water Dispenser &
+      Electrician Services
+    </p>
+
+    <p style="margin-top:10px;">
+      🏠 Home Service — All Over Karachi
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#booking" class="hero-btn">
+        Book Service
+      </a>
+
+      <a href="https://wa.me/923208463110" class="hero-btn">
+        WhatsApp Us
+      </a>
     </div>
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#account">Account</a>
-      <a href="#booking">Book Service</a>
-      <a href="tracking.html">Track Booking</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-  </div>
-</header>
+  </section>
 
 
-<section class="hero" id="home">
-
-  <h1>Smart Cool & Refrigerator</h1>
-
-  <p>
-    AC Repairing, AC Service, AC Installation,
-    Refrigerator Repair, Water Dispenser Repair
-    & Electrician Home Service
-  </p>
-
-  <p style="margin-top:10px;">
-    📍 All Over Karachi
-  </p>
-
-  <a href="#booking" class="btn">
-    📅 Book Service
-  </a>
-
-</section>
-
-
-<section id="services">
-
-  <div class="container">
+  <!-- SERVICES -->
+  <section id="services">
 
     <h2 class="section-title">
       Our Services
     </h2>
 
-    <div class="services-grid">
+    <div class="services">
 
       <div class="service-card">
-        <div class="icon">❄️</div>
+        <div class="service-icon">❄️</div>
         <h3>AC Repairing</h3>
         <p>
-          Professional AC repairing
-          for all major brands.
+          Professional AC repairing service for home and office.
         </p>
       </div>
 
       <div class="service-card">
-        <div class="icon">🧊</div>
+        <div class="service-icon">🧊</div>
         <h3>AC Service</h3>
         <p>
-          Complete AC service and
-          cleaning at your home.
+          Complete AC cleaning and maintenance service.
         </p>
       </div>
 
       <div class="service-card">
-        <div class="icon">🔧</div>
+        <div class="service-icon">🔧</div>
         <h3>AC Installation</h3>
         <p>
-          Professional AC installation
-          and fitting service.
+          Expert AC installation and shifting service.
         </p>
       </div>
 
       <div class="service-card">
-        <div class="icon">⚡</div>
+        <div class="service-icon">💨</div>
         <h3>AC Gas Charging</h3>
         <p>
-          R22 and R410 gas charging
-          service.
+          R22 and R410 gas charging service.
         </p>
       </div>
 
       <div class="service-card">
-        <div class="icon">🧊</div>
+        <div class="service-icon">🧊</div>
         <h3>Refrigerator Repair</h3>
         <p>
-          Fridge troubleshooting,
-          repairing and maintenance.
+          Fridge compressor, cooling and electrical repair.
         </p>
       </div>
 
       <div class="service-card">
-        <div class="icon">🚰</div>
+        <div class="service-icon">🚰</div>
         <h3>Water Dispenser</h3>
         <p>
-          Water dispenser repairing
-          and maintenance.
+          Water dispenser repairing and maintenance service.
         </p>
       </div>
 
       <div class="service-card">
-        <div class="icon">💡</div>
+        <div class="service-icon">⚡</div>
         <h3>Electrician</h3>
         <p>
-          Home electrician services
-          across Karachi.
+          Home electrical repair and electrician services.
         </p>
       </div>
 
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 
-<section id="account" class="account-section">
-
-  <div class="container">
+  <!-- ACCOUNT -->
+  <section id="account">
 
     <h2 class="section-title">
       Customer Account
     </h2>
 
+    <div class="account-wrapper">
 
-    <div class="auth-box" id="loginBox">
+      <!-- LOGIN -->
+      <div class="account-box" id="loginBox">
 
-      <h3>Customer Login</h3>
+        <h3>Customer Login</h3>
 
-      <label>Email</label>
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            id="loginEmail"
+            placeholder="Enter your email"
+          >
+        </div>
 
-      <input
-        type="email"
-        id="loginEmail"
-        placeholder="Enter your email"
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter your password"
+          >
+        </div>
+
+        <button
+          class="primary-btn"
+          id="loginBtn"
+        >
+          Login
+        </button>
+
+        <div
+          id="loginMessage"
+          class="message"
+        ></div>
+
+      </div>
+
+
+      <!-- SIGNUP -->
+      <div class="account-box" id="signupBox">
+
+        <h3>Create Customer Account</h3>
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input
+            type="text"
+            id="signupName"
+            placeholder="Enter your name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input
+            type="tel"
+            id="signupPhone"
+            placeholder="03XXXXXXXXX"
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="email"
+            id="signupEmail"
+            placeholder="Enter your email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            id="signupPassword"
+            placeholder="Create password"
+          >
+        </div>
+
+        <button
+          class="success-btn"
+          id="signupBtn"
+        >
+          Sign Up
+        </button>
+
+        <div
+          id="signupMessage"
+          class="message"
+        ></div>
+
+      </div>
+
+
+      <!-- LOGGED IN USER -->
+      <div
+        class="user-panel"
+        id="userPanel"
       >
 
-      <label>Password</label>
+        <h3>Welcome!</h3>
 
-      <input
-        type="password"
-        id="loginPassword"
-        placeholder="Enter your password"
-      >
+        <p>
+          You are successfully logged in.
+        </p>
 
-      <button id="loginBtn">
-        🔐 Login
-      </button>
+        <p>
+          <strong>Name:</strong>
+          <span id="userName"></span>
+        </p>
 
-      <p id="loginMessage" class="message"></p>
+        <p>
+          <strong>Email:</strong>
+          <span id="userEmail"></span>
+        </p>
 
-      <button
-        class="switch-btn"
-        id="showSignupBtn"
-      >
-        Create New Account
-      </button>
+        <p>
+          <strong>Phone:</strong>
+          <span id="userPhone"></span>
+        </p>
+
+        <button
+          class="logout-btn"
+          id="logoutBtn"
+        >
+          Logout
+        </button>
+
+      </div>
 
     </div>
 
-
-    <div
-      class="auth-box"
-      id="signupBox"
-      style="display:none;"
-    >
-
-      <h3>Create Customer Account</h3>
-
-      <label>Full Name</label>
-
-      <input
-        type="text"
-        id="signupName"
-        placeholder="Enter your name"
-      >
-
-      <label>Phone Number</label>
-
-      <input
-        type="tel"
-        id="signupPhone"
-        placeholder="03XXXXXXXXX"
-      >
-
-      <label>Email</label>
-
-      <input
-        type="email"
-        id="signupEmail"
-        placeholder="Enter your email"
-      >
-
-      <label>Password</label>
-
-      <input
-        type="password"
-        id="signupPassword"
-        placeholder="Minimum 6 characters"
-      >
-
-      <button id="signupBtn">
-        📝 Create Account
-      </button>
-
-      <p id="signupMessage" class="message"></p>
-
-      <button
-        class="switch-btn"
-        id="showLoginBtn"
-      >
-        Already have an account? Login
-      </button>
-
-    </div>
+  </section>
 
 
-    <div
-      id="userPanel"
-      class="user-panel"
-    >
-
-      <h3>Welcome 👋</h3>
-
-      <p id="userInfo"></p>
-
-      <a
-        href="tracking.html"
-        class="track-btn"
-      >
-        🔎 Track My Booking
-      </a>
-
-      <button
-        class="logout-btn"
-        id="logoutBtn"
-      >
-        Logout
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="booking" class="booking-section">
-
-  <div class="container">
+  <!-- BOOKING -->
+  <section
+    id="booking"
+    class="booking-section"
+  >
 
     <h2 class="section-title">
       Book a Service
@@ -619,937 +628,917 @@
 
     <div class="booking-box">
 
-      <h3>Service Booking Form</h3>
-
-      <div id="bookingLoginMessage">
-        🔐 Please login first to book a service.
+      <div
+        id="loginRequired"
+        class="login-required"
+      >
+        🔐 Please login or create an account before booking a service.
       </div>
+
 
       <form id="bookingForm">
 
-        <label>Customer Name</label>
+        <div class="form-group">
 
-        <input
-          type="text"
-          id="bookingName"
-          placeholder="Customer name"
-          required
-        >
+          <label>
+            Customer Name
+          </label>
 
-        <label>Phone Number</label>
+          <input
+            type="text"
+            id="customerName"
+            required
+            placeholder="Your name"
+          >
 
-        <input
-          type="tel"
-          id="bookingPhone"
-          placeholder="03XXXXXXXXX"
-          required
-        >
+        </div>
 
-        <label>Service</label>
 
-        <select id="bookingService" required>
+        <div class="form-group">
 
-          <option value="">
+          <label>
+            Phone Number
+          </label>
+
+          <input
+            type="tel"
+            id="customerPhone"
+            required
+            placeholder="03XXXXXXXXX"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
             Select Service
-          </option>
+          </label>
 
-          <option value="AC Repairing">
-            AC Repairing
-          </option>
+          <select
+            id="service"
+            required
+          >
 
-          <option value="AC Service">
-            AC Service
-          </option>
+            <option value="">
+              Select a service
+            </option>
 
-          <option value="AC Installation">
-            AC Installation
-          </option>
+            <option value="AC Repairing">
+              AC Repairing
+            </option>
 
-          <option value="AC Gas Charging">
-            AC Gas Charging
-          </option>
+            <option value="AC Service">
+              AC Service
+            </option>
 
-          <option value="Refrigerator Repair">
-            Refrigerator Repair
-          </option>
+            <option value="AC Installation">
+              AC Installation
+            </option>
 
-          <option value="Water Dispenser Repair">
-            Water Dispenser Repair
-          </option>
+            <option value="AC Gas Charging">
+              AC Gas Charging
+            </option>
 
-          <option value="Electrician">
-            Electrician
-          </option>
+            <option value="Refrigerator Repair">
+              Refrigerator Repair
+            </option>
 
-        </select>
+            <option value="Water Dispenser Repair">
+              Water Dispenser Repair
+            </option>
 
-        <label>Area</label>
+            <option value="Electrician">
+              Electrician
+            </option>
 
-        <input
-          type="text"
-          id="bookingArea"
-          placeholder="Your area in Karachi"
-          required
-        >
+          </select>
 
-        <label>Complete Address</label>
+        </div>
 
-        <textarea
-          id="bookingAddress"
-          placeholder="Enter complete address"
-          required
-        ></textarea>
 
-        <label>Problem / Requirement</label>
+        <div class="form-group">
 
-        <textarea
-          id="bookingProblem"
-          placeholder="Tell us about the problem"
-          required
-        ></textarea>
+          <label>
+            Area
+          </label>
+
+          <input
+            type="text"
+            id="area"
+            required
+            placeholder="Your area in Karachi"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Complete Address
+          </label>
+
+          <textarea
+            id="address"
+            required
+            placeholder="Enter your complete address"
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>
+            Problem / Requirement
+          </label>
+
+          <textarea
+            id="problem"
+            required
+            placeholder="Describe your AC, fridge or electrical problem"
+          ></textarea>
+
+        </div>
+
 
         <button
           type="submit"
+          class="primary-btn"
           id="bookingBtn"
-          disabled
         >
-          🔐 Login First
+          Book Service
         </button>
 
-        <p
+
+        <div
           id="bookingMessage"
           class="message"
-        ></p>
+        ></div>
 
       </form>
 
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 
-<section>
-
-  <div class="container">
+  <!-- CONTACT -->
+  <section id="contact">
 
     <h2 class="section-title">
-      Why Choose Us?
+      Contact Us
     </h2>
-
-    <div class="why-grid">
-
-      <div class="why-card">
-        <h3>👨‍🔧 Expert Technicians</h3>
-        <p>
-          Experienced technicians for
-          AC, fridge and electrical work.
-        </p>
-      </div>
-
-      <div class="why-card">
-        <h3>🏠 Home Service</h3>
-        <p>
-          We provide convenient home
-          service across Karachi.
-        </p>
-      </div>
-
-      <div class="why-card">
-        <h3>⚡ Fast Response</h3>
-        <p>
-          Quick response for your
-          service request.
-        </p>
-      </div>
-
-      <div class="why-card">
-        <h3>🛠️ Reliable Work</h3>
-        <p>
-          Professional and reliable
-          repair service.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="contact">
-
-  <div class="container">
 
     <div class="contact-box">
 
-      <h2>Contact Us</h2>
-
-      <p style="margin-top:10px;">
+      <h3>
         Smart Cool & Refrigerator
+      </h3>
+
+      <p>
+        AC, Refrigerator, Water Dispenser & Electrician Services
       </p>
 
       <p>
         📍 All Over Karachi
       </p>
 
-      <p>
-        📞 Muhammad Rizwan:
-        <a href="tel:03208463110">
-          03208463110
-        </a>
-      </p>
+      <div class="contact-number">
+        📞 03208463110
+      </div>
 
       <a
-        class="btn"
         href="https://wa.me/923208463110"
+        class="whatsapp-btn"
         target="_blank"
       >
-        💬 WhatsApp Us
+        WhatsApp Muhammad Rizwan
       </a>
 
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 
-<footer>
+  <!-- FOOTER -->
+  <footer>
 
-  <p>
-    © 2026 Smart Cool & Refrigerator
-  </p>
+    <p>
+      © 2026 Smart Cool & Refrigerator
+    </p>
 
-  <p>
-    AC • Refrigerator • Water Dispenser • Electrician
-  </p>
+    <p>
+      All Over Karachi
+    </p>
 
-</footer>
+    <p style="margin-top:8px;">
+      Muhammad Rizwan — 03208463110
+    </p>
 
-
-<script type="module">
-
-/* =========================
-   FIREBASE IMPORTS
-========================= */
-
-import {
-  initializeApp
-} from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  </footer>
 
 
-import {
-  initializeAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
-  indexedDBLocalPersistence,
-  browserLocalPersistence
-} from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  <!-- FIREBASE -->
+  <script type="module">
+
+    import {
+      initializeApp
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
-import {
-  getFirestore,
-  doc,
-  setDoc,
-  collection,
-  addDoc,
-  serverTimestamp
-} from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
-/* =========================
-   FIREBASE CONFIG
-========================= */
-
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
-  authDomain: "smart-cool-6f513.firebaseapp.com",
-  projectId: "smart-cool-6f513",
-  storageBucket: "smart-cool-6f513.firebasestorage.app",
-  messagingSenderId: "10468224529",
-  appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
-  measurementId: "G-Y5SPBHP57C"
-};
-
-
-
-/* =========================
-   INITIALIZE FIREBASE
-========================= */
-
-const app =
-  initializeApp(firebaseConfig);
-
-
-/*
-  IMPORTANT:
-  Firebase Auth is initialized
-  directly with persistent storage.
-*/
-
-const auth =
-  initializeAuth(app, {
-
-    persistence: [
+    import {
+      initializeAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      signOut,
+      onAuthStateChanged,
       indexedDBLocalPersistence,
       browserLocalPersistence
-    ]
-
-  });
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
-const db =
-  getFirestore(app);
+    import {
+      getFirestore,
+      doc,
+      setDoc,
+      addDoc,
+      collection,
+      serverTimestamp,
+      getDoc
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* =========================
-   ELEMENTS
-========================= */
+    // FIREBASE CONFIG
 
-const loginBox =
-  document.getElementById("loginBox");
+    const firebaseConfig = {
 
-const signupBox =
-  document.getElementById("signupBox");
+      apiKey:
+        "AIzaSyAvNAl6gje0ly5XtxNotNl_dJhEhJ9pSHg",
 
-const userPanel =
-  document.getElementById("userPanel");
+      authDomain:
+        "smart-cool-6f513.firebaseapp.com",
 
-const userInfo =
-  document.getElementById("userInfo");
+      projectId:
+        "smart-cool-6f513",
 
-const loginMessage =
-  document.getElementById("loginMessage");
+      storageBucket:
+        "smart-cool-6f513.firebasestorage.app",
 
-const signupMessage =
-  document.getElementById("signupMessage");
+      messagingSenderId:
+        "10468224529",
 
-const bookingMessage =
-  document.getElementById("bookingMessage");
+      appId:
+        "1:10468224529:web:51026a5b4ac67a4ad40bb0",
 
-const bookingLoginMessage =
-  document.getElementById(
-    "bookingLoginMessage"
-  );
+      measurementId:
+        "G-Y5SPBHP57C"
 
-const bookingBtn =
-  document.getElementById("bookingBtn");
+    };
 
 
-/* =========================
-   SIGNUP / LOGIN SWITCH
-========================= */
+    // INITIALIZE FIREBASE
 
-document
-  .getElementById("showSignupBtn")
-  .addEventListener("click", () => {
-
-    loginBox.style.display = "none";
-
-    signupBox.style.display = "block";
-
-    loginMessage.textContent = "";
-
-    signupMessage.textContent = "";
-
-  });
+    const app =
+      initializeApp(firebaseConfig);
 
 
-document
-  .getElementById("showLoginBtn")
-  .addEventListener("click", () => {
+    const auth =
+      initializeAuth(app, {
 
-    signupBox.style.display = "none";
+        persistence: [
+          indexedDBLocalPersistence,
+          browserLocalPersistence
+        ]
 
-    loginBox.style.display = "block";
-
-    loginMessage.textContent = "";
-
-    signupMessage.textContent = "";
-
-  });
+      });
 
 
-/* =========================
-   SIGNUP
-========================= */
-
-document
-  .getElementById("signupBtn")
-  .addEventListener("click", async () => {
-
-    const name =
-      document
-        .getElementById("signupName")
-        .value
-        .trim();
-
-    const phone =
-      document
-        .getElementById("signupPhone")
-        .value
-        .trim();
-
-    const email =
-      document
-        .getElementById("signupEmail")
-        .value
-        .trim();
-
-    const password =
-      document
-        .getElementById("signupPassword")
-        .value;
+    const db =
+      getFirestore(app);
 
 
-    if (
-      !name ||
-      !phone ||
-      !email ||
-      !password
+    // ELEMENTS
+
+    const loginBox =
+      document.getElementById("loginBox");
+
+    const signupBox =
+      document.getElementById("signupBox");
+
+    const userPanel =
+      document.getElementById("userPanel");
+
+    const loginRequired =
+      document.getElementById("loginRequired");
+
+    const bookingForm =
+      document.getElementById("bookingForm");
+
+
+    // MESSAGE FUNCTION
+
+    function showMessage(
+      element,
+      message,
+      type
     ) {
 
-      signupMessage.style.color =
-        "red";
+      element.textContent = message;
 
-      signupMessage.textContent =
-        "Please fill all fields.";
-
-      return;
+      element.className =
+        "message " + type;
 
     }
 
 
-    signupMessage.style.color =
-      "#075bb5";
+    // SIGN UP
 
-    signupMessage.textContent =
-      "Creating account...";
+    document
+      .getElementById("signupBtn")
+      .addEventListener("click", async () => {
+
+        const name =
+          document
+            .getElementById("signupName")
+            .value
+            .trim();
+
+        const phone =
+          document
+            .getElementById("signupPhone")
+            .value
+            .trim();
+
+        const email =
+          document
+            .getElementById("signupEmail")
+            .value
+            .trim();
+
+        const password =
+          document
+            .getElementById("signupPassword")
+            .value;
 
 
-    try {
-
-      const userCredential =
-        await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
+        const message =
+          document
+            .getElementById("signupMessage");
 
 
-      const user =
-        userCredential.user;
+        if (!name || !phone || !email || !password) {
 
+          showMessage(
+            message,
+            "Please fill all fields.",
+            "error"
+          );
 
-      await setDoc(
-        doc(
-          db,
-          "customers",
-          user.uid
-        ),
-        {
-
-          uid:
-            user.uid,
-
-          name:
-            name,
-
-          phone:
-            phone,
-
-          email:
-            email,
-
-          createdAt:
-            serverTimestamp()
+          return;
 
         }
-      );
 
 
-      signupMessage.style.color =
-        "green";
+        if (password.length < 6) {
 
-      signupMessage.textContent =
-        "Account created successfully!";
+          showMessage(
+            message,
+            "Password must be at least 6 characters.",
+            "error"
+          );
 
+          return;
 
-    }
+        }
 
-    catch (error) {
 
-      console.error(
-        "Signup error:",
-        error
-      );
+        try {
 
-      signupMessage.style.color =
-        "red";
+          const userCredential =
+            await createUserWithEmailAndPassword(
+              auth,
+              email,
+              password
+            );
 
-      signupMessage.textContent =
-        error.message;
 
-    }
+          const user =
+            userCredential.user;
 
-  });
 
+          await setDoc(
+            doc(
+              db,
+              "customers",
+              user.uid
+            ),
+            {
 
-/* =========================
-   LOGIN
-========================= */
+              uid:
+                user.uid,
 
-document
-  .getElementById("loginBtn")
-  .addEventListener("click", async () => {
+              name:
+                name,
 
-    const email =
-      document
-        .getElementById("loginEmail")
-        .value
-        .trim();
+              phone:
+                phone,
 
-    const password =
-      document
-        .getElementById("loginPassword")
-        .value;
+              email:
+                email,
 
+              createdAt:
+                serverTimestamp()
 
-    if (!email || !password) {
-
-      loginMessage.style.color =
-        "red";
-
-      loginMessage.textContent =
-        "Please enter email and password.";
-
-      return;
-
-    }
-
-
-    loginMessage.style.color =
-      "#075bb5";
-
-    loginMessage.textContent =
-      "Logging in...";
-
-
-    try {
-
-      const userCredential =
-        await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-
-
-      const user =
-        userCredential.user;
-
-
-      console.log(
-        "LOGIN SUCCESS:",
-        user.email
-      );
-
-      console.log(
-        "USER UID:",
-        user.uid
-      );
-
-
-      loginMessage.style.color =
-        "green";
-
-      loginMessage.textContent =
-        "Login successful!";
-
-
-    }
-
-    catch (error) {
-
-      console.error(
-        "Login error:",
-        error
-      );
-
-      loginMessage.style.color =
-        "red";
-
-      loginMessage.textContent =
-        error.message;
-
-    }
-
-  });
-
-
-/* =========================
-   LOGOUT
-========================= */
-
-document
-  .getElementById("logoutBtn")
-  .addEventListener("click", async () => {
-
-    try {
-
-      await signOut(auth);
-
-      window.location.hash =
-        "account";
-
-    }
-
-    catch (error) {
-
-      console.error(
-        "Logout error:",
-        error
-      );
-
-    }
-
-  });
-
-
-/* =========================
-   AUTH STATE
-========================= */
-
-onAuthStateChanged(
-  auth,
-  async (user) => {
-
-    console.log(
-      "AUTH STATE:",
-      user
-        ? user.email
-        : "NOT LOGGED IN"
-    );
-
-
-    if (user) {
-
-      /* USER LOGGED IN */
-
-      loginBox.style.display =
-        "none";
-
-      signupBox.style.display =
-        "none";
-
-      userPanel.style.display =
-        "block";
-
-
-      bookingLoginMessage.style.display =
-        "none";
-
-      bookingBtn.disabled =
-        false;
-
-      bookingBtn.textContent =
-        "📅 Book Service";
-
-
-      /* CUSTOMER DATA */
-
-      try {
-
-        const response =
-          await fetch(
-            `https://firestore.googleapis.com/v1/projects/smart-cool-6f513/databases/(default)/documents/customers/${user.uid}`
+            }
           );
 
 
-        if (response.ok) {
-
-          const data =
-            await response.json();
-
-          const fields =
-            data.fields || {};
-
-
-          const name =
-            fields.name?.stringValue ||
-            user.email;
-
-
-          const phone =
-            fields.phone?.stringValue ||
-            "";
-
-
-          userInfo.innerHTML = `
-            <strong>
-              ${name}
-            </strong>
-            <br>
-            📧 ${user.email}
-            <br>
-            📞 ${phone}
-          `;
-
-
-          document
-            .getElementById("bookingName")
-            .value =
-            name;
-
-
-          document
-            .getElementById("bookingPhone")
-            .value =
-            phone;
-
-        }
-
-        else {
-
-          userInfo.innerHTML =
-            `📧 ${user.email}`;
-
-        }
-
-      }
-
-      catch (error) {
-
-        console.error(
-          "Customer data error:",
-          error
-        );
-
-        userInfo.innerHTML =
-          `📧 ${user.email}`;
-
-      }
-
-    }
-
-    else {
-
-      /* USER LOGGED OUT */
-
-      loginBox.style.display =
-        "block";
-
-      signupBox.style.display =
-        "none";
-
-      userPanel.style.display =
-        "none";
-
-
-      bookingLoginMessage.style.display =
-        "block";
-
-      bookingBtn.disabled =
-        true;
-
-      bookingBtn.textContent =
-        "🔐 Login First";
-
-    }
-
-  }
-);
-
-
-/* =========================
-   BOOKING
-========================= */
-
-document
-  .getElementById("bookingForm")
-  .addEventListener(
-    "submit",
-    async (event) => {
-
-      event.preventDefault();
-
-
-      const user =
-        auth.currentUser;
-
-
-      if (!user) {
-
-        bookingMessage.style.color =
-          "red";
-
-        bookingMessage.textContent =
-          "Please login first.";
-
-        return;
-
-      }
-
-
-      const name =
-        document
-          .getElementById("bookingName")
-          .value
-          .trim();
-
-      const phone =
-        document
-          .getElementById("bookingPhone")
-          .value
-          .trim();
-
-      const service =
-        document
-          .getElementById("bookingService")
-          .value;
-
-      const area =
-        document
-          .getElementById("bookingArea")
-          .value
-          .trim();
-
-      const address =
-        document
-          .getElementById("bookingAddress")
-          .value
-          .trim();
-
-      const problem =
-        document
-          .getElementById("bookingProblem")
-          .value
-          .trim();
-
-
-      if (
-        !name ||
-        !phone ||
-        !service ||
-        !area ||
-        !address ||
-        !problem
-      ) {
-
-        bookingMessage.style.color =
-          "red";
-
-        bookingMessage.textContent =
-          "Please fill all booking fields.";
-
-        return;
-
-      }
-
-
-      bookingBtn.disabled =
-        true;
-
-      bookingBtn.textContent =
-        "⏳ Booking...";
-
-
-      bookingMessage.style.color =
-        "#075bb5";
-
-      bookingMessage.textContent =
-        "Creating your booking...";
-
-
-      try {
-
-        /* CREATE BOOKING ID */
-
-        const bookingId =
-          "BK-" +
-          Math.floor(
-            10000000 +
-            Math.random() * 90000000
+          showMessage(
+            message,
+            "Account created successfully!",
+            "success"
           );
 
 
-        /* SAVE BOOKING */
+          document
+            .getElementById("signupName")
+            .value = "";
 
-        await addDoc(
-          collection(
-            db,
-            "serviceRequests"
-          ),
-          {
+          document
+            .getElementById("signupPhone")
+            .value = "";
 
-            bookingId:
-              bookingId,
+          document
+            .getElementById("signupEmail")
+            .value = "";
 
-            customerUid:
-              user.uid,
+          document
+            .getElementById("signupPassword")
+            .value = "";
 
-            customerEmail:
-              user.email,
 
-            customerName:
-              name,
+        } catch (error) {
 
-            customerPhone:
-              phone,
+          console.error(error);
 
-            service:
-              service,
 
-            area:
-              area,
+          let text =
+            "Signup failed. Please try again.";
 
-            address:
-              address,
 
-            problem:
-              problem,
+          if (
+            error.code ===
+            "auth/email-already-in-use"
+          ) {
 
-            status:
-              "pending",
-
-            source:
-              "website",
-
-            createdAt:
-              serverTimestamp()
+            text =
+              "This email is already registered.";
 
           }
-        );
+
+          if (
+            error.code ===
+            "auth/invalid-email"
+          ) {
+
+            text =
+              "Please enter a valid email.";
+
+          }
+
+          if (
+            error.code ===
+            "auth/weak-password"
+          ) {
+
+            text =
+              "Password is too weak.";
+
+          }
 
 
-        /* WHATSAPP */
+          showMessage(
+            message,
+            text,
+            "error"
+          );
 
-        const whatsappMessage = `
-New Service Booking
+        }
 
-Booking ID:
-${bookingId}
+      });
 
-Customer:
-${name}
 
-Phone:
-${phone}
+    // LOGIN
 
-Service:
-${service}
+    document
+      .getElementById("loginBtn")
+      .addEventListener("click", async () => {
 
-Area:
-${area}
+        const email =
+          document
+            .getElementById("loginEmail")
+            .value
+            .trim();
+
+        const password =
+          document
+            .getElementById("loginPassword")
+            .value;
+
+
+        const message =
+          document
+            .getElementById("loginMessage");
+
+
+        if (!email || !password) {
+
+          showMessage(
+            message,
+            "Please enter email and password.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        try {
+
+          await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+
+
+          showMessage(
+            message,
+            "Login successful!",
+            "success"
+          );
+
+
+        } catch (error) {
+
+          console.error(error);
+
+
+          let text =
+            "Login failed. Please check your email and password.";
+
+
+          if (
+            error.code ===
+            "auth/invalid-credential"
+          ) {
+
+            text =
+              "Email or password is incorrect.";
+
+          }
+
+
+          showMessage(
+            message,
+            text,
+            "error"
+          );
+
+        }
+
+      });
+
+
+    // LOGOUT
+
+    document
+      .getElementById("logoutBtn")
+      .addEventListener("click", async () => {
+
+        try {
+
+          await signOut(auth);
+
+        } catch (error) {
+
+          console.error(error);
+
+        }
+
+      });
+
+
+    // AUTH STATE
+
+    onAuthStateChanged(
+      auth,
+      async (user) => {
+
+        if (user) {
+
+          loginBox.classList.add("hidden");
+
+          signupBox.classList.add("hidden");
+
+          userPanel.style.display =
+            "block";
+
+          loginRequired.classList.add(
+            "hidden"
+          );
+
+
+          try {
+
+            const customerDoc =
+              await getDoc(
+                doc(
+                  db,
+                  "customers",
+                  user.uid
+                )
+              );
+
+
+            if (customerDoc.exists()) {
+
+              const data =
+                customerDoc.data();
+
+
+              document
+                .getElementById("userName")
+                .textContent =
+                data.name || "";
+
+
+              document
+                .getElementById("userEmail")
+                .textContent =
+                data.email || user.email || "";
+
+
+              document
+                .getElementById("userPhone")
+                .textContent =
+                data.phone || "";
+
+
+              document
+                .getElementById("customerName")
+                .value =
+                data.name || "";
+
+
+              document
+                .getElementById("customerPhone")
+                .value =
+                data.phone || "";
+
+            }
+
+          } catch (error) {
+
+            console.error(
+              "Customer data error:",
+              error
+            );
+
+          }
+
+
+        } else {
+
+          loginBox.classList.remove(
+            "hidden"
+          );
+
+          signupBox.classList.remove(
+            "hidden"
+          );
+
+          userPanel.style.display =
+            "none";
+
+          loginRequired.classList.remove(
+            "hidden"
+          );
+
+        }
+
+      });
+
+
+    // BOOKING
+
+    bookingForm
+      .addEventListener(
+        "submit",
+        async (event) => {
+
+          event.preventDefault();
+
+
+          const user =
+            auth.currentUser;
+
+
+          if (!user) {
+
+            const message =
+              document
+                .getElementById(
+                  "bookingMessage"
+                );
+
+
+            showMessage(
+              message,
+              "Please login before booking a service.",
+              "error"
+            );
+
+
+            document
+              .getElementById("account")
+              .scrollIntoView({
+                behavior: "smooth"
+              });
+
+
+            return;
+
+          }
+
+
+          const customerName =
+            document
+              .getElementById(
+                "customerName"
+              )
+              .value
+              .trim();
+
+
+          const customerPhone =
+            document
+              .getElementById(
+                "customerPhone"
+              )
+              .value
+              .trim();
+
+
+          const service =
+            document
+              .getElementById(
+                "service"
+              )
+              .value;
+
+
+          const area =
+            document
+              .getElementById(
+                "area"
+              )
+              .value
+              .trim();
+
+
+          const address =
+            document
+              .getElementById(
+                "address"
+              )
+              .value
+              .trim();
+
+
+          const problem =
+            document
+              .getElementById(
+                "problem"
+              )
+              .value
+              .trim();
+
+
+          const message =
+            document
+              .getElementById(
+                "bookingMessage"
+              );
+
+
+          const bookingBtn =
+            document
+              .getElementById(
+                "bookingBtn"
+              );
+
+
+          if (
+            !customerName ||
+            !customerPhone ||
+            !service ||
+            !area ||
+            !address ||
+            !problem
+          ) {
+
+            showMessage(
+              message,
+              "Please fill all booking fields.",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          bookingBtn.disabled =
+            true;
+
+          bookingBtn.textContent =
+            "Submitting...";
+
+
+          try {
+
+            const bookingId =
+              "BK-" +
+              Math.floor(
+                10000000 +
+                Math.random() *
+                90000000
+              );
+
+
+            await addDoc(
+              collection(
+                db,
+                "serviceRequests"
+              ),
+              {
+
+                bookingId:
+                  bookingId,
+
+                customerUid:
+                  user.uid,
+
+                customerEmail:
+                  user.email || "",
+
+                customerName:
+                  customerName,
+
+                customerPhone:
+                  customerPhone,
+
+                service:
+                  service,
+
+                area:
+                  area,
+
+                address:
+                  address,
+
+                problem:
+                  problem,
+
+                status:
+                  "pending",
+
+                source:
+                  "website",
+
+                createdAt:
+                  serverTimestamp()
+
+              }
+            );
+
+
+            const whatsappMessage =
+`New Service Booking
+
+Booking ID: ${bookingId}
+
+Customer Name: ${customerName}
+Phone: ${customerPhone}
+
+Service: ${service}
+
+Area: ${area}
 
 Address:
 ${address}
@@ -1557,89 +1546,80 @@ ${address}
 Problem:
 ${problem}
 
-Status:
-Pending
-`;
+Status: Pending`;
 
 
-        const whatsappURL =
-          "https://wa.me/923208463110?text=" +
-          encodeURIComponent(
-            whatsappMessage
-          );
+            const whatsappURL =
+              "https://wa.me/923208463110?text=" +
+              encodeURIComponent(
+                whatsappMessage
+              );
 
 
-        bookingMessage.style.color =
-          "green";
-
-        bookingMessage.innerHTML = `
-          ✅ Booking created successfully!
-          <br>
-          <strong>
-            Booking ID: ${bookingId}
-          </strong>
-          <br><br>
-          Opening WhatsApp...
-        `;
+            showMessage(
+              message,
+              "Booking submitted successfully! Booking ID: " + bookingId,
+              "success"
+            );
 
 
-        window.open(
-          whatsappURL,
-          "_blank"
-        );
+            bookingForm.reset();
 
 
-        /* RESET */
-
-        document
-          .getElementById("bookingArea")
-          .value = "";
-
-        document
-          .getElementById("bookingAddress")
-          .value = "";
-
-        document
-          .getElementById("bookingProblem")
-          .value = "";
+            document
+              .getElementById(
+                "customerName"
+              )
+              .value =
+              customerName;
 
 
-        bookingBtn.disabled =
-          false;
-
-        bookingBtn.textContent =
-          "📅 Book Service";
-
-      }
-
-      catch (error) {
-
-        console.error(
-          "Booking error:",
-          error
-        );
-
-        bookingMessage.style.color =
-          "red";
-
-        bookingMessage.textContent =
-          "Booking failed: " +
-          error.message;
+            document
+              .getElementById(
+                "customerPhone"
+              )
+              .value =
+              customerPhone;
 
 
-        bookingBtn.disabled =
-          false;
+            setTimeout(() => {
 
-        bookingBtn.textContent =
-          "📅 Book Service";
+              window.open(
+                whatsappURL,
+                "_blank"
+              );
 
-      }
+            }, 700);
 
-    }
-  );
 
-</script>
+          } catch (error) {
+
+            console.error(
+              "Booking error:",
+              error
+            );
+
+
+            showMessage(
+              message,
+              "Booking failed. Please try again.",
+              "error"
+            );
+
+          }
+
+
+          bookingBtn.disabled =
+            false;
+
+          bookingBtn.textContent =
+            "Book Service";
+
+        }
+
+      );
+
+  </script>
 
 </body>
 </html>
-```
