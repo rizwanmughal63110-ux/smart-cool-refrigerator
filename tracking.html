@@ -1,377 +1,151 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
+<title>Track Booking | Smart Cool & Refrigerator</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<style>
+*{
+  box-sizing:border-box;
+}
 
-  <title>
-    Track Booking | Smart Cool & Refrigerator
-  </title>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f7fb;
+  color:#222;
+}
 
-  <style>
+header{
+  background:#0877d1;
+  color:white;
+  padding:18px;
+  text-align:center;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+header h2{
+  margin:0;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f8fb;
-      color: #222;
-      line-height: 1.6;
-    }
+.container{
+  max-width:600px;
+  margin:35px auto;
+  padding:20px;
+}
 
-    header {
-      background: #0b6efd;
-      color: white;
-      padding: 15px 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-    }
+.card{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 4px 18px rgba(0,0,0,.1);
+  margin-bottom:20px;
+}
 
-    .header-inner {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
+h1{
+  text-align:center;
+  color:#0877d1;
+}
 
-    .logo {
-      font-size: 21px;
-      font-weight: bold;
-    }
+input{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
+}
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-    }
+button{
+  width:100%;
+  padding:14px;
+  background:#0877d1;
+  color:white;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+  cursor:pointer;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 7px 10px;
-      border-radius: 6px;
-      font-size: 14px;
-    }
+button:hover{
+  background:#055fa8;
+}
 
-    nav a:hover {
-      background: rgba(255,255,255,0.18);
-    }
+.hidden{
+  display:none;
+}
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+#debugBox{
+  background:#111;
+  color:#00ff66;
+  padding:15px;
+  border-radius:10px;
+  font-family:monospace;
+  font-size:13px;
+  line-height:1.6;
+  word-break:break-word;
+}
 
-    .title {
-      text-align: center;
-      color: #075bb5;
-      margin-bottom: 30px;
-    }
+.status{
+  padding:15px;
+  border-radius:8px;
+  margin-top:15px;
+  background:#eef5ff;
+}
 
-    .box {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow:
-        0 4px 15px rgba(0,0,0,0.08);
-      margin-bottom: 20px;
-    }
+.booking-details{
+  line-height:1.8;
+}
 
-    .login-required {
-      text-align: center;
-      display: none;
-    }
-
-    .login-required h2 {
-      color: #dc3545;
-      margin-bottom: 10px;
-    }
-
-    .login-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 22px;
-      background: #0b6efd;
-      color: white;
-      text-decoration: none;
-      border-radius: 7px;
-      font-weight: bold;
-    }
-
-    .tracking-box {
-      display: none;
-    }
-
-    label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 7px;
-    }
-
-    input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #ccc;
-      border-radius: 7px;
-      font-size: 16px;
-      margin-bottom: 15px;
-      text-transform: uppercase;
-    }
-
-    button {
-      width: 100%;
-      padding: 13px;
-      border: none;
-      border-radius: 7px;
-      background: #0b6efd;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #075bb5;
-    }
-
-    .message {
-      text-align: center;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    .result {
-      display: none;
-      margin-top: 25px;
-      background: #f8fbff;
-      border-radius: 10px;
-      padding: 20px;
-      border: 1px solid #dbeafe;
-    }
-
-    .result h3 {
-      color: #075bb5;
-      margin-bottom: 15px;
-    }
-
-    .row {
-      padding: 9px 0;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .row:last-child {
-      border-bottom: none;
-    }
-
-    .row strong {
-      display: inline-block;
-      min-width: 130px;
-    }
-
-    .status {
-      display: inline-block;
-      padding: 6px 13px;
-      border-radius: 20px;
-      font-weight: bold;
-      background: #ffc107;
-      color: #000;
-    }
-
-    .status.confirmed {
-      background: #0d6efd;
-      color: white;
-    }
-
-    .status.on-the-way {
-      background: #6f42c1;
-      color: white;
-    }
-
-    .status.completed {
-      background: #198754;
-      color: white;
-    }
-
-    .status.cancelled {
-      background: #dc3545;
-      color: white;
-    }
-
-    .home-btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 18px;
-      background: #198754;
-      color: white;
-      text-decoration: none;
-      border-radius: 7px;
-    }
-
-    footer {
-      background: #082b4c;
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 700px) {
-
-      .header-inner {
-        flex-direction: column;
-      }
-
-      .row strong {
-        display: block;
-        margin-bottom: 3px;
-      }
-
-    }
-
-  </style>
-
+.label{
+  font-weight:bold;
+  color:#0877d1;
+}
+</style>
 </head>
-
 
 <body>
 
+<header>
+  <h2>❄️ Smart Cool & Refrigerator</h2>
+</header>
 
-  <!-- HEADER -->
+<div class="container">
 
-  <header>
+  <div class="card">
 
-    <div class="header-inner">
+    <h1>🔎 Track Your Booking</h1>
 
-      <div class="logo">
-        ❄️ Smart Cool & Refrigerator
+    <div id="loading">
+      Checking your login...
+    </div>
+
+    <div id="loginRequired" class="hidden">
+      <div class="status">
+        🔐 <b>Login Required</b><br><br>
+        Please login to your customer account before tracking your booking.
       </div>
 
-      <nav>
+      <br>
 
-        <a href="index.html">
-          Home
-        </a>
-
-        <a href="index.html#services">
-          Services
-        </a>
-
-        <a href="index.html#account">
-          Account
-        </a>
-
-        <a href="index.html#booking">
-          Book Service
-        </a>
-
-        <a href="tracking.html">
-          Track Booking
-        </a>
-
-        <a href="index.html#contact">
-          Contact
-        </a>
-
-      </nav>
-
-    </div>
-
-  </header>
-
-
-  <!-- MAIN -->
-
-  <div class="container">
-
-    <h1 class="title">
-      🔎 Track Your Booking
-    </h1>
-
-
-    <!-- LOADING -->
-
-    <div
-      id="loadingBox"
-      class="box"
-      style="text-align:center;"
-    >
-
-      <h3>
-        Checking your login...
-      </h3>
-
-      <p style="margin-top:10px;">
-        Please wait a moment.
-      </p>
-
-    </div>
-
-
-    <!-- LOGIN REQUIRED -->
-
-    <div
-      id="loginRequired"
-      class="box login-required"
-    >
-
-      <h2>
-        🔐 Login Required
-      </h2>
-
-      <p>
-        Please login to your customer account
-        before tracking your booking.
-      </p>
-
-      <a
-        href="index.html#account"
-        class="login-btn"
-      >
+      <button onclick="window.location.href='index.html#account'">
         Login / Signup
-      </a>
-
+      </button>
     </div>
 
+    <div id="loggedIn" class="hidden">
 
-    <!-- TRACKING -->
+      <div class="status">
+        ✅ <b>Customer Logged In</b>
+        <br>
+        <span id="loggedUser"></span>
+      </div>
 
-    <div
-      id="trackingBox"
-      class="box tracking-box"
-    >
+      <br>
 
-      <h2
-        style="
-          color:#075bb5;
-          margin-bottom:20px;
-        "
-      >
-        Track Booking
-      </h2>
-
-      <p
-        style="margin-bottom:20px;"
-      >
-        Enter your Booking ID to check
-        your service status.
-      </p>
-
-
-      <label>
-        Booking ID
-      </label>
+      <label>Enter your Booking ID</label>
 
       <input
         type="text"
@@ -379,682 +153,397 @@
         placeholder="Example: BK-12345678"
       >
 
-
       <button id="trackBtn">
         🔎 Track Booking
       </button>
 
-
-      <p
-        id="message"
-        class="message"
-      ></p>
-
-
-      <!-- RESULT -->
-
-      <div
-        id="result"
-        class="result"
-      >
-
-        <h3>
-          Booking Details
-        </h3>
-
-
-        <div class="row">
-
-          <strong>
-            Booking ID:
-          </strong>
-
-          <span id="resultBookingId">
-          </span>
-
-        </div>
-
-
-        <div class="row">
-
-          <strong>
-            Status:
-          </strong>
-
-          <span
-            id="resultStatus"
-            class="status"
-          >
-          </span>
-
-        </div>
-
-
-        <div class="row">
-
-          <strong>
-            Customer:
-          </strong>
-
-          <span id="resultName">
-          </span>
-
-        </div>
-
-
-        <div class="row">
-
-          <strong>
-            Phone:
-          </strong>
-
-          <span id="resultPhone">
-          </span>
-
-        </div>
-
-
-        <div class="row">
-
-          <strong>
-            Service:
-          </strong>
-
-          <span id="resultService">
-          </span>
-
-        </div>
-
-
-        <div class="row">
-
-          <strong>
-            Area:
-          </strong>
-
-          <span id="resultArea">
-          </span>
-
-        </div>
-
-
-        <div class="row">
-
-          <strong>
-            Address:
-          </strong>
-
-          <span id="resultAddress">
-          </span>
-
-        </div>
-
-
-        <div class="row">
-
-          <strong>
-            Problem:
-          </strong>
-
-          <span id="resultProblem">
-          </span>
-
-        </div>
-
-
-        <div class="row">
-
-          <strong>
-            Booking Date:
-          </strong>
-
-          <span id="resultDate">
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <a
-        href="index.html"
-        class="home-btn"
-      >
-        ← Back to Home
-      </a>
+      <div id="result" class="status hidden"></div>
 
     </div>
 
   </div>
 
 
-  <!-- FOOTER -->
+  <!-- DEBUG BOX -->
 
-  <footer>
+  <div class="card">
 
-    <p>
-      © 2026 Smart Cool & Refrigerator
-    </p>
+    <h3>🔧 Firebase Login Diagnostic</h3>
 
-    <p>
-      AC • Refrigerator • Water Dispenser • Electrician
-    </p>
+    <div id="debugBox">
+      Starting Firebase...
+    </div>
 
-  </footer>
+  </div>
 
-
-  <!-- FIREBASE -->
-
-  <script type="module">
-
-    import {
-      initializeApp
-    } from
-    "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+</div>
 
 
-    import {
-      getAuth,
-      onAuthStateChanged,
-      setPersistence,
-      browserLocalPersistence
-    } from
-    "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getAuth,
+  onAuthStateChanged,
+  setPersistence,
+  browserLocalPersistence
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  limit,
+  getDocs
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-    import {
-      getFirestore,
-      collection,
-      query,
-      where,
-      limit,
-      getDocs
-    } from
-    "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+/* FIREBASE CONFIG */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAvnAL6gje0ly5XtxNotNl_dJhEhJ9pSHg",
+  authDomain: "smart-cool-6f513.firebaseapp.com",
+  projectId: "smart-cool-6f513",
+  storageBucket: "smart-cool-6f513.firebasestorage.app",
+  messagingSenderId: "10468224529",
+  appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+  measurementId: "G-Y5SPBHP57C"
+};
 
 
-    /* FIREBASE CONFIG */
+/* INITIALIZE */
 
-    const firebaseConfig = {
+const app = initializeApp(firebaseConfig);
 
-      apiKey:
-        "AIzaSyAvnAL6gje0ly5XtxNotNl_dJhEhJ9pSHg",
+const auth = getAuth(app);
 
-      authDomain:
-        "smart-cool-6f513.firebaseapp.com",
+const db = getFirestore(app);
 
-      projectId:
-        "smart-cool-6f513",
+const debugBox = document.getElementById("debugBox");
 
-      storageBucket:
-        "smart-cool-6f513.firebasestorage.app",
+const loading = document.getElementById("loading");
 
-      messagingSenderId:
-        "10468224529",
+const loginRequired =
+document.getElementById("loginRequired");
 
-      appId:
-        "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+const loggedIn =
+document.getElementById("loggedIn");
 
-      measurementId:
-        "G-Y5SPBHP57C"
-
-    };
+const loggedUser =
+document.getElementById("loggedUser");
 
 
-    /* INITIALIZE */
+function debug(message){
 
-    const app =
-      initializeApp(firebaseConfig);
+  console.log(message);
 
-    const auth =
-      getAuth(app);
+  debugBox.innerHTML +=
+    "<br>" + message;
 
-    const db =
-      getFirestore(app);
+}
 
 
-    /*
-      IMPORTANT:
-      KEEP USER LOGIN ACTIVE
-    */
+/* BASIC INFORMATION */
 
-    setPersistence(
+debug("Page: " + window.location.href);
+
+debug("Origin: " + window.location.origin);
+
+debug("Firebase Project: " + firebaseConfig.projectId);
+
+
+/* START AUTH */
+
+async function startAuthentication(){
+
+  try{
+
+    debug("Setting browserLocalPersistence...");
+
+    await setPersistence(
       auth,
       browserLocalPersistence
-    )
-    .then(() => {
+    );
 
-      console.log(
-        "Login persistence enabled"
-      );
+    debug("Persistence: OK");
 
-    })
-    .catch((error) => {
+  }
 
-      console.error(
-        "Persistence error:",
-        error
-      );
+  catch(error){
 
-    });
+    debug(
+      "Persistence ERROR: " +
+      error.code
+    );
 
+    debug(
+      "Message: " +
+      error.message
+    );
 
-    /* ELEMENTS */
-
-    const loadingBox =
-      document.getElementById(
-        "loadingBox"
-      );
-
-    const loginRequired =
-      document.getElementById(
-        "loginRequired"
-      );
-
-    const trackingBox =
-      document.getElementById(
-        "trackingBox"
-      );
+  }
 
 
-    /*
-      IMPORTANT:
-      DO NOT CHECK auth.currentUser
-      IMMEDIATELY.
+  debug("Waiting for Firebase Auth...");
 
-      Firebase needs time to restore
-      the existing login session.
 
-      onAuthStateChanged waits for that.
-    */
+  onAuthStateChanged(
+    auth,
+    (user) => {
 
-    onAuthStateChanged(
-      auth,
-      (user) => {
+      loading.classList.add("hidden");
 
-        console.log(
-          "Firebase user:",
-          user
+
+      if(user){
+
+        debug("AUTH USER FOUND ✅");
+
+        debug(
+          "Email: " +
+          user.email
+        );
+
+        debug(
+          "UID: " +
+          user.uid
         );
 
 
-        loadingBox.style.display =
-          "none";
+        loggedIn.classList.remove(
+          "hidden"
+        );
+
+        loginRequired.classList.add(
+          "hidden"
+        );
 
 
-        if (user) {
-
-          console.log(
-            "USER IS LOGGED IN:",
-            user.email
-          );
+        loggedUser.innerHTML =
+          "Email: " +
+          user.email;
 
 
-          loginRequired.style.display =
-            "none";
+      }else{
 
-          trackingBox.style.display =
-            "block";
+        debug("AUTH USER NOT FOUND ❌");
 
-        }
-        else {
-
-          console.log(
-            "USER IS NOT LOGGED IN"
-          );
+        debug(
+          "Firebase currentUser = null"
+        );
 
 
-          loginRequired.style.display =
-            "block";
+        loggedIn.classList.add(
+          "hidden"
+        );
 
-          trackingBox.style.display =
-            "none";
-
-        }
+        loginRequired.classList.remove(
+          "hidden"
+        );
 
       }
-    );
 
+    }
+  );
 
-    /*
-      TRACK BOOKING
-    */
+}
 
-    document
-      .getElementById("trackBtn")
-      .addEventListener(
-        "click",
-        async () => {
 
-          const user =
-            auth.currentUser;
+/* START */
 
+startAuthentication();
 
-          if (!user) {
 
-            document
-              .getElementById(
-                "message"
-              )
-              .style.color =
-              "red";
+/* TRACK BOOKING */
 
-            document
-              .getElementById(
-                "message"
-              )
-              .textContent =
-              "Your login session was not found. Please login again.";
+document
+.getElementById("trackBtn")
+.addEventListener(
+  "click",
+  async () => {
 
-            return;
+    const user = auth.currentUser;
 
-          }
+    const bookingId =
+      document
+      .getElementById("bookingId")
+      .value
+      .trim();
 
 
-          let bookingId =
-            document
-              .getElementById(
-                "bookingId"
-              )
-              .value
-              .trim()
-              .toUpperCase();
+    const result =
+      document.getElementById("result");
 
 
-          if (!bookingId) {
+    if(!user){
 
-            document
-              .getElementById(
-                "message"
-              )
-              .style.color =
-              "red";
-
-            document
-              .getElementById(
-                "message"
-              )
-              .textContent =
-              "Please enter your Booking ID.";
-
-            return;
-
-          }
-
-
-          const message =
-            document.getElementById(
-              "message"
-            );
-
-
-          const result =
-            document.getElementById(
-              "result"
-            );
-
-
-          message.style.color =
-            "#075bb5";
-
-          message.textContent =
-            "Searching booking...";
-
-
-          result.style.display =
-            "none";
-
-
-          try {
-
-            /*
-              ONLY SEARCH THIS CUSTOMER'S
-              BOOKINGS
-            */
-
-            const bookingQuery =
-              query(
-
-                collection(
-                  db,
-                  "serviceRequests"
-                ),
-
-                where(
-                  "bookingId",
-                  "==",
-                  bookingId
-                ),
-
-                where(
-                  "customerUid",
-                  "==",
-                  user.uid
-                ),
-
-                limit(1)
-
-              );
-
-
-            const snapshot =
-              await getDocs(
-                bookingQuery
-              );
-
-
-            if (snapshot.empty) {
-
-              message.style.color =
-                "red";
-
-              message.textContent =
-                "Booking not found. Please check your Booking ID.";
-
-              return;
-
-            }
-
-
-            const booking =
-              snapshot.docs[0].data();
-
-
-            /*
-              SHOW DATA
-            */
-
-            document
-              .getElementById(
-                "resultBookingId"
-              )
-              .textContent =
-              booking.bookingId || "-";
-
-
-            const status =
-              (
-                booking.status ||
-                "pending"
-              ).toLowerCase();
-
-
-            const statusElement =
-              document.getElementById(
-                "resultStatus"
-              );
-
-
-            statusElement.textContent =
-              status
-                .replace(
-                  /-/g,
-                  " "
-                )
-                .replace(
-                  /\b\w/g,
-                  c => c.toUpperCase()
-                );
-
-
-            statusElement.className =
-              "status";
-
-
-            if (
-              status ===
-              "confirmed"
-            ) {
-
-              statusElement.classList.add(
-                "confirmed"
-              );
-
-            }
-
-            else if (
-              status ===
-              "on the way" ||
-              status ===
-              "on-the-way"
-            ) {
-
-              statusElement.classList.add(
-                "on-the-way"
-              );
-
-            }
-
-            else if (
-              status ===
-              "completed"
-            ) {
-
-              statusElement.classList.add(
-                "completed"
-              );
-
-            }
-
-            else if (
-              status ===
-              "cancelled"
-            ) {
-
-              statusElement.classList.add(
-                "cancelled"
-              );
-
-            }
-
-
-            document
-              .getElementById(
-                "resultName"
-              )
-              .textContent =
-              booking.customerName || "-";
-
-
-            document
-              .getElementById(
-                "resultPhone"
-              )
-              .textContent =
-              booking.customerPhone || "-";
-
-
-            document
-              .getElementById(
-                "resultService"
-              )
-              .textContent =
-              booking.service || "-";
-
-
-            document
-              .getElementById(
-                "resultArea"
-              )
-              .textContent =
-              booking.area || "-";
-
-
-            document
-              .getElementById(
-                "resultAddress"
-              )
-              .textContent =
-              booking.address || "-";
-
-
-            document
-              .getElementById(
-                "resultProblem"
-              )
-              .textContent =
-              booking.problem || "-";
-
-
-            let dateText =
-              "-";
-
-
-            if (
-              booking.createdAt &&
-              booking.createdAt.toDate
-            ) {
-
-              dateText =
-                booking.createdAt
-                  .toDate()
-                  .toLocaleString();
-
-            }
-
-
-            document
-              .getElementById(
-                "resultDate"
-              )
-              .textContent =
-              dateText;
-
-
-            result.style.display =
-              "block";
-
-
-            message.style.color =
-              "green";
-
-            message.textContent =
-              "✅ Booking found successfully.";
-
-
-          }
-          catch (error) {
-
-            console.error(
-              "Tracking error:",
-              error
-            );
-
-
-            message.style.color =
-              "red";
-
-            message.textContent =
-              "Error: " +
-              error.message;
-
-          }
-
-        }
+      result.classList.remove(
+        "hidden"
       );
 
-  </script>
+      result.innerHTML =
+        "❌ You are not logged in.";
+
+      return;
+
+    }
+
+
+    if(!bookingId){
+
+      result.classList.remove(
+        "hidden"
+      );
+
+      result.innerHTML =
+        "⚠️ Please enter your Booking ID.";
+
+      return;
+
+    }
+
+
+    result.classList.remove(
+      "hidden"
+    );
+
+    result.innerHTML =
+      "⏳ Searching booking...";
+
+
+    try{
+
+      const bookingQuery = query(
+
+        collection(
+          db,
+          "serviceRequests"
+        ),
+
+        where(
+          "bookingId",
+          "==",
+          bookingId
+        ),
+
+        where(
+          "customerUid",
+          "==",
+          user.uid
+        ),
+
+        limit(1)
+
+      );
+
+
+      const snapshot =
+        await getDocs(
+          bookingQuery
+        );
+
+
+      if(snapshot.empty){
+
+        result.innerHTML =
+          "❌ Booking not found.";
+
+        return;
+
+      }
+
+
+      const data =
+        snapshot.docs[0].data();
+
+
+      result.innerHTML = `
+
+        <div class="booking-details">
+
+          <div>
+            <span class="label">
+              Booking ID:
+            </span>
+            ${data.bookingId || ""}
+          </div>
+
+          <div>
+            <span class="label">
+              Status:
+            </span>
+            ${data.status || ""}
+          </div>
+
+          <div>
+            <span class="label">
+              Customer:
+            </span>
+            ${data.customerName || ""}
+          </div>
+
+          <div>
+            <span class="label">
+              Phone:
+            </span>
+            ${data.customerPhone || ""}
+          </div>
+
+          <div>
+            <span class="label">
+              Service:
+            </span>
+            ${data.service || ""}
+          </div>
+
+          <div>
+            <span class="label">
+              Area:
+            </span>
+            ${data.area || ""}
+          </div>
+
+          <div>
+            <span class="label">
+              Address:
+            </span>
+            ${data.address || ""}
+          </div>
+
+          <div>
+            <span class="label">
+              Problem:
+            </span>
+            ${data.problem || ""}
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+    catch(error){
+
+      console.error(error);
+
+      result.innerHTML =
+        "❌ Error: " +
+        error.code +
+        "<br>" +
+        error.message;
+
+    }
+
+  }
+);
+
+</script>
 
 </body>
-
 </html>
+```
