@@ -1,911 +1,908 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="google-site-verification" content="IAjv12fSMJ48W2jgMAsZ1zNJgBdSnteaa2CxKhES0oA">
 
-<title>Smart Cool & Refrigerator | Karachi</title>
+<title>Smart Cool & Refrigerator | AC & Fridge Repair Karachi</title>
 
-<meta name="description"
-content="Smart Cool & Refrigerator provides AC, refrigerator, water dispenser and electrician services all over Karachi.">
+<meta name="description" content="Smart Cool & Refrigerator provides AC repair, AC service, gas charging, refrigerator repair, water dispenser repair and electrician services all over Karachi.">
 
 <style>
-
 *{
-  box-sizing:border-box;
-  scroll-behavior:smooth;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f4f9ff;
-  color:#17365d;
+    background:#f4f9ff;
+    color:#123;
+    line-height:1.6;
 }
 
 header{
-  background:white;
-  position:sticky;
-  top:0;
-  z-index:1000;
-  box-shadow:0 3px 15px rgba(0,0,0,.12);
+    background:linear-gradient(135deg,#0077ff,#00c6ff);
+    color:white;
+    padding:15px 5%;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
-.nav{
-  max-width:1150px;
-  margin:auto;
-  padding:12px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+.navbar{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
 }
 
-.logo-area{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
 .logo-icon{
-  width:52px;
-  height:52px;
-  border-radius:13px;
-  background:linear-gradient(135deg,#00c6ff,#0066cc);
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:29px;
-  box-shadow:0 4px 12px rgba(0,100,200,.25);
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:white;
+    color:#008cff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    font-weight:bold;
 }
 
 .logo-text{
-  font-size:19px;
-  font-weight:bold;
-  color:#006dcc;
+    line-height:1.1;
+}
+
+.logo-text strong{
+    display:block;
+    font-size:20px;
 }
 
 .logo-text span{
-  display:block;
-  font-size:11px;
-  color:#555;
-  margin-top:3px;
+    font-size:11px;
+    letter-spacing:1px;
+}
+
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
 }
 
 nav a{
-  text-decoration:none;
-  color:#17365d;
-  font-weight:bold;
-  margin-left:20px;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:14px;
 }
 
 nav a:hover{
-  color:#007bff;
+    opacity:.8;
 }
 
 .hero{
-  background:linear-gradient(135deg,#007bff,#003f91);
-  color:white;
-  text-align:center;
-  padding:90px 20px;
+    min-height:560px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:70px 20px;
+    background:
+    linear-gradient(rgba(0,110,210,.88),rgba(0,190,255,.78)),
+    radial-gradient(circle at top,#ffffff33,transparent 40%);
+    color:white;
+}
+
+.hero-content{
+    max-width:850px;
 }
 
 .hero-icon{
-  width:105px;
-  height:105px;
-  margin:0 auto 20px;
-  border-radius:25px;
-  background:white;
-  color:#007bff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:62px;
-  box-shadow:0 8px 25px rgba(0,0,0,.2);
+    width:90px;
+    height:90px;
+    background:white;
+    color:#008cff;
+    border-radius:50%;
+    margin:0 auto 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:50px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
 .hero h1{
-  font-size:44px;
-  margin:5px 0 15px;
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.hero h2{
+    font-size:25px;
+    margin-bottom:18px;
+    font-weight:normal;
 }
 
 .hero p{
-  font-size:19px;
-  line-height:1.6;
-}
-
-.badge{
-  display:inline-block;
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.35);
-  padding:10px 20px;
-  border-radius:30px;
-  margin:12px 0;
-  font-weight:bold;
+    font-size:18px;
+    margin-bottom:30px;
 }
 
 .btn{
-  display:inline-block;
-  padding:14px 25px;
-  margin:10px 5px;
-  border-radius:9px;
-  text-decoration:none;
-  font-weight:bold;
-  border:none;
-  cursor:pointer;
-  font-size:15px;
+    display:inline-block;
+    background:white;
+    color:#0077dd;
+    padding:14px 28px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    margin:5px;
+    border:none;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.call{
-  background:white;
-  color:#006dcc;
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
 }
 
-.whatsapp{
-  background:#25d366;
-  color:white;
-}
-
-.primary-btn{
-  background:linear-gradient(135deg,#007bff,#0051a8);
-  color:white;
-  width:100%;
-  margin:10px 0 0;
+.btn-blue{
+    background:#007cff;
+    color:white;
 }
 
 section{
-  padding:65px 20px;
+    padding:70px 5%;
 }
 
 .container{
-  max-width:1150px;
-  margin:auto;
+    max-width:1200px;
+    margin:auto;
 }
 
-h2{
-  text-align:center;
-  font-size:32px;
-  margin-bottom:40px;
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
+.section-title h2{
+    color:#0077dd;
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.section-title p{
+    color:#666;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
 }
 
 .card{
-  background:white;
-  padding:28px;
-  border-radius:15px;
-  box-shadow:0 5px 20px rgba(0,0,0,.09);
-  transition:.25s;
+    background:white;
+    border-radius:18px;
+    padding:28px 20px;
+    text-align:center;
+    box-shadow:0 6px 20px rgba(0,80,160,.10);
+    transition:.3s;
+    border:1px solid #e7f2ff;
 }
 
 .card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 10px 25px rgba(0,0,0,.14);
+    transform:translateY(-5px);
+    box-shadow:0 12px 30px rgba(0,100,200,.18);
+}
+
+.card-icon{
+    font-size:45px;
+    margin-bottom:12px;
 }
 
 .card h3{
-  color:#006dcc;
-  margin-top:0;
-  font-size:21px;
-}
-
-.card p{
-  line-height:1.6;
-  color:#4b5f78;
-}
-
-.card li{
-  margin:12px 0;
+    color:#0077dd;
+    margin-bottom:8px;
 }
 
 .rates{
-  background:#eef7ff;
+    background:#eaf6ff;
+}
+
+.rate-card{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 6px 20px rgba(0,80,160,.1);
+}
+
+.rate-card h3{
+    color:#0077dd;
+    margin-bottom:15px;
+    font-size:22px;
+}
+
+.rate-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+.rate-row:last-child{
+    border-bottom:none;
 }
 
 .price{
-  font-size:18px;
-  font-weight:bold;
-  color:#17365d;
+    font-weight:bold;
+    color:#008a44;
 }
 
 .warranty{
-  display:inline-block;
-  margin-top:10px;
-  background:#e7fff0;
-  color:#16823b;
-  padding:8px 12px;
-  border-radius:7px;
-  font-weight:bold;
+    margin-top:15px;
+    background:#e7fff1;
+    color:#087a3d;
+    padding:10px;
+    border-radius:10px;
+    font-weight:bold;
+    text-align:center;
 }
 
 .booking{
-  background:#f4f9ff;
+    background:white;
 }
 
-.booking-box{
-  max-width:720px;
-  margin:auto;
-  background:white;
-  padding:35px;
-  border-radius:18px;
-  box-shadow:0 7px 28px rgba(0,0,0,.10);
-}
-
-.booking-box h3{
-  text-align:center;
-  color:#006dcc;
-  font-size:25px;
-  margin-top:0;
-}
-
-.subtitle{
-  text-align:center;
-  color:#66778b;
-  margin-bottom:28px;
+.form-box{
+    max-width:700px;
+    margin:auto;
+    background:#f8fcff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,70,150,.1);
 }
 
 .form-group{
-  margin-bottom:18px;
+    margin-bottom:18px;
 }
 
 .form-group label{
-  display:block;
-  font-weight:bold;
-  margin-bottom:7px;
+    display:block;
+    margin-bottom:7px;
+    font-weight:bold;
+    color:#145;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea{
-  width:100%;
-  padding:14px;
-  border:1px solid #d2dce8;
-  border-radius:9px;
-  font-size:16px;
-  font-family:Arial,sans-serif;
-  outline:none;
-  background:white;
+    width:100%;
+    padding:13px 15px;
+    border:1px solid #cddfeb;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+    background:white;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus{
-  border-color:#007bff;
-  box-shadow:0 0 0 3px rgba(0,123,255,.10);
+    border-color:#008cff;
+    box-shadow:0 0 0 3px #008cff15;
 }
 
 .form-group textarea{
-  min-height:120px;
-  resize:vertical;
+    min-height:110px;
+    resize:vertical;
 }
 
-.required{
-  color:red;
+.submit-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#0077ff,#00bfff);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
-.booking-note{
-  text-align:center;
-  font-size:13px;
-  color:#718096;
-  margin-top:15px;
+.submit-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
 }
 
-.status-message{
-  display:none;
-  padding:15px;
-  margin-top:18px;
-  border-radius:9px;
-  text-align:center;
-  font-weight:bold;
+#status{
+    margin-top:18px;
+    text-align:center;
+    font-weight:bold;
+    padding:10px;
+    border-radius:10px;
 }
 
-.success{
-  display:block;
-  background:#e7fff0;
-  color:#16823b;
+.why{
+    background:#eef8ff;
 }
 
-.error{
-  display:block;
-  background:#ffe9e9;
-  color:#c62828;
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
-.trust{
-  background:white;
-  text-align:center;
+.why-item{
+    background:white;
+    padding:25px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,80,150,.08);
+}
+
+.why-item strong{
+    display:block;
+    color:#0077dd;
+    margin-bottom:6px;
+    font-size:18px;
 }
 
 .contact{
-  background:linear-gradient(135deg,#007bff,#00438f);
-  color:white;
-  text-align:center;
+    background:linear-gradient(135deg,#0077ff,#00bfff);
+    color:white;
+    text-align:center;
 }
 
 .contact h2{
-  color:white;
+    font-size:32px;
+    margin-bottom:15px;
 }
 
-.contact p{
-  font-size:18px;
+.contact-box{
+    max-width:600px;
+    margin:25px auto 0;
+    background:#ffffff15;
+    padding:25px;
+    border-radius:18px;
 }
 
-.contact .call{
-  color:#006dcc;
+.contact-item{
+    margin:12px 0;
+    font-size:18px;
+}
+
+.contact-item a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
 }
 
 footer{
-  background:#062c5c;
-  color:white;
-  text-align:center;
-  padding:35px 20px;
-}
-
-footer h3{
-  font-size:22px;
-}
-
-footer p{
-  margin:8px 0;
-}
-
-@media(max-width:800px){
-
-  .nav{
-    flex-direction:column;
-    gap:12px;
-  }
-
-  nav{
+    background:#06294a;
+    color:#bcd5e8;
     text-align:center;
-  }
-
-  nav a{
-    margin:0 6px;
-    font-size:13px;
-  }
-
-  .logo-text{
-    font-size:17px;
-  }
-
-  .hero{
-    padding:65px 18px;
-  }
-
-  .hero h1{
-    font-size:32px;
-  }
-
-  .hero p{
-    font-size:17px;
-  }
-
-  .hero-icon{
-    width:90px;
-    height:90px;
-    font-size:52px;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  section{
-    padding:50px 18px;
-  }
-
-  h2{
-    font-size:28px;
-  }
-
-  .booking-box{
-    padding:24px 18px;
-  }
-
+    padding:25px 15px;
 }
 
-</style>
+footer strong{
+    color:white;
+}
 
+.whatsapp-float{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:58px;
+    height:58px;
+    background:#25d366;
+    color:white;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    text-decoration:none;
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
+    z-index:999;
+}
+
+@media(max-width:700px){
+
+    header{
+        padding:12px 4%;
+    }
+
+    .navbar{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    nav{
+        justify-content:center;
+        gap:12px;
+    }
+
+    nav a{
+        font-size:12px;
+    }
+
+    .hero{
+        min-height:500px;
+        padding:50px 15px;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .hero h2{
+        font-size:20px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    section{
+        padding:50px 5%;
+    }
+
+    .section-title h2{
+        font-size:27px;
+    }
+
+    .form-box{
+        padding:20px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-
-<!-- HEADER -->
-
 <header>
+    <div class="navbar">
 
-  <div class="nav">
+        <div class="logo">
+            <div class="logo-icon">❄️</div>
 
-    <div class="logo-area">
+            <div class="logo-text">
+                <strong>SMART COOL</strong>
+                <span>& REFRIGERATOR</span>
+            </div>
+        </div>
 
-      <div class="logo-icon">
-        ❄️
-      </div>
-
-      <div class="logo-text">
-        SMART COOL
-        <span>& REFRIGERATOR</span>
-      </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#rates">Rates</a>
+            <a href="#booking">Book Service</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
     </div>
-
-    <nav>
-
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#rates">Rates</a>
-      <a href="#booking">Book Service</a>
-      <a href="#contact">Contact</a>
-
-    </nav>
-
-  </div>
-
 </header>
 
 
-<!-- HERO -->
-
 <section class="hero" id="home">
 
-  <div class="hero-icon">
-    ❄️
-  </div>
+    <div class="hero-content">
 
-  <h1>
-    Smart Cool & Refrigerator
-  </h1>
+        <div class="hero-icon">❄️</div>
 
-  <p>
-    Professional AC, Refrigerator, Water Dispenser
-    & Electrician Services
-  </p>
+        <h1>SMART COOL & REFRIGERATOR</h1>
 
-  <div class="badge">
-    📍 All Over Karachi
-  </div>
+        <h2>AC • Refrigerator • Water Dispenser • Electrician</h2>
 
-  <br>
+        <p>
+            Professional repair and maintenance services
+            <br>
+            <strong>All Over Karachi</strong>
+        </p>
 
-  <a class="btn call" href="tel:+923208463110">
-    📞 Call Now
-  </a>
+        <a href="#booking" class="btn">📅 Book Service</a>
 
-  <a class="btn whatsapp"
-     href="https://wa.me/923208463110"
-     target="_blank">
-    WhatsApp
-  </a>
+        <a href="tel:03208463110" class="btn">📞 Call Now</a>
+
+    </div>
 
 </section>
 
-
-<!-- SERVICES -->
 
 <section id="services">
 
-  <div class="container">
+    <div class="container">
 
-    <h2>Our Services</h2>
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Professional home appliance and electrical services</p>
+        </div>
 
-    <div class="grid">
+        <div class="cards">
 
-      <div class="card">
-        <h3>❄️ AC Repairing</h3>
-        <p>
-          Professional AC troubleshooting and repair
-          service by experienced technicians.
-        </p>
-      </div>
+            <div class="card">
+                <div class="card-icon">❄️</div>
+                <h3>AC Repairing</h3>
+                <p>Complete AC troubleshooting and repairing service.</p>
+            </div>
 
-      <div class="card">
-        <h3>🔧 AC Service</h3>
-        <p>
-          Complete AC cleaning, maintenance and
-          performance checking service.
-        </p>
-      </div>
+            <div class="card">
+                <div class="card-icon">🧊</div>
+                <h3>AC Service</h3>
+                <p>Professional AC cleaning and maintenance.</p>
+            </div>
 
-      <div class="card">
-        <h3>⚙️ AC Installation</h3>
-        <p>
-          Professional AC installation, shifting
-          and setup service.
-        </p>
-      </div>
+            <div class="card">
+                <div class="card-icon">🔧</div>
+                <h3>AC Installation</h3>
+                <p>Professional AC installation service.</p>
+            </div>
 
-      <div class="card">
-        <h3>❄️ AC Gas Charging</h3>
-        <p>
-          AC gas charging, leakage checking and
-          cooling problem solution.
-        </p>
-      </div>
+            <div class="card">
+                <div class="card-icon">⛽</div>
+                <h3>AC Gas Charging</h3>
+                <p>AC gas charging and leakage checking.</p>
+            </div>
 
-      <div class="card">
-        <h3>🧊 Refrigerator Repair</h3>
-        <p>
-          Complete fridge and refrigerator repair
-          including cooling and compressor problems.
-        </p>
-      </div>
+            <div class="card">
+                <div class="card-icon">🧊</div>
+                <h3>Refrigerator Repair</h3>
+                <p>Fridge compressor, cooling and electrical repair.</p>
+            </div>
 
-      <div class="card">
-        <h3>💧 Water Dispenser Repair</h3>
-        <p>
-          Water dispenser cooling, electrical and
-          mechanical repair service.
-        </p>
-      </div>
+            <div class="card">
+                <div class="card-icon">💧</div>
+                <h3>Water Dispenser</h3>
+                <p>Water dispenser cooling and electrical repair.</p>
+            </div>
 
-      <div class="card">
-        <h3>⚡ Electrician Work</h3>
-        <p>
-          Professional electrical repair,
-          installation and maintenance work.
-        </p>
-      </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Electrician Work</h3>
+                <p>Home electrical repair and maintenance.</p>
+            </div>
+
+        </div>
 
     </div>
 
-  </div>
-
 </section>
 
-
-<!-- RATES -->
 
 <section class="rates" id="rates">
 
-  <div class="container">
+    <div class="container">
 
-    <h2>Service Rates</h2>
+        <div class="section-title">
+            <h2>Our Rates</h2>
+            <p>Transparent and professional service charges</p>
+        </div>
 
-    <div class="grid">
+        <div class="cards">
 
-      <div class="card">
+            <div class="rate-card">
 
-        <h3>❄️ AC Repair</h3>
+                <h3>🔧 AC Repair</h3>
 
-        <ul>
+                <div class="rate-row">
+                    <span>1 Ton</span>
+                    <span class="price">Rs. 10,500</span>
+                </div>
 
-          <li class="price">
-            1 Ton — Rs. 10,500
-          </li>
+                <div class="rate-row">
+                    <span>1.5 Ton</span>
+                    <span class="price">Rs. 13,500</span>
+                </div>
 
-          <li class="price">
-            1.5 Ton — Rs. 13,500
-          </li>
+                <div class="rate-row">
+                    <span>2 Ton</span>
+                    <span class="price">Rs. 16,500</span>
+                </div>
 
-          <li class="price">
-            2 Ton — Rs. 16,500
-          </li>
+                <div class="warranty">
+                    ✅ 1 Month Warranty
+                </div>
 
-        </ul>
-
-        <span class="warranty">
-          ✔ 1 Month Warranty
-        </span>
-
-      </div>
-
-
-      <div class="card">
-
-        <h3>🔧 AC Service</h3>
-
-        <ul>
-
-          <li class="price">
-            1 Ton — Rs. 3,000
-          </li>
-
-          <li class="price">
-            1.5 Ton — Rs. 3,500
-          </li>
-
-          <li class="price">
-            2 Ton — Rs. 4,000
-          </li>
-
-        </ul>
-
-      </div>
+            </div>
 
 
-      <div class="card">
+            <div class="rate-card">
 
-        <h3>❄️ AC Gas Charging</h3>
+                <h3>🧊 AC Service</h3>
 
-        <ul>
+                <div class="rate-row">
+                    <span>1 Ton</span>
+                    <span class="price">Rs. 3,000</span>
+                </div>
 
-          <li class="price">
-            1 Ton — Rs. 5,500
-          </li>
+                <div class="rate-row">
+                    <span>1.5 Ton</span>
+                    <span class="price">Rs. 3,500</span>
+                </div>
 
-          <li class="price">
-            1.5 Ton — Rs. 6,500
-          </li>
+                <div class="rate-row">
+                    <span>2 Ton</span>
+                    <span class="price">Rs. 4,000</span>
+                </div>
 
-          <li class="price">
-            2 Ton — Rs. 9,500
-          </li>
+            </div>
 
-        </ul>
 
-      </div>
+            <div class="rate-card">
+
+                <h3>⛽ AC Gas Charging</h3>
+
+                <div class="rate-row">
+                    <span>1 Ton</span>
+                    <span class="price">Rs. 5,500</span>
+                </div>
+
+                <div class="rate-row">
+                    <span>1.5 Ton</span>
+                    <span class="price">Rs. 6,500</span>
+                </div>
+
+                <div class="rate-row">
+                    <span>2 Ton</span>
+                    <span class="price">Rs. 9,500</span>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-  </div>
-
 </section>
 
-
-<!-- BOOKING -->
 
 <section class="booking" id="booking">
 
-  <div class="container">
+    <div class="container">
 
-    <h2>Book a Service</h2>
-
-    <div class="booking-box">
-
-      <h3>Service Request</h3>
-
-      <p class="subtitle">
-        Fill in your details to request a service.
-      </p>
-
-      <form id="bookingForm">
-
-        <div class="form-group">
-
-          <label for="customerName">
-            Your Name <span class="required">*</span>
-          </label>
-
-          <input
-            type="text"
-            id="customerName"
-            placeholder="Enter your name"
-            required>
-
+        <div class="section-title">
+            <h2>Book Your Service</h2>
+            <p>Fill the form and our team will contact you</p>
         </div>
 
 
-        <div class="form-group">
+        <div class="form-box">
 
-          <label for="customerPhone">
-            Mobile Number <span class="required">*</span>
-          </label>
+            <form id="bookingForm">
 
-          <input
-            type="tel"
-            id="customerPhone"
-            placeholder="03XXXXXXXXX"
-            required>
+                <div class="form-group">
+
+                    <label>Customer Name</label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Mobile Number</label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="03XXXXXXXXX"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Select Service</label>
+
+                    <select id="service" required>
+
+                        <option value="">Select Service</option>
+
+                        <option value="AC Repairing">
+                            AC Repairing
+                        </option>
+
+                        <option value="AC Service">
+                            AC Service
+                        </option>
+
+                        <option value="AC Installation">
+                            AC Installation
+                        </option>
+
+                        <option value="AC Gas Charging">
+                            AC Gas Charging
+                        </option>
+
+                        <option value="Refrigerator Repair">
+                            Refrigerator / Fridge Repair
+                        </option>
+
+                        <option value="Water Dispenser Repair">
+                            Water Dispenser Repair
+                        </option>
+
+                        <option value="Electrician Work">
+                            Electrician Work
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Area / Address</label>
+
+                    <input
+                        type="text"
+                        id="area"
+                        placeholder="Enter your area or address"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Problem Details</label>
+
+                    <textarea
+                        id="problem"
+                        placeholder="Tell us about the problem..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="submitBtn"
+                >
+                    📲 Book Service
+                </button>
+
+
+                <div id="status"></div>
+
+            </form>
 
         </div>
-
-
-        <div class="form-group">
-
-          <label for="service">
-            Select Service <span class="required">*</span>
-          </label>
-
-          <select id="service" required>
-
-            <option value="">
-              Select a service
-            </option>
-
-            <option value="AC Repairing">
-              AC Repairing
-            </option>
-
-            <option value="AC Service">
-              AC Service
-            </option>
-
-            <option value="AC Installation">
-              AC Installation
-            </option>
-
-            <option value="AC Gas Charging">
-              AC Gas Charging
-            </option>
-
-            <option value="Refrigerator Repair">
-              Refrigerator Repair
-            </option>
-
-            <option value="Water Dispenser Repair">
-              Water Dispenser Repair
-            </option>
-
-            <option value="Electrician Work">
-              Electrician Work
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="area">
-            Area / Address <span class="required">*</span>
-          </label>
-
-          <input
-            type="text"
-            id="area"
-            placeholder="Enter your area or address"
-            required>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="problem">
-            Problem Details
-          </label>
-
-          <textarea
-            id="problem"
-            placeholder="Tell us about the problem..."></textarea>
-
-        </div>
-
-
-        <button
-          type="submit"
-          class="btn primary-btn"
-          id="submitButton">
-
-          📲 Book Service
-
-        </button>
-
-
-        <div
-          id="statusMessage"
-          class="status-message">
-        </div>
-
-
-        <p class="booking-note">
-          Your service request will be saved securely.
-        </p>
-
-      </form>
 
     </div>
-
-  </div>
 
 </section>
 
 
-<!-- WHY CHOOSE US -->
+<section class="why">
 
-<section class="trust">
+    <div class="container">
 
-  <div class="container">
+        <div class="section-title">
+            <h2>Why Choose Us?</h2>
+            <p>Reliable service at your doorstep</p>
+        </div>
 
-    <h2>Why Choose Us?</h2>
 
-    <div class="grid">
+        <div class="why-grid">
 
-      <div class="card">
+            <div class="why-item">
+                <strong>👨‍🔧 Professional Technicians</strong>
+                Experienced repair technicians.
+            </div>
 
-        <h3>✔ Professional Work</h3>
+            <div class="why-item">
+                <strong>⚡ Fast Service</strong>
+                Quick response across Karachi.
+            </div>
 
-        <p>
-          Experienced technicians and reliable service.
-        </p>
+            <div class="why-item">
+                <strong>💰 Fair Rates</strong>
+                Transparent service charges.
+            </div>
 
-      </div>
+            <div class="why-item">
+                <strong>🛡️ Warranty</strong>
+                AC repair comes with 1 month warranty.
+            </div>
 
-      <div class="card">
-
-        <h3>✔ All Over Karachi</h3>
-
-        <p>
-          Service available across Karachi.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <h3>✔ 1 Month Warranty</h3>
-
-        <p>
-          Warranty available on eligible repair services.
-        </p>
-
-      </div>
+        </div>
 
     </div>
 
-  </div>
-
 </section>
 
-
-<!-- CONTACT -->
 
 <section class="contact" id="contact">
 
-  <h2>Contact Us</h2>
+    <div class="container">
 
-  <p>
-    <strong>Muhammad Rizwan</strong>
-  </p>
+        <h2>Contact Us</h2>
 
-  <p>
-    📞 03208463110
-  </p>
+        <p>Smart Cool & Refrigerator</p>
 
-  <p>
-    📍 All Over Karachi
-  </p>
+        <div class="contact-box">
 
-  <a
-    class="btn call"
-    href="tel:+923208463110">
-    Call Now
-  </a>
+            <div class="contact-item">
+                👤 Muhammad Rizwan
+            </div>
 
-  <a
-    class="btn whatsapp"
-    href="https://wa.me/923208463110"
-    target="_blank">
-    WhatsApp Book Service
-  </a>
+            <div class="contact-item">
+                📞
+                <a href="tel:03208463110">
+                    03208463110
+                </a>
+            </div>
+
+            <div class="contact-item">
+                📍 All Over Karachi
+            </div>
+
+        </div>
+
+        <br>
+
+        <a
+            href="https://wa.me/923208463110"
+            class="btn"
+        >
+            💬 WhatsApp Us
+        </a>
+
+    </div>
 
 </section>
 
 
-<!-- FOOTER -->
-
 <footer>
 
-  <h3>
-    ❄️ Smart Cool & Refrigerator
-  </h3>
-
-  <p>
-    AC • Refrigerator • Water Dispenser • Electrician
-  </p>
-
-  <p>
-    All Over Karachi
-  </p>
-
-  <p>
-    © 2026 Smart Cool & Refrigerator
-  </p>
+    <p>
+        © 2026
+        <strong>Smart Cool & Refrigerator</strong>
+        — All Rights Reserved
+    </p>
 
 </footer>
 
 
-<!-- FIREBASE -->
+<a
+    href="https://wa.me/923208463110"
+    class="whatsapp-float"
+    aria-label="WhatsApp"
+>
+    💬
+</a>
+
 
 <script type="module">
 
@@ -913,302 +910,277 @@ import { initializeApp }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-  getFirestore,
-  collection,
-  addDoc,
-  serverTimestamp
+    getFirestore,
+    collection,
+    addDoc,
+    serverTimestamp
 }
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* FIREBASE CONFIG */
+/* =========================
+   FIREBASE CONFIG
+========================= */
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyAvnAL6gje0ly5XtxNotNl_dEhJhJ9pSHg",
+    apiKey:
+        "AIzaSyAvnAL6gje0ly5XtxNotNl_dEhJhJ9pSHg",
 
-  authDomain:
-    "smart-cool-6f513.firebaseapp.com",
+    authDomain:
+        "smart-cool-6f513.firebaseapp.com",
 
-  projectId:
-    "smart-cool-6f513",
+    projectId:
+        "smart-cool-6f513",
 
-  storageBucket:
-    "smart-cool-6f513.firebasestorage.app",
+    storageBucket:
+        "smart-cool-6f513.firebasestorage.app",
 
-  messagingSenderId:
-    "10468224529",
+    messagingSenderId:
+        "10468224529",
 
-  appId:
-    "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+    appId:
+        "1:10468224529:web:51026a5b4ac67a4ad40bb0",
 
-  measurementId:
-    "G-Y5SPBHP57C"
+    measurementId:
+        "G-Y5SPBHP57C"
 
 };
 
 
-/* INITIALIZE FIREBASE */
+/* =========================
+   FIREBASE START
+========================= */
 
-const app =
-  initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const db =
-  getFirestore(app);
+const db = getFirestore(app);
 
 
-/* FORM */
+/* =========================
+   BOOKING FORM
+========================= */
 
 const bookingForm =
-  document.getElementById("bookingForm");
+    document.getElementById("bookingForm");
 
-const submitButton =
-  document.getElementById("submitButton");
+const submitBtn =
+    document.getElementById("submitBtn");
 
-const statusMessage =
-  document.getElementById("statusMessage");
+const statusBox =
+    document.getElementById("status");
 
-
-/* BOOKING ID */
-
-function generateBookingId(){
-
-  const randomNumber =
-    Math.floor(
-      10000000 +
-      Math.random() * 90000000
-    );
-
-  return "BK-" + randomNumber;
-
-}
-
-
-/* FORM SUBMIT */
 
 bookingForm.addEventListener(
-  "submit",
-  async function(event){
+    "submit",
+    async function(event){
 
-    event.preventDefault();
-
-
-    const name =
-      document
-      .getElementById("customerName")
-      .value
-      .trim();
+        event.preventDefault();
 
 
-    const phone =
-      document
-      .getElementById("customerPhone")
-      .value
-      .trim();
+        const name =
+            document.getElementById("customerName")
+            .value.trim();
 
 
-    const service =
-      document
-      .getElementById("service")
-      .value;
+        const phone =
+            document.getElementById("customerPhone")
+            .value.trim();
 
 
-    const area =
-      document
-      .getElementById("area")
-      .value
-      .trim();
+        const service =
+            document.getElementById("service")
+            .value;
 
 
-    const problem =
-      document
-      .getElementById("problem")
-      .value
-      .trim();
+        const area =
+            document.getElementById("area")
+            .value.trim();
 
 
-    if(
-      !name ||
-      !phone ||
-      !service ||
-      !area
-    ){
-
-      statusMessage.className =
-        "status-message error";
-
-      statusMessage.textContent =
-        "Please fill all required fields.";
-
-      return;
-
-    }
+        const problem =
+            document.getElementById("problem")
+            .value.trim();
 
 
-    /* DISABLE BUTTON */
+        if(
+            !name ||
+            !phone ||
+            !service ||
+            !area ||
+            !problem
+        ){
 
-    submitButton.disabled = true;
+            statusBox.innerHTML =
+                "❌ Please fill all fields.";
 
-    submitButton.textContent =
-      "⏳ Sending Request...";
-
-
-    statusMessage.className =
-      "status-message";
-
-    statusMessage.textContent = "";
-
-
-    /* CREATE BOOKING ID */
-
-    const bookingId =
-      generateBookingId();
+            return;
+        }
 
 
-    try{
+        submitBtn.disabled = true;
 
-      /* SAVE TO FIRESTORE */
+        submitBtn.innerHTML =
+            "⏳ Booking save ho rahi hai...";
 
-      await addDoc(
-        collection(
-          db,
-          "serviceRequests"
-        ),
-        {
 
-          bookingId: bookingId,
+        statusBox.innerHTML = "";
 
-          customerName: name,
 
-          customerPhone: phone,
+        /* =========================
+           BOOKING ID
+        ========================= */
 
-          service: service,
+        const bookingId =
+            "BK-" +
+            Math.floor(
+                10000000 +
+                Math.random() * 90000000
+            );
 
-          area: area,
 
-          address: area,
+        try{
 
-          problem: problem,
 
-          status: "pending",
+            /* =========================
+               SAVE TO FIREBASE
+            ========================= */
 
-          source: "website",
+            await addDoc(
+                collection(db,"serviceRequests"),
+                {
 
-          createdAt:
-            serverTimestamp()
+                    bookingId: bookingId,
+
+                    customerName: name,
+
+                    customerPhone: phone,
+
+                    service: service,
+
+                    area: area,
+
+                    address: area,
+
+                    problem: problem,
+
+                    status: "pending",
+
+                    source: "website",
+
+                    createdAt:
+                        serverTimestamp()
+
+                }
+            );
+
+
+            /* =========================
+               WHATSAPP MESSAGE
+            ========================= */
+
+            const message =
+`🔔 NEW SERVICE BOOKING
+
+Booking ID: ${bookingId}
+
+Customer: ${name}
+
+Mobile: ${phone}
+
+Service: ${service}
+
+Area / Address: ${area}
+
+Problem:
+${problem}
+
+Status: Pending
+
+Smart Cool & Refrigerator
+All Over Karachi`;
+
+
+            const whatsappUrl =
+                "https://wa.me/923208463110?text=" +
+                encodeURIComponent(message);
+
+
+            /* =========================
+               SUCCESS MESSAGE
+            ========================= */
+
+            statusBox.innerHTML =
+                "✅ Booking successful!<br>" +
+                "Your Booking ID: <strong>" +
+                bookingId +
+                "</strong><br><br>" +
+                "WhatsApp khola ja raha hai...";
+
+
+            statusBox.style.background =
+                "#e7fff1";
+
+            statusBox.style.color =
+                "#087a3d";
+
+
+            /* =========================
+               DIRECT WHATSAPP OPEN
+            ========================= */
+
+            setTimeout(function(){
+
+                window.location.href =
+                    whatsappUrl;
+
+            },500);
+
+
+            /* =========================
+               RESET FORM
+            ========================= */
+
+            bookingForm.reset();
+
+            submitBtn.disabled = false;
+
+            submitBtn.innerHTML =
+                "📲 Book Service";
+
 
         }
-      );
+        catch(error){
+
+            console.error(
+                "Firebase booking error:",
+                error
+            );
 
 
-      /* SUCCESS */
-
-      statusMessage.className =
-        "status-message success";
-
-      statusMessage.innerHTML =
-        "✅ Booking submitted successfully!<br>" +
-        "Your Booking ID is <strong>" +
-        bookingId +
-        "</strong>";
+            statusBox.innerHTML =
+                "❌ Booking save nahi hui.<br>" +
+                "Please try again.";
 
 
-      /* WHATSAPP MESSAGE */
+            statusBox.style.background =
+                "#ffecec";
 
-      const whatsappMessage =
-
-        "New Website Service Booking%0A%0A" +
-
-        "Booking ID: " +
-        encodeURIComponent(bookingId) +
-
-        "%0A" +
-
-        "Name: " +
-        encodeURIComponent(name) +
-
-        "%0A" +
-
-        "Mobile: " +
-        encodeURIComponent(phone) +
-
-        "%0A" +
-
-        "Service: " +
-        encodeURIComponent(service) +
-
-        "%0A" +
-
-        "Area/Address: " +
-        encodeURIComponent(area) +
-
-        "%0A" +
-
-        "Problem: " +
-        encodeURIComponent(
-          problem || "Not provided"
-        );
+            statusBox.style.color =
+                "#c00";
 
 
-      const whatsappURL =
+            submitBtn.disabled = false;
 
-        "https://wa.me/923208463110" +
-        "?text=" +
-        whatsappMessage;
+            submitBtn.innerHTML =
+                "📲 Book Service";
 
-
-      /* OPEN WHATSAPP */
-
-      setTimeout(
-        function(){
-
-          window.open(
-            whatsappURL,
-            "_blank"
-          );
-
-        },
-        700
-      );
-
-
-      /* RESET FORM */
-
-      bookingForm.reset();
-
+        }
 
     }
-
-    catch(error){
-
-      console.error(
-        "Firebase booking error:",
-        error
-      );
-
-
-      statusMessage.className =
-        "status-message error";
-
-      statusMessage.textContent =
-        "❌ Booking save nahi hui. Please try again.";
-
-
-    }
-
-    finally{
-
-      submitButton.disabled = false;
-
-      submitButton.textContent =
-        "📲 Book Service";
-
-    }
-
-  });
+);
 
 </script>
-
 
 </body>
 </html>
