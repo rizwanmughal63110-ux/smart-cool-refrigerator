@@ -11,6 +11,7 @@
 <meta name="description" content="Smart Cool & Refrigerator provides AC, refrigerator, water dispenser and electrician services all over Karachi.">
 
 <style>
+
 *{
   box-sizing:border-box;
   scroll-behavior:smooth;
@@ -24,6 +25,7 @@ body{
 }
 
 /* HEADER */
+
 header{
   background:white;
   position:sticky;
@@ -41,31 +43,41 @@ header{
   justify-content:space-between;
 }
 
+/* TEXT LOGO */
+
 .logo-area{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:10px;
 }
 
-.logo-area img{
-  width:58px;
-  height:58px;
-  object-fit:contain;
-  border-radius:10px;
+.logo-icon{
+  width:52px;
+  height:52px;
+  border-radius:13px;
+  background:linear-gradient(135deg,#00c6ff,#0066cc);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:29px;
+  box-shadow:0 4px 12px rgba(0,100,200,.25);
 }
 
 .logo-text{
-  font-size:20px;
+  font-size:19px;
   font-weight:bold;
   color:#006dcc;
 }
 
 .logo-text span{
   display:block;
-  font-size:12px;
+  font-size:11px;
   color:#555;
   margin-top:3px;
 }
+
+/* NAVIGATION */
 
 nav a{
   text-decoration:none;
@@ -79,21 +91,26 @@ nav a:hover{
 }
 
 /* HERO */
+
 .hero{
   background:linear-gradient(135deg,#007bff,#003f91);
   color:white;
   text-align:center;
-  padding:85px 20px;
+  padding:90px 20px;
 }
 
-.hero-logo{
-  width:110px;
-  height:110px;
-  object-fit:contain;
+.hero-icon{
+  width:105px;
+  height:105px;
+  margin:0 auto 20px;
+  border-radius:25px;
   background:white;
-  border-radius:22px;
-  padding:8px;
-  margin-bottom:20px;
+  color:#007bff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:62px;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
 }
 
 .hero h1{
@@ -108,9 +125,9 @@ nav a:hover{
 
 .badge{
   display:inline-block;
-  background:#ffffff22;
-  border:1px solid #ffffff55;
-  padding:10px 18px;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.35);
+  padding:10px 20px;
   border-radius:30px;
   margin:12px 0;
   font-weight:bold;
@@ -118,7 +135,7 @@ nav a:hover{
 
 .btn{
   display:inline-block;
-  padding:14px 24px;
+  padding:14px 25px;
   margin:10px 5px;
   border-radius:9px;
   text-decoration:none;
@@ -136,6 +153,7 @@ nav a:hover{
 }
 
 /* SECTIONS */
+
 section{
   padding:65px 20px;
 }
@@ -152,6 +170,7 @@ h2{
 }
 
 /* CARDS */
+
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -174,10 +193,12 @@ h2{
 .card h3{
   color:#006dcc;
   margin-top:0;
+  font-size:21px;
 }
 
 .card p{
   line-height:1.6;
+  color:#4b5f78;
 }
 
 .card li{
@@ -185,6 +206,7 @@ h2{
 }
 
 /* RATES */
+
 .rates{
   background:#eef7ff;
 }
@@ -206,14 +228,16 @@ h2{
 }
 
 /* WHY US */
+
 .trust{
   background:white;
   text-align:center;
 }
 
 /* CONTACT */
+
 .contact{
-  background:#006dcc;
+  background:linear-gradient(135deg,#007bff,#00438f);
   color:white;
   text-align:center;
 }
@@ -222,11 +246,16 @@ h2{
   color:white;
 }
 
+.contact p{
+  font-size:18px;
+}
+
 .contact .call{
   color:#006dcc;
 }
 
 /* FOOTER */
+
 footer{
   background:#062c5c;
   color:white;
@@ -234,25 +263,34 @@ footer{
   padding:35px 20px;
 }
 
+footer h3{
+  font-size:22px;
+}
+
 footer p{
   margin:8px 0;
 }
 
 /* MOBILE */
+
 @media(max-width:800px){
 
   .nav{
     flex-direction:column;
-    gap:10px;
+    gap:12px;
+  }
+
+  nav{
+    text-align:center;
   }
 
   nav a{
-    margin:0 7px;
-    font-size:14px;
+    margin:0 6px;
+    font-size:13px;
   }
 
-  .logo-area{
-    justify-content:center;
+  .logo-text{
+    font-size:17px;
   }
 
   .hero{
@@ -267,6 +305,12 @@ footer p{
     font-size:17px;
   }
 
+  .hero-icon{
+    width:90px;
+    height:90px;
+    font-size:52px;
+  }
+
   .grid{
     grid-template-columns:1fr;
   }
@@ -274,60 +318,81 @@ footer p{
   section{
     padding:50px 18px;
   }
+
+  h2{
+    font-size:28px;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
+
 <!-- HEADER -->
+
 <header>
+
   <div class="nav">
 
     <div class="logo-area">
 
-      <img
-        src="https://01a096ff-19d9-7cec-98a6-d764c9de8a3c.codepenusercontent.com/Logo.png"
-        alt="Smart Cool & Refrigerator Logo">
+      <div class="logo-icon">
+        ❄️
+      </div>
 
       <div class="logo-text">
-        SMART COOL & REFRIGERATOR
-        <span>AC • Refrigerator • Water Dispenser</span>
+        SMART COOL
+        <span>& REFRIGERATOR</span>
       </div>
 
     </div>
 
     <nav>
+
       <a href="#home">Home</a>
+
       <a href="#services">Services</a>
+
       <a href="#rates">Rates</a>
+
       <a href="#contact">Contact</a>
+
     </nav>
 
   </div>
+
 </header>
 
 
 <!-- HERO -->
+
 <section class="hero" id="home">
 
-  <img
-    class="hero-logo"
-    src="https://01a096ff-19d9-7cec-98a6-d764c9de8a3c.codepenusercontent.com/Logo.png"
-    alt="Smart Cool & Refrigerator">
+  <div class="hero-icon">
+    ❄️
+  </div>
 
-  <h1>Smart Cool & Refrigerator</h1>
+  <h1>
+    Smart Cool & Refrigerator
+  </h1>
 
   <p>
     Professional AC, Refrigerator, Water Dispenser
     & Electrician Services
   </p>
 
-  <div class="badge">📍 All Over Karachi</div>
+  <div class="badge">
+    📍 All Over Karachi
+  </div>
 
   <br>
 
-  <a class="btn call" href="tel:+923208463110">
+  <a
+    class="btn call"
+    href="tel:+923208463110">
     📞 Call Now
   </a>
 
@@ -342,6 +407,7 @@ footer p{
 
 
 <!-- SERVICES -->
+
 <section id="services">
 
   <div class="container">
@@ -350,61 +416,90 @@ footer p{
 
     <div class="grid">
 
+
       <div class="card">
+
         <h3>❄️ AC Repairing</h3>
+
         <p>
-          Professional AC troubleshooting and repair service
-          by experienced technicians.
+          Professional AC troubleshooting and repair
+          service by experienced technicians.
         </p>
+
       </div>
 
+
       <div class="card">
+
         <h3>🔧 AC Service</h3>
+
         <p>
-          Complete AC cleaning, maintenance and performance
-          checking service.
+          Complete AC cleaning, maintenance and
+          performance checking service.
         </p>
+
       </div>
 
+
       <div class="card">
+
         <h3>⚙️ AC Installation</h3>
+
         <p>
-          Professional AC installation, shifting and setup
-          service.
+          Professional AC installation, shifting
+          and setup service.
         </p>
+
       </div>
 
+
       <div class="card">
+
         <h3>❄️ AC Gas Charging</h3>
+
         <p>
-          AC gas charging, leakage checking and cooling
-          problem solution.
+          AC gas charging, leakage checking and
+          cooling problem solution.
         </p>
+
       </div>
 
+
       <div class="card">
+
         <h3>🧊 Refrigerator Repair</h3>
+
         <p>
-          Complete fridge and refrigerator repair service
+          Complete fridge and refrigerator repair
           including cooling and compressor problems.
         </p>
+
       </div>
 
+
       <div class="card">
+
         <h3>💧 Water Dispenser Repair</h3>
+
         <p>
-          Water dispenser cooling, electrical and mechanical
-          repair service.
+          Water dispenser cooling, electrical and
+          mechanical repair service.
         </p>
+
       </div>
 
+
       <div class="card">
+
         <h3>⚡ Electrician Work</h3>
+
         <p>
-          Professional electrical repair, installation and
-          maintenance work.
+          Professional electrical repair,
+          installation and maintenance work.
         </p>
+
       </div>
+
 
     </div>
 
@@ -414,6 +509,7 @@ footer p{
 
 
 <!-- RATES -->
+
 <section class="rates" id="rates">
 
   <div class="container">
@@ -422,14 +518,25 @@ footer p{
 
     <div class="grid">
 
+
       <div class="card">
 
         <h3>❄️ AC Repair</h3>
 
         <ul>
-          <li class="price">1 Ton — Rs. 10,500</li>
-          <li class="price">1.5 Ton — Rs. 13,500</li>
-          <li class="price">2 Ton — Rs. 16,500</li>
+
+          <li class="price">
+            1 Ton — Rs. 10,500
+          </li>
+
+          <li class="price">
+            1.5 Ton — Rs. 13,500
+          </li>
+
+          <li class="price">
+            2 Ton — Rs. 16,500
+          </li>
+
         </ul>
 
         <span class="warranty">
@@ -444,9 +551,19 @@ footer p{
         <h3>🔧 AC Service</h3>
 
         <ul>
-          <li class="price">1 Ton — Rs. 3,000</li>
-          <li class="price">1.5 Ton — Rs. 3,500</li>
-          <li class="price">2 Ton — Rs. 4,000</li>
+
+          <li class="price">
+            1 Ton — Rs. 3,000
+          </li>
+
+          <li class="price">
+            1.5 Ton — Rs. 3,500
+          </li>
+
+          <li class="price">
+            2 Ton — Rs. 4,000
+          </li>
+
         </ul>
 
       </div>
@@ -457,12 +574,23 @@ footer p{
         <h3>❄️ AC Gas Charging</h3>
 
         <ul>
-          <li class="price">1 Ton — Rs. 5,500</li>
-          <li class="price">1.5 Ton — Rs. 6,500</li>
-          <li class="price">2 Ton — Rs. 9,500</li>
+
+          <li class="price">
+            1 Ton — Rs. 5,500
+          </li>
+
+          <li class="price">
+            1.5 Ton — Rs. 6,500
+          </li>
+
+          <li class="price">
+            2 Ton — Rs. 9,500
+          </li>
+
         </ul>
 
       </div>
+
 
     </div>
 
@@ -472,6 +600,7 @@ footer p{
 
 
 <!-- WHY CHOOSE US -->
+
 <section class="trust">
 
   <div class="container">
@@ -480,26 +609,41 @@ footer p{
 
     <div class="grid">
 
-      <div class="card">
-        <h3>✔ Professional Work</h3>
-        <p>
-          Experienced technicians and reliable service.
-        </p>
-      </div>
 
       <div class="card">
+
+        <h3>✔ Professional Work</h3>
+
+        <p>
+          Experienced technicians and reliable
+          service.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
         <h3>✔ All Over Karachi</h3>
+
         <p>
           Service available across Karachi.
         </p>
+
       </div>
 
+
       <div class="card">
+
         <h3>✔ 1 Month Warranty</h3>
+
         <p>
-          Warranty available on eligible repair services.
+          Warranty available on eligible
+          repair services.
         </p>
+
       </div>
+
 
     </div>
 
@@ -509,12 +653,63 @@ footer p{
 
 
 <!-- CONTACT -->
+
 <section class="contact" id="contact">
 
   <h2>Contact Us</h2>
 
-  <p><strong>Muhammad Rizwan</strong></p>
+  <p>
+    <strong>Muhammad Rizwan</strong>
+  </p>
 
-  <p>📞 03208463110</p>
+  <p>
+    📞 03208463110
+  </p>
 
-  <p>📍 All Over Karachi
+  <p>
+    📍 All Over Karachi
+  </p>
+
+
+  <a
+    class="btn call"
+    href="tel:+923208463110">
+    Call Now
+  </a>
+
+
+  <a
+    class="btn whatsapp"
+    href="https://wa.me/923208463110"
+    target="_blank">
+    WhatsApp Book Service
+  </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <h3>
+    ❄️ Smart Cool & Refrigerator
+  </h3>
+
+  <p>
+    AC • Refrigerator • Water Dispenser • Electrician
+  </p>
+
+  <p>
+    All Over Karachi
+  </p>
+
+  <p>
+    © 2026 Smart Cool & Refrigerator
+  </p>
+
+</footer>
+
+
+</body>
+</html>
