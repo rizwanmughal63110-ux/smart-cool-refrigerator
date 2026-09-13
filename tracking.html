@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Track Booking | Smart Cool & Refrigerator</title>
 
-<meta
-    name="description"
-    content="Track your Smart Cool & Refrigerator service booking and invoice."
->
-
+<meta name="description"
+content="Track your Smart Cool & Refrigerator service booking and invoice.">
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -33,34 +23,19 @@ body{
     min-height:100vh;
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
 header{
-    background:linear-gradient(
-        135deg,
-        #0077ff,
-        #00c6ff
-    );
-
+    background:linear-gradient(135deg,#0077ff,#00c6ff);
     color:white;
     padding:15px 5%;
-
-    box-shadow:
-        0 4px 15px rgba(0,0,0,.15);
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
 }
 
 .navbar{
     max-width:1100px;
     margin:auto;
-
     display:flex;
     justify-content:space-between;
     align-items:center;
-
-    gap:15px;
 }
 
 .logo{
@@ -72,16 +47,12 @@ header{
 .logo-icon{
     width:45px;
     height:45px;
-
     border-radius:50%;
-
     background:white;
     color:#008cff;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     font-size:25px;
 }
 
@@ -99,36 +70,18 @@ header{
     letter-spacing:1px;
 }
 
-
-/* =========================
-   MAIN
-========================= */
-
 .main{
     max-width:900px;
-    margin:0 auto;
-
+    margin:auto;
     padding:50px 20px 80px;
 }
 
-
-/* =========================
-   SEARCH BOX
-========================= */
-
 .search-box{
-
     background:white;
-
     padding:30px;
-
     border-radius:20px;
-
-    box-shadow:
-        0 8px 30px rgba(0,80,160,.10);
-
+    box-shadow:0 8px 30px rgba(0,80,160,.10);
     text-align:center;
-
     margin-bottom:25px;
 }
 
@@ -149,19 +102,12 @@ header{
 }
 
 .search-form input{
-
     flex:1;
-
     padding:15px;
-
     border:1px solid #cddfeb;
-
     border-radius:10px;
-
     font-size:16px;
-
     outline:none;
-
     text-transform:uppercase;
 }
 
@@ -170,26 +116,13 @@ header{
 }
 
 .search-btn{
-
     padding:15px 25px;
-
     border:none;
-
     border-radius:10px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #0077ff,
-            #00bfff
-        );
-
+    background:linear-gradient(135deg,#0077ff,#00bfff);
     color:white;
-
     font-size:16px;
-
     font-weight:bold;
-
     cursor:pointer;
 }
 
@@ -197,82 +130,46 @@ header{
     opacity:.6;
 }
 
-
-/* =========================
-   STATUS MESSAGE
-========================= */
-
 .message{
-
     display:none;
-
     padding:15px;
-
     border-radius:12px;
-
     margin-bottom:20px;
-
     text-align:center;
-
     font-weight:bold;
 }
 
-.error{
+.message.error{
     display:block;
-
     background:#ffecec;
     color:#c00000;
 }
 
-.success{
+.message.success{
     display:block;
-
     background:#e7fff1;
     color:#087a3d;
 }
-
-
-/* =========================
-   BOOKING CARD
-========================= */
 
 .result{
     display:none;
 }
 
 .booking-card{
-
     background:white;
-
     border-radius:20px;
-
     overflow:hidden;
-
-    box-shadow:
-        0 8px 30px rgba(0,80,160,.10);
-
+    box-shadow:0 8px 30px rgba(0,80,160,.10);
     margin-bottom:25px;
 }
 
 .card-header{
-
-    background:
-        linear-gradient(
-            135deg,
-            #0077ff,
-            #00bfff
-        );
-
+    background:linear-gradient(135deg,#0077ff,#00bfff);
     color:white;
-
     padding:22px;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     gap:15px;
 }
 
@@ -282,65 +179,36 @@ header{
 
 .booking-id{
     font-size:14px;
-    opacity:.95;
+    margin-top:4px;
 }
 
-
-/* =========================
-   STATUS BADGE
-========================= */
-
 .status-badge{
-
     padding:8px 15px;
-
     border-radius:30px;
-
     font-weight:bold;
-
     background:white;
-
     color:#0077dd;
-
     white-space:nowrap;
 }
 
-
-/* =========================
-   BOOKING DETAILS
-========================= */
-
 .details{
-
     padding:25px;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:16px;
 }
 
 .detail{
-
     background:#f7fbff;
-
     padding:15px;
-
     border-radius:12px;
-
     border:1px solid #e4f0fa;
 }
 
 .detail label{
-
     display:block;
-
     color:#777;
-
     font-size:12px;
-
     margin-bottom:5px;
 }
 
@@ -348,32 +216,18 @@ header{
     color:#123;
 }
 
-
-/* =========================
-   PROBLEM
-========================= */
-
 .problem-box{
-
     margin:0 25px 25px;
-
     background:#fff9e8;
-
     border:1px solid #ffe8a8;
-
     padding:16px;
-
     border-radius:12px;
 }
 
 .problem-box label{
-
     display:block;
-
     color:#8a6500;
-
     font-size:12px;
-
     margin-bottom:5px;
 }
 
@@ -381,156 +235,90 @@ header{
     color:#543f00;
 }
 
-
-/* =========================
-   PROGRESS
-========================= */
-
 .progress-section{
-
     padding:0 25px 30px;
 }
 
 .progress-section h3{
-
     color:#0077dd;
-
     margin-bottom:20px;
 }
 
 .progress{
-
     display:flex;
-
     justify-content:space-between;
-
     position:relative;
-
-    gap:5px;
 }
 
 .progress::before{
-
     content:"";
-
     position:absolute;
-
     top:17px;
-
     left:8%;
-
     right:8%;
-
     height:4px;
-
     background:#dcebf7;
-
     z-index:0;
 }
 
 .step{
-
     position:relative;
-
     z-index:1;
-
     text-align:center;
-
     width:25%;
 }
 
 .circle{
-
     width:35px;
     height:35px;
-
     margin:auto;
-
     border-radius:50%;
-
     background:#dcebf7;
-
     color:#789;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     font-weight:bold;
 }
 
 .step.active .circle{
-
     background:#0077ff;
-
     color:white;
-
 }
 
 .step.completed .circle{
-
     background:#16a05d;
-
     color:white;
-
 }
 
 .step span{
-
     display:block;
-
     font-size:11px;
-
     margin-top:8px;
-
     color:#777;
 }
 
 .step.active span,
 .step.completed span{
-
     color:#0077dd;
-
     font-weight:bold;
 }
 
-
-/* =========================
-   INVOICE
-========================= */
-
 .invoice{
-
     display:none;
-
     background:white;
-
     border-radius:20px;
-
-    box-shadow:
-        0 8px 30px rgba(0,80,160,.10);
-
+    box-shadow:0 8px 30px rgba(0,80,160,.10);
     overflow:hidden;
-
     margin-top:25px;
 }
 
 .invoice-header{
-
     padding:25px;
-
     background:#06294a;
-
     color:white;
-
     display:flex;
-
     justify-content:space-between;
-
-    align-items:flex-start;
-
     gap:20px;
 }
 
@@ -552,29 +340,20 @@ header{
     font-size:18px;
 }
 
-
 .invoice-body{
     padding:25px;
 }
 
 .invoice-customer{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:15px;
-
     margin-bottom:25px;
 }
 
 .invoice-customer div{
-
     background:#f7fbff;
-
     padding:13px;
-
     border-radius:10px;
 }
 
@@ -584,21 +363,15 @@ header{
 }
 
 .invoice-table{
-
     width:100%;
-
     border-collapse:collapse;
-
     margin-bottom:20px;
 }
 
 .invoice-table th,
 .invoice-table td{
-
     padding:13px;
-
     border-bottom:1px solid #e5e5e5;
-
     text-align:left;
 }
 
@@ -613,55 +386,31 @@ header{
 }
 
 .total-row td{
-
     font-size:18px;
-
     font-weight:bold;
-
     color:#0077dd;
 }
 
 .invoice-actions{
-
     display:flex;
-
     gap:10px;
-
     flex-wrap:wrap;
-
-    margin-top:20px;
 }
 
 .print-btn{
-
     padding:13px 22px;
-
     border:none;
-
     border-radius:10px;
-
     background:#0077ff;
-
     color:white;
-
     font-weight:bold;
-
     cursor:pointer;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
 footer{
-
     background:#06294a;
-
     color:#bcd5e8;
-
     text-align:center;
-
     padding:25px 15px;
 }
 
@@ -669,16 +418,7 @@ footer strong{
     color:white;
 }
 
-
-/* =========================
-   MOBILE
-========================= */
-
 @media(max-width:650px){
-
-    .navbar{
-        flex-direction:column;
-    }
 
     .main{
         padding:30px 12px 60px;
@@ -746,23 +486,9 @@ footer strong{
     .invoice-table{
         font-size:13px;
     }
-
-    .invoice-table th,
-    .invoice-table td{
-        padding:9px 5px;
-    }
 }
 
-
-/* =========================
-   PRINT
-========================= */
-
 @media print{
-
-    body{
-        background:white;
-    }
 
     header,
     .search-box,
@@ -772,36 +498,17 @@ footer strong{
         display:none !important;
     }
 
-    .main{
-        max-width:none;
-        padding:0;
-    }
-
     .invoice{
         display:block !important;
         box-shadow:none;
         margin:0;
     }
-
-    .invoice-header{
-        background:#06294a !important;
-        -webkit-print-color-adjust:exact;
-        print-color-adjust:exact;
-    }
-
 }
-
 </style>
 
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
@@ -809,19 +516,13 @@ footer strong{
 
 <div class="logo">
 
-<div class="logo-icon">
-❄️
-</div>
+<div class="logo-icon">❄️</div>
 
 <div class="logo-text">
 
-<strong>
-SMART COOL
-</strong>
+<strong>SMART COOL</strong>
 
-<span>
-& REFRIGERATOR
-</span>
+<span>& REFRIGERATOR</span>
 
 </div>
 
@@ -832,42 +533,32 @@ SMART COOL
 </header>
 
 
-
-<!-- =========================
-     MAIN
-========================= -->
-
 <main class="main">
-
-
-<!-- SEARCH -->
 
 <div class="search-box">
 
-<h1>
-🔎 Track Your Booking
-</h1>
+<h1>🔎 Track Your Booking</h1>
 
 <p>
 Enter your Booking ID to check your service status.
 </p>
 
 <form
-    class="search-form"
-    id="trackingForm"
+class="search-form"
+id="trackingForm"
 >
 
 <input
-    type="text"
-    id="bookingId"
-    placeholder="Example: BK-77131886"
-    required
+type="text"
+id="bookingId"
+placeholder="Example: BK-77131886"
+required
 >
 
 <button
-    type="submit"
-    class="search-btn"
-    id="searchBtn"
+type="submit"
+class="search-btn"
+id="searchBtn"
 >
 Track Booking
 </button>
@@ -877,258 +568,179 @@ Track Booking
 </div>
 
 
-<!-- MESSAGE -->
-
 <div
-    id="message"
-    class="message"
+id="message"
+class="message"
 ></div>
 
 
-<!-- RESULT -->
-
 <div
-    id="result"
-    class="result"
+id="result"
+class="result"
 >
 
-
-<!-- =========================
-     BOOKING CARD
-========================= -->
-
 <div class="booking-card">
-
 
 <div class="card-header">
 
 <div>
 
-<h2>
-📋 Service Booking
-</h2>
+<h2>📋 Service Booking</h2>
 
 <div
-    class="booking-id"
-    id="displayBookingId"
->
-</div>
+class="booking-id"
+id="displayBookingId"
+></div>
 
 </div>
 
 <div
-    class="status-badge"
-    id="statusBadge"
+class="status-badge"
+id="statusBadge"
 >
 Pending
 </div>
 
 </div>
 
-
-<!-- DETAILS -->
 
 <div class="details">
 
-
 <div class="detail">
 
-<label>
-Customer Name
-</label>
+<label>Customer Name</label>
 
-<strong id="customerName">
--
-</strong>
+<strong id="customerName">-</strong>
 
 </div>
 
 
 <div class="detail">
 
-<label>
-Mobile Number
-</label>
+<label>Mobile Number</label>
 
-<strong id="customerPhone">
--
-</strong>
+<strong id="customerPhone">-</strong>
 
 </div>
 
 
 <div class="detail">
 
-<label>
-Service
-</label>
+<label>Service</label>
 
-<strong id="service">
--
-</strong>
+<strong id="service">-</strong>
 
 </div>
 
 
 <div class="detail">
 
-<label>
-Area / Address
-</label>
+<label>Area / Address</label>
 
-<strong id="area">
--
-</strong>
+<strong id="area">-</strong>
 
 </div>
 
 
 <div class="detail">
 
-<label>
-Booking Date
-</label>
+<label>Booking Date</label>
 
-<strong id="bookingDate">
--
-</strong>
+<strong id="bookingDate">-</strong>
 
 </div>
 
 
 <div class="detail">
 
-<label>
-Current Status
-</label>
+<label>Current Status</label>
 
-<strong id="currentStatus">
--
-</strong>
+<strong id="currentStatus">-</strong>
 
 </div>
 
-
 </div>
 
-
-<!-- PROBLEM -->
 
 <div class="problem-box">
 
-<label>
-Problem Details
-</label>
+<label>Problem Details</label>
 
-<p id="problem">
--
-</p>
+<p id="problem">-</p>
 
 </div>
 
-
-<!-- PROGRESS -->
 
 <div class="progress-section">
 
-<h3>
-Service Progress
-</h3>
-
+<h3>Service Progress</h3>
 
 <div class="progress">
 
-
 <div
-    class="step"
-    id="stepPending"
+class="step"
+id="stepPending"
 >
 
-<div class="circle">
-1
-</div>
+<div class="circle">1</div>
 
-<span>
-Pending
-</span>
+<span>Pending</span>
 
 </div>
 
 
 <div
-    class="step"
-    id="stepAccepted"
+class="step"
+id="stepAccepted"
 >
 
-<div class="circle">
-2
-</div>
+<div class="circle">2</div>
 
-<span>
-Accepted
-</span>
+<span>Accepted</span>
 
 </div>
 
 
 <div
-    class="step"
-    id="stepProgress"
+class="step"
+id="stepProgress"
 >
 
-<div class="circle">
-3
-</div>
+<div class="circle">3</div>
 
-<span>
-In Progress
-</span>
+<span>In Progress</span>
 
 </div>
 
 
 <div
-    class="step"
-    id="stepCompleted"
+class="step"
+id="stepCompleted"
 >
 
-<div class="circle">
-4
-</div>
+<div class="circle">4</div>
 
-<span>
-Completed
-</span>
-
-</div>
-
+<span>Completed</span>
 
 </div>
 
 </div>
 
+</div>
 
 </div>
 
-
-
-<!-- =========================
-     INVOICE
-========================= -->
 
 <div
-    class="invoice"
-    id="invoice"
+class="invoice"
+id="invoice"
 >
-
 
 <div class="invoice-header">
 
 <div>
 
-<h2>
-SMART COOL & REFRIGERATOR
-</h2>
+<h2>SMART COOL & REFRIGERATOR</h2>
 
 <p>
 AC • Refrigerator • Water Dispenser • Electrician
@@ -1136,16 +748,11 @@ AC • Refrigerator • Water Dispenser • Electrician
 
 </div>
 
-
 <div class="invoice-number">
 
-<small>
-Invoice
-</small>
+<small>Invoice</small>
 
-<strong id="invoiceNumber">
--
-</strong>
+<strong id="invoiceNumber">-</strong>
 
 </div>
 
@@ -1154,64 +761,44 @@ Invoice
 
 <div class="invoice-body">
 
-
 <div class="invoice-customer">
 
-
 <div>
 
-<small>
-Customer
-</small>
+<small>Customer</small>
 
-<strong id="invoiceCustomer">
--
-</strong>
+<strong id="invoiceCustomer">-</strong>
 
 </div>
 
 
 <div>
 
-<small>
-Booking ID
-</small>
+<small>Booking ID</small>
 
-<strong id="invoiceBooking">
--
-</strong>
+<strong id="invoiceBooking">-</strong>
 
 </div>
 
 
 <div>
 
-<small>
-Mobile
-</small>
+<small>Mobile</small>
 
-<strong id="invoicePhone">
--
-</strong>
+<strong id="invoicePhone">-</strong>
 
 </div>
 
 
 <div>
 
-<small>
-Date
-</small>
+<small>Date</small>
 
-<strong id="invoiceDate">
--
-</strong>
+<strong id="invoiceDate">-</strong>
 
 </div>
 
-
 </div>
-
 
 
 <table class="invoice-table">
@@ -1220,30 +807,22 @@ Date
 
 <tr>
 
-<th>
-Description
-</th>
+<th>Description</th>
 
-<th>
-Amount
-</th>
+<th>Amount</th>
 
 </tr>
 
 </thead>
 
-
 <tbody id="invoiceItems">
 </tbody>
-
 
 <tfoot>
 
 <tr class="total-row">
 
-<td>
-Total
-</td>
+<td>Total</td>
 
 <td id="invoiceTotal">
 Rs. 0
@@ -1259,995 +838,833 @@ Rs. 0
 <div class="invoice-actions">
 
 <button
-    class="print-btn"
-    onclick="window.print()"
+class="print-btn"
+onclick="window.print()"
 >
 🖨️ Print Invoice
 </button>
 
 </div>
 
-
 </div>
 
 </div>
-
 
 </div>
 
 </main>
 
 
-
 <footer>
 
 <p>
-
 © 2026
-
-<strong>
-Smart Cool & Refrigerator
-</strong>
-
+<strong>Smart Cool & Refrigerator</strong>
 — All Rights Reserved
-
 </p>
 
 </footer>
 
 
-
-<!-- =========================
-     FIREBASE
-========================= -->
-
 <script type="module">
 
 import {
-    initializeApp
+initializeApp
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
 import {
-    getFirestore,
-    collection,
-    query,
-    where,
-    getDocs,
-    limit
+getFirestore,
+collection,
+query,
+where,
+getDocs,
+limit
 }
 from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-
-/* =========================
-   FIREBASE CONFIG
-========================= */
-
 const firebaseConfig = {
 
-    apiKey:
-    "AIzaSyAvnAL6gje0ly5XtxNotNl_dEhJhJ9pSHg",
+apiKey:
+"AIzaSyAvnAL6gje0ly5XtxNotNl_dEhJhJ9pSHg",
 
-    authDomain:
-    "smart-cool-6f513.firebaseapp.com",
+authDomain:
+"smart-cool-6f513.firebaseapp.com",
 
-    projectId:
-    "smart-cool-6f513",
+projectId:
+"smart-cool-6f513",
 
-    storageBucket:
-    "smart-cool-6f513.firebasestorage.app",
+storageBucket:
+"smart-cool-6f513.firebasestorage.app",
 
-    messagingSenderId:
-    "10468224529",
+messagingSenderId:
+"10468224529",
 
-    appId:
-    "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+appId:
+"1:10468224529:web:51026a5b4ac67a4ad40bb0",
 
-    measurementId:
-    "G-Y5SPBHP57C"
+measurementId:
+"G-Y5SPBHP57C"
 
 };
 
 
-
-/* =========================
-   FIREBASE START
-========================= */
-
 const app =
-    initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const db =
-    getFirestore(app);
+getFirestore(app);
 
-
-
-/* =========================
-   ELEMENTS
-========================= */
 
 const trackingForm =
-    document.getElementById(
-        "trackingForm"
-    );
+document.getElementById(
+"trackingForm"
+);
 
 const bookingInput =
-    document.getElementById(
-        "bookingId"
-    );
+document.getElementById(
+"bookingId"
+);
 
 const searchBtn =
-    document.getElementById(
-        "searchBtn"
-    );
+document.getElementById(
+"searchBtn"
+);
 
 const messageBox =
-    document.getElementById(
-        "message"
-    );
+document.getElementById(
+"message"
+);
 
 const result =
-    document.getElementById(
-        "result"
-    );
+document.getElementById(
+"result"
+);
 
 const invoice =
-    document.getElementById(
-        "invoice"
-    );
+document.getElementById(
+"invoice"
+);
 
-
-
-/* =========================
-   HELPER
-========================= */
 
 function showMessage(
-    text,
-    type
+text,
+type
 ){
 
-    messageBox.className =
-        "message " + type;
+messageBox.className =
+"message " + type;
 
-    messageBox.innerHTML =
-        text;
-
-}
-
-
-
-function hideMessage(){
-
-    messageBox.className =
-        "message";
-
-    messageBox.innerHTML =
-        "";
+messageBox.innerHTML =
+text;
 
 }
-
 
 
 function formatDate(
-    timestamp
+timestamp
 ){
 
-    if(!timestamp){
-        return "-";
-    }
+if(!timestamp){
+return "-";
+}
 
-    try{
+try{
 
-        const date =
-            timestamp.toDate();
+return timestamp
+.toDate()
+.toLocaleDateString(
+"en-PK",
+{
+day:"2-digit",
+month:"2-digit",
+year:"numeric"
+}
+);
 
-        return date.toLocaleDateString(
-            "en-PK",
-            {
-                day:"2-digit",
-                month:"2-digit",
-                year:"numeric"
-            }
-        );
+}
+catch(error){
 
-    }
-    catch(error){
-
-        return "-";
-
-    }
+return "-";
 
 }
 
+}
 
 
 function formatMoney(
-    amount
+amount
 ){
 
-    const number =
-        Number(amount || 0);
-
-    return (
-        "Rs. " +
-        number.toLocaleString(
-            "en-PK"
-        )
-    );
+return (
+"Rs. " +
+Number(
+amount || 0
+).toLocaleString(
+"en-PK"
+)
+);
 
 }
 
-
-
-/* =========================
-   STATUS
-========================= */
 
 function normalizeStatus(
-    status
+status
 ){
 
-    if(!status){
-        return "pending";
-    }
-
-    return String(status)
-        .toLowerCase()
-        .trim()
-        .replace(/_/g," ")
-        .replace(/-/g," ");
-
+if(!status){
+return "pending";
 }
 
+return String(status)
+.toLowerCase()
+.trim()
+.replace(/_/g," ")
+.replace(/-/g," ");
+
+}
 
 
 function setStatus(
-    status
+status
 ){
 
-    const normalized =
-        normalizeStatus(status);
+const normalized =
+normalizeStatus(status);
+
+const badge =
+document.getElementById(
+"statusBadge"
+);
+
+const current =
+document.getElementById(
+"currentStatus"
+);
+
+badge.innerText =
+status || "Pending";
+
+current.innerText =
+status || "Pending";
 
 
-    const statusBadge =
-        document.getElementById(
-            "statusBadge"
-        );
+const steps = [
 
-    const currentStatus =
-        document.getElementById(
-            "currentStatus"
-        );
+document.getElementById(
+"stepPending"
+),
 
+document.getElementById(
+"stepAccepted"
+),
 
-    statusBadge.innerText =
-        status || "Pending";
+document.getElementById(
+"stepProgress"
+),
 
-    currentStatus.innerText =
-        status || "Pending";
+document.getElementById(
+"stepCompleted"
+)
 
-
-    const steps = [
-
-        document.getElementById(
-            "stepPending"
-        ),
-
-        document.getElementById(
-            "stepAccepted"
-        ),
-
-        document.getElementById(
-            "stepProgress"
-        ),
-
-        document.getElementById(
-            "stepCompleted"
-        )
-
-    ];
+];
 
 
-    steps.forEach(
-        step => {
+steps.forEach(
+step => {
 
-            step.classList.remove(
-                "active"
-            );
+step.classList.remove(
+"active"
+);
 
-            step.classList.remove(
-                "completed"
-            );
+step.classList.remove(
+"completed"
+);
 
-        }
-    );
-
-
-    let level = 1;
+}
+);
 
 
-    if(
-        normalized === "accepted" ||
-        normalized === "confirmed"
-    ){
-
-        level = 2;
-
-    }
+let level = 1;
 
 
-    if(
-        normalized === "in progress" ||
-        normalized === "inprogress" ||
-        normalized === "working"
-    ){
+if(
+normalized === "accepted" ||
+normalized === "confirmed"
+){
 
-        level = 3;
-
-    }
-
-
-    if(
-        normalized === "completed" ||
-        normalized === "complete" ||
-        normalized === "done"
-    ){
-
-        level = 4;
-
-    }
-
-
-    if(
-        normalized === "rejected" ||
-        normalized === "cancelled" ||
-        normalized === "canceled"
-    ){
-
-        statusBadge.style.color =
-            "#c00000";
-
-        statusBadge.innerText =
-            "Rejected";
-
-        return;
-
-    }
-
-
-    for(
-        let i = 0;
-        i < level - 1;
-        i++
-    ){
-
-        steps[i].classList.add(
-            "completed"
-        );
-
-    }
-
-
-    steps[level - 1]
-        .classList.add(
-            "active"
-        );
+level = 2;
 
 }
 
 
-
-/* =========================
-   SHOW BOOKING
-========================= */
-
-function showBooking(
-    data
+if(
+normalized === "in progress" ||
+normalized === "inprogress" ||
+normalized === "working"
 ){
 
-    document.getElementById(
-        "displayBookingId"
-    ).innerText =
-        data.bookingId || "-";
-
-
-    document.getElementById(
-        "customerName"
-    ).innerText =
-        data.customerName || "-";
-
-
-    document.getElementById(
-        "customerPhone"
-    ).innerText =
-        data.customerPhone || "-";
-
-
-    document.getElementById(
-        "service"
-    ).innerText =
-        data.service || "-";
-
-
-    document.getElementById(
-        "area"
-    ).innerText =
-        data.area ||
-        data.address ||
-        "-";
-
-
-    document.getElementById(
-        "bookingDate"
-    ).innerText =
-        formatDate(
-            data.createdAt
-        );
-
-
-    document.getElementById(
-        "problem"
-    ).innerText =
-        data.problem || "-";
-
-
-    setStatus(
-        data.status
-    );
-
-
-    result.style.display =
-        "block";
+level = 3;
 
 }
 
 
+if(
+normalized === "completed" ||
+normalized === "complete" ||
+normalized === "done"
+){
 
-/* =========================
-   FIND BOOKING
-========================= */
+level = 4;
+
+}
+
+
+if(
+normalized === "rejected" ||
+normalized === "cancelled" ||
+normalized === "canceled"
+){
+
+badge.style.color =
+"#c00000";
+
+badge.innerText =
+"Rejected";
+
+return;
+
+}
+
+
+for(
+let i=0;
+i<level-1;
+i++
+){
+
+steps[i].classList.add(
+"completed"
+);
+
+}
+
+
+steps[level-1]
+.classList.add(
+"active"
+);
+
+}
+
 
 async function findBooking(
-    bookingId
+bookingId
 ){
 
-    const bookingQuery =
-        query(
+const q =
+query(
 
-            collection(
-                db,
-                "serviceRequests"
-            ),
+collection(
+db,
+"serviceRequests"
+),
 
-            where(
-                "bookingId",
-                "==",
-                bookingId
-            ),
+where(
+"bookingId",
+"==",
+bookingId
+),
 
-            limit(1)
+limit(1)
 
-        );
-
-
-    const snapshot =
-        await getDocs(
-            bookingQuery
-        );
+);
 
 
-    if(
-        snapshot.empty
-    ){
-
-        return null;
-
-    }
+const snapshot =
+await getDocs(q);
 
 
-    return snapshot.docs[0].data();
+if(
+snapshot.empty
+){
+
+return null;
 
 }
 
 
+return snapshot.docs[0].data();
 
-/* =========================
-   FIND INVOICE
-========================= */
+}
+
 
 async function findInvoice(
-    bookingId
+bookingId
 ){
 
-    try{
+try{
 
-        const invoiceQuery =
-            query(
+const q =
+query(
 
-                collection(
-                    db,
-                    "invoices"
-                ),
+collection(
+db,
+"invoices"
+),
 
-                where(
-                    "bookingId",
-                    "==",
-                    bookingId
-                ),
+where(
+"bookingId",
+"==",
+bookingId
+),
 
-                limit(1)
+limit(1)
 
-            );
-
-
-        const snapshot =
-            await getDocs(
-                invoiceQuery
-            );
+);
 
 
-        if(
-            snapshot.empty
-        ){
-
-            return null;
-
-        }
+const snapshot =
+await getDocs(q);
 
 
-        return snapshot.docs[0].data();
+if(
+snapshot.empty
+){
 
-    }
-    catch(error){
-
-        console.log(
-            "Invoice search:",
-            error
-        );
-
-        return null;
-
-    }
+return null;
 
 }
 
 
+return snapshot.docs[0].data();
 
-/* =========================
-   SHOW INVOICE
-========================= */
+}
+catch(error){
 
-function showInvoice(
-    data,
-    booking
-){
+console.log(
+"Invoice search error:",
+error
+);
 
-    if(!data){
+return null;
 
-        invoice.style.display =
-            "none";
-
-        return;
-
-    }
-
-
-    invoice.style.display =
-        "block";
-
-
-    document.getElementById(
-        "invoiceNumber"
-    ).innerText =
-
-        data.invoiceNumber ||
-        data.invoiceId ||
-        (
-            "INV-" +
-            booking.bookingId.replace(
-                "BK-",
-                ""
-            )
-        );
-
-
-    document.getElementById(
-        "invoiceCustomer"
-    ).innerText =
-
-        data.customerName ||
-        booking.customerName ||
-        "-";
-
-
-    document.getElementById(
-        "invoiceBooking"
-    ).innerText =
-
-        booking.bookingId ||
-        "-";
-
-
-    document.getElementById(
-        "invoicePhone"
-    ).innerText =
-
-        data.customerPhone ||
-        booking.customerPhone ||
-        "-";
-
-
-    document.getElementById(
-        "invoiceDate"
-    ).innerText =
-
-        formatDate(
-            data.createdAt ||
-            data.date
-        );
-
-
-
-    const itemsBox =
-        document.getElementById(
-            "invoiceItems"
-        );
-
-
-    itemsBox.innerHTML =
-        "";
-
-
-    let items =
-        data.items ||
-        data.services ||
-        data.invoiceItems ||
-        [];
-
-
-    /*
-       If Owner App stores one
-       service instead of items.
-    */
-
-    if(
-        !Array.isArray(items)
-    ){
-
-        items = [];
-
-    }
-
-
-    /*
-       Use booking service if
-       invoice has no items.
-    */
-
-    if(
-        items.length === 0
-    ){
-
-        const amount =
-            data.total ||
-            data.amount ||
-            data.grandTotal ||
-            0;
-
-
-        items = [
-
-            {
-
-                description:
-                    booking.service ||
-                    "Service",
-
-                amount:
-                    amount
-
-            }
-
-        ];
-
-    }
-
-
-
-    let total = 0;
-
-
-    items.forEach(
-        item => {
-
-
-            const description =
-
-                item.description ||
-                item.name ||
-                item.service ||
-                "Service";
-
-
-            const amount =
-
-                Number(
-                    item.amount ??
-                    item.price ??
-                    item.total ??
-                    0
-                );
-
-
-            total += amount;
-
-
-            const row =
-                document.createElement(
-                    "tr"
-                );
-
-
-            row.innerHTML = `
-
-                <td>
-                    ${escapeHtml(
-                        String(
-                            description
-                        )
-                    )}
-                </td>
-
-                <td>
-                    ${formatMoney(
-                        amount
-                    )}
-                </td>
-
-            `;
-
-
-            itemsBox.appendChild(
-                row
-            );
-
-        }
-    );
-
-
-    /*
-       If invoice has explicit total,
-       use that instead.
-    */
-
-    if(
-        data.total !== undefined
-    ){
-
-        total =
-            Number(
-                data.total
-            );
-
-    }
-    else if(
-        data.grandTotal !== undefined
-    ){
-
-        total =
-            Number(
-                data.grandTotal
-            );
-
-    }
-    else if(
-        data.amount !== undefined
-        &&
-        items.length <= 1
-    ){
-
-        total =
-            Number(
-                data.amount
-            );
-
-    }
-
-
-    document.getElementById(
-        "invoiceTotal"
-    ).innerText =
-        formatMoney(
-            total
-        );
+}
 
 }
 
 
+function showBooking(
+data
+){
 
-/* =========================
-   SECURITY
-========================= */
+document.getElementById(
+"displayBookingId"
+).innerText =
+data.bookingId || "-";
+
+
+document.getElementById(
+"customerName"
+).innerText =
+data.customerName || "-";
+
+
+document.getElementById(
+"customerPhone"
+).innerText =
+data.customerPhone || "-";
+
+
+document.getElementById(
+"service"
+).innerText =
+data.service || "-";
+
+
+document.getElementById(
+"area"
+).innerText =
+data.area ||
+data.address ||
+"-";
+
+
+document.getElementById(
+"bookingDate"
+).innerText =
+formatDate(
+data.createdAt
+);
+
+
+document.getElementById(
+"problem"
+).innerText =
+data.problem || "-";
+
+
+setStatus(
+data.status
+);
+
+
+result.style.display =
+"block";
+
+}
+
 
 function escapeHtml(
-    text
+text
 ){
 
-    const div =
-        document.createElement(
-            "div"
-        );
+const div =
+document.createElement(
+"div"
+);
 
-    div.textContent =
-        text;
+div.textContent =
+text;
 
-    return div.innerHTML;
+return div.innerHTML;
 
 }
 
 
+function showInvoice(
+data,
+booking
+){
 
-/* =========================
-   SEARCH SUBMIT
-========================= */
+if(!data){
+
+invoice.style.display =
+"none";
+
+return;
+
+}
+
+
+invoice.style.display =
+"block";
+
+
+document.getElementById(
+"invoiceNumber"
+).innerText =
+
+data.invoiceNumber ||
+data.invoiceId ||
+(
+"INV-" +
+booking.bookingId.replace(
+"BK-",
+""
+)
+);
+
+
+document.getElementById(
+"invoiceCustomer"
+).innerText =
+
+data.customerName ||
+booking.customerName ||
+"-";
+
+
+document.getElementById(
+"invoiceBooking"
+).innerText =
+
+booking.bookingId ||
+"-";
+
+
+document.getElementById(
+"invoicePhone"
+).innerText =
+
+data.customerPhone ||
+booking.customerPhone ||
+"-";
+
+
+document.getElementById(
+"invoiceDate"
+).innerText =
+
+formatDate(
+data.createdAt ||
+data.date
+);
+
+
+const itemsBox =
+document.getElementById(
+"invoiceItems"
+);
+
+itemsBox.innerHTML =
+"";
+
+
+let items =
+data.items ||
+data.services ||
+data.invoiceItems ||
+[];
+
+
+if(!Array.isArray(items)){
+
+items = [];
+
+}
+
+
+if(items.length === 0){
+
+const amount =
+data.total ||
+data.amount ||
+data.grandTotal ||
+0;
+
+items = [
+
+{
+description:
+booking.service ||
+"Service",
+
+amount:
+amount
+}
+
+];
+
+}
+
+
+let total = 0;
+
+
+items.forEach(
+item => {
+
+const description =
+item.description ||
+item.name ||
+item.service ||
+"Service";
+
+const amount =
+Number(
+item.amount ??
+item.price ??
+item.total ??
+0
+);
+
+total += amount;
+
+
+const row =
+document.createElement(
+"tr"
+);
+
+row.innerHTML = `
+
+<td>
+${escapeHtml(
+String(description)
+)}
+</td>
+
+<td>
+${formatMoney(amount)}
+</td>
+
+`;
+
+itemsBox.appendChild(
+row
+);
+
+}
+);
+
+
+if(
+data.total !== undefined
+){
+
+total =
+Number(
+data.total
+);
+
+}
+else if(
+data.grandTotal !== undefined
+){
+
+total =
+Number(
+data.grandTotal
+);
+
+}
+else if(
+data.amount !== undefined &&
+items.length <= 1
+){
+
+total =
+Number(
+data.amount
+);
+
+}
+
+
+document.getElementById(
+"invoiceTotal"
+).innerText =
+formatMoney(total);
+
+}
+
 
 trackingForm.addEventListener(
-    "submit",
-    async function(event){
+"submit",
+async function(event){
 
-        event.preventDefault();
-
-
-        const bookingId =
-            bookingInput
-                .value
-                .trim()
-                .toUpperCase();
+event.preventDefault();
 
 
-        if(!bookingId){
-
-            showMessage(
-                "❌ Please enter your Booking ID.",
-                "error"
-            );
-
-            return;
-
-        }
+const bookingId =
+bookingInput.value
+.trim()
+.toUpperCase();
 
 
-        hideMessage();
+if(!bookingId){
 
-
-        result.style.display =
-            "none";
-
-
-        invoice.style.display =
-            "none";
-
-
-        searchBtn.disabled =
-            true;
-
-
-        searchBtn.innerText =
-            "Searching...";
-
-
-        try{
-
-
-            /*
-               FIND BOOKING
-            */
-
-            const booking =
-                await findBooking(
-                    bookingId
-                );
-
-
-            if(!booking){
-
-                showMessage(
-                    "❌ Booking ID not found. Please check your Booking ID and try again.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            /*
-               SHOW BOOKING
-            */
-
-            showBooking(
-                booking
-            );
-
-
-            /*
-               FIND INVOICE
-            */
-
-            const invoiceData =
-                await findInvoice(
-                    bookingId
-                );
-
-
-            if(invoiceData){
-
-                showInvoice(
-                    invoiceData,
-                    booking
-                );
-
-            }
-
-
-            showMessage(
-                "✅ Booking found successfully.",
-                "success"
-            );
-
-
-            /*
-               Scroll to result
-            */
-
-            setTimeout(
-                function(){
-
-                    result.scrollIntoView({
-                        behavior:"smooth",
-                        block:"start"
-                    });
-
-                },
-                200
-            );
-
-
-        }
-        catch(error){
-
-            console.error(
-                "Tracking error:",
-                error
-            );
-
-
-            showMessage(
-                "❌ Booking check nahi ho saki. Please try again.",
-                "error"
-            );
-
-        }
-        finally{
-
-            searchBtn.disabled =
-                false;
-
-            searchBtn.innerText =
-                "Track Booking";
-
-        }
-
-    }
+showMessage(
+"❌ Please enter your Booking ID.",
+"error"
 );
+
+return;
+
+}
+
+
+messageBox.className =
+"message";
+
+
+result.style.display =
+"none";
+
+invoice.style.display =
+"none";
+
+searchBtn.disabled =
+true;
+
+searchBtn.innerText =
+"Searching...";
+
+
+try{
+
+const booking =
+await findBooking(
+bookingId
+);
+
+
+if(!booking){
+
+showMessage(
+"❌ Booking ID not found. Please check your Booking ID.",
+"error"
+);
+
+return;
+
+}
+
+
+showBooking(
+booking
+);
+
+
+const invoiceData =
+await findInvoice(
+bookingId
+);
+
+
+if(invoiceData){
+
+showInvoice(
+invoiceData,
+booking
+);
+
+}
+
+
+showMessage(
+"✅ Booking found successfully.",
+"success"
+);
+
+
+result.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+
+}
+catch(error){
+
+console.error(
+error
+);
+
+showMessage(
+"❌ Booking check nahi ho saki. Please try again.",
+"error"
+);
+
+}
+finally{
+
+searchBtn.disabled =
+false;
+
+searchBtn.innerText =
+"Track Booking";
+
+}
+
+});
 
 </script>
 
 </body>
-
 </html>
