@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Track Booking | Smart Cool & Refrigerator</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -130,6 +133,10 @@ button:disabled{
   text-align:center;
 }
 
+.login-box h2{
+  margin-bottom:12px;
+}
+
 .login-box p{
   margin-bottom:15px;
   color:#555;
@@ -159,6 +166,7 @@ button:disabled{
   font-size:22px;
   font-weight:bold;
   color:#0077b6;
+  margin-top:10px;
 }
 
 .status{
@@ -277,11 +285,15 @@ footer{
     max-width:100%;
     text-align:left;
   }
+
 }
+
 </style>
+
 </head>
 
 <body>
+
 
 <header>
 
@@ -293,7 +305,9 @@ Smart Cool & Refrigerator
 
 <nav>
 
-<a href="index.html">Home</a>
+<a href="index.html">
+Home
+</a>
 
 <a href="index.html#services">
 Services
@@ -351,13 +365,15 @@ Please login to your customer account before tracking your booking.
 <a
 href="index.html#account"
 class="login-btn">
+
 Login / Sign Up
+
 </a>
 
 </div>
 
 
-<!-- TRACKING -->
+<!-- TRACKING BOX -->
 
 <div
 id="trackingBox"
@@ -402,7 +418,7 @@ Checking your booking...
 </div>
 
 
-<!-- RESULT -->
+<!-- BOOKING RESULT -->
 
 <div
 id="bookingCard"
@@ -428,6 +444,7 @@ class="status">
 
 
 <div class="details">
+
 
 <div class="detail-row">
 
@@ -526,12 +543,16 @@ class="detail-value">
 
 </div>
 
+
 </div>
+
 
 <button
 id="logoutBtn"
 class="logout">
+
 Logout
+
 </button>
 
 </div>
@@ -567,9 +588,19 @@ All Over Karachi
 
 <script type="module">
 
+
+/* ================================
+   FIREBASE APP
+================================ */
+
 import {
   initializeApp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+/* ================================
+   FIREBASE AUTH
+================================ */
 
 import {
   getAuth,
@@ -578,6 +609,11 @@ import {
   setPersistence,
   browserLocalPersistence
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+/* ================================
+   FIRESTORE
+================================ */
 
 import {
   getFirestore,
@@ -589,69 +625,132 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* FIREBASE CONFIG */
+/* ================================
+   FIREBASE CONFIG
+================================ */
 
 const firebaseConfig = {
 
-  apiKey: "AIzaSyAvnAL6gje0ly5XtxNotNl_dJhEhJ9pSHg",
+  apiKey:
+    "AIzaSyAvnAL6gje0ly5XtxNotNl_dJhEhJ9pSHg",
 
-  authDomain: "smart-cool-6f513.firebaseapp.com",
+  authDomain:
+    "smart-cool-6f513.firebaseapp.com",
 
-  projectId: "smart-cool-6f513",
+  projectId:
+    "smart-cool-6f513",
 
-  storageBucket: "smart-cool-6f513.firebasestorage.app",
+  storageBucket:
+    "smart-cool-6f513.firebasestorage.app",
 
-  messagingSenderId: "10468224529",
+  messagingSenderId:
+    "10468224529",
 
-  appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+  appId:
+    "1:10468224529:web:51026a5b4ac67a4ad40bb0",
 
-  measurementId: "G-Y5SPBHP57C"
+  measurementId:
+    "G-Y5SPBHP57C"
 
 };
 
 
+/* ================================
+   INITIALIZE FIREBASE
+================================ */
+
 const app =
-initializeApp(firebaseConfig);
+  initializeApp(firebaseConfig);
 
 const auth =
-getAuth(app);
+  getAuth(app);
 
 const db =
-getFirestore(app);
+  getFirestore(app);
 
 
-/* ELEMENTS */
+/* ================================
+   KEEP LOGIN ACTIVE
+   ACROSS PAGES
+================================ */
+
+setPersistence(
+  auth,
+  browserLocalPersistence
+)
+.then(() => {
+
+  console.log(
+    "Firebase login persistence enabled"
+  );
+
+})
+.catch((error) => {
+
+  console.error(
+    "Persistence error:",
+    error
+  );
+
+});
+
+
+/* ================================
+   ELEMENTS
+================================ */
 
 const loginBox =
-document.getElementById("loginBox");
+  document.getElementById(
+    "loginBox"
+  );
 
 const trackingBox =
-document.getElementById("trackingBox");
+  document.getElementById(
+    "trackingBox"
+  );
 
 const trackingForm =
-document.getElementById("trackingForm");
+  document.getElementById(
+    "trackingForm"
+  );
 
 const bookingCard =
-document.getElementById("bookingCard");
+  document.getElementById(
+    "bookingCard"
+  );
 
 const message =
-document.getElementById("message");
+  document.getElementById(
+    "message"
+  );
 
 const loading =
-document.getElementById("loading");
+  document.getElementById(
+    "loading"
+  );
 
 const trackBtn =
-document.getElementById("trackBtn");
+  document.getElementById(
+    "trackBtn"
+  );
 
 const logoutBtn =
-document.getElementById("logoutBtn");
+  document.getElementById(
+    "logoutBtn"
+  );
 
 
-/* SHOW MESSAGE */
+/* ================================
+   MESSAGE
+================================ */
 
-function showMessage(text,type){
+function showMessage(
+  text,
+  type
+){
 
-  message.textContent = text;
+  message.textContent =
+    text;
 
   message.className =
     "message " + type;
@@ -662,8 +761,6 @@ function showMessage(text,type){
 }
 
 
-/* HIDE MESSAGE */
-
 function hideMessage(){
 
   message.style.display =
@@ -672,18 +769,26 @@ function hideMessage(){
 }
 
 
-/* FORMAT DATE */
+/* ================================
+   DATE FORMAT
+================================ */
 
-function formatDate(timestamp){
+function formatDate(
+  timestamp
+){
 
   if(!timestamp){
+
     return "Not available";
+
   }
+
 
   try{
 
     const date =
       timestamp.toDate();
+
 
     return date.toLocaleString(
       "en-PK",
@@ -696,7 +801,9 @@ function formatDate(timestamp){
       }
     );
 
-  }catch(error){
+  }
+
+  catch(error){
 
     return "Not available";
 
@@ -705,91 +812,157 @@ function formatDate(timestamp){
 }
 
 
-/* STATUS TEXT */
+/* ================================
+   STATUS TEXT
+================================ */
 
-function getStatusText(status){
+function getStatusText(
+  status
+){
 
   if(!status){
-    return "Pending";
+
+    return "⏳ Pending";
+
   }
+
 
   const value =
-    status.toLowerCase();
+    String(status)
+      .toLowerCase()
+      .trim();
+
 
   if(value === "pending"){
+
     return "⏳ Pending";
+
   }
 
+
   if(value === "confirmed"){
+
     return "✅ Confirmed";
+
   }
+
 
   if(
     value === "on the way" ||
     value === "on-the-way"
   ){
+
     return "🚗 Technician On The Way";
+
   }
+
 
   if(value === "completed"){
+
     return "✅ Completed";
+
   }
 
-  if(value === "cancelled"){
+
+  if(
+    value === "cancelled" ||
+    value === "canceled"
+  ){
+
     return "❌ Cancelled";
+
   }
+
 
   return status;
 
 }
 
 
-/* STATUS CLASS */
+/* ================================
+   STATUS CLASS
+================================ */
 
-function getStatusClass(status){
+function getStatusClass(
+  status
+){
 
   if(!status){
+
     return "status-pending";
+
   }
+
 
   const value =
-    status.toLowerCase();
+    String(status)
+      .toLowerCase()
+      .trim();
+
 
   if(value === "pending"){
+
     return "status-pending";
+
   }
 
+
   if(value === "confirmed"){
+
     return "status-confirmed";
+
   }
+
 
   if(
     value === "on the way" ||
     value === "on-the-way"
   ){
+
     return "status-on-the-way";
+
   }
+
 
   if(value === "completed"){
+
     return "status-completed";
+
   }
 
-  if(value === "cancelled"){
+
+  if(
+    value === "cancelled" ||
+    value === "canceled"
+  ){
+
     return "status-cancelled";
+
   }
+
 
   return "status-pending";
 
 }
 
 
-/* AUTH STATE */
+/* ================================
+   AUTH STATE
+================================ */
 
 onAuthStateChanged(
   auth,
   function(user){
 
+    console.log(
+      "Current Firebase user:",
+      user
+    );
+
+
     if(user){
+
+      /* USER LOGGED IN */
 
       loginBox.style.display =
         "none";
@@ -797,7 +970,11 @@ onAuthStateChanged(
       trackingBox.style.display =
         "block";
 
-    }else{
+    }
+
+    else{
+
+      /* USER NOT LOGGED IN */
 
       loginBox.style.display =
         "block";
@@ -814,7 +991,9 @@ onAuthStateChanged(
 );
 
 
-/* TRACK BOOKING */
+/* ================================
+   TRACK BOOKING
+================================ */
 
 trackingForm.addEventListener(
   "submit",
@@ -822,7 +1001,9 @@ trackingForm.addEventListener(
 
     e.preventDefault();
 
+
     hideMessage();
+
 
     bookingCard.style.display =
       "none";
@@ -831,6 +1012,8 @@ trackingForm.addEventListener(
     const user =
       auth.currentUser;
 
+
+    /* CHECK LOGIN */
 
     if(!user){
 
@@ -844,9 +1027,13 @@ trackingForm.addEventListener(
     }
 
 
+    /* GET BOOKING ID */
+
     const bookingId =
       document
-        .getElementById("bookingId")
+        .getElementById(
+          "bookingId"
+        )
         .value
         .trim()
         .toUpperCase();
@@ -864,6 +1051,8 @@ trackingForm.addEventListener(
     }
 
 
+    /* BUTTON LOADING */
+
     trackBtn.disabled =
       true;
 
@@ -876,17 +1065,14 @@ trackingForm.addEventListener(
 
     try{
 
-      /*
-        IMPORTANT:
-        Booking is searched by BOTH
-        bookingId and customerUid.
 
-        This means a customer cannot
-        view another customer's booking.
-      */
+      /* ================================
+         SEARCH CUSTOMER'S OWN BOOKING
+      ================================= */
 
       const bookingQuery =
         query(
+
           collection(
             db,
             "serviceRequests"
@@ -905,6 +1091,7 @@ trackingForm.addEventListener(
           ),
 
           limit(1)
+
         );
 
 
@@ -914,7 +1101,13 @@ trackingForm.addEventListener(
         );
 
 
-      if(snapshot.empty){
+      /* ================================
+         BOOKING NOT FOUND
+      ================================= */
+
+      if(
+        snapshot.empty
+      ){
 
         showMessage(
           "Booking nahi mili. Booking ID check karein.",
@@ -926,20 +1119,34 @@ trackingForm.addEventListener(
       }
 
 
+      /* ================================
+         GET BOOKING
+      ================================= */
+
       const booking =
-        snapshot.docs[0].data();
+        snapshot
+          .docs[0]
+          .data();
 
 
-      /* DISPLAY DATA */
+      /* ================================
+         BOOKING ID
+      ================================= */
 
       document.getElementById(
         "displayBookingId"
       ).textContent =
-        booking.bookingId || bookingId;
+        booking.bookingId ||
+        bookingId;
 
+
+      /* ================================
+         STATUS
+      ================================= */
 
       const status =
-        booking.status || "pending";
+        booking.status ||
+        "pending";
 
 
       const statusElement =
@@ -949,49 +1156,87 @@ trackingForm.addEventListener(
 
 
       statusElement.textContent =
-        getStatusText(status);
+        getStatusText(
+          status
+        );
 
 
       statusElement.className =
         "status " +
-        getStatusClass(status);
+        getStatusClass(
+          status
+        );
 
+
+      /* ================================
+         CUSTOMER
+      ================================= */
 
       document.getElementById(
         "displayCustomer"
       ).textContent =
-        booking.customerName || "N/A";
+        booking.customerName ||
+        "N/A";
 
+
+      /* ================================
+         PHONE
+      ================================= */
 
       document.getElementById(
         "displayPhone"
       ).textContent =
-        booking.customerPhone || "N/A";
+        booking.customerPhone ||
+        "N/A";
 
+
+      /* ================================
+         SERVICE
+      ================================= */
 
       document.getElementById(
         "displayService"
       ).textContent =
-        booking.service || "N/A";
+        booking.service ||
+        "N/A";
 
+
+      /* ================================
+         AREA
+      ================================= */
 
       document.getElementById(
         "displayArea"
       ).textContent =
-        booking.area || "N/A";
+        booking.area ||
+        "N/A";
 
+
+      /* ================================
+         ADDRESS
+      ================================= */
 
       document.getElementById(
         "displayAddress"
       ).textContent =
-        booking.address || "N/A";
+        booking.address ||
+        "N/A";
 
+
+      /* ================================
+         PROBLEM
+      ================================= */
 
       document.getElementById(
         "displayProblem"
       ).textContent =
-        booking.problem || "N/A";
+        booking.problem ||
+        "N/A";
 
+
+      /* ================================
+         DATE
+      ================================= */
 
       document.getElementById(
         "displayDate"
@@ -1000,6 +1245,10 @@ trackingForm.addEventListener(
           booking.createdAt
         );
 
+
+      /* ================================
+         SHOW RESULT
+      ================================= */
 
       bookingCard.style.display =
         "block";
@@ -1011,13 +1260,17 @@ trackingForm.addEventListener(
       );
 
 
-    }catch(error){
+    }
+
+    catch(error){
 
       console.error(
         "Tracking Error:",
         error
       );
 
+
+      /* FIRESTORE PERMISSION ERROR */
 
       if(
         error.code ===
@@ -1029,17 +1282,24 @@ trackingForm.addEventListener(
           "error"
         );
 
-      }else{
+      }
+
+      else{
 
         showMessage(
           "Booking check karte waqt error aaya: " +
-          (error.message || "Unknown error"),
+          (
+            error.message ||
+            "Unknown error"
+          ),
           "error"
         );
 
       }
 
-    }finally{
+    }
+
+    finally{
 
       trackBtn.disabled =
         false;
@@ -1056,7 +1316,9 @@ trackingForm.addEventListener(
 );
 
 
-/* LOGOUT */
+/* ================================
+   LOGOUT
+================================ */
 
 logoutBtn.addEventListener(
   "click",
@@ -1064,16 +1326,30 @@ logoutBtn.addEventListener(
 
     try{
 
-      await signOut(auth);
+      await signOut(
+        auth
+      );
+
 
       bookingCard.style.display =
         "none";
 
+
       document.getElementById(
         "bookingId"
-      ).value = "";
+      ).value =
+        "";
 
-    }catch(error){
+
+      showMessage(
+        "You have been logged out.",
+        "success"
+      );
+
+
+    }
+
+    catch(error){
 
       showMessage(
         "Logout error: " +
