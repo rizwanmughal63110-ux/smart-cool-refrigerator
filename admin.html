@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,7 @@
 <title>Smart Cool & Refrigerator - Owner Panel</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -88,39 +87,16 @@ button{
   margin:4px;
 }
 
-.primary{
-  background:#0077b6;
-  color:white;
-}
-
-.success{
-  background:#16a34a;
-  color:white;
-}
-
-.warning{
-  background:#f59e0b;
-  color:white;
-}
-
-.danger{
-  background:#dc2626;
-  color:white;
-}
-
-.dark{
-  background:#172b3a;
-  color:white;
-}
-
-.whatsapp{
-  background:#25d366;
-  color:white;
-}
-
 button:hover{
   opacity:.88;
 }
+
+.primary{background:#0077b6;color:white}
+.success{background:#16a34a;color:white}
+.warning{background:#f59e0b;color:white}
+.danger{background:#dc2626;color:white}
+.dark{background:#172b3a;color:white}
+.whatsapp{background:#25d366;color:white}
 
 .stats{
   display:grid;
@@ -317,10 +293,6 @@ button:hover{
     padding:30px;
     font-family:Arial;
   }
-
-  .no-print{
-    display:none!important;
-  }
 }
 </style>
 </head>
@@ -329,7 +301,9 @@ button:hover{
 
 <header>
   <div class="logo">❄️ SMART COOL & REFRIGERATOR</div>
-  <div class="sub">AC • Fridge • Water Dispenser • Electrician | All Over Karachi</div>
+  <div class="sub">
+    AC • Fridge • Water Dispenser • Electrician | All Over Karachi
+  </div>
 </header>
 
 
@@ -343,12 +317,23 @@ button:hover{
     <div id="loginMessage" class="message"></div>
 
     <label>Email</label>
-    <input type="email" id="loginEmail" placeholder="Owner Email">
+    <input
+      type="email"
+      id="loginEmail"
+      placeholder="Owner Email"
+    >
 
     <label>Password</label>
-    <input type="password" id="loginPassword" placeholder="Password">
+    <input
+      type="password"
+      id="loginPassword"
+      placeholder="Password"
+    >
 
-    <button class="primary" style="width:100%" onclick="ownerLogin()">
+    <button
+      class="primary"
+      style="width:100%"
+      onclick="ownerLogin()">
       Login
     </button>
 
@@ -366,12 +351,23 @@ button:hover{
 
       <div>
         <h2>📊 Owner Dashboard</h2>
-        <div>Customer bookings aur invoices manage karein.</div>
+        <div>
+          Customer bookings aur invoices manage karein.
+        </div>
       </div>
 
       <div>
-        <button class="primary" onclick="loadRequests()">🔄 Refresh</button>
-        <button class="danger" onclick="ownerLogout()">Logout</button>
+        <button
+          class="primary"
+          onclick="loadRequests()">
+          🔄 Refresh
+        </button>
+
+        <button
+          class="danger"
+          onclick="ownerLogout()">
+          Logout
+        </button>
       </div>
 
     </div>
@@ -405,7 +401,7 @@ button:hover{
   </div>
 
 
-  <!-- REQUESTS -->
+  <!-- CUSTOMER REQUESTS -->
   <div class="card">
 
     <h2>📋 Customer Requests</h2>
@@ -418,16 +414,22 @@ button:hover{
         oninput="renderRequests()"
       >
 
-      <select id="statusFilter" onchange="renderRequests()">
+      <select
+        id="statusFilter"
+        onchange="renderRequests()">
+
         <option value="all">All Status</option>
         <option value="New">New</option>
         <option value="Accepted">Accepted</option>
         <option value="In Progress">In Progress</option>
         <option value="Completed">Completed</option>
         <option value="Rejected">Rejected</option>
+
       </select>
 
-      <button class="primary" onclick="loadRequests()">
+      <button
+        class="primary"
+        onclick="loadRequests()">
         Refresh
       </button>
 
@@ -438,12 +440,14 @@ button:hover{
   </div>
 
 
-  <!-- INVOICES -->
+  <!-- PREVIOUS INVOICES -->
   <div class="card">
 
     <h2>🧾 Previous Invoices</h2>
 
-    <div id="invoiceList" class="invoice-list">
+    <div
+      id="invoiceList"
+      class="invoice-list">
       Loading...
     </div>
 
@@ -461,11 +465,18 @@ button:hover{
 
       <h2>🧾 Create Invoice</h2>
 
-      <button class="danger" onclick="closeInvoice()">✕ Close</button>
+      <button
+        class="danger"
+        onclick="closeInvoice()">
+        ✕ Close
+      </button>
 
     </div>
 
-    <div id="invoiceMessage" class="message"></div>
+    <div
+      id="invoiceMessage"
+      class="message">
+    </div>
 
 
     <div class="invoice-grid">
@@ -507,21 +518,28 @@ button:hover{
 
       <div>
         <label>AC Ton</label>
-        <input id="invoiceTon" placeholder="1 Ton / 1.5 Ton / 2 Ton">
+        <input
+          id="invoiceTon"
+          placeholder="1 Ton / 1.5 Ton / 2 Ton">
       </div>
 
     </div>
 
 
     <label>Problem / Work Details</label>
+
     <textarea id="invoiceProblem"></textarea>
 
 
     <label>Quick Rate</label>
 
-    <select id="quickRate" onchange="applyRate()">
+    <select
+      id="quickRate"
+      onchange="applyRate()">
 
-      <option value="">-- Select Rate --</option>
+      <option value="">
+        -- Select Rate --
+      </option>
 
       <option value="AC Repair|1 Ton|10500">
         AC Repair - 1 Ton - Rs. 10,500
@@ -566,22 +584,39 @@ button:hover{
 
       <div>
         <label>Item / Service</label>
-        <input id="itemName" placeholder="AC Repair">
+        <input
+          id="itemName"
+          placeholder="AC Repair">
       </div>
 
       <div>
         <label>Quantity</label>
-        <input type="number" id="itemQty" value="1" min="1" oninput="calculateTotal()">
+        <input
+          type="number"
+          id="itemQty"
+          value="1"
+          min="1"
+          oninput="calculateTotal()">
       </div>
 
       <div>
         <label>Price</label>
-        <input type="number" id="itemPrice" value="0" min="0" oninput="calculateTotal()">
+        <input
+          type="number"
+          id="itemPrice"
+          value="0"
+          min="0"
+          oninput="calculateTotal()">
       </div>
 
       <div>
         <label>Discount</label>
-        <input type="number" id="discount" value="0" min="0" oninput="calculateTotal()">
+        <input
+          type="number"
+          id="discount"
+          value="0"
+          min="0"
+          oninput="calculateTotal()">
       </div>
 
     </div>
@@ -592,22 +627,27 @@ button:hover{
     <input
       id="warranty"
       value="1 Month Warranty"
-      placeholder="Warranty"
-    >
+      placeholder="Warranty">
 
 
     <div class="invoice-total">
-      Total: Rs. <span id="invoiceTotal">0</span>
+      Total:
+      Rs.
+      <span id="invoiceTotal">0</span>
     </div>
 
 
     <div style="margin-top:15px;text-align:right">
 
-      <button class="success" onclick="saveInvoice()">
+      <button
+        class="success"
+        onclick="saveInvoice()">
         💾 Save Invoice
       </button>
 
-      <button class="dark" onclick="printInvoice()">
+      <button
+        class="dark"
+        onclick="printInvoice()">
         🖨️ Print / PDF
       </button>
 
@@ -647,23 +687,42 @@ import {
 from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+/* FIREBASE CONFIG */
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
-  authDomain: "smart-cool-6f513.firebaseapp.com",
-  projectId: "smart-cool-6f513",
-  storageBucket: "smart-cool-6f513.firebasestorage.app",
-  messagingSenderId: "10468224529",
-  appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
-  measurementId: "G-Y5SPBHP57C"
+
+  apiKey:
+    "AIzaSyAvnAL6gje0ly5XtxNotNl_dEhJhJ9pSHg",
+
+  authDomain:
+    "smart-cool-6f513.firebaseapp.com",
+
+  projectId:
+    "smart-cool-6f513",
+
+  storageBucket:
+    "smart-cool-6f513.firebasestorage.app",
+
+  messagingSenderId:
+    "10468224529",
+
+  appId:
+    "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+
+  measurementId:
+    "G-Y5SPBHP57C"
+
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app =
+  initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
+const db =
+  getFirestore(app);
 
-const auth = getAuth(app);
+const auth =
+  getAuth(app);
 
 
 let allRequests = [];
@@ -673,20 +732,24 @@ let selectedBooking = null;
 let allInvoices = [];
 
 
-// ------------------------------
-// AUTH
-// ------------------------------
+/* LOGIN */
 
 window.ownerLogin = async function(){
 
   const email =
-    document.getElementById("loginEmail").value.trim();
+    document
+      .getElementById("loginEmail")
+      .value
+      .trim();
 
   const password =
-    document.getElementById("loginPassword").value;
+    document
+      .getElementById("loginPassword")
+      .value;
 
   const box =
     document.getElementById("loginMessage");
+
 
   if(!email || !password){
 
@@ -698,6 +761,7 @@ window.ownerLogin = async function(){
 
     return;
   }
+
 
   try{
 
@@ -760,9 +824,7 @@ onAuthStateChanged(auth,(user)=>{
 });
 
 
-// ------------------------------
-// STATUS NORMALIZATION
-// ------------------------------
+/* NORMALIZE STATUS */
 
 function normalizeStatus(status){
 
@@ -771,6 +833,7 @@ function normalizeStatus(status){
       .trim()
       .toLowerCase();
 
+
   if(
     s === "pending" ||
     s === "new"
@@ -778,12 +841,14 @@ function normalizeStatus(status){
     return "New";
   }
 
+
   if(
     s === "accepted" ||
     s === "accept"
   ){
     return "Accepted";
   }
+
 
   if(
     s === "in progress" ||
@@ -793,6 +858,7 @@ function normalizeStatus(status){
     return "In Progress";
   }
 
+
   if(
     s === "completed" ||
     s === "complete" ||
@@ -800,6 +866,7 @@ function normalizeStatus(status){
   ){
     return "Completed";
   }
+
 
   if(
     s === "rejected" ||
@@ -809,14 +876,13 @@ function normalizeStatus(status){
     return "Rejected";
   }
 
+
   return status || "New";
 
 }
 
 
-// ------------------------------
-// LOAD REQUESTS
-// ------------------------------
+/* LOAD REQUESTS */
 
 window.loadRequests = async function(){
 
@@ -826,6 +892,7 @@ window.loadRequests = async function(){
   list.innerHTML =
     "<p>⏳ Loading requests...</p>";
 
+
   try{
 
     const snap =
@@ -833,11 +900,15 @@ window.loadRequests = async function(){
         collection(db,"serviceRequests")
       );
 
+
     allRequests = [];
+
 
     snap.forEach((item)=>{
 
-      const data = item.data();
+      const data =
+        item.data();
+
 
       allRequests.push({
 
@@ -861,7 +932,7 @@ window.loadRequests = async function(){
       const bTime =
         b.createdAt?.seconds || 0;
 
-      return bTime - aTime;
+      return bTime-aTime;
 
     });
 
@@ -869,6 +940,7 @@ window.loadRequests = async function(){
     updateDashboard();
 
     renderRequests();
+
 
   }catch(error){
 
@@ -882,24 +954,25 @@ window.loadRequests = async function(){
 };
 
 
-// ------------------------------
-// DASHBOARD
-// ------------------------------
+/* DASHBOARD */
 
 function updateDashboard(){
 
   const total =
     allRequests.length;
 
+
   const newCount =
     allRequests.filter(
       x=>x.normalizedStatus==="New"
     ).length;
 
+
   const progress =
     allRequests.filter(
       x=>x.normalizedStatus==="In Progress"
     ).length;
+
 
   const completed =
     allRequests.filter(
@@ -908,55 +981,65 @@ function updateDashboard(){
 
 
   document.getElementById("totalCount")
-    .textContent = total;
+    .textContent=total;
 
   document.getElementById("newCount")
-    .textContent = newCount;
+    .textContent=newCount;
 
   document.getElementById("progressCount")
-    .textContent = progress;
+    .textContent=progress;
 
   document.getElementById("completedCount")
-    .textContent = completed;
+    .textContent=completed;
 
 }
 
 
-// ------------------------------
-// RENDER REQUESTS
-// ------------------------------
+/* RENDER REQUESTS */
 
 window.renderRequests = function(){
 
   const list =
     document.getElementById("requestsList");
 
+
   const search =
-    document.getElementById("searchInput")
+    document
+      .getElementById("searchInput")
       .value
       .trim()
       .toLowerCase();
 
+
   const filter =
-    document.getElementById("statusFilter")
+    document
+      .getElementById("statusFilter")
       .value;
 
 
-  let data =
+  const data =
     allRequests.filter(item=>{
 
       const phone =
-        item.customerPhone ||
-        item.phone ||
-        "";
+        String(
+          item.customerPhone ||
+          item.phone ||
+          ""
+        );
+
 
       const booking =
-        item.bookingId ||
-        "";
+        String(
+          item.bookingId ||
+          ""
+        );
+
 
       const name =
-        item.customerName ||
-        "";
+        String(
+          item.customerName ||
+          ""
+        );
 
 
       const matchesSearch =
@@ -967,11 +1050,12 @@ window.renderRequests = function(){
 
 
       const matchesStatus =
-        filter === "all" ||
-        item.normalizedStatus === filter;
+        filter==="all" ||
+        item.normalizedStatus===filter;
 
 
-      return matchesSearch && matchesStatus;
+      return matchesSearch &&
+             matchesStatus;
 
     });
 
@@ -994,32 +1078,10 @@ window.renderRequests = function(){
         item.phone ||
         "-";
 
+
       const status =
         item.normalizedStatus ||
         "New";
-
-
-      const safeId =
-        escapeHtml(item.bookingId || "-");
-
-      const safeName =
-        escapeHtml(item.customerName || "-");
-
-      const safePhone =
-        escapeHtml(phone);
-
-      const safeService =
-        escapeHtml(item.service || "-");
-
-      const safeArea =
-        escapeHtml(
-          item.area ||
-          item.address ||
-          "-"
-        );
-
-      const safeProblem =
-        escapeHtml(item.problem || "-");
 
 
       return `
@@ -1031,11 +1093,11 @@ window.renderRequests = function(){
             <div>
 
               <div class="booking-id">
-                ${safeId}
+                ${escapeHtml(item.bookingId || "-")}
               </div>
 
               <strong>
-                ${safeName}
+                ${escapeHtml(item.customerName || "-")}
               </strong>
 
             </div>
@@ -1050,19 +1112,27 @@ window.renderRequests = function(){
           <div class="details">
 
             <div class="detail">
-              📞 <b>Phone:</b> ${safePhone}
+              📞 <b>Phone:</b>
+              ${escapeHtml(phone)}
             </div>
 
             <div class="detail">
-              🔧 <b>Service:</b> ${safeService}
+              🔧 <b>Service:</b>
+              ${escapeHtml(item.service || "-")}
             </div>
 
             <div class="detail">
-              📍 <b>Area:</b> ${safeArea}
+              📍 <b>Area:</b>
+              ${escapeHtml(
+                item.area ||
+                item.address ||
+                "-"
+              )}
             </div>
 
             <div class="detail">
-              📝 <b>Problem:</b> ${safeProblem}
+              📝 <b>Problem:</b>
+              ${escapeHtml(item.problem || "-")}
             </div>
 
           </div>
@@ -1117,29 +1187,165 @@ window.renderRequests = function(){
 };
 
 
-// ------------------------------
-// CHANGE STATUS
-// ------------------------------
+/* CHANGE STATUS + WHATSAPP */
 
 window.changeStatus = async function(id,status){
 
+  const item =
+    allRequests.find(
+      x=>x.id===id
+    );
+
+
+  if(!item)return;
+
+
   try{
 
+    /* FIREBASE STATUS UPDATE */
+
     await updateDoc(
-      doc(db,"serviceRequests",id),
+      doc(
+        db,
+        "serviceRequests",
+        id
+      ),
       {
         status:status
       }
     );
 
 
+    /* CUSTOMER PHONE */
+
+    const phone =
+      item.customerPhone ||
+      item.phone ||
+      "";
+
+
+    let number =
+      String(phone)
+        .replace(/\D/g,"");
+
+
+    if(number.startsWith("0")){
+
+      number =
+        "92" +
+        number.substring(1);
+
+    }
+
+
+    /* WHATSAPP MESSAGE */
+
+    let message = "";
+
+
+    if(status==="Accepted"){
+
+      message =
+`Assalam-o-Alaikum ${item.customerName || ""},
+
+Aapki service booking successfully ACCEPT kar li gayi hai. ✅
+
+Booking ID: ${item.bookingId || ""}
+Service: ${item.service || ""}
+
+Hamari team jald aapse contact karegi.
+
+Muhammad Rizwan
+Smart Cool & Refrigerator
+03208463110`;
+
+    }
+
+
+    else if(status==="In Progress"){
+
+      message =
+`Assalam-o-Alaikum ${item.customerName || ""},
+
+Aapki service request ab IN PROGRESS hai. 🔧
+
+Booking ID: ${item.bookingId || ""}
+Service: ${item.service || ""}
+
+Technician aapki service par kaam kar raha hai.
+
+Muhammad Rizwan
+Smart Cool & Refrigerator
+03208463110`;
+
+    }
+
+
+    else if(status==="Completed"){
+
+      message =
+`Assalam-o-Alaikum ${item.customerName || ""},
+
+Aapki service successfully COMPLETED ho gayi hai. ✅
+
+Booking ID: ${item.bookingId || ""}
+Service: ${item.service || ""}
+
+Aap apni invoice Customer Tracking page par dekh sakte hain.
+
+Muhammad Rizwan
+Smart Cool & Refrigerator
+03208463110`;
+
+    }
+
+
+    else if(status==="Rejected"){
+
+      message =
+`Assalam-o-Alaikum ${item.customerName || ""},
+
+Maazrat ke saath, aapki service booking filhaal REJECTED kar di gayi hai.
+
+Booking ID: ${item.bookingId || ""}
+Service: ${item.service || ""}
+
+Mazeed maloomat ke liye rabta karein:
+
+Muhammad Rizwan
+Smart Cool & Refrigerator
+03208463110`;
+
+    }
+
+
     alert(
-      "✅ Booking status updated: " +
+      "✅ Status updated: " +
       status
     );
 
 
+    /* OPEN WHATSAPP */
+
+    if(number && message){
+
+      const whatsappUrl =
+        "https://wa.me/" +
+        number +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+      window.open(
+        whatsappUrl,
+        "_blank"
+      );
+
+    }
+
+
     await loadRequests();
+
 
   }catch(error){
 
@@ -1154,9 +1360,7 @@ window.changeStatus = async function(id,status){
 };
 
 
-// ------------------------------
-// WHATSAPP
-// ------------------------------
+/* DIRECT WHATSAPP */
 
 window.contactCustomer = function(id){
 
@@ -1164,6 +1368,7 @@ window.contactCustomer = function(id){
     allRequests.find(
       x=>x.id===id
     );
+
 
   if(!item)return;
 
@@ -1186,13 +1391,15 @@ window.contactCustomer = function(id){
 
 
   let number =
-    phone.replace(/\D/g,"");
+    String(phone)
+      .replace(/\D/g,"");
 
 
   if(number.startsWith("0")){
 
     number =
-      "92" + number.substring(1);
+      "92" +
+      number.substring(1);
 
   }
 
@@ -1216,14 +1423,15 @@ Muhammad Rizwan
     encodeURIComponent(message);
 
 
-  window.open(url,"_blank");
+  window.open(
+    url,
+    "_blank"
+  );
 
 };
 
 
-// ------------------------------
-// OPEN INVOICE
-// ------------------------------
+/* OPEN INVOICE */
 
 window.openInvoice = function(id){
 
@@ -1241,7 +1449,8 @@ window.openInvoice = function(id){
 
 
   const date =
-    now.toISOString().split("T")[0];
+    now.toISOString()
+      .split("T")[0];
 
 
   document.getElementById("invoiceBookingId")
@@ -1251,8 +1460,7 @@ window.openInvoice = function(id){
 
   document.getElementById("invoiceNumber")
     .value =
-    "INV-" +
-    Date.now();
+    "INV-" + Date.now();
 
 
   document.getElementById("invoiceDate")
@@ -1300,44 +1508,42 @@ window.openInvoice = function(id){
 
 
   document.getElementById("itemQty")
-    .value = 1;
+    .value=1;
 
 
   document.getElementById("itemPrice")
-    .value = 0;
+    .value=0;
 
 
   document.getElementById("discount")
-    .value = 0;
+    .value=0;
 
 
   document.getElementById("warranty")
-    .value =
-    "1 Month Warranty";
+    .value="1 Month Warranty";
 
 
   document.getElementById("quickRate")
-    .value = "";
+    .value="";
 
 
   calculateTotal();
 
 
   document.getElementById("invoiceModal")
-    .style.display = "block";
+    .style.display="block";
 
 };
 
 
-// ------------------------------
-// APPLY RATE
-// ------------------------------
+/* APPLY RATE */
 
 window.applyRate = function(){
 
   const value =
     document.getElementById("quickRate")
       .value;
+
 
   if(!value)return;
 
@@ -1381,9 +1587,7 @@ window.applyRate = function(){
 };
 
 
-// ------------------------------
-// CALCULATE TOTAL
-// ------------------------------
+/* CALCULATE TOTAL */
 
 window.calculateTotal = function(){
 
@@ -1415,7 +1619,7 @@ window.calculateTotal = function(){
   const total =
     Math.max(
       0,
-      subtotal - discount
+      subtotal-discount
     );
 
 
@@ -1426,15 +1630,15 @@ window.calculateTotal = function(){
 };
 
 
-// ------------------------------
-// SAVE INVOICE
-// ------------------------------
+/* SAVE INVOICE */
 
 window.saveInvoice = async function(){
 
   if(!selectedBooking){
 
-    alert("Booking select nahi hai.");
+    alert(
+      "Booking select nahi hai."
+    );
 
     return;
 
@@ -1524,7 +1728,7 @@ window.saveInvoice = async function(){
   const total =
     Math.max(
       0,
-      subtotal - discount
+      subtotal-discount
     );
 
 
@@ -1575,7 +1779,7 @@ window.saveInvoice = async function(){
 
         total,
 
-        grandTotal: total,
+        grandTotal:total,
 
         warranty,
 
@@ -1599,7 +1803,8 @@ window.saveInvoice = async function(){
     );
 
 
-    // Booking completed
+    /* COMPLETE BOOKING */
+
     await updateDoc(
       doc(
         db,
@@ -1624,6 +1829,70 @@ window.saveInvoice = async function(){
     await loadInvoices();
 
 
+    /* WHATSAPP COMPLETED MESSAGE */
+
+    const phoneNumber =
+      phone.replace(/\D/g,"");
+
+
+    let whatsappNumber =
+      phoneNumber;
+
+
+    if(
+      whatsappNumber.startsWith("0")
+    ){
+
+      whatsappNumber =
+        "92" +
+        whatsappNumber.substring(1);
+
+    }
+
+
+    if(whatsappNumber){
+
+      const trackingUrl =
+        "https://rizwanmughal63110-ux.github.io/smart-cool-refrigerator/tracking.html";
+
+
+      const message =
+`Assalam-o-Alaikum ${customerName},
+
+Aapki service successfully COMPLETED ho gayi hai. ✅
+
+Booking ID: ${bookingId}
+Invoice No: ${invoiceNumber}
+Total: Rs. ${total.toLocaleString()}
+
+Aap apni invoice yahan dekh sakte hain:
+
+${trackingUrl}
+
+Muhammad Rizwan
+Smart Cool & Refrigerator
+03208463110`;
+
+
+      const whatsappUrl =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+      setTimeout(()=>{
+
+        window.open(
+          whatsappUrl,
+          "_blank"
+        );
+
+      },500);
+
+    }
+
+
     setTimeout(()=>{
 
       closeInvoice();
@@ -1646,28 +1915,25 @@ window.saveInvoice = async function(){
 };
 
 
-// ------------------------------
-// CLOSE INVOICE
-// ------------------------------
+/* CLOSE INVOICE */
 
 window.closeInvoice = function(){
 
   document.getElementById("invoiceModal")
-    .style.display = "none";
+    .style.display="none";
 
-  selectedBooking = null;
+  selectedBooking=null;
 
 };
 
 
-// ------------------------------
-// LOAD INVOICES
-// ------------------------------
+/* LOAD INVOICES */
 
 window.loadInvoices = async function(){
 
   const box =
     document.getElementById("invoiceList");
+
 
   box.innerHTML =
     "<p>⏳ Loading invoices...</p>";
@@ -1681,7 +1947,7 @@ window.loadInvoices = async function(){
       );
 
 
-    allInvoices = [];
+    allInvoices=[];
 
 
     snap.forEach(item=>{
@@ -1705,7 +1971,7 @@ window.loadInvoices = async function(){
       const bTime =
         b.createdAt?.seconds || 0;
 
-      return bTime - aTime;
+      return bTime-aTime;
 
     });
 
@@ -1726,24 +1992,33 @@ window.loadInvoices = async function(){
         <div class="invoice-item">
 
           <strong>
-            ${escapeHtml(inv.invoiceNumber || "-")}
+            ${escapeHtml(
+              inv.invoiceNumber || "-"
+            )}
           </strong>
 
           <br>
 
           Booking:
-          ${escapeHtml(inv.bookingId || "-")}
+          ${escapeHtml(
+            inv.bookingId || "-"
+          )}
 
           <br>
 
           Customer:
-          ${escapeHtml(inv.customerName || "-")}
+          ${escapeHtml(
+            inv.customerName || "-"
+          )}
 
           <br>
 
           Total:
           <b>
-            Rs. ${Number(inv.total || 0).toLocaleString()}
+            Rs.
+            ${Number(
+              inv.total || 0
+            ).toLocaleString()}
           </b>
 
           <br><br>
@@ -1771,14 +2046,13 @@ window.loadInvoices = async function(){
 };
 
 
-// ------------------------------
-// PRINT CURRENT INVOICE
-// ------------------------------
+/* PRINT CURRENT INVOICE */
 
 window.printInvoice = function(){
 
   const invoice =
     collectInvoiceData();
+
 
   fillPrintArea(invoice);
 
@@ -1787,32 +2061,40 @@ window.printInvoice = function(){
 };
 
 
-// ------------------------------
-// COLLECT INVOICE
-// ------------------------------
+/* COLLECT INVOICE */
 
 function collectInvoiceData(){
 
   const qty =
     Number(
-      document.getElementById("itemQty").value
+      document.getElementById("itemQty")
+        .value
     ) || 0;
+
 
   const price =
     Number(
-      document.getElementById("itemPrice").value
+      document.getElementById("itemPrice")
+        .value
     ) || 0;
+
 
   const discount =
     Number(
-      document.getElementById("discount").value
+      document.getElementById("discount")
+        .value
     ) || 0;
 
+
   const subtotal =
-    qty * price;
+    qty*price;
+
 
   const total =
-    Math.max(0,subtotal-discount);
+    Math.max(
+      0,
+      subtotal-discount
+    );
 
 
   return {
@@ -1865,9 +2147,7 @@ function collectInvoiceData(){
 }
 
 
-// ------------------------------
-// PRINT SAVED INVOICE
-// ------------------------------
+/* PRINT SAVED INVOICE */
 
 window.printSavedInvoice = function(id){
 
@@ -1875,6 +2155,7 @@ window.printSavedInvoice = function(id){
     allInvoices.find(
       x=>x.id===id
     );
+
 
   if(!inv)return;
 
@@ -1909,7 +2190,9 @@ window.printSavedInvoice = function(id){
       inv.problem || "",
 
     itemName:
-      inv.itemName || inv.service || "",
+      inv.itemName ||
+      inv.service ||
+      "",
 
     qty:
       Number(inv.qty || 1),
@@ -1943,9 +2226,7 @@ window.printSavedInvoice = function(id){
 };
 
 
-// ------------------------------
-// PRINT AREA
-// ------------------------------
+/* PRINT AREA */
 
 function fillPrintArea(invoice){
 
@@ -1986,17 +2267,23 @@ function fillPrintArea(invoice){
         <div>
 
           <b>Invoice No:</b>
-          ${escapeHtml(invoice.invoiceNumber)}
+          ${escapeHtml(
+            invoice.invoiceNumber
+          )}
 
           <br>
 
           <b>Booking ID:</b>
-          ${escapeHtml(invoice.bookingId)}
+          ${escapeHtml(
+            invoice.bookingId
+          )}
 
           <br>
 
           <b>Date:</b>
-          ${escapeHtml(invoice.date)}
+          ${escapeHtml(
+            invoice.date
+          )}
 
         </div>
 
@@ -2004,17 +2291,23 @@ function fillPrintArea(invoice){
         <div>
 
           <b>Customer:</b>
-          ${escapeHtml(invoice.customerName)}
+          ${escapeHtml(
+            invoice.customerName
+          )}
 
           <br>
 
           <b>Phone:</b>
-          ${escapeHtml(invoice.phone)}
+          ${escapeHtml(
+            invoice.phone
+          )}
 
           <br>
 
           <b>Address:</b>
-          ${escapeHtml(invoice.address)}
+          ${escapeHtml(
+            invoice.address
+          )}
 
         </div>
 
@@ -2024,31 +2317,44 @@ function fillPrintArea(invoice){
       <hr>
 
 
-      <h3>Service Details</h3>
+      <h3>
+        Service Details
+      </h3>
 
 
-      <table
-        style="
-          width:100%;
-          border-collapse:collapse;
-        "
-      >
+      <table style="
+        width:100%;
+        border-collapse:collapse;
+      ">
 
         <tr>
 
-          <th style="border:1px solid #333;padding:8px;text-align:left">
+          <th style="
+            border:1px solid #333;
+            padding:8px;
+            text-align:left;
+          ">
             Item / Service
           </th>
 
-          <th style="border:1px solid #333;padding:8px">
+          <th style="
+            border:1px solid #333;
+            padding:8px;
+          ">
             Qty
           </th>
 
-          <th style="border:1px solid #333;padding:8px">
+          <th style="
+            border:1px solid #333;
+            padding:8px;
+          ">
             Price
           </th>
 
-          <th style="border:1px solid #333;padding:8px">
+          <th style="
+            border:1px solid #333;
+            padding:8px;
+          ">
             Total
           </th>
 
@@ -2057,20 +2363,43 @@ function fillPrintArea(invoice){
 
         <tr>
 
-          <td style="border:1px solid #333;padding:8px">
-            ${escapeHtml(invoice.itemName)}
+          <td style="
+            border:1px solid #333;
+            padding:8px;
+          ">
+            ${escapeHtml(
+              invoice.itemName
+            )}
           </td>
 
-          <td style="border:1px solid #333;padding:8px;text-align:center">
+          <td style="
+            border:1px solid #333;
+            padding:8px;
+            text-align:center;
+          ">
             ${invoice.qty}
           </td>
 
-          <td style="border:1px solid #333;padding:8px;text-align:right">
-            Rs. ${Number(invoice.price).toLocaleString()}
+          <td style="
+            border:1px solid #333;
+            padding:8px;
+            text-align:right;
+          ">
+            Rs.
+            ${Number(
+              invoice.price
+            ).toLocaleString()}
           </td>
 
-          <td style="border:1px solid #333;padding:8px;text-align:right">
-            Rs. ${Number(invoice.subtotal).toLocaleString()}
+          <td style="
+            border:1px solid #333;
+            padding:8px;
+            text-align:right;
+          ">
+            Rs.
+            ${Number(
+              invoice.subtotal
+            ).toLocaleString()}
           </td>
 
         </tr>
@@ -2083,17 +2412,25 @@ function fillPrintArea(invoice){
 
       <p>
         <b>Service:</b>
-        ${escapeHtml(invoice.service)}
+        ${escapeHtml(
+          invoice.service
+        )}
       </p>
+
 
       <p>
         <b>AC Ton:</b>
-        ${escapeHtml(invoice.ton)}
+        ${escapeHtml(
+          invoice.ton
+        )}
       </p>
+
 
       <p>
         <b>Problem / Work:</b>
-        ${escapeHtml(invoice.problem)}
+        ${escapeHtml(
+          invoice.problem
+        )}
       </p>
 
 
@@ -2105,20 +2442,29 @@ function fillPrintArea(invoice){
         <p>
           Subtotal:
           <b>
-            Rs. ${Number(invoice.subtotal).toLocaleString()}
+            Rs.
+            ${Number(
+              invoice.subtotal
+            ).toLocaleString()}
           </b>
         </p>
 
         <p>
           Discount:
           <b>
-            Rs. ${Number(invoice.discount).toLocaleString()}
+            Rs.
+            ${Number(
+              invoice.discount
+            ).toLocaleString()}
           </b>
         </p>
 
         <h2>
           Total:
-          Rs. ${Number(invoice.total).toLocaleString()}
+          Rs.
+          ${Number(
+            invoice.total
+          ).toLocaleString()}
         </h2>
 
       </div>
@@ -2129,7 +2475,9 @@ function fillPrintArea(invoice){
 
       <p>
         <b>Warranty:</b>
-        ${escapeHtml(invoice.warranty)}
+        ${escapeHtml(
+          invoice.warranty
+        )}
       </p>
 
 
@@ -2158,12 +2506,10 @@ function fillPrintArea(invoice){
 
   area.classList.remove("hidden");
 
-};
+}
 
 
-// ------------------------------
-// ESCAPE HTML
-// ------------------------------
+/* ESCAPE HTML */
 
 function escapeHtml(value){
 
@@ -2177,31 +2523,30 @@ function escapeHtml(value){
 }
 
 
-// ------------------------------
-// MESSAGE
-// ------------------------------
+/* MESSAGE */
 
-function showMessage(element,text,type){
+function showMessage(
+  element,
+  text,
+  type
+){
 
-  element.style.display = "block";
+  element.style.display="block";
 
-  element.textContent = text;
+  element.textContent=text;
+
 
   if(type==="success"){
 
-    element.style.background =
-      "#dcfce7";
+    element.style.background="#dcfce7";
 
-    element.style.color =
-      "#166534";
+    element.style.color="#166534";
 
   }else{
 
-    element.style.background =
-      "#fee2e2";
+    element.style.background="#fee2e2";
 
-    element.style.color =
-      "#991b1b";
+    element.style.color="#991b1b";
 
   }
 
@@ -2211,3 +2556,4 @@ function showMessage(element,text,type){
 
 </body>
 </html>
+```
