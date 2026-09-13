@@ -1,168 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="google-site-verification" content="IAjv12fSMJ48W2jgMAsZ1zNJgBdSnteaa2CxKhES0oA">
+<meta name="google-site-verification" content="IAjv12fSMJ48W2jgMAsZ1zNJgBdSnteaa2CxKhES0oA">
 
-  <title>Smart Cool & Refrigerator | Karachi</title>
+<title>Smart Cool & Refrigerator | Karachi</title>
 
-  <meta name="description" content="Smart Cool & Refrigerator provides AC, refrigerator, water dispenser and electrician services all over Karachi.">
+<meta name="description" content="Smart Cool & Refrigerator provides AC, refrigerator, water dispenser and electrician services all over Karachi.">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3f9ff;
-      color: #16345c;
-    }
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f9ff;
+  color:#17365d;
+}
 
-    header {
-      background: white;
-      padding: 15px 20px;
-      box-shadow: 0 2px 10px #ccc;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+/* HEADER */
+header{
+  background:white;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 3px 15px rgba(0,0,0,.12);
+}
 
-    .nav {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.nav{
+  max-width:1150px;
+  margin:auto;
+  padding:12px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
 
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-      color: #0066cc;
-    }
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
-    nav a {
-      margin-left: 18px;
-      text-decoration: none;
-      color: #16345c;
-      font-weight: bold;
-    }
+.logo-area img{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  border-radius:10px;
+}
 
-    .hero {
-      background: linear-gradient(135deg, #007bff, #004aad);
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
+.logo-text{
+  font-size:20px;
+  font-weight:bold;
+  color:#006dcc;
+}
 
-    .hero h1 {
-      font-size: 42px;
-      margin: 0 0 15px;
-    }
+.logo-text span{
+  display:block;
+  font-size:12px;
+  color:#555;
+  margin-top:3px;
+}
 
-    .hero p {
-      font-size: 19px;
-      line-height: 1.6;
-    }
+nav a{
+  text-decoration:none;
+  color:#17365d;
+  font-weight:bold;
+  margin-left:20px;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 14px 22px;
-      margin: 10px 5px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+nav a:hover{
+  color:#007bff;
+}
 
-    .call {
-      background: white;
-      color: #0066cc;
-    }
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#007bff,#003f91);
+  color:white;
+  text-align:center;
+  padding:85px 20px;
+}
 
-    .whatsapp {
-      background: #25d366;
-      color: white;
-    }
+.hero-logo{
+  width:110px;
+  height:110px;
+  object-fit:contain;
+  background:white;
+  border-radius:22px;
+  padding:8px;
+  margin-bottom:20px;
+}
 
-    section {
-      padding: 60px 20px;
-    }
+.hero h1{
+  font-size:44px;
+  margin:5px 0 15px;
+}
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-    }
+.hero p{
+  font-size:19px;
+  line-height:1.6;
+}
 
-    h2 {
-      text-align: center;
-      font-size: 32px;
-      margin-bottom: 35px;
-    }
+.badge{
+  display:inline-block;
+  background:#ffffff22;
+  border:1px solid #ffffff55;
+  padding:10px 18px;
+  border-radius:30px;
+  margin:12px 0;
+  font-weight:bold;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+.btn{
+  display:inline-block;
+  padding:14px 24px;
+  margin:10px 5px;
+  border-radius:9px;
+  text-decoration:none;
+  font-weight:bold;
+}
 
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px #ddd;
-    }
+.call{
+  background:white;
+  color:#006dcc;
+}
 
-    .card h3 {
-      color: #0066cc;
-    }
+.whatsapp{
+  background:#25d366;
+  color:white;
+}
 
-    .card li {
-      margin: 10px 0;
-    }
+/* SECTIONS */
+section{
+  padding:65px 20px;
+}
 
-    .trust {
-      background: #e8f4ff;
-      text-align: center;
-    }
+.container{
+  max-width:1150px;
+  margin:auto;
+}
 
-    .contact {
-      text-align: center;
-      background: white;
-    }
+h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:40px;
+}
 
-    footer {
-      background: #062c5c;
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-    }
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
 
-    @media (max-width: 700px) {
-      nav {
-        display: none;
-      }
+.card{
+  background:white;
+  padding:28px;
+  border-radius:15px;
+  box-shadow:0 5px 20px rgba(0,0,0,.09);
+  transition:.25s;
+}
 
-      .hero h1 {
-        font-size: 32px;
-      }
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,0,0,.14);
+}
 
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+.card h3{
+  color:#006dcc;
+  margin-top:0;
+}
+
+.card p{
+  line-height:1.6;
+}
+
+.card li{
+  margin:12px 0;
+}
+
+/* RATES */
+.rates{
+  background:#eef7ff;
+}
+
+.price{
+  font-size:18px;
+  font-weight:bold;
+  color:#17365d;
+}
+
+.warranty{
+  display:inline-block;
+  margin-top:10px;
+  background:#e7fff0;
+  color:#16823b;
+  padding:8px 12px;
+  border-radius:7px;
+  font-weight:bold;
+}
+
+/* WHY US */
+.trust{
+  background:white;
+  text-align:center;
+}
+
+/* CONTACT */
+.contact{
+  background:#006dcc;
+  color:white;
+  text-align:center;
+}
+
+.contact h2{
+  color:white;
+}
+
+.contact .call{
+  color:#006dcc;
+}
+
+/* FOOTER */
+footer{
+  background:#062c5c;
+  color:white;
+  text-align:center;
+  padding:35px 20px;
+}
+
+footer p{
+  margin:8px 0;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+  .nav{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  nav a{
+    margin:0 7px;
+    font-size:14px;
+  }
+
+  .logo-area{
+    justify-content:center;
+  }
+
+  .hero{
+    padding:65px 18px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  section{
+    padding:50px 18px;
+  }
+}
+</style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="nav">
-    <div class="logo">SMART COOL & REFRIGERATOR</div>
+
+    <div class="logo-area">
+
+      <img
+        src="https://01a096ff-19d9-7cec-98a6-d764c9de8a3c.codepenusercontent.com/Logo.png"
+        alt="Smart Cool & Refrigerator Logo">
+
+      <div class="logo-text">
+        SMART COOL & REFRIGERATOR
+        <span>AC • Refrigerator • Water Dispenser</span>
+      </div>
+
+    </div>
 
     <nav>
       <a href="#home">Home</a>
@@ -170,29 +303,47 @@
       <a href="#rates">Rates</a>
       <a href="#contact">Contact</a>
     </nav>
+
   </div>
 </header>
 
+
+<!-- HERO -->
 <section class="hero" id="home">
+
+  <img
+    class="hero-logo"
+    src="https://01a096ff-19d9-7cec-98a6-d764c9de8a3c.codepenusercontent.com/Logo.png"
+    alt="Smart Cool & Refrigerator">
+
   <h1>Smart Cool & Refrigerator</h1>
 
   <p>
     Professional AC, Refrigerator, Water Dispenser
-    and Electrician Services
+    & Electrician Services
   </p>
 
-  <p><strong>All Over Karachi</strong></p>
+  <div class="badge">📍 All Over Karachi</div>
 
-  <a class="btn call" href="tel:+923208463110">📞 Call Now</a>
+  <br>
 
-  <a class="btn whatsapp"
-     href="https://wa.me/923208463110"
-     target="_blank">
+  <a class="btn call" href="tel:+923208463110">
+    📞 Call Now
+  </a>
+
+  <a
+    class="btn whatsapp"
+    href="https://wa.me/923208463110"
+    target="_blank">
     WhatsApp
   </a>
+
 </section>
 
+
+<!-- SERVICES -->
 <section id="services">
+
   <div class="container">
 
     <h2>Our Services</h2>
@@ -201,44 +352,70 @@
 
       <div class="card">
         <h3>❄️ AC Repairing</h3>
-        <p>Professional AC troubleshooting and repair service.</p>
+        <p>
+          Professional AC troubleshooting and repair service
+          by experienced technicians.
+        </p>
       </div>
 
       <div class="card">
         <h3>🔧 AC Service</h3>
-        <p>Complete AC cleaning and maintenance service.</p>
+        <p>
+          Complete AC cleaning, maintenance and performance
+          checking service.
+        </p>
       </div>
 
       <div class="card">
         <h3>⚙️ AC Installation</h3>
-        <p>Professional AC installation and shifting.</p>
+        <p>
+          Professional AC installation, shifting and setup
+          service.
+        </p>
       </div>
 
       <div class="card">
         <h3>❄️ AC Gas Charging</h3>
-        <p>Gas charging and leakage checking service.</p>
+        <p>
+          AC gas charging, leakage checking and cooling
+          problem solution.
+        </p>
       </div>
 
       <div class="card">
         <h3>🧊 Refrigerator Repair</h3>
-        <p>Complete fridge and refrigerator repair service.</p>
+        <p>
+          Complete fridge and refrigerator repair service
+          including cooling and compressor problems.
+        </p>
       </div>
 
       <div class="card">
         <h3>💧 Water Dispenser Repair</h3>
-        <p>Water dispenser cooling and electrical repair.</p>
+        <p>
+          Water dispenser cooling, electrical and mechanical
+          repair service.
+        </p>
       </div>
 
       <div class="card">
         <h3>⚡ Electrician Work</h3>
-        <p>Professional electrical repair and installation.</p>
+        <p>
+          Professional electrical repair, installation and
+          maintenance work.
+        </p>
       </div>
 
     </div>
+
   </div>
+
 </section>
 
-<section id="rates">
+
+<!-- RATES -->
+<section class="rates" id="rates">
+
   <div class="container">
 
     <h2>Service Rates</h2>
@@ -246,38 +423,57 @@
     <div class="grid">
 
       <div class="card">
-        <h3>AC Repair</h3>
+
+        <h3>❄️ AC Repair</h3>
+
         <ul>
-          <li>1 Ton — Rs. 10,500</li>
-          <li>1.5 Ton — Rs. 13,500</li>
-          <li>2 Ton — Rs. 16,500</li>
+          <li class="price">1 Ton — Rs. 10,500</li>
+          <li class="price">1.5 Ton — Rs. 13,500</li>
+          <li class="price">2 Ton — Rs. 16,500</li>
         </ul>
-        <strong>1 Month Warranty</strong>
+
+        <span class="warranty">
+          ✔ 1 Month Warranty
+        </span>
+
       </div>
 
-      <div class="card">
-        <h3>AC Service</h3>
-        <ul>
-          <li>1 Ton — Rs. 3,000</li>
-          <li>1.5 Ton — Rs. 3,500</li>
-          <li>2 Ton — Rs. 4,000</li>
-        </ul>
-      </div>
 
       <div class="card">
-        <h3>AC Gas Charging</h3>
+
+        <h3>🔧 AC Service</h3>
+
         <ul>
-          <li>1 Ton — Rs. 5,500</li>
-          <li>1.5 Ton — Rs. 6,500</li>
-          <li>2 Ton — Rs. 9,500</li>
+          <li class="price">1 Ton — Rs. 3,000</li>
+          <li class="price">1.5 Ton — Rs. 3,500</li>
+          <li class="price">2 Ton — Rs. 4,000</li>
         </ul>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>❄️ AC Gas Charging</h3>
+
+        <ul>
+          <li class="price">1 Ton — Rs. 5,500</li>
+          <li class="price">1.5 Ton — Rs. 6,500</li>
+          <li class="price">2 Ton — Rs. 9,500</li>
+        </ul>
+
       </div>
 
     </div>
+
   </div>
+
 </section>
 
+
+<!-- WHY CHOOSE US -->
 <section class="trust">
+
   <div class="container">
 
     <h2>Why Choose Us?</h2>
@@ -286,49 +482,39 @@
 
       <div class="card">
         <h3>✔ Professional Work</h3>
-        <p>Experienced technicians and reliable service.</p>
+        <p>
+          Experienced technicians and reliable service.
+        </p>
       </div>
 
       <div class="card">
         <h3>✔ All Over Karachi</h3>
-        <p>Service available across Karachi.</p>
+        <p>
+          Service available across Karachi.
+        </p>
       </div>
 
       <div class="card">
         <h3>✔ 1 Month Warranty</h3>
-        <p>Warranty on eligible repair services.</p>
+        <p>
+          Warranty available on eligible repair services.
+        </p>
       </div>
 
     </div>
+
   </div>
+
 </section>
 
+
+<!-- CONTACT -->
 <section class="contact" id="contact">
 
   <h2>Contact Us</h2>
 
   <p><strong>Muhammad Rizwan</strong></p>
+
   <p>📞 03208463110</p>
-  <p>📍 All Over Karachi</p>
 
-  <a class="btn call" href="tel:+923208463110">
-    Call Now
-  </a>
-
-  <a class="btn whatsapp"
-     href="https://wa.me/923208463110"
-     target="_blank">
-    WhatsApp Book Service
-  </a>
-
-</section>
-
-<footer>
-  <h3>Smart Cool & Refrigerator</h3>
-  <p>AC • Refrigerator • Water Dispenser • Electrician</p>
-  <p>All Over Karachi</p>
-  <p>© 2026 Smart Cool & Refrigerator</p>
-</footer>
-
-</body>
-</html>
+  <p>📍 All Over Karachi
