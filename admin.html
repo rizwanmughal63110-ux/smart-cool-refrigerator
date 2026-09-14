@@ -1,12 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Smart Cool | Admin Dashboard</title>
 
@@ -24,9 +22,7 @@ body{
     color:#172033;
 }
 
-/* =========================
-   LOGIN
-========================= */
+/* LOGIN */
 
 .login-screen{
     min-height:100vh;
@@ -34,8 +30,7 @@ body{
     align-items:center;
     justify-content:center;
     padding:20px;
-    background:
-        radial-gradient(circle at top,#dffcff 0%,#f4f7fb 45%);
+    background:radial-gradient(circle at top,#dffcff 0%,#f4f7fb 45%);
 }
 
 .login-card{
@@ -106,6 +101,11 @@ body{
     background:#066b76;
 }
 
+.login-btn:disabled{
+    opacity:.7;
+    cursor:not-allowed;
+}
+
 .login-message{
     margin-top:15px;
     padding:12px;
@@ -127,18 +127,14 @@ body{
 }
 
 
-/* =========================
-   APP
-========================= */
+/* APP */
 
 #adminApp{
     display:none;
 }
 
 
-/* =========================
-   TOPBAR
-========================= */
+/* TOPBAR */
 
 .topbar{
     background:#087f8c;
@@ -199,9 +195,7 @@ body{
 }
 
 
-/* =========================
-   CONTAINER
-========================= */
+/* CONTAINER */
 
 .container{
     max-width:1200px;
@@ -223,9 +217,7 @@ body{
 }
 
 
-/* =========================
-   CONNECTION
-========================= */
+/* CONNECTION */
 
 .connection{
     display:flex;
@@ -247,9 +239,7 @@ body{
 }
 
 
-/* =========================
-   STATS
-========================= */
+/* STATS */
 
 .stats{
     display:grid;
@@ -277,9 +267,7 @@ body{
 }
 
 
-/* =========================
-   TOOLBAR
-========================= */
+/* TOOLBAR */
 
 .toolbar{
     background:white;
@@ -323,9 +311,7 @@ body{
 }
 
 
-/* =========================
-   BOOKINGS
-========================= */
+/* BOOKINGS */
 
 .bookings{
     display:grid;
@@ -473,9 +459,7 @@ body{
 }
 
 
-/* =========================
-   EMPTY
-========================= */
+/* EMPTY */
 
 .empty{
     background:white;
@@ -492,9 +476,7 @@ body{
 }
 
 
-/* =========================
-   LOADING
-========================= */
+/* LOADING */
 
 .loading{
     background:white;
@@ -505,9 +487,7 @@ body{
 }
 
 
-/* =========================
-   MODAL
-========================= */
+/* MODAL */
 
 .modal{
     position:fixed;
@@ -590,9 +570,7 @@ body{
 }
 
 
-/* =========================
-   TOAST
-========================= */
+/* TOAST */
 
 .toast{
     position:fixed;
@@ -613,9 +591,7 @@ body{
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:800px){
 
@@ -677,67 +653,54 @@ body{
 }
 
 </style>
-
 </head>
-
 
 <body>
 
 
-<!-- =====================================================
-     ADMIN LOGIN
-===================================================== -->
+<!-- ADMIN LOGIN -->
 
 <section id="loginScreen" class="login-screen">
 
     <div class="login-card">
 
-        <div class="login-logo">
-            ❄️
-        </div>
+        <div class="login-logo">❄️</div>
 
-        <h1>
-            Smart Cool
-        </h1>
+        <h1>Smart Cool</h1>
 
         <p class="subtitle">
             Admin Dashboard Login
         </p>
 
-
         <form id="loginForm">
 
             <div class="login-group">
 
-                <label>
-                    Admin Email
-                </label>
+                <label>Admin Email</label>
 
                 <input
                     type="email"
                     id="loginEmail"
                     placeholder="Enter admin email"
+                    autocomplete="username"
                     required
                 >
 
             </div>
 
-
             <div class="login-group">
 
-                <label>
-                    Password
-                </label>
+                <label>Password</label>
 
                 <input
                     type="password"
                     id="loginPassword"
                     placeholder="Enter password"
+                    autocomplete="current-password"
                     required
                 >
 
             </div>
-
 
             <button
                 type="submit"
@@ -749,23 +712,16 @@ body{
 
         </form>
 
-
-        <div
-            id="loginMessage"
-            class="login-message"
-        ></div>
+        <div id="loginMessage" class="login-message"></div>
 
     </div>
 
 </section>
 
 
-<!-- =====================================================
-     ADMIN APP
-===================================================== -->
+<!-- ADMIN APP -->
 
 <div id="adminApp">
-
 
 <header class="topbar">
 
@@ -773,24 +729,17 @@ body{
 
         <div class="logo">
 
-            <div class="logo-icon">
-                ❄️
-            </div>
+            <div class="logo-icon">❄️</div>
 
             <div>
 
-                <h1>
-                    Smart Cool
-                </h1>
+                <h1>Smart Cool</h1>
 
-                <span>
-                    Admin Dashboard
-                </span>
+                <span>Admin Dashboard</span>
 
             </div>
 
         </div>
-
 
         <div class="top-actions">
 
@@ -817,17 +766,13 @@ body{
 
 <main class="container">
 
-
     <div class="page-title">
 
-        <h2>
-            📊 Booking Dashboard
-        </h2>
+        <h2>📊 Booking Dashboard</h2>
 
         <p>
             Smart Cool & Refrigerator — Customer Service Bookings
         </p>
-
 
         <div
             class="connection"
@@ -845,69 +790,46 @@ body{
     </div>
 
 
-    <!-- =================================================
-         STATS
-    ================================================== -->
+    <!-- STATS -->
 
     <div class="stats">
 
         <div class="stat-card">
 
-            <h3 id="totalBookings">
-                0
-            </h3>
+            <h3 id="totalBookings">0</h3>
 
-            <p>
-                Total Bookings
-            </p>
+            <p>Total Bookings</p>
 
         </div>
 
-
         <div class="stat-card">
 
-            <h3 id="pendingBookings">
-                0
-            </h3>
+            <h3 id="pendingBookings">0</h3>
 
-            <p>
-                Pending
-            </p>
+            <p>Pending</p>
 
         </div>
 
-
         <div class="stat-card">
 
-            <h3 id="confirmedBookings">
-                0
-            </h3>
+            <h3 id="confirmedBookings">0</h3>
 
-            <p>
-                Confirmed
-            </p>
+            <p>Confirmed</p>
 
         </div>
 
-
         <div class="stat-card">
 
-            <h3 id="completedBookings">
-                0
-            </h3>
+            <h3 id="completedBookings">0</h3>
 
-            <p>
-                Completed
-            </p>
+            <p>Completed</p>
 
         </div>
 
     </div>
 
 
-    <!-- =================================================
-         TOOLBAR
-    ================================================== -->
+    <!-- TOOLBAR -->
 
     <div class="toolbar">
 
@@ -921,39 +843,25 @@ body{
 
         </div>
 
-
         <div class="filter">
 
             <select id="statusFilter">
 
-                <option value="All">
-                    All Status
-                </option>
+                <option value="All">All Status</option>
 
-                <option value="Pending">
-                    Pending
-                </option>
+                <option value="Pending">Pending</option>
 
-                <option value="Confirmed">
-                    Confirmed
-                </option>
+                <option value="Confirmed">Confirmed</option>
 
-                <option value="In Progress">
-                    In Progress
-                </option>
+                <option value="In Progress">In Progress</option>
 
-                <option value="Completed">
-                    Completed
-                </option>
+                <option value="Completed">Completed</option>
 
-                <option value="Cancelled">
-                    Cancelled
-                </option>
+                <option value="Cancelled">Cancelled</option>
 
             </select>
 
         </div>
-
 
         <button
             class="refresh-btn"
@@ -965,9 +873,7 @@ body{
     </div>
 
 
-    <!-- =================================================
-         BOOKINGS
-    ================================================== -->
+    <!-- BOOKINGS -->
 
     <div
         id="bookingsContainer"
@@ -980,15 +886,12 @@ body{
 
     </div>
 
-
 </main>
 
 </div>
 
 
-<!-- =====================================================
-     INVOICE MODAL
-===================================================== -->
+<!-- INVOICE MODAL -->
 
 <div
     class="modal"
@@ -997,10 +900,7 @@ body{
 
     <div class="modal-card">
 
-        <h2>
-            🧾 Booking Invoice Amount
-        </h2>
-
+        <h2>🧾 Booking Invoice Amount</h2>
 
         <form id="invoiceForm">
 
@@ -1009,12 +909,9 @@ body{
                 id="invoiceBookingId"
             >
 
-
             <div class="modal-group">
 
-                <label>
-                    Customer
-                </label>
+                <label>Customer</label>
 
                 <input
                     type="text"
@@ -1024,12 +921,9 @@ body{
 
             </div>
 
-
             <div class="modal-group">
 
-                <label>
-                    Tracking ID
-                </label>
+                <label>Tracking ID</label>
 
                 <input
                     type="text"
@@ -1039,12 +933,9 @@ body{
 
             </div>
 
-
             <div class="modal-group">
 
-                <label>
-                    Invoice Amount (Rs.)
-                </label>
+                <label>Invoice Amount (Rs.)</label>
 
                 <input
                     type="number"
@@ -1057,12 +948,9 @@ body{
 
             </div>
 
-
             <div class="modal-group">
 
-                <label>
-                    Note
-                </label>
+                <label>Note</label>
 
                 <textarea
                     id="invoiceNote"
@@ -1070,7 +958,6 @@ body{
                 ></textarea>
 
             </div>
-
 
             <div class="modal-actions">
 
@@ -1098,15 +985,10 @@ body{
 </div>
 
 
-<div
-    id="toast"
-    class="toast"
-></div>
+<div id="toast" class="toast"></div>
 
 
-<!-- =====================================================
-     FIREBASE
-===================================================== -->
+<!-- FIREBASE -->
 
 <script type="module">
 
@@ -1114,14 +996,12 @@ import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-
 import {
     getAuth,
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
 
 import {
     getFirestore,
@@ -1134,69 +1014,59 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-/* =====================================================
-   FIREBASE CONFIG
-===================================================== */
+/* FIREBASE CONFIG */
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
-  authDomain: "smart-cool-6f513.firebaseapp.com",
-  projectId: "smart-cool-6f513",
-  storageBucket: "smart-cool-6f513.firebasestorage.app",
-  messagingSenderId: "10468224529",
-  appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
-  measurementId: "G-Y5SPBHP57C"
+
+    apiKey:
+        "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
+
+    authDomain:
+        "smart-cool-6f513.firebaseapp.com",
+
+    projectId:
+        "smart-cool-6f513",
+
+    storageBucket:
+        "smart-cool-6f513.firebasestorage.app",
+
+    messagingSenderId:
+        "10468224529",
+
+    appId:
+        "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+
+    measurementId:
+        "G-Y5SPBHP57C"
+
 };
 
 
-/* =====================================================
-   INITIALIZE
-===================================================== */
+/* INITIALIZE */
 
 const app =
     initializeApp(firebaseConfig);
 
-
 const auth =
     getAuth(app);
-
 
 const db =
     getFirestore(app);
 
 
-/* =====================================================
-   ADMIN EMAIL SECURITY
-=====================================================
-
-   IMPORTANT:
-   Yahan apna ADMIN EMAIL add karein.
-
-   Example:
-
-   const ADMIN_EMAILS = [
-       "your-admin-email@gmail.com"
-   ];
-
-===================================================== */
-
-const ADMIN_EMAILS = [
+/* ADMIN EMAIL */
 
 const ADMIN_EMAILS = [
     "qoutex798@gmail.com"
 ];
 
-/* =====================================================
-   GLOBAL DATA
-===================================================== */
+
+/* GLOBAL DATA */
 
 let allBookings = [];
 
 
-/* =====================================================
-   DOM
-===================================================== */
+/* DOM */
 
 const loginScreen =
     document.getElementById("loginScreen");
@@ -1229,11 +1099,12 @@ const bookingsContainer =
     document.getElementById("bookingsContainer");
 
 
-/* =====================================================
-   LOGIN MESSAGE
-===================================================== */
+/* LOGIN MESSAGE */
 
-function showLoginMessage(message, type = "error"){
+function showLoginMessage(
+    message,
+    type = "error"
+){
 
     loginMessage.textContent =
         message;
@@ -1244,9 +1115,7 @@ function showLoginMessage(message, type = "error"){
 }
 
 
-/* =====================================================
-   LOGIN
-===================================================== */
+/* LOGIN */
 
 loginForm.addEventListener(
     "submit",
@@ -1258,12 +1127,24 @@ loginForm.addEventListener(
             document
                 .getElementById("loginEmail")
                 .value
-                .trim();
+                .trim()
+                .toLowerCase();
 
         const password =
             document
                 .getElementById("loginPassword")
                 .value;
+
+
+        if(!email || !password){
+
+            showLoginMessage(
+                "Email aur password enter karein."
+            );
+
+            return;
+
+        }
 
 
         loginBtn.disabled = true;
@@ -1283,13 +1164,16 @@ loginForm.addEventListener(
 
 
             const loggedInEmail =
-                result.user.email
-                    .toLowerCase();
+                (
+                    result.user.email || ""
+                ).toLowerCase();
 
 
             if(
                 ADMIN_EMAILS.length > 0 &&
-                !ADMIN_EMAILS.includes(loggedInEmail)
+                !ADMIN_EMAILS.includes(
+                    loggedInEmail
+                )
             ){
 
                 await signOut(auth);
@@ -1302,14 +1186,17 @@ loginForm.addEventListener(
 
 
             showLoginMessage(
-                "Login successful.",
+                "Login successful. Dashboard opening...",
                 "success"
             );
 
 
         }catch(error){
 
-            console.error(error);
+            console.error(
+                "LOGIN ERROR:",
+                error
+            );
 
 
             let message =
@@ -1328,6 +1215,36 @@ loginForm.addEventListener(
 
             else if(
                 error.code ===
+                "auth/invalid-email"
+            ){
+
+                message =
+                    "Email address sahi nahi hai.";
+
+            }
+
+            else if(
+                error.code ===
+                "auth/user-not-found"
+            ){
+
+                message =
+                    "Ye email Firebase Authentication mein registered nahi hai.";
+
+            }
+
+            else if(
+                error.code ===
+                "auth/wrong-password"
+            ){
+
+                message =
+                    "Password incorrect hai.";
+
+            }
+
+            else if(
+                error.code ===
                 "auth/too-many-requests"
             ){
 
@@ -1337,6 +1254,7 @@ loginForm.addEventListener(
             }
 
             else if(
+                error.message &&
                 error.message.includes(
                     "not authorized"
                 )
@@ -1344,6 +1262,26 @@ loginForm.addEventListener(
 
                 message =
                     "Ye account Admin account nahi hai.";
+
+            }
+
+            else if(
+                error.code ===
+                "auth/operation-not-allowed"
+            ){
+
+                message =
+                    "Firebase mein Email/Password Login enabled nahi hai.";
+
+            }
+
+            else if(
+                error.code ===
+                "auth/network-request-failed"
+            ){
+
+                message =
+                    "Internet/Firebase connection problem hai.";
 
             }
 
@@ -1365,9 +1303,7 @@ loginForm.addEventListener(
 );
 
 
-/* =====================================================
-   AUTH STATE
-===================================================== */
+/* AUTH STATE */
 
 onAuthStateChanged(
     auth,
@@ -1387,7 +1323,9 @@ onAuthStateChanged(
 
 
         const email =
-            (user.email || "").toLowerCase();
+            (
+                user.email || ""
+            ).toLowerCase();
 
 
         if(
@@ -1415,9 +1353,7 @@ onAuthStateChanged(
 );
 
 
-/* =====================================================
-   LOGOUT
-===================================================== */
+/* LOGOUT */
 
 logoutBtn.addEventListener(
     "click",
@@ -1437,9 +1373,7 @@ logoutBtn.addEventListener(
 );
 
 
-/* =====================================================
-   LOAD BOOKINGS FROM FIRESTORE
-===================================================== */
+/* LOAD BOOKINGS */
 
 async function loadBookings(){
 
@@ -1464,27 +1398,34 @@ async function loadBookings(){
         allBookings = [];
 
 
-        snapshot.forEach(function(item){
+        snapshot.forEach(
+            function(item){
 
-            allBookings.push({
+                allBookings.push({
 
-                firestoreId:
-                    item.id,
+                    firestoreId:
+                        item.id,
 
-                ...item.data()
+                    ...item.data()
 
-            });
+                });
 
-        });
+            }
+        );
 
-
-        /* NEWEST FIRST */
 
         allBookings.sort(
             function(a,b){
 
-                return getTimestampMillis(b.createdAt)
-                     - getTimestampMillis(a.createdAt);
+                return (
+                    getTimestampMillis(
+                        b.createdAt
+                    )
+                    -
+                    getTimestampMillis(
+                        a.createdAt
+                    )
+                );
 
             }
         );
@@ -1536,9 +1477,7 @@ async function loadBookings(){
 }
 
 
-/* =====================================================
-   CONNECTION STATUS
-===================================================== */
+/* CONNECTION */
 
 function setConnection(connected){
 
@@ -1576,9 +1515,7 @@ function setConnection(connected){
 }
 
 
-/* =====================================================
-   TIMESTAMP
-===================================================== */
+/* TIMESTAMP */
 
 function getTimestampMillis(timestamp){
 
@@ -1631,9 +1568,7 @@ function getTimestampMillis(timestamp){
 }
 
 
-/* =====================================================
-   DATE FORMAT
-===================================================== */
+/* DATE */
 
 function formatDate(date){
 
@@ -1669,9 +1604,7 @@ function formatDate(date){
 }
 
 
-/* =====================================================
-   STATS
-===================================================== */
+/* STATS */
 
 function updateStats(){
 
@@ -1685,7 +1618,8 @@ function updateStats(){
         "pendingBookings"
     ).textContent =
         allBookings.filter(
-            b => b.status === "Pending"
+            b =>
+                b.status === "Pending"
         ).length;
 
 
@@ -1693,7 +1627,8 @@ function updateStats(){
         "confirmedBookings"
     ).textContent =
         allBookings.filter(
-            b => b.status === "Confirmed"
+            b =>
+                b.status === "Confirmed"
         ).length;
 
 
@@ -1701,15 +1636,14 @@ function updateStats(){
         "completedBookings"
     ).textContent =
         allBookings.filter(
-            b => b.status === "Completed"
+            b =>
+                b.status === "Completed"
         ).length;
 
 }
 
 
-/* =====================================================
-   RENDER
-===================================================== */
+/* RENDER BOOKINGS */
 
 function renderBookings(){
 
@@ -1815,9 +1749,7 @@ function renderBookings(){
 }
 
 
-/* =====================================================
-   BOOKING CARD
-===================================================== */
+/* BOOKING CARD */
 
 function createBookingCard(booking){
 
@@ -1857,7 +1789,6 @@ function createBookingCard(booking){
 
                 </div>
 
-
                 ${
                     booking.bookingId
                     ?
@@ -1872,7 +1803,6 @@ function createBookingCard(booking){
                     :
                     ""
                 }
-
 
                 <div class="booking-date">
 
@@ -1900,12 +1830,9 @@ function createBookingCard(booking){
 
         <div class="booking-grid">
 
-
             <div class="info-box">
 
-                <small>
-                    Customer
-                </small>
+                <small>Customer</small>
 
                 <strong>
                     👤
@@ -1920,9 +1847,7 @@ function createBookingCard(booking){
 
             <div class="info-box">
 
-                <small>
-                    Phone
-                </small>
+                <small>Phone</small>
 
                 <strong>
                     📞
@@ -1937,9 +1862,7 @@ function createBookingCard(booking){
 
             <div class="info-box">
 
-                <small>
-                    Email
-                </small>
+                <small>Email</small>
 
                 <strong>
                     ✉️
@@ -1954,9 +1877,7 @@ function createBookingCard(booking){
 
             <div class="info-box">
 
-                <small>
-                    Service
-                </small>
+                <small>Service</small>
 
                 <strong>
                     🔧
@@ -1971,9 +1892,7 @@ function createBookingCard(booking){
 
             <div class="info-box">
 
-                <small>
-                    Area
-                </small>
+                <small>Area</small>
 
                 <strong>
                     📍
@@ -1989,9 +1908,7 @@ function createBookingCard(booking){
 
             <div class="info-box">
 
-                <small>
-                    Preferred Date
-                </small>
+                <small>Preferred Date</small>
 
                 <strong>
                     📅
@@ -2006,9 +1923,7 @@ function createBookingCard(booking){
 
             <div class="info-box">
 
-                <small>
-                    Preferred Time
-                </small>
+                <small>Preferred Time</small>
 
                 <strong>
                     🕐
@@ -2023,9 +1938,7 @@ function createBookingCard(booking){
 
             <div class="info-box">
 
-                <small>
-                    Invoice Amount
-                </small>
+                <small>Invoice Amount</small>
 
                 <strong class="amount">
 
@@ -2037,7 +1950,6 @@ function createBookingCard(booking){
                 </strong>
 
             </div>
-
 
         </div>
 
@@ -2062,7 +1974,6 @@ function createBookingCard(booking){
 
         <div class="actions">
 
-
             <select
                 onchange="
                     changeStatus(
@@ -2083,7 +1994,6 @@ function createBookingCard(booking){
                     Pending
                 </option>
 
-
                 <option
                     value="Confirmed"
                     ${
@@ -2094,7 +2004,6 @@ function createBookingCard(booking){
                 >
                     Confirmed
                 </option>
-
 
                 <option
                     value="In Progress"
@@ -2107,7 +2016,6 @@ function createBookingCard(booking){
                     In Progress
                 </option>
 
-
                 <option
                     value="Completed"
                     ${
@@ -2118,7 +2026,6 @@ function createBookingCard(booking){
                 >
                     Completed
                 </option>
-
 
                 <option
                     value="Cancelled"
@@ -2171,7 +2078,6 @@ function createBookingCard(booking){
                 🗑️ Delete
             </button>
 
-
         </div>
 
     </div>
@@ -2181,9 +2087,7 @@ function createBookingCard(booking){
 }
 
 
-/* =====================================================
-   STATUS CLASS
-===================================================== */
+/* STATUS CLASS */
 
 function getStatusClass(status){
 
@@ -2215,9 +2119,7 @@ function getStatusClass(status){
 }
 
 
-/* =====================================================
-   CHANGE STATUS
-===================================================== */
+/* CHANGE STATUS */
 
 window.changeStatus =
 async function(
@@ -2290,9 +2192,7 @@ async function(
 };
 
 
-/* =====================================================
-   DELETE BOOKING
-===================================================== */
+/* DELETE BOOKING */
 
 window.deleteBooking =
 async function(
@@ -2380,9 +2280,7 @@ async function(
 };
 
 
-/* =====================================================
-   WHATSAPP
-===================================================== */
+/* WHATSAPP */
 
 window.openWhatsApp =
 function(phone){
@@ -2426,9 +2324,7 @@ function(phone){
 };
 
 
-/* =====================================================
-   INVOICE MODAL
-===================================================== */
+/* INVOICE MODAL */
 
 window.openInvoiceModal =
 function(firestoreId){
@@ -2503,9 +2399,7 @@ function(){
 };
 
 
-/* =====================================================
-   SAVE INVOICE
-===================================================== */
+/* SAVE INVOICE */
 
 document
     .getElementById("invoiceForm")
@@ -2631,9 +2525,7 @@ document
     );
 
 
-/* =====================================================
-   SEARCH
-===================================================== */
+/* SEARCH */
 
 searchInput.addEventListener(
     "input",
@@ -2641,9 +2533,7 @@ searchInput.addEventListener(
 );
 
 
-/* =====================================================
-   FILTER
-===================================================== */
+/* FILTER */
 
 statusFilter.addEventListener(
     "change",
@@ -2651,9 +2541,7 @@ statusFilter.addEventListener(
 );
 
 
-/* =====================================================
-   REFRESH
-===================================================== */
+/* REFRESH */
 
 refreshBtn.addEventListener(
     "click",
@@ -2665,9 +2553,7 @@ refreshBtn.addEventListener(
 );
 
 
-/* =====================================================
-   AUTO REFRESH
-===================================================== */
+/* AUTO REFRESH */
 
 setInterval(
     async function(){
@@ -2686,9 +2572,7 @@ setInterval(
 );
 
 
-/* =====================================================
-   TOAST
-===================================================== */
+/* TOAST */
 
 function showToast(message){
 
@@ -2721,9 +2605,7 @@ function showToast(message){
 }
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
+/* ESCAPE HTML */
 
 function escapeHtml(value){
 
@@ -2767,9 +2649,7 @@ function escapeHtml(value){
 }
 
 
-/* =====================================================
-   ESCAPE JAVASCRIPT
-===================================================== */
+/* ESCAPE JAVASCRIPT */
 
 function escapeJs(value){
 
@@ -2816,3 +2696,4 @@ function escapeJs(value){
 
 </body>
 </html>
+```
