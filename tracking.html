@@ -1,657 +1,1432 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Track Booking | Smart Cool & Refrigerator</title>
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Track Booking | Smart Cool & Refrigerator
+  </title>
 
   <meta name="description"
     content="Track your Smart Cool & Refrigerator service booking online.">
 
+  <meta name="theme-color"
+    content="#061a33">
+
+
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+
     :root {
-      --bg: #061321;
-      --bg2: #081b2d;
-      --card: #0b2033;
-      --card2: #0e2940;
-      --cyan: #16c9ff;
-      --blue: #168cff;
-      --white: #eaf9ff;
-      --muted: #9bb2c5;
-      --border: rgba(98,190,255,.18);
-      --green: #7bea94;
-      --red: #ff8e88;
-      --yellow: #ffd76a;
+
+      --bg: #061a33;
+      --bg2: #071f3b;
+      --card: #0a2748;
+      --card2: #09294c;
+
+      --blue: #0876df;
+      --blue2: #168cff;
+      --light-blue: #38a0ff;
+
+      --white: #eaf5ff;
+      --muted: #9db8d1;
+      --muted2: #7895b0;
+
+      --border: rgba(55,160,255,.18);
+
+      --green: #25D366;
+      --green-dark: #1ebe5d;
+
+      --red: #ff8585;
+      --yellow: #ffd96a;
+
     }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      background:
+        linear-gradient(
+          180deg,
+          #061a33,
+          #071f3b,
+          #061a33
+        );
+
       color: var(--white);
+
       min-height: 100vh;
+
+      line-height: 1.6;
+
       overflow-x: hidden;
+
     }
 
-    /* ================= HEADER ================= */
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    button,
+    input {
+      font-family: inherit;
+    }
+
+
+    /* =========================
+       HEADER
+    ========================== */
 
     .header {
+
       width: 100%;
-      background: rgba(6,19,33,.96);
-      border-bottom: 1px solid var(--border);
+
+      background:
+        rgba(4,19,39,.97);
+
+      border-bottom:
+        1px solid var(--border);
+
       position: sticky;
+
       top: 0;
+
       z-index: 999;
-      backdrop-filter: blur(12px);
+
+      backdrop-filter:
+        blur(12px);
+
+      box-shadow:
+        0 3px 18px rgba(0,0,0,.35);
+
     }
+
 
     .nav {
-      max-width: 1180px;
+
+      max-width: 1200px;
+
       margin: auto;
+
       min-height: 78px;
-      padding: 0 22px;
+
+      padding:
+        10px 20px;
+
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
+
       gap: 20px;
+
       position: relative;
+
     }
+
 
     .logo {
+
       display: flex;
+
       align-items: center;
+
       gap: 10px;
-      text-decoration: none;
+
       color: var(--white);
-      min-width: 0;
+
+      min-width: 210px;
+
     }
 
-    .logo-icon {
-      font-size: 28px;
-      flex-shrink: 0;
+
+    .logo img {
+
+      width: 58px;
+
+      height: 58px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+
+      display: block;
+
+      border:
+        2px solid var(--blue2);
+
+      box-shadow:
+        0 0 15px
+        rgba(8,118,223,.35);
+
     }
+
 
     .logo-text {
-      line-height: 1.1;
+
+      display: flex;
+
+      flex-direction: column;
+
+      line-height: 1.05;
+
     }
+
 
     .logo-text strong {
-      display: block;
-      font-size: 21px;
-      color: var(--white);
+
+      color: var(--light-blue);
+
+      font-size: 18px;
+
+      letter-spacing: .5px;
+
     }
+
 
     .logo-text span {
-      display: block;
-      font-size: 12px;
-      color: var(--cyan);
-      margin-top: 3px;
+
+      color: #b8d5f0;
+
+      font-size: 11px;
+
+      font-weight: bold;
+
+      letter-spacing: .5px;
+
+      margin-top: 4px;
+
     }
+
 
     .nav-links {
+
       display: flex;
+
       align-items: center;
+
       gap: 7px;
+
       list-style: none;
+
     }
 
+
     .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      padding: 10px 11px;
+
+      color: #d5e8fa;
+
+      padding:
+        10px 11px;
+
       border-radius: 8px;
+
       font-size: 14px;
-      transition: .2s;
+
+      font-weight: 600;
+
+      transition: .25s;
+
       white-space: nowrap;
+
     }
+
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: var(--white);
-      background: rgba(22,201,255,.09);
+
+      color: white;
+
+      background:
+        rgba(8,118,223,.14);
+
     }
+
 
     .menu-btn {
+
       display: none;
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--white);
+
+      border: none;
+
+      background: var(--blue);
+
+      color: white;
+
       width: 42px;
+
       height: 42px;
+
       border-radius: 9px;
+
       font-size: 23px;
+
       cursor: pointer;
+
     }
 
-    /* ================= MAIN ================= */
+
+    /* =========================
+       MAIN
+    ========================== */
 
     .page {
-      min-height: calc(100vh - 78px);
-      padding: 75px 20px 70px;
+
+      min-height:
+        calc(100vh - 78px);
+
+      padding:
+        70px 20px 70px;
+
     }
+
 
     .container {
+
       max-width: 900px;
+
       margin: auto;
+
     }
+
 
     .heading {
+
       text-align: center;
+
       margin-bottom: 35px;
+
     }
+
 
     .badge {
+
       display: inline-block;
-      color: var(--cyan);
+
+      color: var(--light-blue);
+
       font-size: 13px;
+
       font-weight: 800;
+
       letter-spacing: 3px;
+
       margin-bottom: 13px;
+
       text-transform: uppercase;
+
     }
+
 
     .heading h1 {
+
+      color: white;
+
       font-size: 46px;
+
       line-height: 1.1;
+
       margin-bottom: 13px;
+
     }
+
 
     .heading p {
+
       color: var(--muted);
+
       font-size: 17px;
+
       line-height: 1.7;
+
     }
 
-    /* ================= TRACK BOX ================= */
+
+    /* =========================
+       TRACK BOX
+    ========================== */
 
     .track-box {
-      background: linear-gradient(
-        145deg,
-        rgba(14,41,64,.96),
-        rgba(11,32,51,.96)
-      );
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 35px;
-      box-shadow: 0 20px 55px rgba(0,0,0,.28);
+
+      background:
+
+        linear-gradient(
+          145deg,
+          rgba(10,39,72,.98),
+          rgba(7,31,59,.98)
+        );
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 20px;
+
+      padding: 32px;
+
+      box-shadow:
+        0 20px 55px
+        rgba(0,0,0,.30);
+
     }
+
 
     .track-form {
+
       display: flex;
+
       gap: 12px;
+
     }
+
 
     .track-input {
+
       flex: 1;
+
       min-width: 0;
+
       height: 55px;
+
       border-radius: 10px;
-      border: 1px solid rgba(98,190,255,.25);
+
+      border:
+        1px solid #24496e;
+
       outline: none;
-      background: #061725;
+
+      background: #061c35;
+
       color: var(--white);
-      padding: 0 17px;
+
+      padding:
+        0 17px;
+
       font-size: 16px;
+
+      text-transform: uppercase;
+
     }
+
 
     .track-input::placeholder {
-      color: #71899b;
+
+      color: #7895b0;
+
+      text-transform: none;
+
     }
+
 
     .track-input:focus {
-      border-color: var(--cyan);
-      box-shadow: 0 0 0 3px rgba(22,201,255,.08);
+
+      border-color:
+        var(--blue);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(8,118,223,.13);
+
     }
+
 
     .track-button {
+
       height: 55px;
-      border: 0;
+
+      border: none;
+
       border-radius: 10px;
-      padding: 0 27px;
-      background: linear-gradient(135deg, var(--cyan), var(--blue));
+
+      padding:
+        0 27px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--blue2)
+        );
+
       color: white;
-      font-size: 16px;
-      font-weight: 800;
+
+      font-size: 15px;
+
+      font-weight: bold;
+
       cursor: pointer;
+
       white-space: nowrap;
+
+      transition: .25s;
+
     }
+
+
+    .track-button:hover {
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue2),
+          #2698ff
+        );
+
+      transform:
+        translateY(-1px);
+
+    }
+
 
     .track-button:disabled {
+
       opacity: .65;
+
       cursor: wait;
+
+      transform: none;
+
     }
 
-    /* ================= MESSAGE ================= */
+
+    /* =========================
+       MESSAGE
+    ========================== */
 
     .message {
+
       display: none;
+
       margin-top: 18px;
-      padding: 14px 16px;
-      border-radius: 10px;
-      font-size: 14px;
+
+      padding:
+        13px 16px;
+
+      border-radius: 9px;
+
+      font-size: 13px;
+
       line-height: 1.5;
+
     }
+
 
     .message.show {
       display: block;
     }
 
+
     .message.error {
-      color: #ffb4ae;
-      background: rgba(244,67,54,.09);
-      border: 1px solid rgba(244,67,54,.25);
+
+      color: #ffb0aa;
+
+      background:
+        rgba(165,42,42,.16);
+
+      border:
+        1px solid
+        rgba(255,100,100,.18);
+
     }
+
 
     .message.success {
-      color: #9df0b0;
-      background: rgba(76,175,80,.09);
-      border: 1px solid rgba(76,175,80,.25);
+
+      color: #72d586;
+
+      background:
+        rgba(36,115,58,.16);
+
+      border:
+        1px solid
+        rgba(76,180,95,.20);
+
     }
 
-    /* ================= RESULT ================= */
+
+    /* =========================
+       RESULT
+    ========================== */
 
     #result {
       margin-top: 25px;
     }
 
+
     .result-card {
-      background: #081b2d;
-      border: 1px solid var(--border);
-      border-radius: 18px;
+
+      background: #0a2748;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 16px;
+
       overflow: hidden;
+
+      box-shadow:
+        0 8px 30px
+        rgba(0,0,0,.25);
+
     }
+
 
     .result-top {
-      padding: 22px 25px;
-      background: rgba(22,201,255,.045);
-      border-bottom: 1px solid var(--border);
+
+      padding:
+        22px 25px;
+
+      background:
+        rgba(8,118,223,.10);
+
+      border-bottom:
+        1px solid var(--border);
+
       display: flex;
+
       justify-content: space-between;
+
       align-items: center;
+
       gap: 15px;
+
     }
+
 
     .result-top h2 {
+
+      color: white;
+
       font-size: 21px;
+
     }
+
 
     .tracking-number {
-      color: var(--cyan);
+
+      color: var(--light-blue);
+
       font-size: 13px;
+
       margin-top: 5px;
+
       word-break: break-word;
+
+      font-weight: bold;
+
     }
+
+
+    /* =========================
+       STATUS
+    ========================== */
 
     .status {
+
       display: inline-flex;
+
       align-items: center;
+
       justify-content: center;
-      padding: 8px 15px;
+
+      padding:
+        7px 14px;
+
       border-radius: 50px;
+
       font-size: 12px;
+
       font-weight: 800;
+
       white-space: nowrap;
+
     }
+
 
     .pending {
+
       color: var(--yellow);
-      background: rgba(255,193,7,.12);
+
+      background:
+        rgba(255,193,7,.12);
+
     }
 
-    .confirmed {
+
+    .accepted {
+
       color: #72e6ff;
-      background: rgba(22,201,255,.12);
+
+      background:
+        rgba(22,201,255,.12);
+
     }
+
 
     .progress {
+
       color: #72b7ff;
-      background: rgba(22,140,255,.12);
+
+      background:
+        rgba(22,140,255,.12);
+
     }
+
 
     .completed {
-      color: var(--green);
-      background: rgba(76,175,80,.12);
+
+      color: #72d586;
+
+      background:
+        rgba(36,115,58,.18);
+
     }
 
-    .cancelled {
-      color: var(--red);
-      background: rgba(244,67,54,.12);
+
+    .rejected {
+
+      color: #ff8585;
+
+      background:
+        rgba(165,42,42,.18);
+
     }
+
+
+    /* =========================
+       DETAILS
+    ========================== */
 
     .details {
+
       padding: 25px;
+
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+
+      grid-template-columns:
+        repeat(2,1fr);
+
       gap: 14px;
+
     }
+
 
     .detail {
-      background: rgba(255,255,255,.025);
-      border: 1px solid rgba(98,190,255,.10);
-      border-radius: 11px;
-      padding: 15px;
+
+      background:
+        #061c35;
+
+      border:
+        1px solid
+        rgba(155,190,220,.10);
+
+      border-radius: 10px;
+
+      padding: 14px;
+
     }
+
 
     .detail label {
+
       display: block;
-      color: var(--muted);
-      font-size: 12px;
-      margin-bottom: 7px;
+
+      color: var(--muted2);
+
+      font-size: 11px;
+
+      margin-bottom: 6px;
+
     }
+
 
     .detail strong {
+
       display: block;
-      color: var(--white);
-      font-size: 14px;
+
+      color: #dcecff;
+
+      font-size: 13px;
+
       line-height: 1.5;
+
       word-break: break-word;
+
     }
 
-    /* ================= PROBLEM ================= */
+
+    /* =========================
+       PROBLEM
+    ========================== */
 
     .problem {
-      margin: 0 25px 25px;
+
+      margin:
+        0 25px 25px;
+
       padding: 16px;
-      border-radius: 11px;
-      background: rgba(255,255,255,.025);
-      border: 1px solid rgba(98,190,255,.10);
+
+      border-radius: 10px;
+
+      background:
+        #061c35;
+
+      border:
+        1px solid
+        rgba(155,190,220,.10);
+
     }
+
 
     .problem label {
+
       display: block;
-      color: var(--muted);
-      font-size: 12px;
+
+      color: var(--muted2);
+
+      font-size: 11px;
+
       margin-bottom: 7px;
+
     }
+
 
     .problem p {
-      color: var(--white);
-      font-size: 14px;
+
+      color: #dcecff;
+
+      font-size: 13px;
+
       line-height: 1.6;
+
       word-break: break-word;
+
     }
 
-    /* ================= INVOICE ================= */
+
+    /* =========================
+       INVOICE
+    ========================== */
 
     .invoice {
-      margin: 0 25px 25px;
+
+      margin:
+        0 25px 25px;
+
       padding: 20px;
-      border-radius: 13px;
-      background: linear-gradient(
-        135deg,
-        rgba(22,201,255,.08),
-        rgba(22,140,255,.04)
-      );
-      border: 1px solid rgba(22,201,255,.18);
+
+      border-radius: 12px;
+
+      background:
+        rgba(8,118,223,.10);
+
+      border:
+        1px solid
+        rgba(55,160,255,.20);
+
     }
+
 
     .invoice-title {
-      font-size: 15px;
-      font-weight: 800;
-      margin-bottom: 8px;
+
+      color: #dcecff;
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      margin-bottom: 7px;
+
     }
+
 
     .invoice-amount {
-      color: var(--cyan);
+
+      color: var(--light-blue);
+
       font-size: 28px;
+
       font-weight: 900;
+
     }
+
 
     .invoice-note {
+
       color: var(--muted);
+
       margin-top: 8px;
-      font-size: 13px;
+
+      font-size: 12px;
+
       line-height: 1.5;
+
     }
+
 
     .payment-status {
+
       display: inline-block;
+
       margin-top: 12px;
-      padding: 7px 12px;
+
+      padding:
+        7px 12px;
+
       border-radius: 50px;
-      font-size: 12px;
-      font-weight: 800;
+
+      font-size: 11px;
+
+      font-weight: bold;
+
     }
+
 
     .payment-paid {
-      color: #9df0b0;
-      background: rgba(76,175,80,.12);
-      border: 1px solid rgba(76,175,80,.20);
+
+      color: #72d586;
+
+      background:
+        rgba(36,115,58,.18);
+
+      border:
+        1px solid
+        rgba(76,180,95,.20);
+
     }
+
 
     .payment-unpaid {
-      color: #ffb4ae;
-      background: rgba(244,67,54,.10);
-      border: 1px solid rgba(244,67,54,.20);
+
+      color: #ff8585;
+
+      background:
+        rgba(165,42,42,.18);
+
+      border:
+        1px solid
+        rgba(255,100,100,.20);
+
     }
 
-    /* ================= LOADING ================= */
+
+    /* =========================
+       LOADING
+    ========================== */
 
     .loading {
+
       text-align: center;
+
       padding: 25px;
+
       color: var(--muted);
+
     }
 
-    /* ================= HOW IT WORKS ================= */
+
+    /* =========================
+       HOW IT WORKS
+    ========================== */
 
     .how {
-      margin-top: 45px;
+
+      margin-top: 50px;
+
     }
+
 
     .how-title {
+
       text-align: center;
+
       margin-bottom: 22px;
+
     }
+
 
     .how-title h2 {
-      font-size: 27px;
+
+      color: white;
+
+      font-size: 28px;
+
       margin-bottom: 8px;
+
     }
+
 
     .how-title p {
+
       color: var(--muted);
+
       font-size: 14px;
+
     }
+
 
     .steps {
+
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 16px;
+
     }
+
 
     .step {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 15px;
+
+      background:
+        #0a2748;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 14px;
+
       padding: 22px;
+
+      box-shadow:
+        0 6px 20px
+        rgba(0,0,0,.20);
+
     }
+
 
     .step-number {
+
       width: 42px;
+
       height: 42px;
+
       display: flex;
+
       align-items: center;
+
       justify-content: center;
+
       border-radius: 10px;
-      background: rgba(22,201,255,.10);
-      color: var(--cyan);
+
+      background:
+        rgba(8,118,223,.14);
+
+      color: var(--light-blue);
+
       font-weight: 900;
+
       margin-bottom: 17px;
+
     }
+
 
     .step h3 {
+
+      color: #eaf5ff;
+
       font-size: 16px;
+
       margin-bottom: 8px;
+
     }
+
 
     .step p {
+
       color: var(--muted);
+
       font-size: 13px;
+
       line-height: 1.6;
+
     }
 
-    /* ================= FOOTER ================= */
+
+    /* =========================
+       WHATSAPP
+    ========================== */
+
+    .whatsapp {
+
+      margin-top: 30px;
+
+      text-align: center;
+
+    }
+
+
+    .whatsapp a {
+
+      display: inline-block;
+
+      background:
+        var(--green);
+
+      color: white;
+
+      padding:
+        11px 18px;
+
+      border-radius: 9px;
+
+      font-weight: bold;
+
+      font-size: 14px;
+
+      transition: .25s;
+
+    }
+
+
+    .whatsapp a:hover {
+
+      background:
+        var(--green-dark);
+
+      transform:
+        translateY(-2px);
+
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================== */
 
     .footer {
-      border-top: 1px solid var(--border);
-      padding: 30px 20px;
+
+      border-top:
+        1px solid var(--border);
+
+      padding:
+        35px 20px;
+
       text-align: center;
+
       color: var(--muted);
-      background: #05111e;
+
+      background:
+        #031226;
+
+      font-size: 13px;
+
     }
+
 
     .footer strong {
-      color: var(--white);
+
+      color: white;
+
     }
+
 
     .footer a {
-      color: var(--cyan);
-      text-decoration: none;
+
+      color: var(--green);
+
+      font-weight: bold;
+
     }
 
-    /* ================= MOBILE ================= */
 
-    @media (max-width: 850px) {
+    .footer a:hover {
+
+      color: var(--green-dark);
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media(max-width:900px) {
 
       .nav {
+
         min-height: 70px;
+
       }
 
-      .menu-btn {
-        display: block;
+
+      .logo {
+
+        min-width: 0;
+
       }
 
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        padding: 12px 18px 18px;
-        background: #061321;
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        align-items: stretch;
+
+      .logo img {
+
+        width: 48px;
+
+        height: 48px;
+
       }
 
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 13px;
-      }
-
-      .page {
-        padding-top: 55px;
-      }
-
-      .heading h1 {
-        font-size: 36px;
-      }
-
-      .steps {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
 
       .logo-text strong {
-        font-size: 18px;
+
+        font-size: 15px;
+
       }
+
 
       .logo-text span {
-        font-size: 10px;
+
+        font-size: 9px;
+
       }
+
+
+      .menu-btn {
+
+        display: block;
+
+      }
+
+
+      .nav-links {
+
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+
+        left: 0;
+
+        width: 100%;
+
+        padding:
+          14px 20px 18px;
+
+        background:
+          #061a33;
+
+        border-bottom:
+          1px solid var(--border);
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        box-shadow:
+          0 8px 20px
+          rgba(0,0,0,.35);
+
+      }
+
+
+      .nav-links.open {
+
+        display: flex;
+
+      }
+
+
+      .nav-links a {
+
+        display: block;
+
+        padding: 11px;
+
+      }
+
 
       .page {
-        padding: 45px 14px 55px;
+
+        padding:
+          55px 20px 60px;
+
       }
+
 
       .heading h1 {
-        font-size: 30px;
+
+        font-size: 38px;
+
       }
+
+
+      .steps {
+
+        grid-template-columns: 1fr;
+
+      }
+
+    }
+
+
+    @media(max-width:600px) {
+
+      .nav {
+
+        padding:
+          8px 15px;
+
+      }
+
+
+      .heading h1 {
+
+        font-size: 32px;
+
+      }
+
 
       .heading p {
+
         font-size: 15px;
+
       }
+
 
       .track-box {
+
         padding: 20px;
+
         border-radius: 16px;
+
       }
+
 
       .track-form {
+
         flex-direction: column;
+
       }
+
 
       .track-button {
+
         width: 100%;
+
       }
+
 
       .details {
+
         grid-template-columns: 1fr;
+
         padding: 18px;
+
       }
 
+
       .result-top {
+
         padding: 18px;
+
         align-items: flex-start;
+
         flex-direction: column;
+
       }
+
 
       .problem,
       .invoice {
+
         margin-left: 18px;
+
         margin-right: 18px;
+
       }
 
+
       .footer {
+
         font-size: 13px;
+
         line-height: 1.6;
+
       }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
-  <!-- ================= HEADER ================= -->
+
+  <!-- =========================
+       HEADER
+  ========================== -->
 
   <header class="header">
 
     <nav class="nav">
 
-      <a href="index.html" class="logo">
 
-        <div class="logo-icon">❄️</div>
+      <a href="index.html"
+        class="logo">
+
+        <img
+          src="Logo.png"
+          alt="Smart Cool & Refrigerator Logo"
+          onerror="this.style.display='none';">
 
         <div class="logo-text">
-          <strong>Smart Cool</strong>
-          <span>& Refrigerator Shop</span>
+
+          <strong>
+            SMART COOL
+          </strong>
+
+          <span>
+            & REFRIGERATOR
+          </span>
+
         </div>
 
       </a>
+
 
       <button
         class="menu-btn"
         id="menuBtn"
         type="button"
-        aria-label="Open Menu"
-      >
+        aria-label="Open Menu">
+
         ☰
+
       </button>
 
-      <ul class="nav-links" id="navLinks">
+
+      <ul
+        class="nav-links"
+        id="navLinks">
+
 
         <li>
           <a href="index.html">
@@ -659,17 +1434,20 @@
           </a>
         </li>
 
+
         <li>
           <a href="index.html#services">
             Services
           </a>
         </li>
 
+
         <li>
-          <a href="index.html#about">
-            About
+          <a href="index.html#rates">
+            Rates
           </a>
         </li>
+
 
         <li>
           <a href="index.html#booking">
@@ -677,17 +1455,24 @@
           </a>
         </li>
 
+
         <li>
-          <a href="tracking.html" class="active">
+          <a
+            href="tracking.html"
+            class="active">
+
             Track Booking
+
           </a>
         </li>
+
 
         <li>
           <a href="index.html#contact">
             Contact
           </a>
         </li>
+
 
       </ul>
 
@@ -696,11 +1481,14 @@
   </header>
 
 
-  <!-- ================= MAIN ================= -->
+  <!-- =========================
+       MAIN
+  ========================== -->
 
   <main class="page">
 
     <div class="container">
+
 
       <section class="heading">
 
@@ -713,55 +1501,81 @@
         </h1>
 
         <p>
-          Enter your Tracking ID below to check the
-          current status of your service booking.
+          Enter your Tracking ID below to check
+          the current status of your service booking.
         </p>
 
       </section>
 
 
-      <!-- ================= TRACKING BOX ================= -->
+      <!-- =========================
+           TRACKING BOX
+      ========================== -->
 
       <section class="track-box">
 
+
         <form
           id="trackingForm"
-          class="track-form"
-        >
+          class="track-form">
+
 
           <input
             type="text"
             id="trackingId"
             class="track-input"
-            placeholder="Enter Tracking ID"
+            placeholder="Enter Tracking ID e.g. SC-12345678"
             autocomplete="off"
             autocapitalize="characters"
-            required
-          >
+            required>
+
 
           <button
             type="submit"
             id="trackButton"
-            class="track-button"
-          >
+            class="track-button">
+
             🔎 Track Booking
+
           </button>
+
 
         </form>
 
+
         <div
           id="message"
-          class="message"
-        ></div>
+          class="message">
+        </div>
 
-        <div id="result"></div>
+
+        <div id="result">
+        </div>
+
+
+        <div class="whatsapp">
+
+          <a
+            href="https://wa.me/923208463110?text=Assalam-o-Alaikum%20Smart%20Cool%20%26%20Refrigerator%2C%20mujhe%20apni%20booking%20ke%20bare%20mein%20maloomat%20chahiye."
+            target="_blank"
+            rel="noopener">
+
+            💬 WhatsApp Support
+
+          </a>
+
+        </div>
+
 
       </section>
 
 
-      <!-- ================= HOW IT WORKS ================= -->
+      <!-- =========================
+           HOW IT WORKS
+      ========================== -->
 
       <section class="how">
+
 
         <div class="how-title">
 
@@ -777,6 +1591,7 @@
 
 
         <div class="steps">
+
 
           <div class="step">
 
@@ -831,53 +1646,90 @@
 
           </div>
 
+
         </div>
 
       </section>
+
 
     </div>
 
   </main>
 
 
-  <!-- ================= FOOTER ================= -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
   <footer class="footer">
 
+
     <p>
+
       © 2026
-      <strong>Smart Cool & Refrigerator</strong>
+
+      <strong>
+        Smart Cool & Refrigerator
+      </strong>
+
     </p>
 
+
     <p style="margin-top:7px;">
+
       AC • Refrigerator • Water Dispenser • Electrician
+
     </p>
 
+
     <p style="margin-top:7px;">
+
       All Over Karachi
+
     </p>
 
+
     <p style="margin-top:7px;">
+
+      Muhammad Rizwan
+      •
+      0320 8463110
+
+    </p>
+
+
+    <p style="margin-top:7px;">
+
       WhatsApp:
+
       <a
         href="https://wa.me/923208463110"
         target="_blank"
-        rel="noopener"
-      >
+        rel="noopener">
+
         0320 8463110
+
       </a>
+
     </p>
+
 
   </footer>
 
 
-  <!-- ================= FIREBASE ================= -->
+  <!-- =========================
+       FIREBASE
+  ========================== -->
 
   <script type="module">
 
+
     import {
       initializeApp
-    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+    }
+    from
+      "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 
     import {
       getFirestore,
@@ -885,15 +1737,19 @@
       query,
       where,
       getDocs
-    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+    }
+    from
+      "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-    /* ================= FIREBASE CONFIG ================= */
+    /* =========================
+       FIREBASE CONFIG
+    ========================== */
 
     const firebaseConfig = {
 
       apiKey:
-        "AIzaSyAvnAK6gje0ly5XtxNotNl_dEhJhJ9pSHg",
+        "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
 
       authDomain:
         "smart-cool-6f513.firebaseapp.com",
@@ -917,75 +1773,133 @@
 
 
     const app =
-      initializeApp(firebaseConfig);
+      initializeApp(
+        firebaseConfig
+      );
+
 
     const db =
       getFirestore(app);
 
 
-    /* ================= ELEMENTS ================= */
+    /* =========================
+       ELEMENTS
+    ========================== */
 
     const form =
-      document.getElementById("trackingForm");
+      document.getElementById(
+        "trackingForm"
+      );
+
 
     const input =
-      document.getElementById("trackingId");
+      document.getElementById(
+        "trackingId"
+      );
+
 
     const button =
-      document.getElementById("trackButton");
+      document.getElementById(
+        "trackButton"
+      );
+
 
     const message =
-      document.getElementById("message");
+      document.getElementById(
+        "message"
+      );
+
 
     const result =
-      document.getElementById("result");
+      document.getElementById(
+        "result"
+      );
 
 
-    /* ================= MENU ================= */
+    /* =========================
+       MENU
+    ========================== */
 
     const menuBtn =
-      document.getElementById("menuBtn");
+      document.getElementById(
+        "menuBtn"
+      );
+
 
     const navLinks =
-      document.getElementById("navLinks");
+      document.getElementById(
+        "navLinks"
+      );
 
 
     menuBtn.addEventListener(
       "click",
-      () => {
+      function() {
 
-        navLinks.classList.toggle("open");
+        navLinks.classList.toggle(
+          "open"
+        );
 
       }
     );
 
 
     document
-      .querySelectorAll(".nav-links a")
-      .forEach(link => {
+      .querySelectorAll(
+        ".nav-links a"
+      )
+      .forEach(
+        function(link) {
 
-        link.addEventListener(
-          "click",
-          () => {
+          link.addEventListener(
+            "click",
+            function() {
 
-            navLinks.classList.remove("open");
+              navLinks.classList.remove(
+                "open"
+              );
 
-          }
-        );
+            }
+          );
 
-      });
+        }
+      );
 
 
-    /* ================= HELPERS ================= */
+    /* =========================
+       HELPERS
+    ========================== */
 
     function escapeHTML(value) {
 
-      return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+      return String(
+        value ?? ""
+      )
+
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+
+        .replace(
+          /</g,
+          "&lt;"
+        )
+
+        .replace(
+          />/g,
+          "&gt;"
+        )
+
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+
+        .replace(
+          /'/g,
+          "&#039;"
+        );
 
     }
 
@@ -996,10 +1910,13 @@
       fallback = "—"
     ) {
 
-      for (const field of fields) {
+      for (
+        const field of fields
+      ) {
 
         const value =
           booking?.[field];
+
 
         if (
           value !== undefined &&
@@ -1013,17 +1930,45 @@
 
       }
 
+
       return fallback;
 
     }
 
 
-    function normalizeStatus(status) {
+    /* =========================
+       STATUS
+    ========================== */
+
+    function normalizeStatus(
+      status
+    ) {
 
       const raw =
-        String(status || "Pending")
+        String(
+          status || "pending"
+        )
           .trim()
           .toLowerCase();
+
+
+      if (
+        raw === "accepted" ||
+        raw === "accept" ||
+        raw === "confirmed" ||
+        raw === "confirm"
+      ) {
+
+        return {
+
+          label: "Accepted",
+
+          className: "accepted"
+
+        };
+
+      }
+
 
       if (
         raw === "in progress" ||
@@ -1033,8 +1978,11 @@
       ) {
 
         return {
+
           label: "In Progress",
+
           className: "progress"
+
         };
 
       }
@@ -1047,58 +1995,63 @@
       ) {
 
         return {
+
           label: "Completed",
+
           className: "completed"
+
         };
 
       }
 
 
       if (
+        raw === "rejected" ||
+        raw === "reject" ||
         raw === "cancelled" ||
         raw === "canceled" ||
-        raw === "rejected" ||
         raw === "cancel"
       ) {
 
         return {
-          label: "Cancelled",
-          className: "cancelled"
-        };
 
-      }
+          label: "Rejected",
 
+          className: "rejected"
 
-      if (
-        raw === "confirmed" ||
-        raw === "confirm" ||
-        raw === "accepted"
-      ) {
-
-        return {
-          label: "Confirmed",
-          className: "confirmed"
         };
 
       }
 
 
       return {
+
         label: "Pending",
+
         className: "pending"
+
       };
 
     }
 
 
-    function formatDate(value) {
+    /* =========================
+       DATE
+    ========================== */
+
+    function formatDate(
+      value
+    ) {
 
       if (!value) {
+
         return "—";
+
       }
 
 
       try {
+
 
         if (
           typeof value === "object" &&
@@ -1110,8 +2063,10 @@
             .toLocaleString(
               "en-PK",
               {
-                dateStyle: "medium",
-                timeStyle: "short"
+                dateStyle:
+                  "medium",
+                timeStyle:
+                  "short"
               }
             );
 
@@ -1133,13 +2088,17 @@
         }
 
 
-        return date.toLocaleString(
-          "en-PK",
-          {
-            dateStyle: "medium",
-            timeStyle: "short"
-          }
-        );
+        return date
+          .toLocaleString(
+            "en-PK",
+            {
+              dateStyle:
+                "medium",
+              timeStyle:
+                "short"
+            }
+          );
+
 
       } catch {
 
@@ -1150,15 +2109,26 @@
     }
 
 
-    function getAmount(booking) {
+    /* =========================
+       AMOUNT
+    ========================== */
+
+    function getAmount(
+      booking
+    ) {
 
       const possibleAmounts = [
 
         booking?.invoiceAmount,
+
         booking?.totalAmount,
+
         booking?.amount,
+
         booking?.price,
+
         booking?.charges,
+
         booking?.total
 
       ];
@@ -1168,11 +2138,13 @@
         const value of possibleAmounts
       ) {
 
+
         if (
           value !== undefined &&
           value !== null &&
           String(value).trim() !== ""
         ) {
+
 
           const number =
             Number(
@@ -1201,7 +2173,14 @@
     }
 
 
-    function getPaymentStatus(booking) {
+    /* =========================
+       PAYMENT STATUS
+    ========================== */
+
+    function getPaymentStatus(
+      booking
+    ) {
+
 
       const value =
         booking?.paymentStatus ??
@@ -1224,8 +2203,12 @@
       ) {
 
         return {
+
           label: "✅ PAID",
-          className: "payment-paid"
+
+          className:
+            "payment-paid"
+
         };
 
       }
@@ -1239,8 +2222,12 @@
       ) {
 
         return {
+
           label: "❌ UNPAID",
-          className: "payment-unpaid"
+
+          className:
+            "payment-unpaid"
+
         };
 
       }
@@ -1250,6 +2237,10 @@
 
     }
 
+
+    /* =========================
+       MESSAGE
+    ========================== */
 
     function showMessage(
       text,
@@ -1276,56 +2267,85 @@
     }
 
 
-    /* ================= TRACKING SEARCH ================= */
+    /* =========================
+       FIND BOOKING
+    ========================== */
 
-    form.addEventListener(
-      "submit",
-      async function(event) {
-
-        event.preventDefault();
-
-
-        clearMessage();
-
-        result.innerHTML = "";
+    async function findBooking(
+      trackingId
+    ) {
 
 
-        const trackingId =
-          input.value.trim();
+      /* -------------------------
+         SEARCH TRACKING ID
+      -------------------------- */
+
+      let q =
+        query(
+          collection(
+            db,
+            "serviceRequests"
+          ),
+          where(
+            "trackingId",
+            "==",
+            trackingId
+          )
+        );
 
 
-        if (!trackingId) {
+      let snapshot =
+        await getDocs(q);
 
-          showMessage(
-            "Please enter your Tracking ID.",
-            "error"
+
+      /* -------------------------
+         SEARCH BOOKING ID
+      -------------------------- */
+
+      if (
+        snapshot.empty
+      ) {
+
+
+        q =
+          query(
+            collection(
+              db,
+              "serviceRequests"
+            ),
+            where(
+              "bookingId",
+              "==",
+              trackingId
+            )
           );
 
-          return;
 
-        }
+        snapshot =
+          await getDocs(q);
 
-
-        button.disabled = true;
-
-        button.textContent =
-          "Searching...";
+      }
 
 
-        result.innerHTML = `
-          <div class="loading">
-            🔎 Searching your booking...
-          </div>
-        `;
+      /* -------------------------
+         UPPERCASE
+      -------------------------- */
+
+      if (
+        snapshot.empty
+      ) {
 
 
-        try {
+        const upper =
+          trackingId.toUpperCase();
 
-          /*
-           * First try exact Tracking ID.
-           */
 
-          const exactQuery =
+        if (
+          upper !== trackingId
+        ) {
+
+
+          q =
             query(
               collection(
                 db,
@@ -1334,101 +2354,225 @@
               where(
                 "trackingId",
                 "==",
-                trackingId
+                upper
               )
             );
 
 
-          let snapshot =
-            await getDocs(exactQuery);
+          snapshot =
+            await getDocs(q);
 
 
-          /*
-           * If exact search does not find anything,
-           * try uppercase/lowercase variations.
-           */
-
-          if (snapshot.empty) {
-
-            const variations = [
-              trackingId.toUpperCase(),
-              trackingId.toLowerCase()
-            ];
+          if (
+            snapshot.empty
+          ) {
 
 
-            for (
-              const variation of variations
-            ) {
-
-              if (
-                variation === trackingId
-              ) {
-                continue;
-              }
-
-
-              const alternateQuery =
-                query(
-                  collection(
-                    db,
-                    "serviceRequests"
-                  ),
-                  where(
-                    "trackingId",
-                    "==",
-                    variation
-                  )
-                );
+            q =
+              query(
+                collection(
+                  db,
+                  "serviceRequests"
+                ),
+                where(
+                  "bookingId",
+                  "==",
+                  upper
+                )
+              );
 
 
-              const alternateSnapshot =
-                await getDocs(
-                  alternateQuery
-                );
-
-
-              if (
-                !alternateSnapshot.empty
-              ) {
-
-                snapshot =
-                  alternateSnapshot;
-
-                break;
-
-              }
-
-            }
+            snapshot =
+              await getDocs(q);
 
           }
 
+        }
 
-          if (snapshot.empty) {
+      }
 
-            result.innerHTML = "";
+
+      /* -------------------------
+         LOWERCASE
+      -------------------------- */
+
+      if (
+        snapshot.empty
+      ) {
+
+
+        const lower =
+          trackingId.toLowerCase();
+
+
+        if (
+          lower !== trackingId
+        ) {
+
+
+          q =
+            query(
+              collection(
+                db,
+                "serviceRequests"
+              ),
+              where(
+                "trackingId",
+                "==",
+                lower
+              )
+            );
+
+
+          snapshot =
+            await getDocs(q);
+
+
+          if (
+            snapshot.empty
+          ) {
+
+
+            q =
+              query(
+                collection(
+                  db,
+                  "serviceRequests"
+                ),
+                where(
+                  "bookingId",
+                  "==",
+                  lower
+                )
+              );
+
+
+            snapshot =
+              await getDocs(q);
+
+          }
+
+        }
+
+      }
+
+
+      if (
+        snapshot.empty
+      ) {
+
+        return null;
+
+      }
+
+
+      return {
+
+        id:
+          snapshot.docs[0].id,
+
+        data:
+          snapshot.docs[0].data()
+
+      };
+
+    }
+
+
+    /* =========================
+       TRACK BOOKING
+    ========================== */
+
+    form.addEventListener(
+      "submit",
+      async function(event) {
+
+
+        event.preventDefault();
+
+
+        clearMessage();
+
+
+        result.innerHTML =
+          "";
+
+
+        const trackingId =
+          input.value
+            .trim();
+
+
+        if (
+          !trackingId
+        ) {
+
+
+          showMessage(
+            "Please enter your Tracking ID.",
+            "error"
+          );
+
+
+          return;
+
+        }
+
+
+        button.disabled =
+          true;
+
+
+        button.textContent =
+          "Searching...";
+
+
+        result.innerHTML = `
+
+          <div class="loading">
+
+            🔎 Searching your booking...
+
+          </div>
+
+        `;
+
+
+        try {
+
+
+          const found =
+            await findBooking(
+              trackingId
+            );
+
+
+          if (!found) {
+
+
+            result.innerHTML =
+              "";
+
 
             showMessage(
               "Booking not found. Please check your Tracking ID and try again.",
               "error"
             );
 
+
             return;
 
           }
 
 
-          /*
-           * Use the first matching booking.
-           */
-
-          const bookingDoc =
-            snapshot.docs[0];
-
           const booking =
-            bookingDoc.data();
+            found.data;
 
 
-          /* ================= BOOKING VALUES ================= */
+          /* =====================
+             VALUES
+          ====================== */
+
 
           const actualTrackingId =
             getFirstValue(
@@ -1436,7 +2580,8 @@
               [
                 "trackingId",
                 "trackingID",
-                "trackingNumber"
+                "trackingNumber",
+                "bookingId"
               ],
               trackingId
             );
@@ -1458,12 +2603,12 @@
             getFirstValue(
               booking,
               [
+                "customerPhone",
                 "phone",
                 "mobile",
                 "whatsapp",
                 "whatsappNumber",
                 "phoneNumber",
-                "customerPhone",
                 "contactNumber",
                 "contact",
                 "customerMobile",
@@ -1487,10 +2632,18 @@
             getFirstValue(
               booking,
               [
-                "area",
+                "area"
+              ]
+            );
+
+
+          const address =
+            getFirstValue(
+              booking,
+              [
                 "address",
-                "location",
-                "customerAddress"
+                "customerAddress",
+                "location"
               ]
             );
 
@@ -1524,7 +2677,7 @@
                 "bookingId",
                 "requestId"
               ],
-              bookingDoc.id
+              found.id
             );
 
 
@@ -1549,18 +2702,25 @@
 
 
           const amount =
-            getAmount(booking);
+            getAmount(
+              booking
+            );
 
 
           const paymentInfo =
-            getPaymentStatus(booking);
+            getPaymentStatus(
+              booking
+            );
 
 
-          /* ================= RESULT ================= */
+          /* =====================
+             RESULT
+          ====================== */
 
           result.innerHTML = `
 
             <div class="result-card">
+
 
               <div class="result-top">
 
@@ -1571,25 +2731,31 @@
                   </h2>
 
                   <div class="tracking-number">
+
                     Tracking ID:
                     ${escapeHTML(
                       actualTrackingId
                     )}
+
                   </div>
 
                 </div>
 
 
-                <span class="status ${statusInfo.className}">
+                <span
+                  class="status ${statusInfo.className}">
+
                   ${escapeHTML(
                     statusInfo.label
                   )}
+
                 </span>
 
               </div>
 
 
               <div class="details">
+
 
                 <div class="detail">
 
@@ -1639,12 +2805,27 @@
                 <div class="detail">
 
                   <label>
-                    Area / Address
+                    Area
                   </label>
 
                   <strong>
                     ${escapeHTML(
                       area
+                    )}
+                  </strong>
+
+                </div>
+
+
+                <div class="detail">
+
+                  <label>
+                    Complete Address
+                  </label>
+
+                  <strong>
+                    ${escapeHTML(
+                      address
                     )}
                   </strong>
 
@@ -1712,6 +2893,7 @@
 
                 </div>
 
+
               </div>
 
 
@@ -1719,10 +2901,11 @@
                 problem
                 ?
                 `
+
                   <div class="problem">
 
                     <label>
-                      Problem / Message
+                      Problem / Description
                     </label>
 
                     <p>
@@ -1732,6 +2915,7 @@
                     </p>
 
                   </div>
+
                 `
                 :
                 ""
@@ -1742,26 +2926,38 @@
                 amount > 0
                 ?
                 `
+
                   <div class="invoice">
 
                     <div class="invoice-title">
+
                       🧾 Invoice Amount
+
                     </div>
 
+
                     <div class="invoice-amount">
+
                       Rs.
                       ${amount.toLocaleString(
                         "en-PK"
                       )}
+
                     </div>
+
 
                     ${
                       paymentInfo
                       ?
                       `
-                        <div class="payment-status ${paymentInfo.className}">
+
+                        <div
+                          class="payment-status ${paymentInfo.className}">
+
                           ${paymentInfo.label}
+
                         </div>
+
                       `
                       :
                       ""
@@ -1772,21 +2968,46 @@
                       booking.invoiceNote
                       ?
                       `
+
                         <div class="invoice-note">
+
                           ${escapeHTML(
                             booking.invoiceNote
                           )}
+
                         </div>
+
                       `
                       :
                       ""
                     }
 
+
                   </div>
+
                 `
                 :
-                ""
+                `
+                  <div class="invoice">
+
+                    <div class="invoice-title">
+
+                      🧾 Invoice
+
+                    </div>
+
+                    <div class="invoice-note">
+
+                      Invoice will be available
+                      after the service is completed
+                      and the admin generates it.
+
+                    </div>
+
+                  </div>
+                `
               }
+
 
             </div>
 
@@ -1799,21 +3020,25 @@
           );
 
 
-          /*
-           * Scroll result into view on mobile/desktop.
-           */
+          setTimeout(
+            function() {
 
-          setTimeout(() => {
+              result.scrollIntoView(
+                {
+                  behavior:
+                    "smooth",
+                  block:
+                    "start"
+                }
+              );
 
-            result.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
-
-          }, 100);
+            },
+            100
+          );
 
 
-        } catch (error) {
+        } catch(error) {
+
 
           console.error(
             "Tracking Error:",
@@ -1821,24 +3046,36 @@
           );
 
 
-          result.innerHTML = "";
+          result.innerHTML =
+            "";
 
 
-          /*
-           * More useful Firebase error messages.
-           */
+          console.error(
+            "Firebase error code:",
+            error?.code
+          );
+
+
+          console.error(
+            "Firebase error message:",
+            error?.message
+          );
+
 
           if (
             error?.code ===
             "permission-denied"
           ) {
 
+
             showMessage(
               "Unable to access booking data. Please check Firebase Firestore permissions.",
               "error"
             );
 
+
           } else {
+
 
             showMessage(
               "Unable to search booking. Please check your internet connection and try again.",
@@ -1847,9 +3084,13 @@
 
           }
 
+
         } finally {
 
-          button.disabled = false;
+
+          button.disabled =
+            false;
+
 
           button.textContent =
             "🔎 Track Booking";
@@ -1860,11 +3101,13 @@
     );
 
 
-    /* ================= AUTO FOCUS ================= */
+    /* =========================
+       AUTO FOCUS
+    ========================== */
 
     window.addEventListener(
       "load",
-      () => {
+      function() {
 
         input.focus();
 
@@ -1874,5 +3117,8 @@
 
   </script>
 
+
 </body>
+
 </html>
+```
