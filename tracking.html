@@ -7,240 +7,588 @@
   <title>Track Booking | Smart Cool & Refrigerator</title>
 
   <meta name="description"
-    content="Track your Smart Cool & Refrigerator service booking using your Tracking ID.">
-
-  <link rel="stylesheet" href="style.css">
+    content="Track your Smart Cool & Refrigerator service booking online.">
 
   <style>
-    .tracking-page {
-      min-height: 100vh;
-      padding: 110px 20px 60px;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .tracking-container {
-      max-width: 850px;
+    :root {
+      --bg: #061321;
+      --bg2: #081b2d;
+      --card: #0b2033;
+      --card2: #0e2940;
+      --cyan: #16c9ff;
+      --blue: #168cff;
+      --white: #eaf9ff;
+      --muted: #9bb2c5;
+      --border: rgba(98,190,255,.18);
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ================= HEADER ================= */
+
+    .header {
+      width: 100%;
+      background: rgba(6,19,33,.96);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: auto;
+      min-height: 78px;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--white);
+      min-width: 0;
+    }
+
+    .logo-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      line-height: 1.1;
+    }
+
+    .logo-text strong {
+      display: block;
+      font-size: 21px;
+      color: var(--white);
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 12px;
+      color: var(--cyan);
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 10px 11px;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: .2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--white);
+      background: rgba(22,201,255,.09);
+    }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--white);
+      width: 42px;
+      height: 42px;
+      border-radius: 9px;
+      font-size: 23px;
+      cursor: pointer;
+    }
+
+    /* ================= MAIN ================= */
+
+    .page {
+      min-height: calc(100vh - 78px);
+      padding: 75px 20px 70px;
+    }
+
+    .container {
+      max-width: 900px;
       margin: auto;
     }
 
-    .tracking-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 35px;
-      box-shadow: 0 15px 40px rgba(0,0,0,.25);
-    }
-
-    .tracking-title {
+    .heading {
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 35px;
     }
 
-    .tracking-title h1 {
-      margin: 0;
-      font-size: 32px;
+    .badge {
+      display: inline-block;
+      color: var(--cyan);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      margin-bottom: 13px;
+      text-transform: uppercase;
     }
 
-    .tracking-title p {
+    .heading h1 {
+      font-size: 46px;
+      line-height: 1.1;
+      margin-bottom: 13px;
+    }
+
+    .heading p {
       color: var(--muted);
-      margin-top: 10px;
+      font-size: 17px;
+      line-height: 1.7;
     }
 
-    .tracking-form {
+    /* ================= TRACK BOX ================= */
+
+    .track-box {
+      background: linear-gradient(
+        145deg,
+        rgba(14,41,64,.96),
+        rgba(11,32,51,.96)
+      );
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 35px;
+      box-shadow: 0 20px 55px rgba(0,0,0,.28);
+    }
+
+    .track-form {
       display: flex;
       gap: 12px;
-      margin-top: 30px;
     }
 
-    .tracking-form input {
+    .track-input {
       flex: 1;
-      padding: 15px;
+      min-width: 0;
+      height: 55px;
       border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--bg-two);
-      color: var(--light);
+      border: 1px solid rgba(98,190,255,.25);
       outline: none;
+      background: #061725;
+      color: var(--white);
+      padding: 0 17px;
       font-size: 16px;
     }
 
-    .tracking-form input:focus {
+    .track-input::placeholder {
+      color: #71899b;
+    }
+
+    .track-input:focus {
       border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(22,201,255,.08);
     }
 
-    .track-btn {
-      border: none;
-      padding: 15px 25px;
+    .track-button {
+      height: 55px;
+      border: 0;
       border-radius: 10px;
-      background: var(--gradient);
+      padding: 0 27px;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
       color: white;
-      font-weight: 700;
-      cursor: pointer;
       font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
     }
 
-    .track-btn:hover {
-      opacity: .9;
+    .track-button:disabled {
+      opacity: .65;
+      cursor: wait;
     }
 
-    .result {
-      margin-top: 30px;
+    /* ================= MESSAGE ================= */
+
+    .message {
+      display: none;
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .message.show {
+      display: block;
+    }
+
+    .message.error {
+      color: #ffb4ae;
+      background: rgba(244,67,54,.09);
+      border: 1px solid rgba(244,67,54,.25);
+    }
+
+    .message.success {
+      color: #9df0b0;
+      background: rgba(76,175,80,.09);
+      border: 1px solid rgba(76,175,80,.25);
+    }
+
+    /* ================= RESULT ================= */
+
+    #result {
+      margin-top: 25px;
     }
 
     .result-card {
-      background: var(--bg-two);
+      background: #081b2d;
       border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 25px;
+      border-radius: 18px;
+      overflow: hidden;
     }
 
-    .result-header {
+    .result-top {
+      padding: 22px 25px;
+      background: rgba(22,201,255,.045);
+      border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 15px;
-      margin-bottom: 22px;
-      flex-wrap: wrap;
     }
 
-    .result-header h2 {
-      margin: 0;
-      font-size: 22px;
+    .result-top h2 {
+      font-size: 21px;
+    }
+
+    .tracking-number {
+      color: var(--cyan);
+      font-size: 13px;
+      margin-top: 5px;
     }
 
     .status {
-      padding: 8px 14px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 15px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
     }
 
-    .status.pending {
-      background: rgba(255,193,7,.15);
-      color: #ffc107;
+    .pending {
+      color: #ffd76a;
+      background: rgba(255,193,7,.12);
     }
 
-    .status.confirmed {
-      background: rgba(0,200,255,.15);
-      color: var(--cyan);
+    .confirmed {
+      color: #72e6ff;
+      background: rgba(22,201,255,.12);
     }
 
-    .status.progress {
-      background: rgba(33,150,243,.15);
-      color: #2196f3;
+    .progress {
+      color: #72b7ff;
+      background: rgba(22,140,255,.12);
     }
 
-    .status.completed {
-      background: rgba(40,167,69,.15);
-      color: #4caf50;
+    .completed {
+      color: #7bea94;
+      background: rgba(76,175,80,.12);
     }
 
-    .status.cancelled {
-      background: rgba(244,67,54,.15);
-      color: #f44336;
+    .cancelled {
+      color: #ff8e88;
+      background: rgba(244,67,54,.12);
     }
 
-    .info-grid {
+    .details {
+      padding: 25px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
+      gap: 14px;
     }
 
-    .info-box {
+    .detail {
       background: rgba(255,255,255,.025);
-      border: 1px solid var(--border);
-      border-radius: 10px;
+      border: 1px solid rgba(98,190,255,.10);
+      border-radius: 11px;
       padding: 15px;
     }
 
-    .info-box small {
+    .detail label {
       display: block;
       color: var(--muted);
-      margin-bottom: 6px;
+      font-size: 12px;
+      margin-bottom: 7px;
     }
 
-    .info-box strong {
-      color: var(--light);
+    .detail strong {
+      display: block;
+      color: var(--white);
+      font-size: 14px;
+      line-height: 1.5;
       word-break: break-word;
     }
 
-    .invoice-box {
-      margin-top: 20px;
-      padding: 18px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(22,201,255,.05);
+    .problem {
+      margin: 0 25px 25px;
+      padding: 16px;
+      border-radius: 11px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(98,190,255,.10);
     }
 
-    .invoice-box h3 {
-      margin-top: 0;
+    .problem label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
+
+    .problem p {
+      color: var(--white);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* ================= INVOICE ================= */
+
+    .invoice {
+      margin: 0 25px 25px;
+      padding: 20px;
+      border-radius: 13px;
+      background: linear-gradient(
+        135deg,
+        rgba(22,201,255,.08),
+        rgba(22,140,255,.04)
+      );
+      border: 1px solid rgba(22,201,255,.18);
+    }
+
+    .invoice-title {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 8px;
     }
 
     .invoice-amount {
-      font-size: 25px;
-      font-weight: 800;
       color: var(--cyan);
+      font-size: 28px;
+      font-weight: 900;
     }
 
-    .message {
-      margin-top: 20px;
-      padding: 14px;
-      border-radius: 10px;
-      display: none;
+    .invoice-note {
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.5;
     }
 
-    .message.error {
-      display: block;
-      background: rgba(244,67,54,.1);
-      border: 1px solid rgba(244,67,54,.3);
-      color: #ff8a80;
-    }
-
-    .message.success {
-      display: block;
-      background: rgba(76,175,80,.1);
-      border: 1px solid rgba(76,175,80,.3);
-      color: #81c784;
-    }
+    /* ================= LOADING ================= */
 
     .loading {
       text-align: center;
+      padding: 25px;
       color: var(--muted);
-      padding: 20px;
     }
 
-    .footer-contact {
+    /* ================= HOW IT WORKS ================= */
+
+    .how {
+      margin-top: 45px;
+    }
+
+    .how-title {
       text-align: center;
-      margin-top: 35px;
-      color: var(--muted);
+      margin-bottom: 22px;
     }
 
-    .footer-contact a {
+    .how-title h2 {
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .how-title p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 22px;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: rgba(22,201,255,.10);
+      color: var(--cyan);
+      font-weight: 900;
+      margin-bottom: 17px;
+    }
+
+    .step h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* ================= FOOTER ================= */
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--muted);
+      background: #05111e;
+    }
+
+    .footer strong {
+      color: var(--white);
+    }
+
+    .footer a {
       color: var(--cyan);
       text-decoration: none;
     }
 
-    @media (max-width: 650px) {
-      .tracking-page {
-        padding: 90px 15px 40px;
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 850px) {
+
+      .nav {
+        min-height: 70px;
       }
 
-      .tracking-card {
-        padding: 22px;
+      .menu-btn {
+        display: block;
       }
 
-      .tracking-title h1 {
-        font-size: 26px;
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 12px 18px 18px;
+        background: #061321;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
       }
 
-      .tracking-form {
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 13px;
+      }
+
+      .page {
+        padding-top: 55px;
+      }
+
+      .heading h1 {
+        font-size: 36px;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .logo-text strong {
+        font-size: 18px;
+      }
+
+      .logo-text span {
+        font-size: 10px;
+      }
+
+      .page {
+        padding: 45px 14px 55px;
+      }
+
+      .heading h1 {
+        font-size: 30px;
+      }
+
+      .heading p {
+        font-size: 15px;
+      }
+
+      .track-box {
+        padding: 20px;
+        border-radius: 16px;
+      }
+
+      .track-form {
         flex-direction: column;
       }
 
-      .track-btn {
+      .track-button {
         width: 100%;
       }
 
-      .info-grid {
+      .details {
         grid-template-columns: 1fr;
+        padding: 18px;
+      }
+
+      .result-top {
+        padding: 18px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .problem,
+      .invoice {
+        margin-left: 18px;
+        margin-right: 18px;
+      }
+
+      .footer {
+        font-size: 13px;
+        line-height: 1.6;
       }
     }
   </style>
@@ -248,50 +596,228 @@
 
 <body>
 
-  <main class="tracking-page">
-    <div class="tracking-container">
+  <!-- ================= HEADER ================= -->
 
-      <div class="tracking-card">
+  <header class="header">
 
-        <div class="tracking-title">
-          <h1>Track Your Booking</h1>
-          <p>Enter your Smart Cool booking Tracking ID</p>
+    <nav class="nav">
+
+      <a href="index.html" class="logo">
+        <div class="logo-icon">❄️</div>
+
+        <div class="logo-text">
+          <strong>Smart Cool</strong>
+          <span>& Refrigerator Shop</span>
+        </div>
+      </a>
+
+      <button class="menu-btn" id="menuBtn">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+
+        <li>
+          <a href="index.html#services">Services</a>
+        </li>
+
+        <li>
+          <a href="index.html#about">About</a>
+        </li>
+
+        <li>
+          <a href="index.html#booking">Booking</a>
+        </li>
+
+        <li>
+          <a href="tracking.html" class="active">
+            Track Booking
+          </a>
+        </li>
+
+        <li>
+          <a href="index.html#contact">Contact</a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+  </header>
+
+
+  <!-- ================= MAIN ================= -->
+
+  <main class="page">
+
+    <div class="container">
+
+      <section class="heading">
+
+        <div class="badge">
+          Booking Tracking
         </div>
 
-        <form id="trackingForm" class="tracking-form">
+        <h1>
+          Track Your Booking
+        </h1>
+
+        <p>
+          Enter your Tracking ID below to check the
+          current status of your service booking.
+        </p>
+
+      </section>
+
+
+      <!-- TRACKING BOX -->
+
+      <section class="track-box">
+
+        <form id="trackingForm" class="track-form">
 
           <input
             type="text"
             id="trackingId"
-            placeholder="Example: SC-12345678"
-            required
+            class="track-input"
+            placeholder="Enter Tracking ID"
             autocomplete="off"
+            required
           >
 
-          <button type="submit" class="track-btn">
-            Track Booking
+          <button
+            type="submit"
+            id="trackButton"
+            class="track-button"
+          >
+            🔎 Track Booking
           </button>
 
         </form>
 
         <div id="message" class="message"></div>
 
-        <div id="result" class="result"></div>
+        <div id="result"></div>
 
-      </div>
+      </section>
 
-      <div class="footer-contact">
-        Need help?
-        <a href="https://wa.me/923208463110" target="_blank">
-          WhatsApp Muhammad Rizwan — 0320 8463110
-        </a>
-      </div>
+
+      <!-- HOW IT WORKS -->
+
+      <section class="how">
+
+        <div class="how-title">
+
+          <h2>
+            Track In 3 Easy Steps
+          </h2>
+
+          <p>
+            Keep your Tracking ID safe after booking your service.
+          </p>
+
+        </div>
+
+
+        <div class="steps">
+
+          <div class="step">
+
+            <div class="step-number">
+              1
+            </div>
+
+            <h3>
+              Get Tracking ID
+            </h3>
+
+            <p>
+              After submitting your service booking,
+              you will receive a unique Tracking ID.
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-number">
+              2
+            </div>
+
+            <h3>
+              Enter Tracking ID
+            </h3>
+
+            <p>
+              Enter your Tracking ID in the box above
+              and press Track Booking.
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-number">
+              3
+            </div>
+
+            <h3>
+              Check Status
+            </h3>
+
+            <p>
+              See your booking status, service details
+              and invoice amount when available.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
 
     </div>
+
   </main>
 
 
-  <!-- Firebase -->
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="footer">
+
+    <p>
+      © 2026 <strong>Smart Cool & Refrigerator</strong>
+    </p>
+
+    <p style="margin-top:7px;">
+      AC • Refrigerator • Water Dispenser • Electrician
+    </p>
+
+    <p style="margin-top:7px;">
+      All Over Karachi
+    </p>
+
+    <p style="margin-top:7px;">
+      WhatsApp:
+      <a
+        href="https://wa.me/923208463110"
+        target="_blank"
+      >
+        0320 8463110
+      </a>
+    </p>
+
+  </footer>
+
+
+  <!-- ================= FIREBASE ================= -->
+
   <script type="module">
 
     import {
@@ -307,104 +833,83 @@
     } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-    // ==============================
-    // FIREBASE CONFIG
-    // ==============================
-
     const firebaseConfig = {
-      apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dEhJhJ9pSHg",
-      authDomain: "smart-cool-6f513.firebaseapp.com",
-      projectId: "smart-cool-6f513",
-      storageBucket: "smart-cool-6f513.firebasestorage.app",
-      messagingSenderId: "10468224529",
-      appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
-      measurementId: "G-Y5SPBHP57C"
+
+      apiKey:
+        "AIzaSyAvnAK6gje0ly5XtxNotNl_dEhJhJ9pSHg",
+
+      authDomain:
+        "smart-cool-6f513.firebaseapp.com",
+
+      projectId:
+        "smart-cool-6f513",
+
+      storageBucket:
+        "smart-cool-6f513.firebasestorage.app",
+
+      messagingSenderId:
+        "10468224529",
+
+      appId:
+        "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+
+      measurementId:
+        "G-Y5SPBHP57C"
     };
 
 
     const app = initializeApp(firebaseConfig);
+
     const db = getFirestore(app);
 
 
-    // ==============================
-    // ELEMENTS
-    // ==============================
+    /* ================= ELEMENTS ================= */
 
-    const form = document.getElementById("trackingForm");
-    const trackingInput = document.getElementById("trackingId");
-    const result = document.getElementById("result");
-    const message = document.getElementById("message");
+    const form =
+      document.getElementById("trackingForm");
 
+    const input =
+      document.getElementById("trackingId");
 
-    // ==============================
-    // STATUS CLASS
-    // ==============================
+    const button =
+      document.getElementById("trackButton");
 
-    function getStatusClass(status) {
+    const message =
+      document.getElementById("message");
 
-      const value = String(status || "Pending")
-        .toLowerCase()
-        .trim();
-
-      if (value === "confirmed") {
-        return "confirmed";
-      }
-
-      if (
-        value === "in progress" ||
-        value === "progress" ||
-        value === "working"
-      ) {
-        return "progress";
-      }
-
-      if (value === "completed") {
-        return "completed";
-      }
-
-      if (
-        value === "cancelled" ||
-        value === "canceled" ||
-        value === "rejected"
-      ) {
-        return "cancelled";
-      }
-
-      return "pending";
-    }
+    const result =
+      document.getElementById("result");
 
 
-    // ==============================
-    // FORMAT DATE
-    // ==============================
+    /* ================= MENU ================= */
 
-    function formatDate(value) {
+    const menuBtn =
+      document.getElementById("menuBtn");
 
-      if (!value) return "—";
+    const navLinks =
+      document.getElementById("navLinks");
 
-      try {
 
-        if (value.toDate) {
-          return value.toDate().toLocaleString("en-PK", {
-            dateStyle: "medium",
-            timeStyle: "short"
-          });
-        }
+    menuBtn.addEventListener("click", () => {
 
-        return new Date(value).toLocaleString("en-PK", {
-          dateStyle: "medium",
-          timeStyle: "short"
+      navLinks.classList.toggle("open");
+
+    });
+
+
+    document.querySelectorAll(".nav-links a")
+      .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+          navLinks.classList.remove("open");
+
         });
 
-      } catch (error) {
-        return "—";
-      }
-    }
+      });
 
 
-    // ==============================
-    // ESCAPE HTML
-    // ==============================
+    /* ================= HELPERS ================= */
 
     function escapeHTML(value) {
 
@@ -414,16 +919,79 @@
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+
     }
 
 
-    // ==============================
-    // SHOW MESSAGE
-    // ==============================
+    function statusClass(status) {
 
-    function showMessage(text, type = "error") {
+      const s =
+        String(status || "Pending")
+          .toLowerCase()
+          .trim();
 
-      message.className = "message " + type;
+      if (s === "confirmed")
+        return "confirmed";
+
+      if (
+        s === "in progress" ||
+        s === "progress" ||
+        s === "working"
+      )
+        return "progress";
+
+      if (s === "completed")
+        return "completed";
+
+      if (
+        s === "cancelled" ||
+        s === "canceled" ||
+        s === "rejected"
+      )
+        return "cancelled";
+
+      return "pending";
+
+    }
+
+
+    function formatDate(value) {
+
+      if (!value)
+        return "—";
+
+      try {
+
+        if (value.toDate) {
+
+          return value.toDate()
+            .toLocaleString("en-PK", {
+              dateStyle: "medium",
+              timeStyle: "short"
+            });
+
+        }
+
+        return new Date(value)
+          .toLocaleString("en-PK", {
+            dateStyle: "medium",
+            timeStyle: "short"
+          });
+
+      } catch {
+
+        return "—";
+
+      }
+
+    }
+
+
+    function showMessage(text, type) {
+
+      message.className =
+        "message show " + type;
+
       message.textContent = text;
 
     }
@@ -432,264 +1000,312 @@
     function clearMessage() {
 
       message.className = "message";
+
       message.textContent = "";
 
     }
 
 
-    // ==============================
-    // TRACK BOOKING
-    // ==============================
+    /* ================= TRACK ================= */
 
-    form.addEventListener("submit", async function(event) {
+    form.addEventListener(
+      "submit",
+      async function(event) {
 
-      event.preventDefault();
+        event.preventDefault();
 
-      clearMessage();
-      result.innerHTML = "";
+        clearMessage();
 
-      const trackingId = trackingInput.value.trim();
+        result.innerHTML = "";
 
-      if (!trackingId) {
+        const trackingId =
+          input.value.trim();
 
-        showMessage("Please enter your Tracking ID.");
+        if (!trackingId) {
 
-        return;
-      }
+          showMessage(
+            "Please enter your Tracking ID.",
+            "error"
+          );
 
+          return;
 
-      result.innerHTML = `
-        <div class="loading">
-          Searching your booking...
-        </div>
-      `;
-
-
-      try {
-
-        const bookingQuery = query(
-          collection(db, "serviceRequests"),
-          where("trackingId", "==", trackingId)
-        );
+        }
 
 
-        const snapshot = await getDocs(bookingQuery);
+        button.disabled = true;
+
+        button.textContent =
+          "Searching...";
 
 
-        if (snapshot.empty) {
+        result.innerHTML = `
+          <div class="loading">
+            Searching your booking...
+          </div>
+        `;
+
+
+        try {
+
+          const q = query(
+            collection(db, "serviceRequests"),
+            where(
+              "trackingId",
+              "==",
+              trackingId
+            )
+          );
+
+
+          const snapshot =
+            await getDocs(q);
+
+
+          if (snapshot.empty) {
+
+            result.innerHTML = "";
+
+            showMessage(
+              "Booking not found. Please check your Tracking ID.",
+              "error"
+            );
+
+            return;
+
+          }
+
+
+          const bookingDoc =
+            snapshot.docs[0];
+
+          const booking =
+            bookingDoc.data();
+
+
+          const status =
+            booking.status || "Pending";
+
+
+          const amount =
+            Number(
+              booking.invoiceAmount || 0
+            );
+
+
+          result.innerHTML = `
+
+            <div class="result-card">
+
+              <div class="result-top">
+
+                <div>
+
+                  <h2>
+                    Booking Details
+                  </h2>
+
+                  <div class="tracking-number">
+                    Tracking ID:
+                    ${escapeHTML(
+                      booking.trackingId ||
+                      trackingId
+                    )}
+                  </div>
+
+                </div>
+
+                <span class="status ${statusClass(status)}">
+                  ${escapeHTML(status)}
+                </span>
+
+              </div>
+
+
+              <div class="details">
+
+                <div class="detail">
+                  <label>Customer Name</label>
+                  <strong>
+                    ${escapeHTML(
+                      booking.customerName || "—"
+                    )}
+                  </strong>
+                </div>
+
+
+                <div class="detail">
+                  <label>Phone</label>
+                  <strong>
+                    ${escapeHTML(
+                      booking.phone || "—"
+                    )}
+                  </strong>
+                </div>
+
+
+                <div class="detail">
+                  <label>Service</label>
+                  <strong>
+                    ${escapeHTML(
+                      booking.service || "—"
+                    )}
+                  </strong>
+                </div>
+
+
+                <div class="detail">
+                  <label>Area / Address</label>
+                  <strong>
+                    ${escapeHTML(
+                      booking.area ||
+                      booking.address ||
+                      "—"
+                    )}
+                  </strong>
+                </div>
+
+
+                <div class="detail">
+                  <label>Preferred Date</label>
+                  <strong>
+                    ${escapeHTML(
+                      booking.preferredDate ||
+                      booking.date ||
+                      "—"
+                    )}
+                  </strong>
+                </div>
+
+
+                <div class="detail">
+                  <label>Preferred Time</label>
+                  <strong>
+                    ${escapeHTML(
+                      booking.preferredTime ||
+                      booking.time ||
+                      "—"
+                    )}
+                  </strong>
+                </div>
+
+
+                <div class="detail">
+                  <label>Booking Date</label>
+                  <strong>
+                    ${escapeHTML(
+                      formatDate(
+                        booking.createdAt
+                      )
+                    )}
+                  </strong>
+                </div>
+
+
+                <div class="detail">
+                  <label>Booking ID</label>
+                  <strong>
+                    ${escapeHTML(
+                      booking.bookingId ||
+                      bookingDoc.id
+                    )}
+                  </strong>
+                </div>
+
+              </div>
+
+
+              ${
+                booking.problem
+                ?
+                `
+                  <div class="problem">
+
+                    <label>
+                      Problem / Message
+                    </label>
+
+                    <p>
+                      ${escapeHTML(
+                        booking.problem
+                      )}
+                    </p>
+
+                  </div>
+                `
+                :
+                ""
+              }
+
+
+              ${
+                amount > 0
+                ?
+                `
+                  <div class="invoice">
+
+                    <div class="invoice-title">
+                      Invoice Amount
+                    </div>
+
+                    <div class="invoice-amount">
+                      Rs.
+                      ${amount.toLocaleString("en-PK")}
+                    </div>
+
+                    ${
+                      booking.invoiceNote
+                      ?
+                      `
+                        <div class="invoice-note">
+                          ${escapeHTML(
+                            booking.invoiceNote
+                          )}
+                        </div>
+                      `
+                      :
+                      ""
+                    }
+
+                  </div>
+                `
+                :
+                ""
+              }
+
+            </div>
+
+          `;
+
+
+          showMessage(
+            "Booking found successfully.",
+            "success"
+          );
+
+
+        } catch (error) {
+
+          console.error(error);
 
           result.innerHTML = "";
 
           showMessage(
-            "Booking not found. Please check your Tracking ID and try again."
+            "Unable to search booking. Please try again.",
+            "error"
           );
 
-          return;
+        } finally {
+
+          button.disabled = false;
+
+          button.textContent =
+            "🔎 Track Booking";
+
         }
 
-
-        // First matching booking
-        const bookingDoc = snapshot.docs[0];
-        const booking = bookingDoc.data();
-
-
-        const status = booking.status || "Pending";
-        const statusClass = getStatusClass(status);
-
-
-        const invoiceAmount =
-          Number(booking.invoiceAmount || 0);
-
-
-        result.innerHTML = `
-
-          <div class="result-card">
-
-            <div class="result-header">
-
-              <h2>
-                Booking Details
-              </h2>
-
-              <span class="status ${statusClass}">
-                ${escapeHTML(status)}
-              </span>
-
-            </div>
-
-
-            <div class="info-grid">
-
-              <div class="info-box">
-                <small>Tracking ID</small>
-                <strong>
-                  ${escapeHTML(booking.trackingId || trackingId)}
-                </strong>
-              </div>
-
-
-              <div class="info-box">
-                <small>Booking ID</small>
-                <strong>
-                  ${escapeHTML(
-                    booking.bookingId ||
-                    bookingDoc.id
-                  )}
-                </strong>
-              </div>
-
-
-              <div class="info-box">
-                <small>Customer Name</small>
-                <strong>
-                  ${escapeHTML(booking.customerName || "—")}
-                </strong>
-              </div>
-
-
-              <div class="info-box">
-                <small>Phone</small>
-                <strong>
-                  ${escapeHTML(booking.phone || "—")}
-                </strong>
-              </div>
-
-
-              <div class="info-box">
-                <small>Service</small>
-                <strong>
-                  ${escapeHTML(booking.service || "—")}
-                </strong>
-              </div>
-
-
-              <div class="info-box">
-                <small>Area / Address</small>
-                <strong>
-                  ${escapeHTML(
-                    booking.area ||
-                    booking.address ||
-                    "—"
-                  )}
-                </strong>
-              </div>
-
-
-              <div class="info-box">
-                <small>Preferred Date</small>
-                <strong>
-                  ${escapeHTML(
-                    booking.preferredDate ||
-                    booking.date ||
-                    "—"
-                  )}
-                </strong>
-              </div>
-
-
-              <div class="info-box">
-                <small>Preferred Time</small>
-                <strong>
-                  ${escapeHTML(
-                    booking.preferredTime ||
-                    booking.time ||
-                    "—"
-                  )}
-                </strong>
-              </div>
-
-
-              <div class="info-box">
-                <small>Created</small>
-                <strong>
-                  ${escapeHTML(
-                    formatDate(booking.createdAt)
-                  )}
-                </strong>
-              </div>
-
-
-              <div class="info-box">
-                <small>Last Updated</small>
-                <strong>
-                  ${escapeHTML(
-                    formatDate(booking.updatedAt)
-                  )}
-                </strong>
-              </div>
-
-            </div>
-
-
-            ${
-              booking.problem
-              ?
-              `
-                <div class="info-box" style="margin-top:15px;">
-                  <small>Problem / Customer Message</small>
-                  <strong>
-                    ${escapeHTML(booking.problem)}
-                  </strong>
-                </div>
-              `
-              :
-              ""
-            }
-
-
-            ${
-              invoiceAmount > 0
-              ?
-              `
-                <div class="invoice-box">
-
-                  <h3>Invoice</h3>
-
-                  <div class="invoice-amount">
-                    Rs. ${invoiceAmount.toLocaleString("en-PK")}
-                  </div>
-
-                  ${
-                    booking.invoiceNote
-                    ?
-                    `
-                      <p>
-                        ${escapeHTML(booking.invoiceNote)}
-                      </p>
-                    `
-                    :
-                    ""
-                  }
-
-                </div>
-              `
-              :
-              ""
-            }
-
-          </div>
-
-        `;
-
-        showMessage(
-          "Booking found successfully.",
-          "success"
-        );
-
-
-      } catch (error) {
-
-        console.error("Tracking error:", error);
-
-        result.innerHTML = "";
-
-        showMessage(
-          "Unable to search booking right now. Please try again."
-        );
-
       }
-
-    });
+    );
 
   </script>
 
