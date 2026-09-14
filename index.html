@@ -32,7 +32,7 @@
   <meta property="og:type" content="website">
 
   <meta property="og:url"
-  content="https://rizwanmughal63110-ux.github.io/smart-cool-refrigerator/">
+    content="https://rizwanmughal63110-ux.github.io/smart-cool-refrigerator/">
 
   <meta name="theme-color" content="#061a33">
 
@@ -236,6 +236,7 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     .btn {
@@ -260,14 +261,43 @@
       transform: translateY(-2px);
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.06);
-      color: #55aaff;
-      border: 1px solid rgba(55, 160, 255, 0.4);
+    /* =========================
+       WHATSAPP
+    ========================== */
+
+    .whatsapp-btn {
+      background: #25D366 !important;
+      color: #ffffff !important;
+      border: 1px solid #25D366 !important;
+      box-shadow: 0 7px 18px rgba(37, 211, 102, 0.22);
     }
 
-    .btn-secondary:hover {
-      background: rgba(8, 118, 223, 0.14);
+    .whatsapp-btn:hover {
+      background: #1ebe5d !important;
+      border-color: #1ebe5d !important;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+    }
+
+    .whatsapp-link {
+      color: #25D366 !important;
+      font-weight: bold;
+    }
+
+    .whatsapp-link:hover {
+      color: #1ebe5d !important;
+    }
+
+    .hero .login-top {
+      background: #0876df !important;
+      color: #ffffff !important;
+      border: 1px solid #0876df;
+    }
+
+    .hero .signup-top {
+      background: transparent !important;
+      color: #38a0ff !important;
+      border: 1px solid #0876df;
     }
 
     .hero-logo-box {
@@ -1001,6 +1031,16 @@
         font-size: 16px;
       }
 
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+      }
+
       section {
         padding: 55px 15px;
       }
@@ -1096,7 +1136,7 @@
 
         <!-- LOGIN TOP BUTTON -->
 
-        <a href="#account"
+        <a href="javascript:void(0)"
           class="nav-btn login-top"
           onclick="showLogin(); closeMenu();">
           🔐 Login
@@ -1104,7 +1144,7 @@
 
         <!-- SIGNUP TOP BUTTON -->
 
-        <a href="#account"
+        <a href="javascript:void(0)"
           class="nav-btn signup-top"
           onclick="showSignup(); closeMenu();">
           ✨ Signup
@@ -1137,17 +1177,43 @@
           and Electrician services all over Karachi.
         </p>
 
+
+        <!-- HERO BUTTONS -->
+
         <div class="hero-buttons">
+
+          <!-- 1. BOOK SERVICE -->
 
           <a href="#booking"
             class="btn btn-primary">
-            Book Service
+            🔧 Book Service
           </a>
 
+
+          <!-- 2. WHATSAPP -->
+
           <a href="https://wa.me/923208463110?text=Assalam-o-Alaikum%20Smart%20Cool%20%26%20Refrigerator%2C%20mujhe%20service%20book%20karwani%20hai."
-            class="btn btn-secondary"
+            class="btn whatsapp-btn"
             target="_blank">
-            WhatsApp Us
+            🟢 WhatsApp Us
+          </a>
+
+
+          <!-- 3. LOGIN -->
+
+          <a href="javascript:void(0)"
+            class="btn login-top"
+            onclick="showLogin();">
+            🔐 Login
+          </a>
+
+
+          <!-- 4. SIGNUP -->
+
+          <a href="javascript:void(0)"
+            class="btn signup-top"
+            onclick="showSignup();">
+            ✨ Signup
           </a>
 
         </div>
@@ -2044,7 +2110,7 @@
             <a
               href="https://wa.me/923208463110?text=Assalam-o-Alaikum%20Smart%20Cool%20%26%20Refrigerator%2C%20mujhe%20service%20book%20karwani%20hai."
               target="_blank"
-              style="color:#38a0ff;font-weight:bold;">
+              class="whatsapp-link">
 
               Chat on WhatsApp
 
@@ -2178,21 +2244,26 @@
     ========================== */
 
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
-  authDomain: "smart-cool-6f513.firebaseapp.com",
-  projectId: "smart-cool-6f513",
-  storageBucket: "smart-cool-6f513.firebasestorage.app",
-  messagingSenderId: "10468224529",
-  appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
-  measurementId: "G-Y5SPBHP57C"
-};
 
-    const app = initializeApp(firebaseConfig);
+    const firebaseConfig = {
+      apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
+      authDomain: "smart-cool-6f513.firebaseapp.com",
+      projectId: "smart-cool-6f513",
+      storageBucket: "smart-cool-6f513.firebasestorage.app",
+      messagingSenderId: "10468224529",
+      appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+      measurementId: "G-Y5SPBHP57C"
+    };
 
-    const auth = getAuth(app);
 
-    const db = getFirestore(app);
+    const app =
+      initializeApp(firebaseConfig);
+
+    const auth =
+      getAuth(app);
+
+    const db =
+      getFirestore(app);
 
 
     /* =========================
@@ -2208,17 +2279,20 @@ const firebaseConfig = {
 
     function showMessage(id, text, type) {
 
-      const box = document.getElementById(id);
+      const box =
+        document.getElementById(id);
 
       if (!box) return;
 
       box.textContent = text;
 
-      box.className = "message " + type;
+      box.className =
+        "message " + type;
 
       setTimeout(() => {
 
-        box.className = "message";
+        box.className =
+          "message";
 
       }, 5000);
 
@@ -2273,13 +2347,16 @@ const firebaseConfig = {
         .getElementById("signupTab")
         .classList.remove("active");
 
+
       setTimeout(() => {
 
         const emailField =
           document.getElementById("loginEmail");
 
         if (emailField) {
+
           emailField.focus();
+
         }
 
       }, 150);
@@ -2309,13 +2386,16 @@ const firebaseConfig = {
         .getElementById("loginTab")
         .classList.remove("active");
 
+
       setTimeout(() => {
 
         const nameField =
           document.getElementById("signupName");
 
         if (nameField) {
+
           nameField.focus();
+
         }
 
       }, 150);
@@ -2330,19 +2410,38 @@ const firebaseConfig = {
     window.signupUser = async function () {
 
       const name =
-        document.getElementById("signupName").value.trim();
+        document
+          .getElementById("signupName")
+          .value
+          .trim();
+
 
       const phone =
-        document.getElementById("signupPhone").value.trim();
+        document
+          .getElementById("signupPhone")
+          .value
+          .trim();
+
 
       const email =
-        document.getElementById("signupEmail").value.trim();
+        document
+          .getElementById("signupEmail")
+          .value
+          .trim();
+
 
       const password =
-        document.getElementById("signupPassword").value;
+        document
+          .getElementById("signupPassword")
+          .value;
 
 
-      if (!name || !phone || !email || !password) {
+      if (
+        !name ||
+        !phone ||
+        !email ||
+        !password
+      ) {
 
         showMessage(
           "authMessage",
@@ -2387,6 +2486,7 @@ const firebaseConfig = {
           name
         );
 
+
         localStorage.setItem(
           "smartCoolCustomerPhone",
           phone
@@ -2400,41 +2500,99 @@ const firebaseConfig = {
         );
 
 
-        document.getElementById("signupName").value = "";
-        document.getElementById("signupPhone").value = "";
-        document.getElementById("signupEmail").value = "";
-        document.getElementById("signupPassword").value = "";
+        document
+          .getElementById("signupName")
+          .value = "";
+
+
+        document
+          .getElementById("signupPhone")
+          .value = "";
+
+
+        document
+          .getElementById("signupEmail")
+          .value = "";
+
+
+        document
+          .getElementById("signupPassword")
+          .value = "";
 
 
       } catch (error) {
 
-        console.error("SIGNUP ERROR:", error);
+        console.error(
+          "SIGNUP ERROR:",
+          error
+        );
 
-        let msg = error.message || "Account creation failed.";
 
-        if (error.code === "auth/email-already-in-use") {
-          msg = "This email is already registered.";
+        let msg =
+          error.message ||
+          "Account creation failed.";
+
+
+        if (
+          error.code ===
+          "auth/email-already-in-use"
+        ) {
+
+          msg =
+            "This email is already registered.";
+
         }
 
-        else if (error.code === "auth/invalid-email") {
-          msg = "Please enter a valid email.";
+        else if (
+          error.code ===
+          "auth/invalid-email"
+        ) {
+
+          msg =
+            "Please enter a valid email.";
+
         }
 
-        else if (error.code === "auth/weak-password") {
-          msg = "Password is too weak. Use at least 6 characters.";
+        else if (
+          error.code ===
+          "auth/weak-password"
+        ) {
+
+          msg =
+            "Password is too weak. Use at least 6 characters.";
+
         }
 
-        else if (error.code === "auth/operation-not-allowed") {
-          msg = "Email/Password login is disabled in Firebase Authentication.";
+        else if (
+          error.code ===
+          "auth/operation-not-allowed"
+        ) {
+
+          msg =
+            "Email/Password login is disabled in Firebase Authentication.";
+
         }
 
-        else if (error.code === "auth/unauthorized-domain") {
-          msg = "This website domain is not authorized in Firebase.";
+        else if (
+          error.code ===
+          "auth/unauthorized-domain"
+        ) {
+
+          msg =
+            "This website domain is not authorized in Firebase.";
+
         }
 
-        else if (error.code === "auth/network-request-failed") {
-          msg = "Network error. Please check your internet connection.";
+        else if (
+          error.code ===
+          "auth/network-request-failed"
+        ) {
+
+          msg =
+            "Network error. Please check your internet connection.";
+
         }
+
 
         showMessage(
           "authMessage",
@@ -2454,10 +2612,16 @@ const firebaseConfig = {
     window.loginUser = async function () {
 
       const email =
-        document.getElementById("loginEmail").value.trim();
+        document
+          .getElementById("loginEmail")
+          .value
+          .trim();
+
 
       const password =
-        document.getElementById("loginPassword").value;
+        document
+          .getElementById("loginPassword")
+          .value;
 
 
       if (!email || !password) {
@@ -2489,37 +2653,55 @@ const firebaseConfig = {
         );
 
 
-        document.getElementById("loginEmail").value = "";
-        document.getElementById("loginPassword").value = "";
+        document
+          .getElementById("loginEmail")
+          .value = "";
 
 
-        setTimeout(() => {
+        document
+          .getElementById("loginPassword")
+          .value = "";
 
-          document
-            .getElementById("dashboard")
-            .scrollIntoView({
-              behavior: "smooth"
-            });
 
-        }, 500);
+        /*
+          Automatic dashboard scroll removed.
+          User stays at the account/login area.
+        */
 
 
       } catch (error) {
 
-        console.error("LOGIN ERROR:", error);
+        console.error(
+          "LOGIN ERROR:",
+          error
+        );
 
-        console.error("Firebase error code:", error.code);
 
-        console.error("Firebase error message:", error.message);
+        console.error(
+          "Firebase error code:",
+          error.code
+        );
 
 
-        let msg = "Login failed.";
+        console.error(
+          "Firebase error message:",
+          error.message
+        );
+
+
+        let msg =
+          "Login failed.";
 
 
         if (
-          error.code === "auth/invalid-credential" ||
-          error.code === "auth/wrong-password" ||
-          error.code === "auth/user-not-found"
+          error.code ===
+          "auth/invalid-credential" ||
+
+          error.code ===
+          "auth/wrong-password" ||
+
+          error.code ===
+          "auth/user-not-found"
         ) {
 
           msg =
@@ -2528,7 +2710,10 @@ const firebaseConfig = {
         }
 
 
-        else if (error.code === "auth/invalid-email") {
+        else if (
+          error.code ===
+          "auth/invalid-email"
+        ) {
 
           msg =
             "Please enter a valid email address.";
@@ -2536,7 +2721,10 @@ const firebaseConfig = {
         }
 
 
-        else if (error.code === "auth/user-disabled") {
+        else if (
+          error.code ===
+          "auth/user-disabled"
+        ) {
 
           msg =
             "This account has been disabled.";
@@ -2544,7 +2732,10 @@ const firebaseConfig = {
         }
 
 
-        else if (error.code === "auth/too-many-requests") {
+        else if (
+          error.code ===
+          "auth/too-many-requests"
+        ) {
 
           msg =
             "Too many login attempts. Please wait and try again.";
@@ -2552,7 +2743,10 @@ const firebaseConfig = {
         }
 
 
-        else if (error.code === "auth/network-request-failed") {
+        else if (
+          error.code ===
+          "auth/network-request-failed"
+        ) {
 
           msg =
             "Network error. Please check your internet connection.";
@@ -2560,7 +2754,10 @@ const firebaseConfig = {
         }
 
 
-        else if (error.code === "auth/operation-not-allowed") {
+        else if (
+          error.code ===
+          "auth/operation-not-allowed"
+        ) {
 
           msg =
             "Email/Password login is disabled in Firebase Authentication.";
@@ -2568,7 +2765,10 @@ const firebaseConfig = {
         }
 
 
-        else if (error.code === "auth/unauthorized-domain") {
+        else if (
+          error.code ===
+          "auth/unauthorized-domain"
+        ) {
 
           msg =
             "This website domain is not authorized in Firebase. Add rizwanmughal63110-ux.github.io in Firebase Authorized Domains.";
@@ -2576,7 +2776,10 @@ const firebaseConfig = {
         }
 
 
-        else if (error.code === "auth/internal-error") {
+        else if (
+          error.code ===
+          "auth/internal-error"
+        ) {
 
           msg =
             "Firebase internal error. Please try again.";
@@ -2584,7 +2787,10 @@ const firebaseConfig = {
         }
 
 
-        else if (error.code === "auth/weak-password") {
+        else if (
+          error.code ===
+          "auth/weak-password"
+        ) {
 
           msg =
             "Password is too weak.";
@@ -2595,7 +2801,8 @@ const firebaseConfig = {
         else if (error.message) {
 
           msg =
-            "Login failed: " + error.message;
+            "Login failed: " +
+            error.message;
 
         }
 
@@ -2621,7 +2828,8 @@ const firebaseConfig = {
 
         await signOut(auth);
 
-        window.location.hash = "#account";
+        window.location.hash =
+          "#account";
 
       } catch (error) {
 
@@ -2636,439 +2844,563 @@ const firebaseConfig = {
        AUTH STATE
     ========================== */
 
-    onAuthStateChanged(auth, async (user) => {
+    onAuthStateChanged(
+      auth,
+      async (user) => {
 
-      currentUser = user;
-
-
-      const loginBox =
-        document.getElementById("loginFormBox");
-
-      const signupBox =
-        document.getElementById("signupFormBox");
-
-      const loggedBox =
-        document.getElementById("loggedInBox");
-
-      const loggedText =
-        document.getElementById("loggedUserText");
+        currentUser =
+          user;
 
 
-      if (user) {
-
-        loginBox.classList.add("hidden");
-
-        signupBox.classList.add("hidden");
-
-        loggedBox.classList.remove("hidden");
+        const loginBox =
+          document.getElementById(
+            "loginFormBox"
+          );
 
 
-        loggedText.textContent =
-          "Logged in as: " + user.email;
+        const signupBox =
+          document.getElementById(
+            "signupFormBox"
+          );
 
 
-        document.getElementById("dashboardUser").textContent =
-          user.email;
+        const loggedBox =
+          document.getElementById(
+            "loggedInBox"
+          );
 
 
-        loadCustomerBookings();
-
-      } else {
-
-        loginBox.classList.remove("hidden");
-
-        signupBox.classList.add("hidden");
-
-        loggedBox.classList.add("hidden");
+        const loggedText =
+          document.getElementById(
+            "loggedUserText"
+          );
 
 
-        document.getElementById("dashboardUser").textContent = "";
+        if (user) {
 
-        document.getElementById("bookingList").innerHTML =
+          loginBox
+            .classList
+            .add("hidden");
 
-          '<div class="loading">Please login to see your bookings.</div>';
+
+          signupBox
+            .classList
+            .add("hidden");
+
+
+          loggedBox
+            .classList
+            .remove("hidden");
+
+
+          loggedText.textContent =
+            "Logged in as: " +
+            user.email;
+
+
+          document
+            .getElementById(
+              "dashboardUser"
+            )
+            .textContent =
+            user.email;
+
+
+          loadCustomerBookings();
+
+        }
+
+        else {
+
+          loginBox
+            .classList
+            .remove("hidden");
+
+
+          signupBox
+            .classList
+            .add("hidden");
+
+
+          loggedBox
+            .classList
+            .add("hidden");
+
+
+          document
+            .getElementById(
+              "dashboardUser"
+            )
+            .textContent = "";
+
+
+          document
+            .getElementById(
+              "bookingList"
+            )
+            .innerHTML =
+
+            '<div class="loading">Please login to see your bookings.</div>';
+
+        }
 
       }
-
-    });
+    );
 
 
     /* =========================
        DASHBOARD
     ========================== */
 
-    window.goToDashboard = function () {
+    window.goToDashboard =
+      function () {
 
-      document
-        .getElementById("dashboard")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
+        document
+          .getElementById(
+            "dashboard"
+          )
+          .scrollIntoView({
+            behavior: "smooth"
+          });
 
-      loadCustomerBookings();
 
-    };
+        loadCustomerBookings();
+
+      };
 
 
     /* =========================
        LOAD BOOKINGS
     ========================== */
 
-    window.loadCustomerBookings = async function () {
+    window.loadCustomerBookings =
+      async function () {
 
-      const list =
-        document.getElementById("bookingList");
-
-
-      if (!currentUser) {
-
-        list.innerHTML =
-          '<div class="loading">Please login to see your bookings.</div>';
-
-        return;
-
-      }
-
-
-      list.innerHTML =
-        '<div class="loading">Loading your bookings...</div>';
-
-
-      try {
-
-        /*
-          We use customerUid.
-          This matches the current Firebase booking system.
-        */
-
-        const q =
-          query(
-            collection(db, "serviceRequests"),
-            where(
-              "customerUid",
-              "==",
-              currentUser.uid
-            )
+        const list =
+          document.getElementById(
+            "bookingList"
           );
 
 
-        const snapshot =
-          await getDocs(q);
+        if (!currentUser) {
 
-
-        const bookings = [];
-
-
-        snapshot.forEach(doc => {
-
-          bookings.push({
-
-            id: doc.id,
-
-            ...doc.data()
-
-          });
-
-        });
-
-
-        /*
-          Sort newest booking first
-        */
-
-        bookings.sort((a, b) => {
-
-          const aTime =
-            a.createdAt?.toMillis
-              ? a.createdAt.toMillis()
-              : 0;
-
-          const bTime =
-            b.createdAt?.toMillis
-              ? b.createdAt.toMillis()
-              : 0;
-
-          return bTime - aTime;
-
-        });
-
-
-        window.customerBookings = {};
-
-
-        if (bookings.length === 0) {
-
-          list.innerHTML = `
-
-            <div class="loading">
-
-              <h3 style="color:#dcecff;margin-bottom:8px;">
-                No Bookings Yet
-              </h3>
-
-              <p>
-                Your submitted bookings will appear here.
-              </p>
-
-            </div>
-
-          `;
+          list.innerHTML =
+            '<div class="loading">Please login to see your bookings.</div>';
 
           return;
 
         }
 
 
-        list.innerHTML = "";
+        list.innerHTML =
+          '<div class="loading">Loading your bookings...</div>';
 
 
-        bookings.forEach(booking => {
+        try {
 
-          window.customerBookings[booking.id] =
-            booking;
+          const q =
+            query(
+              collection(
+                db,
+                "serviceRequests"
+              ),
 
-
-          const card =
-            document.createElement("div");
-
-
-          card.className = "booking-card";
-
-
-          let statusClass = "";
-
-          const status =
-            String(
-              booking.status || "Pending"
+              where(
+                "customerUid",
+                "==",
+                currentUser.uid
+              )
             );
 
 
+          const snapshot =
+            await getDocs(q);
+
+
+          const bookings = [];
+
+
+          snapshot.forEach(
+            doc => {
+
+              bookings.push({
+
+                id: doc.id,
+
+                ...doc.data()
+
+              });
+
+            }
+          );
+
+
+          bookings.sort(
+            (a, b) => {
+
+              const aTime =
+                a.createdAt?.toMillis
+                  ? a.createdAt.toMillis()
+                  : 0;
+
+
+              const bTime =
+                b.createdAt?.toMillis
+                  ? b.createdAt.toMillis()
+                  : 0;
+
+
+              return bTime - aTime;
+
+            }
+          );
+
+
+          window.customerBookings = {};
+
+
           if (
-            status.toLowerCase() === "completed"
+            bookings.length === 0
           ) {
 
-            statusClass = "completed";
+            list.innerHTML = `
+
+              <div class="loading">
+
+                <h3 style="color:#dcecff;margin-bottom:8px;">
+                  No Bookings Yet
+                </h3>
+
+                <p>
+                  Your submitted bookings will appear here.
+                </p>
+
+              </div>
+
+            `;
+
+            return;
 
           }
 
 
-          if (
-            status.toLowerCase() === "rejected"
-          ) {
-
-            statusClass = "rejected";
-
-          }
+          list.innerHTML = "";
 
 
-          let dateText = "—";
+          bookings.forEach(
+            booking => {
+
+              window.customerBookings[
+                booking.id
+              ] =
+                booking;
 
 
-          if (booking.createdAt) {
+              const card =
+                document.createElement(
+                  "div"
+                );
 
-            try {
+
+              card.className =
+                "booking-card";
+
+
+              let statusClass =
+                "";
+
+
+              const status =
+                String(
+                  booking.status ||
+                  "Pending"
+                );
+
 
               if (
-                booking.createdAt.toDate
+                status.toLowerCase() ===
+                "completed"
               ) {
 
-                dateText =
-                  booking.createdAt
-                    .toDate()
-                    .toLocaleString();
+                statusClass =
+                  "completed";
 
               }
 
-            } catch (e) {}
 
-          }
+              if (
+                status.toLowerCase() ===
+                "rejected"
+              ) {
 
+                statusClass =
+                  "rejected";
 
-          const trackingId =
-            booking.bookingId ||
-            booking.trackingId ||
-            booking.id;
-
-
-          const amount =
-            Number(
-              booking.invoiceAmount || 0
-            );
+              }
 
 
-          card.innerHTML = `
-
-            <div class="booking-card-top">
-
-              <div>
-
-                <div
-                  class="booking-id">
-                  Tracking ID:
-                  ${escapeHtml(trackingId)}
-                </div>
-
-                <small style="color:#7895b0;">
-                  ${escapeHtml(dateText)}
-                </small>
-
-              </div>
+              let dateText =
+                "—";
 
 
-              <span
-                class="status ${statusClass}">
-                ${escapeHtml(status)}
-              </span>
+              if (
+                booking.createdAt
+              ) {
 
-            </div>
+                try {
 
+                  if (
+                    booking.createdAt
+                      .toDate
+                  ) {
 
-            <div class="booking-details">
+                    dateText =
+                      booking.createdAt
+                        .toDate()
+                        .toLocaleString();
 
-              <div class="detail-item">
-                <small>Customer</small>
-                <strong>
-                  ${escapeHtml(booking.customerName || "—")}
-                </strong>
-              </div>
+                  }
 
+                } catch (e) {}
 
-              <div class="detail-item">
-                <small>Phone</small>
-                <strong>
-                  ${escapeHtml(booking.customerPhone || "—")}
-                </strong>
-              </div>
+              }
 
 
-              <div class="detail-item">
-                <small>Service</small>
-                <strong>
-                  ${escapeHtml(booking.service || "—")}
-                </strong>
-              </div>
+              const trackingId =
+                booking.bookingId ||
+                booking.trackingId ||
+                booking.id;
 
 
-              <div class="detail-item">
-                <small>Area</small>
-                <strong>
-                  ${escapeHtml(booking.area || "—")}
-                </strong>
-              </div>
+              const amount =
+                Number(
+                  booking.invoiceAmount ||
+                  0
+                );
 
 
-              <div class="detail-item"
-                   style="grid-column:1/-1;">
+              card.innerHTML = `
 
-                <small>Address</small>
+                <div class="booking-card-top">
 
-                <strong>
-                  ${escapeHtml(booking.address || "—")}
-                </strong>
+                  <div>
 
-              </div>
+                    <div
+                      class="booking-id">
+                      Tracking ID:
+                      ${escapeHtml(trackingId)}
+                    </div>
 
+                    <small style="color:#7895b0;">
+                      ${escapeHtml(dateText)}
+                    </small>
 
-              <div class="detail-item"
-                   style="grid-column:1/-1;">
-
-                <small>Problem / Description</small>
-
-                <strong>
-                  ${escapeHtml(booking.problem || "—")}
-                </strong>
-
-              </div>
-
-            </div>
+                  </div>
 
 
-            <div class="invoice-box">
+                  <span
+                    class="status ${statusClass}">
+                    ${escapeHtml(status)}
+                  </span>
 
-              <div>
-
-                <div style="
-                  color:#91aec9;
-                  font-size:12px;
-                  margin-bottom:3px;
-                ">
-                  Invoice Amount
                 </div>
 
 
-                <div class="invoice-amount">
+                <div class="booking-details">
+
+                  <div class="detail-item">
+
+                    <small>
+                      Customer
+                    </small>
+
+                    <strong>
+                      ${escapeHtml(
+                        booking.customerName ||
+                        "—"
+                      )}
+                    </strong>
+
+                  </div>
+
+
+                  <div class="detail-item">
+
+                    <small>
+                      Phone
+                    </small>
+
+                    <strong>
+                      ${escapeHtml(
+                        booking.customerPhone ||
+                        "—"
+                      )}
+                    </strong>
+
+                  </div>
+
+
+                  <div class="detail-item">
+
+                    <small>
+                      Service
+                    </small>
+
+                    <strong>
+                      ${escapeHtml(
+                        booking.service ||
+                        "—"
+                      )}
+                    </strong>
+
+                  </div>
+
+
+                  <div class="detail-item">
+
+                    <small>
+                      Area
+                    </small>
+
+                    <strong>
+                      ${escapeHtml(
+                        booking.area ||
+                        "—"
+                      )}
+                    </strong>
+
+                  </div>
+
+
+                  <div
+                    class="detail-item"
+                    style="grid-column:1/-1;">
+
+                    <small>
+                      Address
+                    </small>
+
+                    <strong>
+                      ${escapeHtml(
+                        booking.address ||
+                        "—"
+                      )}
+                    </strong>
+
+                  </div>
+
+
+                  <div
+                    class="detail-item"
+                    style="grid-column:1/-1;">
+
+                    <small>
+                      Problem / Description
+                    </small>
+
+                    <strong>
+                      ${escapeHtml(
+                        booking.problem ||
+                        "—"
+                      )}
+                    </strong>
+
+                  </div>
+
+                </div>
+
+
+                <div class="invoice-box">
+
+                  <div>
+
+                    <div style="
+                      color:#91aec9;
+                      font-size:12px;
+                      margin-bottom:3px;
+                    ">
+                      Invoice Amount
+                    </div>
+
+
+                    <div class="invoice-amount">
+
+                      ${
+                        amount > 0
+                        ? "Rs. " +
+                          amount.toLocaleString()
+                        : "Not Generated"
+                      }
+
+                    </div>
+
+                  </div>
+
 
                   ${
                     amount > 0
-                    ? "Rs. " + amount.toLocaleString()
-                    : "Not Generated"
+
+                    ? `
+
+                      <button
+                        class="btn btn-primary"
+                        onclick="printCustomerInvoice('${booking.id}')">
+
+                        🧾 View / Print Invoice
+
+                      </button>
+
+                    `
+
+                    : `
+
+                      <div style="
+                        color:#91aec9;
+                        font-size:12px;
+                      ">
+
+                        Invoice will be available
+                        after service completion.
+
+                      </div>
+
+                    `
                   }
 
                 </div>
 
-              </div>
+              `;
 
 
-              ${
-                amount > 0
+              list.appendChild(
+                card
+              );
 
-                ? `
+            }
+          );
 
-                  <button
-                    class="btn btn-primary"
-                    onclick="printCustomerInvoice('${booking.id}')">
 
-                    🧾 View / Print Invoice
+        } catch (error) {
 
-                  </button>
+          console.error(error);
 
-                `
 
-                : `
+          list.innerHTML = `
 
-                  <div style="
-                    color:#91aec9;
-                    font-size:12px;
-                  ">
+            <div
+              class="message error"
+              style="display:block;">
 
-                    Invoice will be available
-                    after service completion.
-
-                  </div>
-
-                `
-              }
+              Unable to load bookings.
+              Please refresh and try again.
 
             </div>
 
           `;
 
+        }
 
-          list.appendChild(card);
-
-        });
-
-
-      } catch (error) {
-
-        console.error(error);
-
-
-        list.innerHTML = `
-
-          <div class="message error"
-               style="display:block;">
-
-            Unable to load bookings.
-            Please refresh and try again.
-
-          </div>
-
-        `;
-
-      }
-
-    };
+      };
 
 
     /* =========================
@@ -3076,7 +3408,9 @@ const firebaseConfig = {
     ========================== */
 
     document
-      .getElementById("bookingForm")
+      .getElementById(
+        "bookingForm"
+      )
       .addEventListener(
         "submit",
         async function (event) {
@@ -3094,7 +3428,9 @@ const firebaseConfig = {
 
 
             document
-              .getElementById("account")
+              .getElementById(
+                "account"
+              )
               .scrollIntoView({
                 behavior: "smooth"
               });
@@ -3106,10 +3442,14 @@ const firebaseConfig = {
 
 
           const button =
-            document.getElementById("bookingBtn");
+            document.getElementById(
+              "bookingBtn"
+            );
 
 
-          button.disabled = true;
+          button.disabled =
+            true;
+
 
           button.textContent =
             "Submitting...";
@@ -3117,41 +3457,53 @@ const firebaseConfig = {
 
           const customerName =
             document
-              .getElementById("customerName")
+              .getElementById(
+                "customerName"
+              )
               .value
               .trim();
 
 
           const customerPhone =
             document
-              .getElementById("customerPhone")
+              .getElementById(
+                "customerPhone"
+              )
               .value
               .trim();
 
 
           const service =
             document
-              .getElementById("service")
+              .getElementById(
+                "service"
+              )
               .value;
 
 
           const area =
             document
-              .getElementById("area")
+              .getElementById(
+                "area"
+              )
               .value
               .trim();
 
 
           const address =
             document
-              .getElementById("address")
+              .getElementById(
+                "address"
+              )
               .value
               .trim();
 
 
           const problem =
             document
-              .getElementById("problem")
+              .getElementById(
+                "problem"
+              )
               .value
               .trim();
 
@@ -3160,43 +3512,64 @@ const firebaseConfig = {
 
             const bookingId =
               "SC-" +
-              Date.now().toString().slice(-8);
+              Date.now()
+                .toString()
+                .slice(-8);
 
 
             await addDoc(
-              collection(db, "serviceRequests"),
+              collection(
+                db,
+                "serviceRequests"
+              ),
+
               {
 
-                bookingId: bookingId,
+                bookingId:
+                  bookingId,
 
-                trackingId: bookingId,
+                trackingId:
+                  bookingId,
 
-                customerName: customerName,
+                customerName:
+                  customerName,
 
-                customerPhone: customerPhone,
+                customerPhone:
+                  customerPhone,
 
-                service: service,
+                service:
+                  service,
 
-                area: area,
+                area:
+                  area,
 
-                address: address,
+                address:
+                  address,
 
-                problem: problem,
+                problem:
+                  problem,
 
-                status: "pending",
+                status:
+                  "pending",
 
-                source: "website",
+                source:
+                  "website",
 
-                customerUid: currentUser.uid,
+                customerUid:
+                  currentUser.uid,
 
-                uid: currentUser.uid,
+                uid:
+                  currentUser.uid,
 
                 customerEmail:
-                  currentUser.email || "",
+                  currentUser.email ||
+                  "",
 
-                invoiceAmount: 0,
+                invoiceAmount:
+                  0,
 
-                createdAt: new Date()
+                createdAt:
+                  new Date()
 
               }
             );
@@ -3211,27 +3584,37 @@ const firebaseConfig = {
 
 
             document
-              .getElementById("bookingForm")
+              .getElementById(
+                "bookingForm"
+              )
               .reset();
 
 
             await loadCustomerBookings();
 
 
-            setTimeout(() => {
+            setTimeout(
+              () => {
 
-              document
-                .getElementById("dashboard")
-                .scrollIntoView({
-                  behavior: "smooth"
-                });
+                document
+                  .getElementById(
+                    "dashboard"
+                  )
+                  .scrollIntoView({
+                    behavior:
+                      "smooth"
+                  });
 
-            }, 1200);
+              },
+              1200
+            );
 
 
           } catch (error) {
 
-            console.error(error);
+            console.error(
+              error
+            );
 
 
             showMessage(
@@ -3243,7 +3626,9 @@ const firebaseConfig = {
           }
 
 
-          button.disabled = false;
+          button.disabled =
+            false;
+
 
           button.textContent =
             "Submit Booking";
@@ -3260,7 +3645,10 @@ const firebaseConfig = {
       function (bookingId) {
 
         const booking =
-          window.customerBookings?.[bookingId];
+          window
+            .customerBookings?.[
+              bookingId
+            ];
 
 
         if (!booking) {
@@ -3276,7 +3664,8 @@ const firebaseConfig = {
 
         const amount =
           Number(
-            booking.invoiceAmount || 0
+            booking.invoiceAmount ||
+            0
           );
 
 
@@ -3292,10 +3681,13 @@ const firebaseConfig = {
 
 
         let invoiceDate =
-          new Date().toLocaleDateString();
+          new Date()
+            .toLocaleDateString();
 
 
-        if (booking.createdAt?.toDate) {
+        if (
+          booking.createdAt?.toDate
+        ) {
 
           invoiceDate =
             booking.createdAt
@@ -3517,11 +3909,14 @@ const firebaseConfig = {
 
                 <div class="box">
 
-                  <small>Customer Name</small>
+                  <small>
+                    Customer Name
+                  </small>
 
                   <strong>
                     ${escapeHtml(
-                      booking.customerName || "—"
+                      booking.customerName ||
+                      "—"
                     )}
                   </strong>
 
@@ -3530,11 +3925,14 @@ const firebaseConfig = {
 
                 <div class="box">
 
-                  <small>Phone</small>
+                  <small>
+                    Phone
+                  </small>
 
                   <strong>
                     ${escapeHtml(
-                      booking.customerPhone || "—"
+                      booking.customerPhone ||
+                      "—"
                     )}
                   </strong>
 
@@ -3543,33 +3941,13 @@ const firebaseConfig = {
 
                 <div class="box">
 
-                  <small>Tracking / Booking ID</small>
-
-                  <strong>
-                    ${escapeHtml(trackingId)}
-                  </strong>
-
-                </div>
-
-
-                <div class="box">
-
-                  <small>Invoice Date</small>
-
-                  <strong>
-                    ${escapeHtml(invoiceDate)}
-                  </strong>
-
-                </div>
-
-
-                <div class="box">
-
-                  <small>Area</small>
+                  <small>
+                    Tracking / Booking ID
+                  </small>
 
                   <strong>
                     ${escapeHtml(
-                      booking.area || "—"
+                      trackingId
                     )}
                   </strong>
 
@@ -3578,11 +3956,45 @@ const firebaseConfig = {
 
                 <div class="box">
 
-                  <small>Status</small>
+                  <small>
+                    Invoice Date
+                  </small>
 
                   <strong>
                     ${escapeHtml(
-                      booking.status || "Completed"
+                      invoiceDate
+                    )}
+                  </strong>
+
+                </div>
+
+
+                <div class="box">
+
+                  <small>
+                    Area
+                  </small>
+
+                  <strong>
+                    ${escapeHtml(
+                      booking.area ||
+                      "—"
+                    )}
+                  </strong>
+
+                </div>
+
+
+                <div class="box">
+
+                  <small>
+                    Status
+                  </small>
+
+                  <strong>
+                    ${escapeHtml(
+                      booking.status ||
+                      "Completed"
                     )}
                   </strong>
 
@@ -3621,13 +4033,15 @@ const firebaseConfig = {
 
                     <td>
                       ${escapeHtml(
-                        booking.service || "Service"
+                        booking.service ||
+                        "Service"
                       )}
                     </td>
 
                     <td>
                       ${escapeHtml(
-                        booking.problem || "Service completed"
+                        booking.problem ||
+                        "Service completed"
                       )}
                     </td>
 
@@ -3712,8 +4126,10 @@ const firebaseConfig = {
 
     function escapeHtml(value) {
 
-      if (value === null ||
-          value === undefined) {
+      if (
+        value === null ||
+        value === undefined
+      ) {
 
         return "";
 
@@ -3722,15 +4138,30 @@ const firebaseConfig = {
 
       return String(value)
 
-        .replace(/&/g, "&amp;")
+        .replace(
+          /&/g,
+          "&amp;"
+        )
 
-        .replace(/</g, "&lt;")
+        .replace(
+          /</g,
+          "&lt;"
+        )
 
-        .replace(/>/g, "&gt;")
+        .replace(
+          />/g,
+          "&gt;"
+        )
 
-        .replace(/"/g, "&quot;")
+        .replace(
+          /"/g,
+          "&quot;"
+        )
 
-        .replace(/'/g, "&#039;");
+        .replace(
+          /'/g,
+          "&#039;"
+        );
 
     }
 
@@ -3759,6 +4190,7 @@ const firebaseConfig = {
           "smartCoolCustomerName"
         );
 
+
       const phone =
         localStorage.getItem(
           "smartCoolCustomerPhone"
@@ -3772,9 +4204,14 @@ const firebaseConfig = {
             "customerName"
           );
 
-        if (field && !field.value) {
 
-          field.value = name;
+        if (
+          field &&
+          !field.value
+        ) {
+
+          field.value =
+            name;
 
         }
 
@@ -3788,9 +4225,14 @@ const firebaseConfig = {
             "customerPhone"
           );
 
-        if (field && !field.value) {
 
-          field.value = phone;
+        if (
+          field &&
+          !field.value
+        ) {
+
+          field.value =
+            phone;
 
         }
 
