@@ -6,47 +6,31 @@
 
 <title>Smart Cool & Refrigerator | Admin Panel</title>
 
-<meta name="description" content="Smart Cool & Refrigerator Admin Dashboard">
-
 <style>
-/* =========================================================
-   SMART COOL & REFRIGERATOR
-   PREMIUM ADMIN DASHBOARD
-========================================================= */
-
 :root{
     --primary:#087ea4;
-    --primary-dark:#05627f;
+    --primary-dark:#064861;
     --secondary:#12b8d4;
-    --cyan:#36d5e8;
-
     --bg:#f4f9fc;
-    --white:#ffffff;
-
+    --white:#fff;
     --text:#102a43;
     --muted:#718096;
+    --border:#e1edf2;
 
-    --border:#e2edf2;
+    --green:#0f9d72;
+    --green-bg:#e9faf4;
 
-    --success:#0f9d72;
-    --success-bg:#e9faf4;
+    --yellow:#d99000;
+    --yellow-bg:#fff7df;
 
-    --warning:#d99000;
-    --warning-bg:#fff7df;
-
-    --danger:#d64545;
-    --danger-bg:#fff0f0;
+    --red:#d64545;
+    --red-bg:#fff0f0;
 
     --purple:#7654d8;
     --purple-bg:#f2edff;
 
     --shadow:0 10px 35px rgba(17,76,96,.08);
-    --shadow-hover:0 15px 40px rgba(17,76,96,.13);
-
-    --radius:18px;
 }
-
-/* RESET */
 
 *{
     margin:0;
@@ -54,28 +38,13 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
     background:var(--bg);
     color:var(--text);
 }
 
-button,
-input,
-textarea,
-select{
+button,input,textarea,select{
     font:inherit;
 }
 
@@ -84,106 +53,73 @@ button{
 }
 
 .hidden{
-    display:none !important;
+    display:none!important;
 }
 
 
-/* =========================================================
-   LOGIN
-========================================================= */
+/* ================= LOGIN ================= */
 
 .login-page{
     min-height:100vh;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
-    padding:25px;
+    padding:20px;
 
     background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(54,213,232,.22),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 85% 80%,
-            rgba(8,126,164,.20),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #eafaff,
-            #f7fcff
-        );
+        radial-gradient(circle at 15% 20%,rgba(18,184,212,.22),transparent 32%),
+        radial-gradient(circle at 85% 80%,rgba(8,126,164,.18),transparent 35%),
+        linear-gradient(135deg,#eafaff,#f7fcff);
 }
 
 .login-box{
     width:100%;
     max-width:430px;
-
-    background:rgba(255,255,255,.94);
-
-    border:1px solid rgba(255,255,255,.8);
-
-    border-radius:28px;
-
     padding:38px 30px;
-
-    box-shadow:
-        0 25px 70px rgba(6,82,108,.16);
-
-    backdrop-filter:blur(15px);
+    border-radius:28px;
+    background:rgba(255,255,255,.96);
+    box-shadow:0 25px 70px rgba(6,82,108,.16);
 }
 
 .login-logo{
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:28px;
 }
 
 .login-icon{
     width:78px;
     height:78px;
-
-    margin:0 auto 16px;
-
-    border-radius:24px;
+    margin:auto;
+    margin-bottom:15px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:39px;
+    border-radius:24px;
 
-    color:white;
+    font-size:38px;
+    color:#fff;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            var(--secondary)
-        );
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
 
-    box-shadow:
-        0 12px 30px rgba(8,126,164,.25);
+    box-shadow:0 12px 30px rgba(8,126,164,.25);
 }
 
 .login-logo h1{
-    font-size:24px;
-    font-weight:800;
+    font-size:23px;
     color:var(--primary-dark);
 }
 
 .login-logo p{
     margin-top:6px;
+    font-size:12px;
     color:var(--muted);
-    font-size:13px;
 }
 
 .login-title{
     text-align:center;
-    margin-bottom:22px;
+    margin-bottom:20px;
 }
 
 .login-title h2{
@@ -192,38 +128,30 @@ button{
 
 .login-title p{
     color:var(--muted);
-    font-size:13px;
+    font-size:12px;
     margin-top:5px;
 }
 
 .login-error{
     display:none;
-
-    padding:12px 14px;
-
-    margin-bottom:17px;
-
-    border-radius:11px;
-
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:10px;
     color:#b42318;
     background:#fff1f0;
     border:1px solid #ffd2cf;
-
     font-size:13px;
 }
 
 .form-group{
-    margin-bottom:18px;
+    margin-bottom:17px;
 }
 
 .form-group label{
     display:block;
-
     margin-bottom:7px;
-
-    font-size:13px;
+    font-size:12px;
     font-weight:700;
-
     color:#334e68;
 }
 
@@ -231,150 +159,97 @@ button{
 .form-group textarea,
 .form-group select{
     width:100%;
-
+    padding:13px;
     border:1px solid var(--border);
-
-    background:#fbfdfe;
-
-    padding:13px 14px;
-
     border-radius:11px;
-
     outline:none;
-
+    background:#fbfdfe;
     color:var(--text);
-
-    transition:.2s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus{
     border-color:var(--secondary);
-
-    background:white;
-
-    box-shadow:
-        0 0 0 4px rgba(18,184,212,.10);
+    box-shadow:0 0 0 4px rgba(18,184,212,.1);
 }
 
 .login-btn{
     width:100%;
-
     border:0;
-
     padding:14px;
-
     border-radius:12px;
-
-    color:white;
-
-    font-size:15px;
+    color:#fff;
     font-weight:800;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            var(--secondary)
-        );
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
 
-    box-shadow:
-        0 8px 20px rgba(8,126,164,.20);
-
-    transition:.2s;
-}
-
-.login-btn:hover{
-    transform:translateY(-1px);
-    box-shadow:
-        0 12px 28px rgba(8,126,164,.27);
+    box-shadow:0 8px 20px rgba(8,126,164,.2);
 }
 
 
-/* =========================================================
-   APP LAYOUT
-========================================================= */
+/* ================= LAYOUT ================= */
 
 .admin-page{
     min-height:100vh;
-
     display:flex;
 }
 
-
-/* SIDEBAR */
-
 .sidebar{
     width:250px;
-
-    flex-shrink:0;
-
     min-height:100vh;
-
     position:fixed;
     left:0;
     top:0;
     bottom:0;
-
-    background:
-        linear-gradient(
-            180deg,
-            #063f55 0%,
-            #075f7c 55%,
-            #087ea4 100%
-        );
-
-    color:white;
+    z-index:200;
 
     padding:24px 16px;
 
-    z-index:200;
+    color:#fff;
 
-    box-shadow:
-        10px 0 35px rgba(5,72,94,.10);
+    background:linear-gradient(
+        180deg,
+        #063f55,
+        #075f7c 55%,
+        #087ea4
+    );
+
+    box-shadow:10px 0 35px rgba(5,72,94,.1);
 }
 
 .sidebar-logo{
     display:flex;
     align-items:center;
-
     gap:11px;
-
-    padding:5px 8px 26px;
-
+    padding:5px 8px 25px;
     border-bottom:1px solid rgba(255,255,255,.14);
 }
 
 .sidebar-icon{
     width:43px;
     height:43px;
-
-    border-radius:13px;
-
-    background:rgba(255,255,255,.14);
-
     display:flex;
     align-items:center;
     justify-content:center;
-
-    font-size:23px;
+    border-radius:13px;
+    background:rgba(255,255,255,.14);
+    font-size:22px;
 }
 
 .sidebar-logo h2{
     font-size:16px;
-    line-height:1.2;
 }
 
 .sidebar-logo span{
     display:block;
-
     margin-top:3px;
-
-    color:rgba(255,255,255,.65);
-
+    color:rgba(255,255,255,.6);
     font-size:10px;
-    font-weight:500;
 }
 
 .sidebar-menu{
@@ -383,208 +258,137 @@ button{
 
 .menu-label{
     padding:0 10px 10px;
-
     color:rgba(255,255,255,.45);
-
     font-size:10px;
-
     font-weight:800;
-
     letter-spacing:1px;
-
-    text-transform:uppercase;
 }
 
 .menu-item{
     width:100%;
-
     border:0;
-
     background:transparent;
-
     color:rgba(255,255,255,.72);
 
     padding:12px 13px;
+    margin-bottom:5px;
 
     border-radius:11px;
 
     display:flex;
     align-items:center;
-
     gap:11px;
 
     text-align:left;
 
     font-size:13px;
     font-weight:600;
-
-    margin-bottom:5px;
-
-    transition:.2s;
 }
 
 .menu-item:hover,
 .menu-item.active{
-    color:white;
-
+    color:#fff;
     background:rgba(255,255,255,.13);
 }
 
 .menu-item.active{
-    box-shadow:
-        inset 3px 0 0 white;
+    box-shadow:inset 3px 0 0 #fff;
 }
 
 .menu-icon{
     width:22px;
-
     text-align:center;
-
-    font-size:17px;
 }
 
 .sidebar-bottom{
     position:absolute;
-
     left:16px;
     right:16px;
     bottom:20px;
 }
 
 .admin-profile{
-    background:rgba(255,255,255,.09);
-
-    border:1px solid rgba(255,255,255,.10);
-
-    border-radius:14px;
-
     padding:12px;
-
     margin-bottom:9px;
+    border-radius:14px;
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.1);
 }
 
 .admin-profile small{
     display:block;
-
-    color:rgba(255,255,255,.55);
-
-    font-size:10px;
-
     margin-bottom:3px;
+    color:rgba(255,255,255,.55);
+    font-size:9px;
 }
 
 .admin-profile strong{
     font-size:11px;
-
     word-break:break-all;
 }
 
 .sidebar-logout{
     width:100%;
-
-    border:1px solid rgba(255,255,255,.13);
-
-    background:rgba(255,255,255,.08);
-
-    color:white;
-
     padding:11px;
-
     border-radius:11px;
-
+    border:1px solid rgba(255,255,255,.13);
+    background:rgba(255,255,255,.08);
+    color:#fff;
     font-size:12px;
-
     font-weight:700;
 }
 
-
-/* MAIN */
-
 .main-content{
     width:calc(100% - 250px);
-
     margin-left:250px;
-
     min-height:100vh;
 }
 
 
-/* =========================================================
-   TOPBAR
-========================================================= */
+/* ================= TOPBAR ================= */
 
 .topbar{
     height:76px;
 
-    background:rgba(255,255,255,.94);
-
-    border-bottom:1px solid var(--border);
-
     padding:0 28px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     position:sticky;
-
     top:0;
-
     z-index:100;
 
+    background:rgba(255,255,255,.95);
+    border-bottom:1px solid var(--border);
     backdrop-filter:blur(15px);
 }
 
 .page-heading h1{
     font-size:21px;
-
-    color:#102a43;
 }
 
 .page-heading p{
-    color:var(--muted);
-
-    font-size:12px;
-
     margin-top:3px;
+    color:var(--muted);
+    font-size:12px;
 }
 
 .top-actions{
     display:flex;
-
     align-items:center;
-
     gap:8px;
 }
 
 .top-btn{
-    border:1px solid var(--border);
-
-    background:white;
-
-    color:#334e68;
-
     padding:9px 13px;
-
+    border:1px solid var(--border);
     border-radius:10px;
-
+    background:#fff;
+    color:#334e68;
     font-size:12px;
-
     font-weight:700;
-
-    transition:.2s;
-}
-
-.top-btn:hover{
-    border-color:#b9dce6;
-
-    background:#f8fcfd;
-}
-
-.refresh-btn{
-    color:var(--primary);
 }
 
 .mobile-menu{
@@ -592,67 +396,47 @@ button{
 }
 
 
-/* =========================================================
-   CONTENT
-========================================================= */
+/* ================= CONTENT ================= */
 
 .container{
     max-width:1450px;
-
     margin:auto;
-
     padding:28px;
 }
 
-
-/* WELCOME */
-
 .welcome{
-    background:
-        linear-gradient(
-            115deg,
-            #064861,
-            #087ea4 60%,
-            #12b8d4
-        );
-
-    color:white;
-
-    border-radius:22px;
+    position:relative;
+    overflow:hidden;
 
     padding:25px 28px;
-
     margin-bottom:23px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     gap:20px;
 
-    overflow:hidden;
+    border-radius:22px;
 
-    position:relative;
+    color:#fff;
 
-    box-shadow:
-        0 14px 40px rgba(8,126,164,.18);
+    background:linear-gradient(
+        115deg,
+        #064861,
+        #087ea4 60%,
+        #12b8d4
+    );
+
+    box-shadow:0 14px 40px rgba(8,126,164,.18);
 }
 
 .welcome::after{
     content:"❄";
-
     position:absolute;
-
     right:40px;
-    top:-25px;
-
+    top:-28px;
     font-size:145px;
-
     color:rgba(255,255,255,.07);
-
-    transform:rotate(12deg);
 }
 
 .welcome-content{
@@ -662,90 +446,70 @@ button{
 
 .welcome h2{
     font-size:22px;
-
     margin-bottom:6px;
 }
 
 .welcome p{
-    font-size:13px;
-
     color:rgba(255,255,255,.78);
+    font-size:13px;
 }
 
 .welcome-badge{
     position:relative;
     z-index:2;
-
-    background:rgba(255,255,255,.13);
-
-    border:1px solid rgba(255,255,255,.16);
-
     padding:11px 15px;
-
     border-radius:12px;
-
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.16);
     font-size:12px;
-
     font-weight:700;
 }
 
 
-/* =========================================================
-   STATS
-========================================================= */
+/* ================= STATS ================= */
 
 .stats{
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:15px;
-
-    margin-bottom:24px;
+    grid-template-columns:repeat(6,1fr);
+    gap:13px;
+    margin-bottom:25px;
 }
 
 .stat-card{
-    background:white;
+    min-width:0;
 
-    border:1px solid var(--border);
-
-    border-radius:17px;
-
-    padding:19px;
-
-    box-shadow:var(--shadow);
+    padding:17px 14px;
 
     display:flex;
-
     align-items:center;
+    gap:10px;
 
-    gap:14px;
+    background:#fff;
+
+    border:1px solid var(--border);
+    border-radius:17px;
+
+    box-shadow:var(--shadow);
 
     transition:.2s;
 }
 
 .stat-card:hover{
     transform:translateY(-2px);
-
-    box-shadow:var(--shadow-hover);
 }
 
 .stat-icon{
-    width:48px;
-    height:48px;
-
+    width:44px;
+    height:44px;
     flex-shrink:0;
 
-    border-radius:14px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
-    font-size:22px;
+    border-radius:13px;
+
+    font-size:20px;
 }
 
 .stat-blue{
@@ -764,45 +528,42 @@ button{
     background:#f2edff;
 }
 
+.stat-money{
+    background:#eaf8ef;
+}
+
+.stat-paid{
+    background:#e6f7ff;
+}
+
 .stat-info{
     min-width:0;
 }
 
 .stat-info .label{
     color:var(--muted);
-
-    font-size:11px;
-
-    font-weight:700;
-
-    margin-bottom:4px;
+    font-size:9px;
+    font-weight:800;
+    margin-bottom:5px;
+    white-space:nowrap;
 }
 
 .stat-info .number{
     color:#102a43;
-
-    font-size:25px;
-
-    line-height:1;
-
+    font-size:18px;
+    line-height:1.1;
     font-weight:850;
+    word-break:break-word;
 }
 
 
-/* =========================================================
-   SECTION HEADER
-========================================================= */
+/* ================= SECTION ================= */
 
 .section-header{
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     margin-bottom:13px;
-
-    gap:10px;
 }
 
 .section-header h2{
@@ -811,151 +572,91 @@ button{
 
 .section-header span{
     color:var(--muted);
-
     font-size:11px;
 }
 
 
-/* =========================================================
-   TOOLBAR
-========================================================= */
+/* ================= TOOLBAR ================= */
 
 .toolbar{
-    background:white;
-
-    border:1px solid var(--border);
-
-    border-radius:16px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
 
     padding:13px;
-
     margin-bottom:18px;
 
-    display:flex;
+    background:#fff;
 
-    gap:10px;
-
-    align-items:center;
+    border:1px solid var(--border);
+    border-radius:16px;
 
     box-shadow:var(--shadow);
-
-    flex-wrap:wrap;
 }
 
 .search-box{
-    flex:1;
-
-    min-width:230px;
-
     position:relative;
+    flex:1;
+    min-width:230px;
 }
 
 .search-box input{
     width:100%;
-
-    border:1px solid var(--border);
-
-    border-radius:10px;
-
     padding:11px 13px 11px 38px;
 
+    border:1px solid var(--border);
+    border-radius:10px;
+
     outline:none;
-
-    color:var(--text);
-
     background:#fbfdfe;
-}
-
-.search-box input:focus{
-    border-color:var(--secondary);
-
-    box-shadow:
-        0 0 0 3px rgba(18,184,212,.08);
 }
 
 .search-icon{
     position:absolute;
-
     left:13px;
     top:50%;
-
     transform:translateY(-50%);
-
     color:#8ba6b2;
-
-    font-size:15px;
 }
 
 .filter-select{
     width:180px;
-
-    border:1px solid var(--border);
-
-    border-radius:10px;
-
     padding:11px 12px;
-
-    outline:none;
-
-    color:#334e68;
-
+    border:1px solid var(--border);
+    border-radius:10px;
     background:#fbfdfe;
+    color:#334e68;
+    outline:none;
 }
 
 
-/* =========================================================
-   BOOKINGS
-========================================================= */
+/* ================= BOOKINGS ================= */
 
 .bookings{
     display:grid;
-
     gap:14px;
 }
 
-.empty{
-    background:white;
-
-    border:1px dashed #cbdde4;
-
-    border-radius:17px;
-
-    padding:50px 20px;
-
-    text-align:center;
-
-    color:var(--muted);
-
-    font-size:14px;
-}
-
+.empty,
 .loading{
-    background:white;
-
-    border:1px solid var(--border);
-
-    border-radius:17px;
-
     padding:50px 20px;
-
     text-align:center;
-
     color:var(--muted);
-
-    font-size:13px;
+    background:#fff;
+    border-radius:17px;
+    border:1px dashed #cbdde4;
 }
 
 .spinner{
     width:36px;
     height:36px;
 
-    border:4px solid #e5f0f4;
-
-    border-top-color:var(--secondary);
-
-    border-radius:50%;
-
     margin:0 auto 12px;
+
+    border:4px solid #e5f0f4;
+    border-top-color:var(--secondary);
+    border-radius:50%;
 
     animation:spin .8s linear infinite;
 }
@@ -966,17 +667,13 @@ button{
     }
 }
 
-
-/* BOOKING CARD */
-
 .booking-card{
-    background:white;
+    padding:20px;
+
+    background:#fff;
 
     border:1px solid var(--border);
-
     border-radius:18px;
-
-    padding:20px;
 
     box-shadow:var(--shadow);
 
@@ -984,104 +681,80 @@ button{
 }
 
 .booking-card:hover{
-    box-shadow:var(--shadow-hover);
-
     border-color:#cce4eb;
+    box-shadow:0 15px 40px rgba(17,76,96,.13);
 }
 
 .booking-header{
     display:flex;
-
     align-items:flex-start;
-
     justify-content:space-between;
-
     gap:15px;
 
     padding-bottom:15px;
-
     border-bottom:1px solid #edf3f5;
 }
 
 .customer-area{
     display:flex;
-
-    gap:12px;
-
     align-items:center;
+    gap:12px;
 }
 
 .customer-avatar{
     width:46px;
     height:46px;
 
-    border-radius:14px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #e5faff,
-            #d5f4fa
-        );
-
-    color:var(--primary);
-
     display:flex;
-
     align-items:center;
     justify-content:center;
 
-    font-size:20px;
+    border-radius:14px;
 
+    background:linear-gradient(
+        135deg,
+        #e5faff,
+        #d5f4fa
+    );
+
+    color:var(--primary);
+
+    font-size:20px;
     font-weight:800;
 }
 
 .customer-info h3{
+    margin-bottom:4px;
     font-size:16px;
-
-    color:#102a43;
-
-    margin-bottom:5px;
 }
 
 .booking-date{
-    color:var(--muted);
-
-    font-size:11px;
-
     margin-top:3px;
+    color:var(--muted);
+    font-size:11px;
 }
 
 .booking-date strong{
     color:var(--primary);
-
-    font-weight:800;
 }
 
 .status{
     padding:7px 11px;
-
     border-radius:20px;
-
     font-size:10px;
-
     font-weight:800;
-
-    white-space:nowrap;
-
     text-transform:uppercase;
-
-    letter-spacing:.3px;
+    white-space:nowrap;
 }
 
 .status-pending{
-    background:var(--warning-bg);
-    color:var(--warning);
+    background:var(--yellow-bg);
+    color:var(--yellow);
 }
 
 .status-confirmed{
-    background:var(--success-bg);
-    color:var(--success);
+    background:var(--green-bg);
+    color:var(--green);
 }
 
 .status-progress{
@@ -1095,59 +768,50 @@ button{
 }
 
 .status-cancelled{
-    background:var(--danger-bg);
-    color:var(--danger);
+    background:var(--red-bg);
+    color:var(--red);
 }
 
 
-/* BOOKING INFO */
+/* ================= BOOKING GRID ================= */
 
 .booking-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:11px;
-
     padding:17px 0;
 }
 
 .info-item{
-    background:#f9fcfd;
-
-    border:1px solid #edf3f5;
-
-    border-radius:12px;
+    min-width:0;
 
     padding:11px 12px;
 
-    min-width:0;
+    background:#f9fcfd;
+
+    border:1px solid #edf3f5;
+    border-radius:12px;
 }
 
 .info-label{
+    margin-bottom:5px;
+
     color:#8aa0aa;
 
     font-size:9px;
-
-    text-transform:uppercase;
-
     font-weight:800;
 
+    text-transform:uppercase;
     letter-spacing:.5px;
-
-    margin-bottom:5px;
 }
 
 .info-value{
     color:#29475a;
 
     font-size:12px;
-
     font-weight:700;
 
     word-break:break-word;
-
     line-height:1.45;
 }
 
@@ -1156,31 +820,48 @@ button{
 }
 
 
-/* ACTIONS */
+/* ================= PAYMENT BADGE ================= */
+
+.payment-paid{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    background:var(--green-bg);
+    color:var(--green);
+    font-size:9px;
+    font-weight:800;
+}
+
+.payment-unpaid{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    background:var(--red-bg);
+    color:var(--red);
+    font-size:9px;
+    font-weight:800;
+}
+
+
+/* ================= ACTIONS ================= */
 
 .booking-actions{
     display:flex;
-
     align-items:center;
-
     gap:7px;
-
     flex-wrap:wrap;
 
     padding-top:14px;
-
     border-top:1px solid #edf3f5;
 }
 
 .action-btn{
-    border:0;
-
     padding:9px 12px;
 
+    border:0;
     border-radius:9px;
 
     font-size:10px;
-
     font-weight:800;
 
     transition:.18s;
@@ -1191,8 +872,8 @@ button{
 }
 
 .confirm-btn{
-    background:var(--success-bg);
-    color:var(--success);
+    background:var(--green-bg);
+    color:var(--green);
 }
 
 .progress-btn{
@@ -1206,8 +887,8 @@ button{
 }
 
 .cancel-btn{
-    background:var(--danger-bg);
-    color:var(--danger);
+    background:var(--red-bg);
+    color:var(--red);
 }
 
 .invoice-btn{
@@ -1226,68 +907,52 @@ button{
 }
 
 
-/* =========================================================
-   MODAL
-========================================================= */
+/* ================= MODAL ================= */
 
 .modal{
     position:fixed;
-
     inset:0;
-
-    background:rgba(8,42,55,.60);
-
-    backdrop-filter:blur(5px);
+    z-index:1000;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     padding:15px;
 
-    z-index:1000;
+    background:rgba(8,42,55,.60);
+    backdrop-filter:blur(5px);
 }
 
 .modal-box{
     width:100%;
-
     max-width:620px;
-
     max-height:92vh;
-
     overflow:auto;
 
-    background:white;
+    padding:25px;
+
+    background:#fff;
 
     border-radius:22px;
 
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.25);
-
-    padding:25px;
+    box-shadow:0 25px 70px rgba(0,0,0,.25);
 }
 
 .modal-header{
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
 
     padding-bottom:18px;
+    margin-bottom:20px;
 
     border-bottom:1px solid var(--border);
-
-    margin-bottom:20px;
 }
 
 .modal-title{
     display:flex;
-
     align-items:center;
-
     gap:10px;
 }
 
@@ -1295,14 +960,12 @@ button{
     width:40px;
     height:40px;
 
-    border-radius:12px;
-
-    background:var(--purple-bg);
-
     display:flex;
-
     align-items:center;
     justify-content:center;
+
+    border-radius:12px;
+    background:var(--purple-bg);
 
     font-size:19px;
 }
@@ -1312,11 +975,9 @@ button{
 }
 
 .modal-header p{
-    color:var(--muted);
-
-    font-size:11px;
-
     margin-top:2px;
+    color:var(--muted);
+    font-size:11px;
 }
 
 .close-btn{
@@ -1324,82 +985,68 @@ button{
     height:34px;
 
     border:0;
-
     border-radius:10px;
 
     background:#f2f6f8;
-
     color:#607d8b;
 
     font-size:20px;
 }
 
-.close-btn:hover{
-    background:#e8f0f3;
+.payment-select{
+    background:#fff;
 }
 
 .modal-actions{
     display:flex;
-
     justify-content:flex-end;
-
     gap:8px;
+    flex-wrap:wrap;
 
     margin-top:20px;
-
     padding-top:17px;
 
     border-top:1px solid var(--border);
-
-    flex-wrap:wrap;
 }
 
 .modal-btn{
-    border:0;
-
     padding:11px 16px;
-
+    border:0;
     border-radius:10px;
 
     font-size:12px;
-
     font-weight:800;
 }
 
 .save-btn{
-    color:white;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--primary),
-            var(--secondary)
-        );
+    color:#fff;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
 }
 
 .print-btn{
     color:#475467;
-
     background:#f2f4f7;
 }
 
 .cancel-modal-btn{
     color:#b42318;
-
     background:#fff0ef;
 }
 
 
-/* =========================================================
-   TOAST
-========================================================= */
+/* ================= TOAST ================= */
 
 .toast{
     position:fixed;
-
     right:22px;
-
     bottom:22px;
+    z-index:3000;
+
+    display:none;
 
     max-width:340px;
 
@@ -1408,36 +1055,33 @@ button{
     border-radius:12px;
 
     background:#102a43;
-
-    color:white;
+    color:#fff;
 
     font-size:12px;
-
     font-weight:700;
 
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.20);
-
-    z-index:3000;
-
-    display:none;
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* ================= MOBILE ================= */
 
-@media(max-width:1100px){
+.sidebar-overlay{
+    display:none;
+}
+
+@media(max-width:1250px){
 
     .stats{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(3,1fr);
     }
 
+}
+
+@media(max-width:1050px){
+
     .booking-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
 }
@@ -1446,9 +1090,7 @@ button{
 
     .sidebar{
         width:225px;
-
         transform:translateX(-100%);
-
         transition:.25s;
     }
 
@@ -1456,9 +1098,18 @@ button{
         transform:translateX(0);
     }
 
+    .sidebar-overlay.show{
+        display:block;
+
+        position:fixed;
+        inset:0;
+        z-index:150;
+
+        background:rgba(0,0,0,.35);
+    }
+
     .main-content{
         width:100%;
-
         margin-left:0;
     }
 
@@ -1472,24 +1123,15 @@ button{
         justify-content:center;
 
         border:1px solid var(--border);
-
         border-radius:10px;
 
-        background:white;
-
+        background:#fff;
         color:var(--primary);
-
-        font-size:18px;
     }
 
     .topbar{
-        padding:0 16px;
-
         height:68px;
-    }
-
-    .page-heading{
-        flex:1;
+        padding:0 15px;
     }
 
     .page-heading h1{
@@ -1506,8 +1148,6 @@ button{
 
     .welcome{
         padding:20px;
-
-        border-radius:18px;
     }
 
     .welcome h2{
@@ -1518,63 +1158,36 @@ button{
         display:none;
     }
 
-    .booking-grid{
-        grid-template-columns:1fr 1fr;
+}
+
+@media(max-width:650px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+        gap:9px;
+    }
+
+    .stat-card{
+        padding:13px 10px;
+    }
+
+    .stat-icon{
+        width:38px;
+        height:38px;
+        font-size:17px;
+    }
+
+    .stat-info .number{
+        font-size:16px;
+    }
+
+    .stat-info .label{
+        font-size:8px;
     }
 
 }
 
 @media(max-width:560px){
-
-    .stats{
-        gap:9px;
-    }
-
-    .stat-card{
-        padding:13px;
-
-        gap:9px;
-    }
-
-    .stat-icon{
-        width:40px;
-        height:40px;
-
-        border-radius:11px;
-
-        font-size:18px;
-    }
-
-    .stat-info .number{
-        font-size:20px;
-    }
-
-    .stat-info .label{
-        font-size:9px;
-    }
-
-    .top-actions .refresh-btn{
-        font-size:0;
-
-        width:38px;
-        height:38px;
-
-        padding:0;
-    }
-
-    .top-actions .refresh-btn::before{
-        content:"🔄";
-
-        font-size:15px;
-    }
-
-    .top-actions .logout-btn{
-        display:none;
-    }
-
-    .welcome{
-        margin-bottom:16px;
-    }
 
     .booking-card{
         padding:14px;
@@ -1596,20 +1209,10 @@ button{
         grid-column:auto;
     }
 
-    .booking-actions{
-        gap:6px;
-    }
-
     .action-btn{
         flex:1;
-
         min-width:105px;
-
         text-align:center;
-    }
-
-    .toolbar{
-        padding:10px;
     }
 
     .search-box{
@@ -1622,55 +1225,43 @@ button{
 
     .modal-box{
         padding:18px;
-
         border-radius:18px;
     }
 
     .modal-actions{
         display:grid;
-
         grid-template-columns:1fr 1fr;
     }
 
-    .modal-actions .save-btn{
+    .save-btn{
         grid-column:1/-1;
     }
 
-}
-
-
-/* SIDEBAR OVERLAY */
-
-.sidebar-overlay{
-    display:none;
-}
-
-@media(max-width:800px){
-
-    .sidebar-overlay{
-        position:fixed;
-
-        inset:0;
-
-        background:rgba(0,0,0,.35);
-
-        z-index:150;
+    .top-actions .logout-btn{
+        display:none;
     }
 
-    .sidebar-overlay.show{
-        display:block;
+    .top-actions .refresh-btn{
+        font-size:0;
+        width:38px;
+        height:38px;
+        padding:0;
+    }
+
+    .top-actions .refresh-btn::before{
+        content:"🔄";
+        font-size:15px;
     }
 
 }
 </style>
 </head>
 
-
 <body>
 
 
 <!-- =========================================================
-     LOGIN
+     LOGIN PAGE
 ========================================================= -->
 
 <div id="loginPage" class="login-page">
@@ -1707,10 +1298,7 @@ button{
         </div>
 
 
-        <div
-            id="loginError"
-            class="login-error"
-        ></div>
+        <div id="loginError" class="login-error"></div>
 
 
         <form id="loginForm">
@@ -1725,7 +1313,6 @@ button{
                     type="email"
                     id="loginEmail"
                     placeholder="Enter admin email"
-                    autocomplete="email"
                     required
                 >
 
@@ -1742,7 +1329,6 @@ button{
                     type="password"
                     id="loginPassword"
                     placeholder="Enter password"
-                    autocomplete="current-password"
                     required
                 >
 
@@ -1765,21 +1351,15 @@ button{
 
 
 <!-- =========================================================
-     ADMIN APP
+     ADMIN PAGE
 ========================================================= -->
 
-<div
-    id="adminPage"
-    class="admin-page hidden"
->
+<div id="adminPage" class="admin-page hidden">
 
 
     <!-- SIDEBAR -->
 
-    <aside
-        id="sidebar"
-        class="sidebar"
-    >
+    <aside id="sidebar" class="sidebar">
 
         <div class="sidebar-logo">
 
@@ -1811,43 +1391,28 @@ button{
 
             <button
                 class="menu-item active"
-                onclick="scrollTopPage(); closeSidebar();"
+                onclick="scrollTopPage();closeSidebar();"
             >
-
-                <span class="menu-icon">
-                    📊
-                </span>
-
+                <span class="menu-icon">📊</span>
                 Dashboard
-
             </button>
 
 
             <button
                 class="menu-item"
-                onclick="focusBookings(); closeSidebar();"
+                onclick="focusBookings();closeSidebar();"
             >
-
-                <span class="menu-icon">
-                    📋
-                </span>
-
+                <span class="menu-icon">📋</span>
                 Service Bookings
-
             </button>
 
 
             <button
                 class="menu-item"
-                onclick="loadBookings(); closeSidebar();"
+                onclick="loadBookings();closeSidebar();"
             >
-
-                <span class="menu-icon">
-                    🔄
-                </span>
-
+                <span class="menu-icon">🔄</span>
                 Refresh Data
-
             </button>
 
         </div>
@@ -1887,7 +1452,8 @@ button{
     ></div>
 
 
-    <!-- MAIN -->
+
+    <!-- MAIN CONTENT -->
 
     <div class="main-content">
 
@@ -1911,7 +1477,7 @@ button{
                 </h1>
 
                 <p>
-                    Manage service requests & invoices
+                    Manage bookings, payments & invoices
                 </p>
 
             </div>
@@ -1940,7 +1506,7 @@ button{
 
 
 
-        <!-- CONTENT -->
+        <!-- DASHBOARD -->
 
         <main
             id="dashboardTop"
@@ -1959,7 +1525,7 @@ button{
                     </h2>
 
                     <p>
-                        Manage your AC, refrigerator and electrician service bookings from here.
+                        Manage AC, refrigerator and electrician service bookings from here.
                     </p>
 
                 </div>
@@ -1977,6 +1543,8 @@ button{
 
             <section class="stats">
 
+
+                <!-- TOTAL BOOKINGS -->
 
                 <div class="stat-card">
 
@@ -2002,6 +1570,8 @@ button{
                 </div>
 
 
+                <!-- PENDING -->
+
                 <div class="stat-card">
 
                     <div class="stat-icon stat-yellow">
@@ -2025,6 +1595,8 @@ button{
 
                 </div>
 
+
+                <!-- CONFIRMED -->
 
                 <div class="stat-card">
 
@@ -2050,6 +1622,8 @@ button{
                 </div>
 
 
+                <!-- COMPLETED -->
+
                 <div class="stat-card">
 
                     <div class="stat-icon stat-purple">
@@ -2074,11 +1648,63 @@ button{
                 </div>
 
 
+                <!-- TOTAL AMOUNT -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon stat-money">
+                        💰
+                    </div>
+
+                    <div class="stat-info">
+
+                        <div class="label">
+                            TOTAL AMOUNT
+                        </div>
+
+                        <div
+                            id="totalAmount"
+                            class="number"
+                        >
+                            PKR 0
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAID AMOUNT -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon stat-paid">
+                        💵
+                    </div>
+
+                    <div class="stat-info">
+
+                        <div class="label">
+                            PAID AMOUNT
+                        </div>
+
+                        <div
+                            id="paidAmount"
+                            class="number"
+                        >
+                            PKR 0
+                        </div>
+
+                    </div>
+
+                </div>
+
+
             </section>
 
 
 
-            <!-- SECTION HEADER -->
+            <!-- BOOKINGS TITLE -->
 
             <div
                 id="bookingsSection"
@@ -2206,7 +1832,7 @@ button{
                     </h2>
 
                     <p>
-                        Create and print customer invoice
+                        Create, save and print customer invoice
                     </p>
 
                 </div>
@@ -2275,8 +1901,34 @@ button{
                     type="number"
                     id="invoiceAmount"
                     min="0"
-                    placeholder="Enter service amount"
+                    placeholder="Enter total service amount"
                 >
+
+            </div>
+
+
+            <!-- PAYMENT STATUS -->
+
+            <div class="form-group">
+
+                <label>
+                    Payment Status
+                </label>
+
+                <select
+                    id="paymentStatus"
+                    class="payment-select"
+                >
+
+                    <option value="unpaid">
+                        ❌ Unpaid
+                    </option>
+
+                    <option value="paid">
+                        ✅ Paid
+                    </option>
+
+                </select>
 
             </div>
 
@@ -2294,6 +1946,7 @@ button{
                 ></textarea>
 
             </div>
+
 
 
             <div class="modal-actions">
@@ -2353,14 +2006,12 @@ import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-
 import {
     getAuth,
     signInWithEmailAndPassword,
     onAuthStateChanged,
     signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
 
 import {
     getFirestore,
@@ -2437,28 +2088,34 @@ let allBookings = [];
 ========================================================= */
 
 const loginPage =
-    document.getElementById("loginPage");
-
+    document.getElementById(
+        "loginPage"
+    );
 
 const adminPage =
-    document.getElementById("adminPage");
-
+    document.getElementById(
+        "adminPage"
+    );
 
 const loginForm =
-    document.getElementById("loginForm");
-
+    document.getElementById(
+        "loginForm"
+    );
 
 const loginError =
-    document.getElementById("loginError");
-
+    document.getElementById(
+        "loginError"
+    );
 
 const bookingsContainer =
-    document.getElementById("bookingsContainer");
+    document.getElementById(
+        "bookingsContainer"
+    );
 
 
 
 /* =========================================================
-   AUTH STATE
+   AUTH
 ========================================================= */
 
 onAuthStateChanged(
@@ -2473,7 +2130,9 @@ onAuthStateChanged(
 
 
             if(
-                !ADMIN_EMAILS.includes(email)
+                !ADMIN_EMAILS.includes(
+                    email
+                )
             ){
 
                 await signOut(auth);
@@ -2490,7 +2149,6 @@ onAuthStateChanged(
             loginPage.classList.add(
                 "hidden"
             );
-
 
             adminPage.classList.remove(
                 "hidden"
@@ -2511,7 +2169,6 @@ onAuthStateChanged(
             loginPage.classList.remove(
                 "hidden"
             );
-
 
             adminPage.classList.add(
                 "hidden"
@@ -2534,23 +2191,22 @@ loginForm.addEventListener(
 
         e.preventDefault();
 
-
         loginError.style.display =
             "none";
 
 
         const email =
-            document
-            .getElementById("loginEmail")
-            .value
+            document.getElementById(
+                "loginEmail"
+            ).value
             .trim()
             .toLowerCase();
 
 
         const password =
-            document
-            .getElementById("loginPassword")
-            .value;
+            document.getElementById(
+                "loginPassword"
+            ).value;
 
 
         if(
@@ -2574,7 +2230,6 @@ loginForm.addEventListener(
                 password
             );
 
-
         }catch(error){
 
             console.error(error);
@@ -2590,10 +2245,6 @@ loginForm.addEventListener(
 
 
 
-/* =========================================================
-   LOGIN ERROR
-========================================================= */
-
 function showLoginError(message){
 
     loginError.textContent =
@@ -2605,10 +2256,6 @@ function showLoginError(message){
 }
 
 
-
-/* =========================================================
-   FIREBASE ERROR
-========================================================= */
 
 function getFirebaseError(error){
 
@@ -2662,7 +2309,7 @@ function getFirebaseError(error){
 
     return (
         error?.message ||
-        "Login failed. Please try again."
+        "Login failed."
     );
 
 }
@@ -2760,7 +2407,7 @@ async function(){
     }catch(error){
 
         console.error(
-            "Load bookings error:",
+            "Primary loading error:",
             error
         );
 
@@ -2845,6 +2492,136 @@ async function(){
 
 
 /* =========================================================
+   UPDATE STATS
+========================================================= */
+
+function updateStats(){
+
+    const total =
+        allBookings.length;
+
+
+    const pending =
+        allBookings.filter(
+            b =>
+                normalizeStatus(
+                    b.status
+                ) === "pending"
+        ).length;
+
+
+    const confirmed =
+        allBookings.filter(
+            b =>
+                normalizeStatus(
+                    b.status
+                ) === "confirmed"
+        ).length;
+
+
+    const completed =
+        allBookings.filter(
+            b =>
+                normalizeStatus(
+                    b.status
+                ) === "completed"
+        ).length;
+
+
+    /*
+       TOTAL AMOUNT
+       = all invoiceAmount values
+    */
+
+    const totalAmount =
+        allBookings.reduce(
+            (sum,b) => {
+
+                return (
+                    sum +
+                    getInvoiceAmount(b)
+                );
+
+            },
+            0
+        );
+
+
+    /*
+       PAID AMOUNT
+       = invoiceAmount only where
+         paymentStatus is paid
+    */
+
+    const paidAmount =
+        allBookings.reduce(
+            (sum,b) => {
+
+                if(
+                    getPaymentStatus(b)
+                    === "paid"
+                ){
+
+                    return (
+                        sum +
+                        getInvoiceAmount(b)
+                    );
+
+                }
+
+                return sum;
+
+            },
+            0
+        );
+
+
+    document.getElementById(
+        "totalCount"
+    ).textContent =
+        total;
+
+
+    document.getElementById(
+        "pendingCount"
+    ).textContent =
+        pending;
+
+
+    document.getElementById(
+        "confirmedCount"
+    ).textContent =
+        confirmed;
+
+
+    document.getElementById(
+        "completedCount"
+    ).textContent =
+        completed;
+
+
+    document.getElementById(
+        "totalAmount"
+    ).textContent =
+        "PKR " +
+        formatMoney(
+            totalAmount
+        );
+
+
+    document.getElementById(
+        "paidAmount"
+    ).textContent =
+        "PKR " +
+        formatMoney(
+            paidAmount
+        );
+
+}
+
+
+
+/* =========================================================
    RENDER BOOKINGS
 ========================================================= */
 
@@ -2852,22 +2629,22 @@ window.renderBookings =
 function(){
 
     const search =
-        document
-        .getElementById("searchInput")
-        .value
+        document.getElementById(
+            "searchInput"
+        ).value
         .trim()
         .toLowerCase();
 
 
     const status =
-        document
-        .getElementById("statusFilter")
-        .value;
+        document.getElementById(
+            "statusFilter"
+        ).value;
 
 
-    let filtered =
+    const filtered =
         allBookings.filter(
-            (booking) => {
+            booking => {
 
                 const currentStatus =
                     normalizeStatus(
@@ -2895,25 +2672,15 @@ function(){
                 const text = [
 
                     booking.customerName,
-
                     booking.name,
-
                     booking.phone,
-
                     booking.mobile,
-
                     booking.trackingId,
-
                     booking.trackingID,
-
                     booking.bookingId,
-
                     booking.service,
-
                     booking.serviceType,
-
                     booking.problem,
-
                     booking.address
 
                 ]
@@ -2922,7 +2689,9 @@ function(){
                 .toLowerCase();
 
 
-                return text.includes(search);
+                return text.includes(
+                    search
+                );
 
             }
         );
@@ -3016,16 +2785,18 @@ function bookingCardHtml(
     const trackingId =
         booking.trackingId ||
         booking.trackingID ||
-        "";
+        generateDisplayId(
+            booking
+        );
 
 
     /*
-      FIRESTORE ID IS NOT SHOWN AS BOOKING ID.
+       IMPORTANT:
+       Firestore document ID is NEVER shown.
     */
 
     const rawBookingId =
-        booking.bookingId ||
-        "";
+        booking.bookingId || "";
 
 
     const validBookingId =
@@ -3044,24 +2815,16 @@ function bookingCardHtml(
         );
 
 
-    const statusText =
-        statusLabel(status);
-
-
-    const createdDate =
-        formatDate(
-            booking.createdAt
+    const invoiceAmount =
+        getInvoiceAmount(
+            booking
         );
 
 
-    const invoiceAmount =
-        booking.invoiceAmount != null
-        ?
-        Number(
-            booking.invoiceAmount
-        )
-        :
-        0;
+    const paymentStatus =
+        getPaymentStatus(
+            booking
+        );
 
 
     const initial =
@@ -3079,14 +2842,10 @@ function bookingCardHtml(
 
             <div class="booking-header">
 
-
                 <div class="customer-area">
 
-
                     <div class="customer-avatar">
-
                         ${initial}
-
                     </div>
 
 
@@ -3120,25 +2879,17 @@ function bookingCardHtml(
                         }
 
 
-                        ${
-                            trackingId
-                            ?
-                            `
-                            <div class="booking-date">
+                        <div class="booking-date">
 
-                                Tracking ID:
+                            Tracking ID:
 
-                                <strong>
-                                    ${escapeHtml(
-                                        trackingId
-                                    )}
-                                </strong>
+                            <strong>
+                                ${escapeHtml(
+                                    trackingId
+                                )}
+                            </strong>
 
-                            </div>
-                            `
-                            :
-                            ""
-                        }
+                        </div>
 
 
                         <div class="booking-date">
@@ -3146,7 +2897,9 @@ function bookingCardHtml(
                             Submitted:
 
                             ${escapeHtml(
-                                createdDate
+                                formatDate(
+                                    booking.createdAt
+                                )
                             )}
 
                         </div>
@@ -3160,10 +2913,9 @@ function bookingCardHtml(
                     class="status status-${statusClass(status)}"
                 >
                     ${escapeHtml(
-                        statusText
+                        statusLabel(status)
                     )}
                 </span>
-
 
             </div>
 
@@ -3246,7 +2998,7 @@ function bookingCardHtml(
                 <div class="info-item">
 
                     <div class="info-label">
-                        Invoice
+                        Invoice Amount
                     </div>
 
                     <div class="info-value">
@@ -3254,9 +3006,10 @@ function bookingCardHtml(
                         ${
                             invoiceAmount > 0
                             ?
-                            `PKR ${formatMoney(
+                            "PKR " +
+                            formatMoney(
                                 invoiceAmount
-                            )}`
+                            )
                             :
                             "Not created"
                         }
@@ -3266,7 +3019,36 @@ function bookingCardHtml(
                 </div>
 
 
-                <div class="info-item problem">
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Payment
+                    </div>
+
+                    <div class="info-value">
+
+                        ${
+                            paymentStatus === "paid"
+                            ?
+                            `
+                            <span class="payment-paid">
+                                ✅ PAID
+                            </span>
+                            `
+                            :
+                            `
+                            <span class="payment-unpaid">
+                                ❌ UNPAID
+                            </span>
+                            `
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
 
                     <div class="info-label">
                         Customer Problem
@@ -3382,6 +3164,53 @@ function bookingCardHtml(
 
 
 /* =========================================================
+   GET INVOICE AMOUNT
+========================================================= */
+
+function getInvoiceAmount(
+    booking
+){
+
+    const value =
+        Number(
+            booking?.invoiceAmount || 0
+        );
+
+
+    return isNaN(value)
+        ? 0
+        : value;
+
+}
+
+
+
+/* =========================================================
+   GET PAYMENT STATUS
+========================================================= */
+
+function getPaymentStatus(
+    booking
+){
+
+    const value =
+        String(
+            booking?.paymentStatus ||
+            "unpaid"
+        )
+        .toLowerCase()
+        .trim();
+
+
+    return value === "paid"
+        ? "paid"
+        : "unpaid";
+
+}
+
+
+
+/* =========================================================
    UPDATE STATUS
 ========================================================= */
 
@@ -3437,14 +3266,13 @@ async function(
 
 
         showToast(
-            "Booking status updated successfully."
+            "Booking status updated."
         );
 
 
     }catch(error){
 
         console.error(error);
-
 
         showToast(
             "Status update failed."
@@ -3457,7 +3285,7 @@ async function(
 
 
 /* =========================================================
-   DELETE BOOKING
+   DELETE
 ========================================================= */
 
 window.deleteBooking =
@@ -3484,19 +3312,17 @@ async function(
     }
 
 
-    const customerName =
+    const name =
         booking.customerName ||
         booking.name ||
         "this booking";
 
 
-    const ok =
-        confirm(
-            `Delete booking for ${customerName}?`
-        );
-
-
-    if(!ok){
+    if(
+        !confirm(
+            `Delete booking for ${name}?`
+        )
+    ){
 
         return;
 
@@ -3536,7 +3362,6 @@ async function(
 
         console.error(error);
 
-
         showToast(
             "Delete failed."
         );
@@ -3548,7 +3373,7 @@ async function(
 
 
 /* =========================================================
-   OPEN INVOICE
+   OPEN INVOICE MODAL
 ========================================================= */
 
 window.openInvoiceModal =
@@ -3575,20 +3400,6 @@ function(
     }
 
 
-    const customerName =
-        booking.customerName ||
-        booking.name ||
-        "";
-
-
-    const trackingId =
-        booking.trackingId ||
-        booking.trackingID ||
-        generateDisplayId(
-            booking
-        );
-
-
     document.getElementById(
         "invoiceBookingId"
     ).value =
@@ -3598,13 +3409,19 @@ function(
     document.getElementById(
         "invoiceCustomer"
     ).value =
-        customerName;
+        booking.customerName ||
+        booking.name ||
+        "";
 
 
     document.getElementById(
         "invoiceTracking"
     ).value =
-        trackingId;
+        booking.trackingId ||
+        booking.trackingID ||
+        generateDisplayId(
+            booking
+        );
 
 
     document.getElementById(
@@ -3615,6 +3432,14 @@ function(
         booking.invoiceAmount
         :
         "";
+
+
+    document.getElementById(
+        "paymentStatus"
+    ).value =
+        getPaymentStatus(
+            booking
+        );
 
 
     document.getElementById(
@@ -3678,6 +3503,12 @@ document.getElementById(
             );
 
 
+        const paymentStatus =
+            document.getElementById(
+                "paymentStatus"
+            ).value;
+
+
         const note =
             document.getElementById(
                 "invoiceNote"
@@ -3705,8 +3536,12 @@ document.getElementById(
                     firestoreId
                 ),
                 {
+
                     invoiceAmount:
                         amount,
+
+                    paymentStatus:
+                        paymentStatus,
 
                     invoiceNote:
                         note,
@@ -3716,6 +3551,7 @@ document.getElementById(
 
                     updatedAt:
                         serverTimestamp()
+
                 }
             );
 
@@ -3733,11 +3569,16 @@ document.getElementById(
                 booking.invoiceAmount =
                     amount;
 
+                booking.paymentStatus =
+                    paymentStatus;
+
                 booking.invoiceNote =
                     note;
 
             }
 
+
+            updateStats();
 
             renderBookings();
 
@@ -3745,14 +3586,17 @@ document.getElementById(
 
 
             showToast(
-                "Invoice saved successfully."
+                paymentStatus === "paid"
+                ?
+                "Invoice saved & marked PAID."
+                :
+                "Invoice saved as UNPAID."
             );
 
 
         }catch(error){
 
             console.error(error);
-
 
             showToast(
                 "Invoice save failed."
@@ -3849,11 +3693,9 @@ function(){
 
 
     const bookingId =
-        (
-            booking.bookingId &&
-            booking.bookingId !==
-                booking.firestoreId
-        )
+        booking.bookingId &&
+        booking.bookingId !==
+            booking.firestoreId
         ?
         booking.bookingId
         :
@@ -3867,6 +3709,15 @@ function(){
             ).value ||
             booking.invoiceAmount ||
             0
+        );
+
+
+    const paymentStatus =
+        document.getElementById(
+            "paymentStatus"
+        ).value ||
+        getPaymentStatus(
+            booking
         );
 
 
@@ -3891,6 +3742,14 @@ function(){
         );
 
 
+    const paymentText =
+        paymentStatus === "paid"
+        ?
+        "PAID"
+        :
+        "UNPAID";
+
+
     const printWindow =
         window.open(
             "",
@@ -3902,7 +3761,7 @@ function(){
     if(!printWindow){
 
         showToast(
-            "Popup blocked. Please allow popups for this website."
+            "Popup blocked. Please allow popups."
         );
 
         return;
@@ -3924,6 +3783,7 @@ function(){
 Smart Cool & Refrigerator - Invoice
 </title>
 
+
 <style>
 
 *{
@@ -3932,7 +3792,6 @@ Smart Cool & Refrigerator - Invoice
 
 body{
     margin:0;
-
     padding:35px;
 
     font-family:
@@ -3942,7 +3801,7 @@ body{
 
     color:#102a43;
 
-    background:white;
+    background:#fff;
 }
 
 .invoice{
@@ -3950,25 +3809,22 @@ body{
 
     margin:auto;
 
-    border:1px solid #dce8ed;
-
-    border-radius:10px;
-
     padding:35px;
+
+    border:1px solid #dce8ed;
+    border-radius:10px;
 }
 
 .header{
     display:flex;
-
     justify-content:space-between;
 
     gap:20px;
 
-    border-bottom:4px solid #087ea4;
-
     padding-bottom:20px;
-
     margin-bottom:25px;
+
+    border-bottom:4px solid #087ea4;
 }
 
 .company h1{
@@ -3994,8 +3850,6 @@ body{
 .invoice-title h2{
     margin:0;
 
-    color:#102a43;
-
     font-size:27px;
 }
 
@@ -4007,11 +3861,34 @@ body{
     font-size:12px;
 }
 
+.payment-status{
+    display:inline-block;
+
+    margin-top:9px;
+
+    padding:7px 13px;
+
+    border-radius:20px;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    background:
+        ${paymentStatus === "paid"
+            ? "#e9faf4"
+            : "#fff0f0"};
+
+    color:
+        ${paymentStatus === "paid"
+            ? "#0f9d72"
+            : "#d64545"};
+}
+
 .info{
     display:grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns:1fr 1fr;
 
     gap:12px;
 
@@ -4019,21 +3896,21 @@ body{
 }
 
 .box{
-    border:1px solid #e1edf1;
-
     padding:13px;
+
+    border:1px solid #e1edf1;
 
     border-radius:7px;
 }
 
 .label{
+    margin-bottom:5px;
+
     color:#8196a0;
 
     font-size:9px;
 
     font-weight:bold;
-
-    margin-bottom:5px;
 
     text-transform:uppercase;
 }
@@ -4057,13 +3934,13 @@ table{
 }
 
 th{
-    background:#edf8fb;
-
-    color:#24566b;
+    padding:12px;
 
     text-align:left;
 
-    padding:12px;
+    background:#edf8fb;
+
+    color:#24566b;
 
     border:1px solid #d7e7ec;
 
@@ -4083,15 +3960,15 @@ td{
 }
 
 .total{
+    margin-top:22px;
+
     text-align:right;
-
-    font-size:22px;
-
-    font-weight:bold;
 
     color:#087ea4;
 
-    margin-top:22px;
+    font-size:23px;
+
+    font-weight:bold;
 }
 
 .note{
@@ -4117,11 +3994,11 @@ td{
 }
 
 .footer{
-    text-align:center;
-
     margin-top:32px;
 
     padding-top:18px;
+
+    text-align:center;
 
     border-top:1px solid #dce8ed;
 
@@ -4139,10 +4016,8 @@ td{
     }
 
     .invoice{
-        border:0;
-
         max-width:none;
-
+        border:0;
         padding:25px;
     }
 
@@ -4191,6 +4066,10 @@ td{
                     invoiceDate
                 )}
             </p>
+
+            <div class="payment-status">
+                ${paymentText}
+            </div>
 
         </div>
 
@@ -4315,11 +4194,11 @@ td{
                 </th>
 
                 <th>
-                    Preferred Date
+                    Date
                 </th>
 
                 <th>
-                    Preferred Time
+                    Time
                 </th>
 
             </tr>
@@ -4424,10 +4303,9 @@ td{
 </div>
 
 
-
 <script>
 
-window.onload = function(){
+window.onload=function(){
 
     setTimeout(
         function(){
@@ -4519,71 +4397,7 @@ function(
 
 
 /* =========================================================
-   STATS
-========================================================= */
-
-function updateStats(){
-
-    const total =
-        allBookings.length;
-
-
-    const pending =
-        allBookings.filter(
-            b =>
-                normalizeStatus(
-                    b.status
-                ) === "pending"
-        ).length;
-
-
-    const confirmed =
-        allBookings.filter(
-            b =>
-                normalizeStatus(
-                    b.status
-                ) === "confirmed"
-        ).length;
-
-
-    const completed =
-        allBookings.filter(
-            b =>
-                normalizeStatus(
-                    b.status
-                ) === "completed"
-        ).length;
-
-
-    document.getElementById(
-        "totalCount"
-    ).textContent =
-        total;
-
-
-    document.getElementById(
-        "pendingCount"
-    ).textContent =
-        pending;
-
-
-    document.getElementById(
-        "confirmedCount"
-    ).textContent =
-        confirmed;
-
-
-    document.getElementById(
-        "completedCount"
-    ).textContent =
-        completed;
-
-}
-
-
-
-/* =========================================================
-   STATUS
+   STATUS HELPERS
 ========================================================= */
 
 function normalizeStatus(
@@ -4625,20 +4439,15 @@ function statusLabel(
 
     const labels = {
 
-        pending:
-            "Pending",
+        pending:"Pending",
 
-        confirmed:
-            "Confirmed",
+        confirmed:"Confirmed",
 
-        "in-progress":
-            "In Progress",
+        "in-progress":"In Progress",
 
-        completed:
-            "Completed",
+        completed:"Completed",
 
-        cancelled:
-            "Cancelled"
+        cancelled:"Cancelled"
 
     };
 
@@ -4656,8 +4465,7 @@ function statusClass(
 ){
 
     if(
-        status ===
-        "in-progress"
+        status === "in-progress"
     ){
 
         return "progress";
@@ -4665,106 +4473,23 @@ function statusClass(
     }
 
 
-    if(
-        [
-            "pending",
-            "confirmed",
-            "completed",
-            "cancelled"
-        ].includes(status)
-    ){
-
-        return status;
-
-    }
-
-
-    return "pending";
+    return [
+        "pending",
+        "confirmed",
+        "completed",
+        "cancelled"
+    ].includes(status)
+    ?
+    status
+    :
+    "pending";
 
 }
 
 
 
 /* =========================================================
-   DATE
-========================================================= */
-
-function formatDate(
-    value
-){
-
-    if(!value){
-
-        return "Not provided";
-
-    }
-
-
-    try{
-
-        let date;
-
-
-        if(
-            typeof value.toDate ===
-            "function"
-        ){
-
-            date =
-                value.toDate();
-
-        }else if(
-            value.seconds
-        ){
-
-            date =
-                new Date(
-                    value.seconds *
-                    1000
-                );
-
-        }else{
-
-            date =
-                new Date(value);
-
-        }
-
-
-        if(
-            isNaN(
-                date.getTime()
-            )
-        ){
-
-            return "Not provided";
-
-        }
-
-
-        return date.toLocaleString(
-            "en-PK",
-            {
-                day:"2-digit",
-                month:"short",
-                year:"numeric",
-                hour:"2-digit",
-                minute:"2-digit"
-            }
-        );
-
-    }catch(error){
-
-        return "Not provided";
-
-    }
-
-}
-
-
-
-/* =========================================================
-   TIMESTAMP
+   DATE HELPERS
 ========================================================= */
 
 function getTimestampMs(
@@ -4821,9 +4546,47 @@ function getTimestampMs(
 }
 
 
+function formatDate(
+    value
+){
+
+    const ms =
+        getTimestampMs(value);
+
+
+    if(!ms){
+
+        return "Not provided";
+
+    }
+
+
+    try{
+
+        return new Date(ms)
+            .toLocaleString(
+                "en-PK",
+                {
+                    day:"2-digit",
+                    month:"short",
+                    year:"numeric",
+                    hour:"2-digit",
+                    minute:"2-digit"
+                }
+            );
+
+    }catch(error){
+
+        return "Not provided";
+
+    }
+
+}
+
+
 
 /* =========================================================
-   CUSTOMER DISPLAY ID
+   DISPLAY ID
 ========================================================= */
 
 function generateDisplayId(
@@ -4831,15 +4594,8 @@ function generateDisplayId(
 ){
 
     /*
-      NEVER use Firestore document ID.
-
-      Tracking ID is preferred.
-
-      If tracking ID doesn't exist,
-      create a short customer-facing
-      reference from createdAt.
+       NEVER use Firestore ID.
     */
-
 
     if(
         booking.trackingId
@@ -4937,7 +4693,7 @@ function escapeHtml(
 
 
 /* =========================================================
-   ESCAPE JAVASCRIPT
+   ESCAPE JS
 ========================================================= */
 
 function escapeJs(
@@ -5022,13 +4778,21 @@ window.toggleSidebar =
 function(){
 
     document
-    .getElementById("sidebar")
-    .classList.toggle("open");
+    .getElementById(
+        "sidebar"
+    )
+    .classList.toggle(
+        "open"
+    );
 
 
     document
-    .getElementById("sidebarOverlay")
-    .classList.toggle("show");
+    .getElementById(
+        "sidebarOverlay"
+    )
+    .classList.toggle(
+        "show"
+    );
 
 };
 
@@ -5037,13 +4801,21 @@ window.closeSidebar =
 function(){
 
     document
-    .getElementById("sidebar")
-    .classList.remove("open");
+    .getElementById(
+        "sidebar"
+    )
+    .classList.remove(
+        "open"
+    );
 
 
     document
-    .getElementById("sidebarOverlay")
-    .classList.remove("show");
+    .getElementById(
+        "sidebarOverlay"
+    )
+    .classList.remove(
+        "show"
+    );
 
 };
 
@@ -5063,7 +4835,9 @@ window.focusBookings =
 function(){
 
     document
-    .getElementById("bookingsSection")
+    .getElementById(
+        "bookingsSection"
+    )
     .scrollIntoView({
         behavior:"smooth"
     });
@@ -5073,7 +4847,7 @@ function(){
 
 
 /* =========================================================
-   CLOSE MODAL ON BACKDROP
+   MODAL BACKDROP
 ========================================================= */
 
 document.getElementById(
@@ -5105,8 +4879,8 @@ setInterval(
         if(
             auth.currentUser &&
             !adminPage
-            .classList
-            .contains("hidden")
+                .classList
+                .contains("hidden")
         ){
 
             loadBookings();
