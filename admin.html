@@ -1,13 +1,17 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Smart Cool | Admin Dashboard</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -19,6 +23,122 @@ body{
     background:#f4f7fb;
     color:#172033;
 }
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-screen{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:
+        radial-gradient(circle at top,#dffcff 0%,#f4f7fb 45%);
+}
+
+.login-card{
+    width:100%;
+    max-width:420px;
+    background:white;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 10px 40px rgba(0,0,0,.10);
+}
+
+.login-logo{
+    text-align:center;
+    font-size:48px;
+    margin-bottom:10px;
+}
+
+.login-card h1{
+    text-align:center;
+    font-size:25px;
+    margin-bottom:5px;
+}
+
+.login-card .subtitle{
+    text-align:center;
+    color:#667085;
+    margin-bottom:25px;
+    font-size:14px;
+}
+
+.login-group{
+    margin-bottom:15px;
+}
+
+.login-group label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.login-group input{
+    width:100%;
+    padding:13px;
+    border:1px solid #d0d5dd;
+    border-radius:9px;
+    outline:none;
+    font-size:14px;
+}
+
+.login-group input:focus{
+    border-color:#087f8c;
+}
+
+.login-btn{
+    width:100%;
+    border:0;
+    padding:13px;
+    border-radius:9px;
+    background:#087f8c;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.login-btn:hover{
+    background:#066b76;
+}
+
+.login-message{
+    margin-top:15px;
+    padding:12px;
+    border-radius:8px;
+    display:none;
+    font-size:13px;
+}
+
+.login-message.error{
+    display:block;
+    background:#fff1f2;
+    color:#b42318;
+}
+
+.login-message.success{
+    display:block;
+    background:#ecfdf3;
+    color:#16713a;
+}
+
+
+/* =========================
+   APP
+========================= */
+
+#adminApp{
+    display:none;
+}
+
+
+/* =========================
+   TOPBAR
+========================= */
 
 .topbar{
     background:#087f8c;
@@ -55,14 +175,33 @@ body{
     opacity:.9;
 }
 
-.home-btn{
+.top-actions{
+    display:flex;
+    gap:8px;
+    align-items:center;
+}
+
+.home-btn,
+.logout-btn{
     color:white;
     text-decoration:none;
     border:1px solid rgba(255,255,255,.5);
     padding:9px 14px;
     border-radius:8px;
     font-size:14px;
+    background:transparent;
+    cursor:pointer;
 }
+
+.logout-btn:hover,
+.home-btn:hover{
+    background:rgba(255,255,255,.12);
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
 
 .container{
     max-width:1200px;
@@ -83,7 +222,34 @@ body{
     color:#667085;
 }
 
-/* STATS */
+
+/* =========================
+   CONNECTION
+========================= */
+
+.connection{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    margin-top:10px;
+    font-size:13px;
+}
+
+.connection-dot{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:#12b76a;
+}
+
+.connection.offline .connection-dot{
+    background:#f04438;
+}
+
+
+/* =========================
+   STATS
+========================= */
 
 .stats{
     display:grid;
@@ -110,7 +276,10 @@ body{
     font-size:14px;
 }
 
-/* TOOLBAR */
+
+/* =========================
+   TOOLBAR
+========================= */
 
 .toolbar{
     background:white;
@@ -143,7 +312,20 @@ body{
     border-color:#087f8c;
 }
 
-/* BOOKINGS */
+.refresh-btn{
+    border:0;
+    padding:12px 16px;
+    border-radius:8px;
+    background:#087f8c;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+
+/* =========================
+   BOOKINGS
+========================= */
 
 .bookings{
     display:grid;
@@ -183,6 +365,7 @@ body{
     border-radius:20px;
     font-size:12px;
     font-weight:bold;
+    white-space:nowrap;
 }
 
 .status-Pending{
@@ -193,6 +376,11 @@ body{
 .status-Confirmed{
     background:#dff4ff;
     color:#006b8f;
+}
+
+.status-InProgress{
+    background:#e0e7ff;
+    color:#3730a3;
 }
 
 .status-Completed{
@@ -254,6 +442,7 @@ body{
     padding:9px;
     border:1px solid #d0d5dd;
     border-radius:7px;
+    background:white;
 }
 
 .btn{
@@ -264,15 +453,29 @@ body{
     font-size:13px;
 }
 
+.whatsapp-btn{
+    background:#dcfce7;
+    color:#16713a;
+}
+
 .delete-btn{
     background:#fee2e2;
     color:#b42318;
 }
 
-.whatsapp-btn{
-    background:#dcfce7;
-    color:#16713a;
+.invoice-btn{
+    background:#e0e7ff;
+    color:#3730a3;
 }
+
+.amount{
+    color:#087f8c;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
 
 .empty{
     background:white;
@@ -288,7 +491,131 @@ body{
     margin-bottom:10px;
 }
 
-/* MOBILE */
+
+/* =========================
+   LOADING
+========================= */
+
+.loading{
+    background:white;
+    padding:35px;
+    text-align:center;
+    border-radius:14px;
+    color:#667085;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:9999;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-card{
+    width:100%;
+    max-width:500px;
+    max-height:90vh;
+    overflow:auto;
+    background:white;
+    border-radius:16px;
+    padding:25px;
+}
+
+.modal-card h2{
+    margin-bottom:18px;
+}
+
+.modal-group{
+    margin-bottom:14px;
+}
+
+.modal-group label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.modal-group input,
+.modal-group textarea{
+    width:100%;
+    padding:11px;
+    border:1px solid #d0d5dd;
+    border-radius:8px;
+    font-size:14px;
+}
+
+.modal-group textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.modal-actions{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+}
+
+.save-btn{
+    flex:1;
+    border:0;
+    background:#087f8c;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.close-btn{
+    border:0;
+    background:#eaecf0;
+    color:#344054;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#172033;
+    color:white;
+    padding:13px 17px;
+    border-radius:9px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+    display:none;
+    z-index:10000;
+    font-size:14px;
+}
+
+.toast.show{
+    display:block;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:800px){
 
@@ -312,7 +639,8 @@ body{
         font-size:18px;
     }
 
-    .home-btn{
+    .home-btn,
+    .logout-btn{
         font-size:12px;
         padding:8px 10px;
     }
@@ -340,11 +668,104 @@ body{
     .booking-top{
         flex-direction:column;
     }
+
+    .top-actions{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
 }
+
 </style>
+
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+     ADMIN LOGIN
+===================================================== -->
+
+<section id="loginScreen" class="login-screen">
+
+    <div class="login-card">
+
+        <div class="login-logo">
+            ❄️
+        </div>
+
+        <h1>
+            Smart Cool
+        </h1>
+
+        <p class="subtitle">
+            Admin Dashboard Login
+        </p>
+
+
+        <form id="loginForm">
+
+            <div class="login-group">
+
+                <label>
+                    Admin Email
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter admin email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="login-group">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter password"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-btn"
+                id="loginBtn"
+            >
+                Login to Dashboard
+            </button>
+
+        </form>
+
+
+        <div
+            id="loginMessage"
+            class="login-message"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ADMIN APP
+===================================================== -->
+
+<div id="adminApp">
+
 
 <header class="topbar">
 
@@ -352,18 +773,42 @@ body{
 
         <div class="logo">
 
-            <div class="logo-icon">❄️</div>
+            <div class="logo-icon">
+                ❄️
+            </div>
 
             <div>
-                <h1>Smart Cool</h1>
-                <span>Admin Dashboard</span>
+
+                <h1>
+                    Smart Cool
+                </h1>
+
+                <span>
+                    Admin Dashboard
+                </span>
+
             </div>
 
         </div>
 
-        <a href="index.html" class="home-btn">
-            ← Website
-        </a>
+
+        <div class="top-actions">
+
+            <a
+                href="index.html"
+                class="home-btn"
+            >
+                ← Website
+            </a>
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+            >
+                Logout
+            </button>
+
+        </div>
 
     </div>
 
@@ -372,60 +817,97 @@ body{
 
 <main class="container">
 
+
     <div class="page-title">
 
-        <h2>📊 Booking Dashboard</h2>
+        <h2>
+            📊 Booking Dashboard
+        </h2>
 
         <p>
             Smart Cool & Refrigerator — Customer Service Bookings
         </p>
 
+
+        <div
+            class="connection"
+            id="connectionStatus"
+        >
+
+            <span class="connection-dot"></span>
+
+            <span id="connectionText">
+                Firebase Connected
+            </span>
+
+        </div>
+
     </div>
 
 
-    <!-- STATS -->
+    <!-- =================================================
+         STATS
+    ================================================== -->
 
     <div class="stats">
 
         <div class="stat-card">
 
-            <h3 id="totalBookings">0</h3>
+            <h3 id="totalBookings">
+                0
+            </h3>
 
-            <p>Total Bookings</p>
-
-        </div>
-
-
-        <div class="stat-card">
-
-            <h3 id="pendingBookings">0</h3>
-
-            <p>Pending</p>
+            <p>
+                Total Bookings
+            </p>
 
         </div>
 
 
         <div class="stat-card">
 
-            <h3 id="confirmedBookings">0</h3>
+            <h3 id="pendingBookings">
+                0
+            </h3>
 
-            <p>Confirmed</p>
+            <p>
+                Pending
+            </p>
 
         </div>
 
 
         <div class="stat-card">
 
-            <h3 id="completedBookings">0</h3>
+            <h3 id="confirmedBookings">
+                0
+            </h3>
 
-            <p>Completed</p>
+            <p>
+                Confirmed
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3 id="completedBookings">
+                0
+            </h3>
+
+            <p>
+                Completed
+            </p>
 
         </div>
 
     </div>
 
 
-    <!-- SEARCH -->
+    <!-- =================================================
+         TOOLBAR
+    ================================================== -->
 
     <div class="toolbar">
 
@@ -435,7 +917,6 @@ body{
                 type="text"
                 id="searchInput"
                 placeholder="🔍 Search Tracking ID, name, phone, service..."
-                oninput="renderBookings()"
             >
 
         </div>
@@ -443,157 +924,877 @@ body{
 
         <div class="filter">
 
-            <select
-                id="statusFilter"
-                onchange="renderBookings()"
-            >
+            <select id="statusFilter">
 
-                <option value="All">All Status</option>
+                <option value="All">
+                    All Status
+                </option>
 
-                <option value="Pending">Pending</option>
+                <option value="Pending">
+                    Pending
+                </option>
 
-                <option value="Confirmed">Confirmed</option>
+                <option value="Confirmed">
+                    Confirmed
+                </option>
 
-                <option value="Completed">Completed</option>
+                <option value="In Progress">
+                    In Progress
+                </option>
 
-                <option value="Cancelled">Cancelled</option>
+                <option value="Completed">
+                    Completed
+                </option>
+
+                <option value="Cancelled">
+                    Cancelled
+                </option>
 
             </select>
 
         </div>
 
+
+        <button
+            class="refresh-btn"
+            id="refreshBtn"
+        >
+            🔄 Refresh
+        </button>
+
     </div>
 
 
-    <!-- BOOKINGS -->
+    <!-- =================================================
+         BOOKINGS
+    ================================================== -->
 
-    <div id="bookingsContainer" class="bookings"></div>
+    <div
+        id="bookingsContainer"
+        class="bookings"
+    >
+
+        <div class="loading">
+            Loading bookings...
+        </div>
+
+    </div>
+
 
 </main>
 
+</div>
 
-<script>
 
-/* =========================
-   GET BOOKINGS
-========================= */
+<!-- =====================================================
+     INVOICE MODAL
+===================================================== -->
 
-function getBookings(){
+<div
+    class="modal"
+    id="invoiceModal"
+>
 
-    return JSON.parse(
-        localStorage.getItem("smartCoolBookings")
-    ) || [];
+    <div class="modal-card">
+
+        <h2>
+            🧾 Booking Invoice Amount
+        </h2>
+
+
+        <form id="invoiceForm">
+
+            <input
+                type="hidden"
+                id="invoiceBookingId"
+            >
+
+
+            <div class="modal-group">
+
+                <label>
+                    Customer
+                </label>
+
+                <input
+                    type="text"
+                    id="invoiceCustomer"
+                    readonly
+                >
+
+            </div>
+
+
+            <div class="modal-group">
+
+                <label>
+                    Tracking ID
+                </label>
+
+                <input
+                    type="text"
+                    id="invoiceTracking"
+                    readonly
+                >
+
+            </div>
+
+
+            <div class="modal-group">
+
+                <label>
+                    Invoice Amount (Rs.)
+                </label>
+
+                <input
+                    type="number"
+                    id="invoiceAmount"
+                    min="0"
+                    step="1"
+                    placeholder="Enter amount"
+                    required
+                >
+
+            </div>
+
+
+            <div class="modal-group">
+
+                <label>
+                    Note
+                </label>
+
+                <textarea
+                    id="invoiceNote"
+                    placeholder="Optional invoice note"
+                ></textarea>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="close-btn"
+                    onclick="closeInvoiceModal()"
+                >
+                    Close
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-btn"
+                >
+                    Save Invoice
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div
+    id="toast"
+    class="toast"
+></div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    doc,
+    updateDoc,
+    deleteDoc,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
+  authDomain: "smart-cool-6f513.firebaseapp.com",
+  projectId: "smart-cool-6f513",
+  storageBucket: "smart-cool-6f513.firebasestorage.app",
+  messagingSenderId: "10468224529",
+  appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+  measurementId: "G-Y5SPBHP57C"
+};
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const auth =
+    getAuth(app);
+
+
+const db =
+    getFirestore(app);
+
+
+/* =====================================================
+   ADMIN EMAIL SECURITY
+=====================================================
+
+   IMPORTANT:
+   Yahan apna ADMIN EMAIL add karein.
+
+   Example:
+
+   const ADMIN_EMAILS = [
+       "your-admin-email@gmail.com"
+   ];
+
+===================================================== */
+
+const ADMIN_EMAILS = [
+
+    "YOUR_ADMIN_EMAIL@gmail.com"
+
+];
+
+
+/* =====================================================
+   GLOBAL DATA
+===================================================== */
+
+let allBookings = [];
+
+
+/* =====================================================
+   DOM
+===================================================== */
+
+const loginScreen =
+    document.getElementById("loginScreen");
+
+const adminApp =
+    document.getElementById("adminApp");
+
+const loginForm =
+    document.getElementById("loginForm");
+
+const loginMessage =
+    document.getElementById("loginMessage");
+
+const loginBtn =
+    document.getElementById("loginBtn");
+
+const logoutBtn =
+    document.getElementById("logoutBtn");
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const statusFilter =
+    document.getElementById("statusFilter");
+
+const refreshBtn =
+    document.getElementById("refreshBtn");
+
+const bookingsContainer =
+    document.getElementById("bookingsContainer");
+
+
+/* =====================================================
+   LOGIN MESSAGE
+===================================================== */
+
+function showLoginMessage(message, type = "error"){
+
+    loginMessage.textContent =
+        message;
+
+    loginMessage.className =
+        "login-message " + type;
 
 }
 
 
-/* =========================
-   SAVE BOOKINGS
-========================= */
+/* =====================================================
+   LOGIN
+===================================================== */
 
-function saveBookings(bookings){
+loginForm.addEventListener(
+    "submit",
+    async function(event){
 
-    localStorage.setItem(
-        "smartCoolBookings",
-        JSON.stringify(bookings)
-    );
+        event.preventDefault();
+
+        const email =
+            document
+                .getElementById("loginEmail")
+                .value
+                .trim();
+
+        const password =
+            document
+                .getElementById("loginPassword")
+                .value;
+
+
+        loginBtn.disabled = true;
+
+        loginBtn.textContent =
+            "Logging in...";
+
+
+        try{
+
+            const result =
+                await signInWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+
+            const loggedInEmail =
+                result.user.email
+                    .toLowerCase();
+
+
+            if(
+                ADMIN_EMAILS.length > 0 &&
+                !ADMIN_EMAILS.includes(loggedInEmail)
+            ){
+
+                await signOut(auth);
+
+                throw new Error(
+                    "This account is not authorized as admin."
+                );
+
+            }
+
+
+            showLoginMessage(
+                "Login successful.",
+                "success"
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+
+            let message =
+                "Login failed. Email ya password check karein.";
+
+
+            if(
+                error.code ===
+                "auth/invalid-credential"
+            ){
+
+                message =
+                    "Email ya password incorrect hai.";
+
+            }
+
+            else if(
+                error.code ===
+                "auth/too-many-requests"
+            ){
+
+                message =
+                    "Too many attempts. Thori der baad try karein.";
+
+            }
+
+            else if(
+                error.message.includes(
+                    "not authorized"
+                )
+            ){
+
+                message =
+                    "Ye account Admin account nahi hai.";
+
+            }
+
+
+            showLoginMessage(
+                message,
+                "error"
+            );
+
+        }
+
+
+        loginBtn.disabled = false;
+
+        loginBtn.textContent =
+            "Login to Dashboard";
+
+    }
+);
+
+
+/* =====================================================
+   AUTH STATE
+===================================================== */
+
+onAuthStateChanged(
+    auth,
+    async function(user){
+
+        if(!user){
+
+            loginScreen.style.display =
+                "flex";
+
+            adminApp.style.display =
+                "none";
+
+            return;
+
+        }
+
+
+        const email =
+            (user.email || "").toLowerCase();
+
+
+        if(
+            ADMIN_EMAILS.length > 0 &&
+            !ADMIN_EMAILS.includes(email)
+        ){
+
+            await signOut(auth);
+
+            return;
+
+        }
+
+
+        loginScreen.style.display =
+            "none";
+
+        adminApp.style.display =
+            "block";
+
+
+        await loadBookings();
+
+    }
+);
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+logoutBtn.addEventListener(
+    "click",
+    async function(){
+
+        try{
+
+            await signOut(auth);
+
+        }catch(error){
+
+            console.error(error);
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LOAD BOOKINGS FROM FIRESTORE
+===================================================== */
+
+async function loadBookings(){
+
+    bookingsContainer.innerHTML = `
+        <div class="loading">
+            🔄 Loading bookings from Firebase...
+        </div>
+    `;
+
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "serviceRequests"
+                )
+            );
+
+
+        allBookings = [];
+
+
+        snapshot.forEach(function(item){
+
+            allBookings.push({
+
+                firestoreId:
+                    item.id,
+
+                ...item.data()
+
+            });
+
+        });
+
+
+        /* NEWEST FIRST */
+
+        allBookings.sort(
+            function(a,b){
+
+                return getTimestampMillis(b.createdAt)
+                     - getTimestampMillis(a.createdAt);
+
+            }
+        );
+
+
+        setConnection(true);
+
+        renderBookings();
+
+
+    }catch(error){
+
+        console.error(
+            "Firebase booking error:",
+            error
+        );
+
+
+        setConnection(false);
+
+
+        bookingsContainer.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">
+                    ⚠️
+                </div>
+
+                <h3>
+                    Firebase Error
+                </h3>
+
+                <p style="margin-top:8px;">
+                    Bookings load nahi ho sakin.
+                </p>
+
+                <p style="margin-top:8px;font-size:13px;">
+                    Firestore database aur Security Rules
+                    check karein.
+                </p>
+
+            </div>
+
+        `;
+
+    }
 
 }
 
 
-/* =========================
-   DASHBOARD STATS
-========================= */
+/* =====================================================
+   CONNECTION STATUS
+===================================================== */
 
-function updateStats(bookings){
+function setConnection(connected){
 
-    document.getElementById("totalBookings").textContent =
-        bookings.length;
+    const element =
+        document.getElementById(
+            "connectionStatus"
+        );
 
-    document.getElementById("pendingBookings").textContent =
-        bookings.filter(b => b.status === "Pending").length;
+    const text =
+        document.getElementById(
+            "connectionText"
+        );
 
-    document.getElementById("confirmedBookings").textContent =
-        bookings.filter(b => b.status === "Confirmed").length;
 
-    document.getElementById("completedBookings").textContent =
-        bookings.filter(b => b.status === "Completed").length;
+    if(connected){
+
+        element.classList.remove(
+            "offline"
+        );
+
+        text.textContent =
+            "Firebase Connected";
+
+    }else{
+
+        element.classList.add(
+            "offline"
+        );
+
+        text.textContent =
+            "Firebase Connection Error";
+
+    }
 
 }
 
 
-/* =========================
-   RENDER BOOKINGS
-========================= */
+/* =====================================================
+   TIMESTAMP
+===================================================== */
+
+function getTimestampMillis(timestamp){
+
+    if(!timestamp){
+
+        return 0;
+
+    }
+
+
+    if(
+        typeof timestamp.toMillis ===
+        "function"
+    ){
+
+        return timestamp.toMillis();
+
+    }
+
+
+    if(
+        timestamp.seconds !== undefined
+    ){
+
+        return timestamp.seconds * 1000;
+
+    }
+
+
+    if(timestamp instanceof Date){
+
+        return timestamp.getTime();
+
+    }
+
+
+    const date =
+        new Date(timestamp);
+
+
+    if(!isNaN(date.getTime())){
+
+        return date.getTime();
+
+    }
+
+
+    return 0;
+
+}
+
+
+/* =====================================================
+   DATE FORMAT
+===================================================== */
+
+function formatDate(date){
+
+    const milliseconds =
+        getTimestampMillis(date);
+
+
+    if(!milliseconds){
+
+        return "Unknown";
+
+    }
+
+
+    try{
+
+        return new Date(
+            milliseconds
+        ).toLocaleString(
+            "en-PK",
+            {
+                dateStyle:"medium",
+                timeStyle:"short"
+            }
+        );
+
+    }catch(error){
+
+        return "Unknown";
+
+    }
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+function updateStats(){
+
+    document.getElementById(
+        "totalBookings"
+    ).textContent =
+        allBookings.length;
+
+
+    document.getElementById(
+        "pendingBookings"
+    ).textContent =
+        allBookings.filter(
+            b => b.status === "Pending"
+        ).length;
+
+
+    document.getElementById(
+        "confirmedBookings"
+    ).textContent =
+        allBookings.filter(
+            b => b.status === "Confirmed"
+        ).length;
+
+
+    document.getElementById(
+        "completedBookings"
+    ).textContent =
+        allBookings.filter(
+            b => b.status === "Completed"
+        ).length;
+
+}
+
+
+/* =====================================================
+   RENDER
+===================================================== */
 
 function renderBookings(){
 
-    const bookings = getBookings();
+    updateStats();
 
-    updateStats(bookings);
-
-    const container =
-        document.getElementById("bookingsContainer");
 
     const search =
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
+        searchInput
+            .value
+            .toLowerCase()
+            .trim();
+
 
     const filter =
-        document.getElementById("statusFilter")
-        .value;
+        statusFilter.value;
 
 
-    let filtered = bookings.filter(function(booking){
+    const filtered =
+        allBookings.filter(
+            function(booking){
 
-        const searchable = [
+                const searchable = [
 
-            booking.trackingId,
-            booking.customerName,
-            booking.phone,
-            booking.service,
-            booking.area,
-            booking.problem
+                    booking.trackingId,
 
-        ]
-        .join(" ")
-        .toLowerCase();
+                    booking.bookingId,
 
+                    booking.customerName,
 
-        const matchesSearch =
-            searchable.includes(search);
+                    booking.customerEmail,
 
+                    booking.phone,
 
-        const matchesStatus =
-            filter === "All" ||
-            booking.status === filter;
+                    booking.service,
 
+                    booking.area,
 
-        return matchesSearch && matchesStatus;
+                    booking.address,
 
-    });
+                    booking.problem
+
+                ]
+                .filter(Boolean)
+                .join(" ")
+                .toLowerCase();
 
 
-    /* NEWEST FIRST */
+                const matchesSearch =
+                    searchable.includes(
+                        search
+                    );
 
-    filtered.reverse();
+
+                const matchesStatus =
+                    filter === "All" ||
+                    booking.status === filter;
+
+
+                return (
+                    matchesSearch &&
+                    matchesStatus
+                );
+
+            }
+        );
 
 
     if(filtered.length === 0){
 
-        container.innerHTML = `
+        bookingsContainer.innerHTML = `
 
             <div class="empty">
 
-                <div class="empty-icon">📭</div>
+                <div class="empty-icon">
+                    📭
+                </div>
 
-                <h3>No Bookings Found</h3>
+                <h3>
+                    No Bookings Found
+                </h3>
 
-                <p>
-                    Customer bookings will appear here
-                    after they submit the booking form.
+                <p style="margin-top:8px;">
+                    Customer bookings will appear
+                    here after they submit a booking.
                 </p>
 
             </div>
@@ -605,342 +1806,1014 @@ function renderBookings(){
     }
 
 
-    container.innerHTML = filtered.map(function(booking){
+    bookingsContainer.innerHTML =
+        filtered
+            .map(
+                createBookingCard
+            )
+            .join("");
 
-        return `
+}
 
-        <div class="booking-card">
 
-            <div class="booking-top">
+/* =====================================================
+   BOOKING CARD
+===================================================== */
 
-                <div>
+function createBookingCard(booking){
 
-                    <div class="booking-id">
-                        🆔 ${escapeHtml(booking.trackingId)}
-                    </div>
+    const statusClass =
+        getStatusClass(
+            booking.status
+        );
 
+
+    const invoiceAmount =
+        Number(
+            booking.invoiceAmount || 0
+        );
+
+
+    const safeId =
+        escapeJs(
+            booking.firestoreId
+        );
+
+
+    return `
+
+    <div class="booking-card">
+
+        <div class="booking-top">
+
+            <div>
+
+                <div class="booking-id">
+
+                    🆔
+                    ${escapeHtml(
+                        booking.trackingId ||
+                        "No Tracking ID"
+                    )}
+
+                </div>
+
+
+                ${
+                    booking.bookingId
+                    ?
+                    `
                     <div class="booking-date">
-                        Created:
-                        ${formatDate(booking.createdAt)}
+                        Booking ID:
+                        ${escapeHtml(
+                            booking.bookingId
+                        )}
                     </div>
-
-                </div>
-
-
-                <span class="status status-${escapeHtml(booking.status)}">
-                    ${escapeHtml(booking.status)}
-                </span>
-
-            </div>
+                    `
+                    :
+                    ""
+                }
 
 
-            <div class="booking-grid">
+                <div class="booking-date">
 
-                <div class="info-box">
-
-                    <small>Customer</small>
-
-                    <strong>
-                        👤 ${escapeHtml(booking.customerName)}
-                    </strong>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <small>Phone</small>
-
-                    <strong>
-                        📞 ${escapeHtml(booking.phone)}
-                    </strong>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <small>Service</small>
-
-                    <strong>
-                        🔧 ${escapeHtml(booking.service)}
-                    </strong>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <small>Area</small>
-
-                    <strong>
-                        📍 ${escapeHtml(booking.area)}
-                    </strong>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <small>Preferred Date</small>
-
-                    <strong>
-                        📅 ${escapeHtml(booking.preferredDate || "Not specified")}
-                    </strong>
-
-                </div>
-
-
-                <div class="info-box">
-
-                    <small>Preferred Time</small>
-
-                    <strong>
-                        🕐 ${escapeHtml(booking.preferredTime || "Not specified")}
-                    </strong>
+                    Created:
+                    ${formatDate(
+                        booking.createdAt
+                    )}
 
                 </div>
 
             </div>
 
 
-            <div class="problem">
+            <span
+                class="status ${statusClass}"
+            >
+                ${escapeHtml(
+                    booking.status ||
+                    "Pending"
+                )}
+            </span>
 
-                <small>Problem Details</small>
+        </div>
+
+
+        <div class="booking-grid">
+
+
+            <div class="info-box">
+
+                <small>
+                    Customer
+                </small>
 
                 <strong>
-                    ${escapeHtml(booking.problem || "No details provided")}
+                    👤
+                    ${escapeHtml(
+                        booking.customerName ||
+                        "Not provided"
+                    )}
                 </strong>
 
             </div>
 
 
-            <div class="actions">
+            <div class="info-box">
 
-                <select
-                    onchange="changeStatus('${escapeJs(booking.trackingId)}', this.value)"
-                >
+                <small>
+                    Phone
+                </small>
 
-                    <option value="Pending"
-                        ${booking.status === "Pending" ? "selected" : ""}>
-                        Pending
-                    </option>
-
-                    <option value="Confirmed"
-                        ${booking.status === "Confirmed" ? "selected" : ""}>
-                        Confirmed
-                    </option>
-
-                    <option value="Completed"
-                        ${booking.status === "Completed" ? "selected" : ""}>
-                        Completed
-                    </option>
-
-                    <option value="Cancelled"
-                        ${booking.status === "Cancelled" ? "selected" : ""}>
-                        Cancelled
-                    </option>
-
-                </select>
-
-
-                <button
-                    class="btn whatsapp-btn"
-                    onclick="openWhatsApp('${escapeJs(booking.phone)}')"
-                >
-                    💬 WhatsApp
-                </button>
-
-
-                <button
-                    class="btn delete-btn"
-                    onclick="deleteBooking('${escapeJs(booking.trackingId)}')"
-                >
-                    🗑️ Delete
-                </button>
+                <strong>
+                    📞
+                    ${escapeHtml(
+                        booking.phone ||
+                        "Not provided"
+                    )}
+                </strong>
 
             </div>
 
+
+            <div class="info-box">
+
+                <small>
+                    Email
+                </small>
+
+                <strong>
+                    ✉️
+                    ${escapeHtml(
+                        booking.customerEmail ||
+                        "Not provided"
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <small>
+                    Service
+                </small>
+
+                <strong>
+                    🔧
+                    ${escapeHtml(
+                        booking.service ||
+                        "Not specified"
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <small>
+                    Area
+                </small>
+
+                <strong>
+                    📍
+                    ${escapeHtml(
+                        booking.area ||
+                        booking.address ||
+                        "Not specified"
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <small>
+                    Preferred Date
+                </small>
+
+                <strong>
+                    📅
+                    ${escapeHtml(
+                        booking.preferredDate ||
+                        "Not specified"
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <small>
+                    Preferred Time
+                </small>
+
+                <strong>
+                    🕐
+                    ${escapeHtml(
+                        booking.preferredTime ||
+                        "Not specified"
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <small>
+                    Invoice Amount
+                </small>
+
+                <strong class="amount">
+
+                    Rs.
+                    ${invoiceAmount.toLocaleString(
+                        "en-PK"
+                    )}
+
+                </strong>
+
+            </div>
+
+
         </div>
 
-        `;
 
-    }).join("");
+        <div class="problem">
+
+            <small>
+                Problem Details
+            </small>
+
+            <strong>
+
+                ${escapeHtml(
+                    booking.problem ||
+                    "No details provided"
+                )}
+
+            </strong>
+
+        </div>
+
+
+        <div class="actions">
+
+
+            <select
+                onchange="
+                    changeStatus(
+                        '${safeId}',
+                        this.value
+                    )
+                "
+            >
+
+                <option
+                    value="Pending"
+                    ${
+                        booking.status === "Pending"
+                        ? "selected"
+                        : ""
+                    }
+                >
+                    Pending
+                </option>
+
+
+                <option
+                    value="Confirmed"
+                    ${
+                        booking.status === "Confirmed"
+                        ? "selected"
+                        : ""
+                    }
+                >
+                    Confirmed
+                </option>
+
+
+                <option
+                    value="In Progress"
+                    ${
+                        booking.status === "In Progress"
+                        ? "selected"
+                        : ""
+                    }
+                >
+                    In Progress
+                </option>
+
+
+                <option
+                    value="Completed"
+                    ${
+                        booking.status === "Completed"
+                        ? "selected"
+                        : ""
+                    }
+                >
+                    Completed
+                </option>
+
+
+                <option
+                    value="Cancelled"
+                    ${
+                        booking.status === "Cancelled"
+                        ? "selected"
+                        : ""
+                    }
+                >
+                    Cancelled
+                </option>
+
+            </select>
+
+
+            <button
+                class="btn whatsapp-btn"
+                onclick="
+                    openWhatsApp(
+                        '${escapeJs(
+                            booking.phone || ""
+                        )}'
+                    )
+                "
+            >
+                💬 WhatsApp
+            </button>
+
+
+            <button
+                class="btn invoice-btn"
+                onclick="
+                    openInvoiceModal(
+                        '${safeId}'
+                    )
+                "
+            >
+                🧾 Invoice
+            </button>
+
+
+            <button
+                class="btn delete-btn"
+                onclick="
+                    deleteBooking(
+                        '${safeId}'
+                    )
+                "
+            >
+                🗑️ Delete
+            </button>
+
+
+        </div>
+
+    </div>
+
+    `;
 
 }
 
 
-/* =========================
+/* =====================================================
+   STATUS CLASS
+===================================================== */
+
+function getStatusClass(status){
+
+    if(status === "In Progress"){
+
+        return "status-InProgress";
+
+    }
+
+
+    if(
+        status === "Confirmed" ||
+        status === "Completed" ||
+        status === "Cancelled" ||
+        status === "Pending"
+    ){
+
+        return "status-" +
+            status.replace(
+                /\s/g,
+                ""
+            );
+
+    }
+
+
+    return "status-Pending";
+
+}
+
+
+/* =====================================================
    CHANGE STATUS
-========================= */
+===================================================== */
 
-function changeStatus(trackingId, newStatus){
+window.changeStatus =
+async function(
+    firestoreId,
+    newStatus
+){
 
-    const bookings = getBookings();
+    if(!firestoreId){
 
-    const booking =
-        bookings.find(
-            b => b.trackingId === trackingId
-        );
-
-
-    if(!booking){
         return;
-    }
 
-
-    booking.status = newStatus;
-
-    saveBookings(bookings);
-
-    renderBookings();
-
-}
-
-
-/* =========================
-   DELETE BOOKING
-========================= */
-
-function deleteBooking(trackingId){
-
-    const confirmDelete =
-        confirm(
-            "Kya aap is booking ko delete karna chahte hain?"
-        );
-
-
-    if(!confirmDelete){
-        return;
-    }
-
-
-    let bookings = getBookings();
-
-
-    bookings = bookings.filter(
-        b => b.trackingId !== trackingId
-    );
-
-
-    saveBookings(bookings);
-
-    renderBookings();
-
-}
-
-
-/* =========================
-   WHATSAPP
-========================= */
-
-function openWhatsApp(phone){
-
-    let number =
-        phone.replace(/\D/g, "");
-
-
-    if(number.startsWith("03")){
-
-        number =
-            "92" + number.substring(1);
-
-    }
-
-
-    window.open(
-        "https://wa.me/" + number,
-        "_blank"
-    );
-
-}
-
-
-/* =========================
-   DATE FORMAT
-========================= */
-
-function formatDate(date){
-
-    if(!date){
-        return "Unknown";
     }
 
 
     try{
 
-        return new Date(date).toLocaleString(
-            "en-PK",
+        await updateDoc(
+            doc(
+                db,
+                "serviceRequests",
+                firestoreId
+            ),
             {
-                dateStyle:"medium",
-                timeStyle:"short"
+
+                status:
+                    newStatus,
+
+                updatedAt:
+                    serverTimestamp()
+
             }
         );
 
+
+        const booking =
+            allBookings.find(
+                b =>
+                    b.firestoreId ===
+                    firestoreId
+            );
+
+
+        if(booking){
+
+            booking.status =
+                newStatus;
+
+        }
+
+
+        renderBookings();
+
+
+        showToast(
+            "Booking status updated successfully."
+        );
+
+
     }catch(error){
 
-        return date;
+        console.error(error);
+
+
+        showToast(
+            "Status update nahi ho saka."
+        );
 
     }
+
+};
+
+
+/* =====================================================
+   DELETE BOOKING
+===================================================== */
+
+window.deleteBooking =
+async function(
+    firestoreId
+){
+
+    if(!firestoreId){
+
+        return;
+
+    }
+
+
+    const booking =
+        allBookings.find(
+            b =>
+                b.firestoreId ===
+                firestoreId
+        );
+
+
+    if(!booking){
+
+        return;
+
+    }
+
+
+    const confirmDelete =
+        confirm(
+            "Kya aap is booking ko permanently delete karna chahte hain?\n\n" +
+            "Tracking ID: " +
+            (
+                booking.trackingId ||
+                "Unknown"
+            )
+        );
+
+
+    if(!confirmDelete){
+
+        return;
+
+    }
+
+
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                "serviceRequests",
+                firestoreId
+            )
+        );
+
+
+        allBookings =
+            allBookings.filter(
+                b =>
+                    b.firestoreId !==
+                    firestoreId
+            );
+
+
+        renderBookings();
+
+
+        showToast(
+            "Booking deleted successfully."
+        );
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        showToast(
+            "Booking delete nahi ho saki."
+        );
+
+    }
+
+};
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+window.openWhatsApp =
+function(phone){
+
+    let number =
+        String(phone || "")
+            .replace(
+                /\D/g,
+                ""
+            );
+
+
+    if(
+        number.startsWith("03")
+    ){
+
+        number =
+            "92" +
+            number.substring(1);
+
+    }
+
+
+    if(!number){
+
+        showToast(
+            "Customer phone number available nahi hai."
+        );
+
+        return;
+
+    }
+
+
+    window.open(
+        "https://wa.me/" +
+        number,
+        "_blank"
+    );
+
+};
+
+
+/* =====================================================
+   INVOICE MODAL
+===================================================== */
+
+window.openInvoiceModal =
+function(firestoreId){
+
+    const booking =
+        allBookings.find(
+            b =>
+                b.firestoreId ===
+                firestoreId
+        );
+
+
+    if(!booking){
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "invoiceBookingId"
+    ).value =
+        firestoreId;
+
+
+    document.getElementById(
+        "invoiceCustomer"
+    ).value =
+        booking.customerName ||
+        "";
+
+
+    document.getElementById(
+        "invoiceTracking"
+    ).value =
+        booking.trackingId ||
+        "";
+
+
+    document.getElementById(
+        "invoiceAmount"
+    ).value =
+        booking.invoiceAmount ||
+        "";
+
+
+    document.getElementById(
+        "invoiceNote"
+    ).value =
+        booking.invoiceNote ||
+        "";
+
+
+    document.getElementById(
+        "invoiceModal"
+    ).classList.add(
+        "active"
+    );
+
+};
+
+
+window.closeInvoiceModal =
+function(){
+
+    document.getElementById(
+        "invoiceModal"
+    ).classList.remove(
+        "active"
+    );
+
+};
+
+
+/* =====================================================
+   SAVE INVOICE
+===================================================== */
+
+document
+    .getElementById("invoiceForm")
+    .addEventListener(
+        "submit",
+        async function(event){
+
+            event.preventDefault();
+
+
+            const firestoreId =
+                document.getElementById(
+                    "invoiceBookingId"
+                ).value;
+
+
+            const amount =
+                Number(
+                    document.getElementById(
+                        "invoiceAmount"
+                    ).value
+                );
+
+
+            const note =
+                document.getElementById(
+                    "invoiceNote"
+                ).value
+                .trim();
+
+
+            if(!firestoreId){
+
+                return;
+
+            }
+
+
+            if(
+                isNaN(amount) ||
+                amount < 0
+            ){
+
+                alert(
+                    "Valid invoice amount enter karein."
+                );
+
+                return;
+
+            }
+
+
+            try{
+
+                await updateDoc(
+
+                    doc(
+                        db,
+                        "serviceRequests",
+                        firestoreId
+                    ),
+
+                    {
+
+                        invoiceAmount:
+                            amount,
+
+                        invoiceNote:
+                            note,
+
+                        invoiceUpdatedAt:
+                            serverTimestamp(),
+
+                        updatedAt:
+                            serverTimestamp()
+
+                    }
+
+                );
+
+
+                const booking =
+                    allBookings.find(
+                        b =>
+                            b.firestoreId ===
+                            firestoreId
+                    );
+
+
+                if(booking){
+
+                    booking.invoiceAmount =
+                        amount;
+
+                    booking.invoiceNote =
+                        note;
+
+                }
+
+
+                closeInvoiceModal();
+
+                renderBookings();
+
+
+                showToast(
+                    "Invoice amount saved successfully."
+                );
+
+
+            }catch(error){
+
+                console.error(error);
+
+
+                showToast(
+                    "Invoice save nahi ho saka."
+                );
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+searchInput.addEventListener(
+    "input",
+    renderBookings
+);
+
+
+/* =====================================================
+   FILTER
+===================================================== */
+
+statusFilter.addEventListener(
+    "change",
+    renderBookings
+);
+
+
+/* =====================================================
+   REFRESH
+===================================================== */
+
+refreshBtn.addEventListener(
+    "click",
+    async function(){
+
+        await loadBookings();
+
+    }
+);
+
+
+/* =====================================================
+   AUTO REFRESH
+===================================================== */
+
+setInterval(
+    async function(){
+
+        if(
+            adminApp.style.display !==
+            "none"
+        ){
+
+            await loadBookings();
+
+        }
+
+    },
+    15000
+);
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        function(){
+
+            toast.classList.remove(
+                "show"
+            );
+
+        },
+        3000
+    );
 
 }
 
 
-/* =========================
-   SECURITY / HTML ESCAPE
-========================= */
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
 
 function escapeHtml(value){
 
-    if(value === null || value === undefined){
+    if(
+        value === null ||
+        value === undefined
+    ){
+
         return "";
+
     }
 
 
     return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
+
+/* =====================================================
+   ESCAPE JAVASCRIPT
+===================================================== */
 
 function escapeJs(value){
 
-    if(value === null || value === undefined){
+    if(
+        value === null ||
+        value === undefined
+    ){
+
         return "";
+
     }
 
 
     return String(value)
-        .replace(/\\/g,"\\\\")
-        .replace(/'/g,"\\'")
-        .replace(/"/g,'\\"');
+
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+
+        .replace(
+            /'/g,
+            "\\'"
+        )
+
+        .replace(
+            /"/g,
+            '\\"'
+        )
+
+        .replace(
+            /\n/g,
+            "\\n"
+        )
+
+        .replace(
+            /\r/g,
+            "\\r"
+        );
 
 }
-
-
-/* =========================
-   START DASHBOARD
-========================= */
-
-renderBookings();
-
-
-/* =========================
-   AUTO REFRESH
-========================= */
-
-setInterval(function(){
-
-    renderBookings();
-
-},3000);
 
 </script>
 
 </body>
 </html>
-```
