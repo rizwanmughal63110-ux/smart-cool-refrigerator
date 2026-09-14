@@ -1128,6 +1128,12 @@
 
         <a href="#dashboard" onclick="closeMenu()">My Bookings</a>
 
+        <!-- TRACK BOOKING -->
+
+        <a href="tracking.html" onclick="closeMenu()">
+          🔎 Track Booking
+        </a>
+
         <a href="#about" onclick="closeMenu()">About</a>
 
         <a href="#faq" onclick="closeMenu()">FAQ</a>
@@ -2001,9 +2007,12 @@
 
           <div class="faq-answer">
 
-            After submitting your booking, you can see
-            your Tracking ID and booking status inside
-            My Bookings.
+            After submitting your booking, you will receive
+            a Tracking ID. Use the
+            <strong style="color:#38a0ff;">
+              Track Booking
+            </strong>
+            option in the menu to check your booking status.
 
           </div>
 
@@ -2174,6 +2183,12 @@
           <a href="#booking">Book Service</a>
         </p>
 
+        <p>
+          <a href="tracking.html">
+            🔎 Track Booking
+          </a>
+        </p>
+
       </div>
 
 
@@ -2242,8 +2257,6 @@
     /* =========================
        FIREBASE CONFIG
     ========================== */
-
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
     const firebaseConfig = {
       apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
@@ -2661,12 +2674,6 @@
         document
           .getElementById("loginPassword")
           .value = "";
-
-
-        /*
-          Automatic dashboard scroll removed.
-          User stays at the account/login area.
-        */
 
 
       } catch (error) {
