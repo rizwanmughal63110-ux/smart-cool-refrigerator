@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,8 +32,8 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 .auth-overlay{
   position:fixed;
   inset:0;
-  background:rgba(0,20,30,.72);
-  backdrop-filter:blur(6px);
+  background:rgba(0,20,30,.78);
+  backdrop-filter:blur(7px);
   display:none;
   align-items:center;
   justify-content:center;
@@ -49,10 +48,12 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 .auth-card{
   width:100%;
   max-width:430px;
-  background:#fff;
+  background:#0b2033;
+  color:#eaf9ff;
+  border:1px solid rgba(98,190,255,.18);
   border-radius:22px;
   padding:28px;
-  box-shadow:0 25px 80px rgba(0,0,0,.25);
+  box-shadow:0 25px 80px rgba(0,0,0,.45);
   position:relative;
   max-height:90vh;
   overflow-y:auto;
@@ -66,7 +67,8 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
   height:35px;
   border:0;
   border-radius:50%;
-  background:#eef7f8;
+  background:#102d43;
+  color:#eaf9ff;
   cursor:pointer;
   font-size:20px;
 }
@@ -89,7 +91,7 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 
 .auth-logo p{
   margin:0;
-  color:#667085;
+  color:#9bb2c5;
   font-size:13px;
 }
 
@@ -97,7 +99,7 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:5px;
-  background:#eef7f8;
+  background:#081b2d;
   padding:5px;
   border-radius:10px;
   margin-bottom:20px;
@@ -106,6 +108,7 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 .auth-tab{
   border:0;
   background:transparent;
+  color:#9bb2c5;
   padding:10px;
   border-radius:7px;
   cursor:pointer;
@@ -134,20 +137,27 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
   margin-bottom:6px;
   font-size:13px;
   font-weight:600;
+  color:#eaf9ff;
 }
 
 .auth-form-group input{
   width:100%;
   padding:12px 13px;
-  border:1px solid #d0d5dd;
+  border:1px solid rgba(98,190,255,.20);
   border-radius:9px;
   outline:none;
   font-size:14px;
   box-sizing:border-box;
+  background:#061725;
+  color:#eaf9ff;
+}
+
+.auth-form-group input::placeholder{
+  color:#71899b;
 }
 
 .auth-form-group input:focus{
-  border-color:#087f8c;
+  border-color:#16c9ff;
 }
 
 .auth-submit{
@@ -155,7 +165,7 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
   border:0;
   padding:13px;
   border-radius:9px;
-  background:#087f8c;
+  background:linear-gradient(135deg,#16c9ff,#168cff);
   color:white;
   cursor:pointer;
   font-weight:700;
@@ -175,13 +185,15 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 }
 
 .auth-message.error{
-  background:#fee2e2;
-  color:#b42318;
+  background:rgba(244,67,54,.12);
+  color:#ffaaa3;
+  border:1px solid rgba(244,67,54,.20);
 }
 
 .auth-message.success{
-  background:#dcfce7;
-  color:#166534;
+  background:rgba(76,175,80,.12);
+  color:#91e7a2;
+  border:1px solid rgba(76,175,80,.20);
 }
 
 .user-panel{
@@ -201,7 +213,7 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 }
 
 .logout-btn{
-  border:1px solid rgba(255,255,255,.5);
+  border:1px solid rgba(255,255,255,.35);
   background:transparent;
   color:white;
   padding:8px 11px;
@@ -212,13 +224,13 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 
 
 /* =====================================================
-   CUSTOMER DASHBOARD
+   CUSTOMER DASHBOARD - SMART COOL THEME
 ===================================================== */
 
 .dashboard-section{
   display:none;
-  padding:70px 20px;
-  background:#f5fafb;
+  padding:75px 20px;
+  background:#061321;
 }
 
 .dashboard-section.show{
@@ -231,21 +243,33 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 }
 
 .dashboard-header{
-  background:linear-gradient(135deg,#087f8c,#075e69);
-  color:white;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(22,201,255,.14),
+      rgba(22,140,255,.08)
+    );
+  color:#eaf9ff;
+  border:1px solid rgba(98,190,255,.18);
   border-radius:22px;
-  padding:28px;
+  padding:30px;
   margin-bottom:25px;
-  box-shadow:0 15px 35px rgba(8,127,140,.18);
+  box-shadow:0 15px 35px rgba(0,0,0,.20);
 }
 
 .dashboard-header h2{
-  margin:0 0 8px;
+  margin:0 0 9px;
+  font-size:28px;
+}
+
+.dashboard-header h2 span{
+  color:#16c9ff;
 }
 
 .dashboard-header p{
   margin:0;
-  opacity:.9;
+  color:#9bb2c5;
+  line-height:1.6;
 }
 
 .dashboard-grid{
@@ -255,19 +279,22 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 }
 
 .dashboard-card{
-  background:white;
+  background:#0b2033;
+  border:1px solid rgba(98,190,255,.15);
+  color:#eaf9ff;
   border-radius:18px;
   padding:22px;
-  box-shadow:0 8px 25px rgba(0,0,0,.06);
+  box-shadow:0 8px 25px rgba(0,0,0,.20);
 }
 
 .dashboard-card h3{
   margin-top:0;
+  margin-bottom:18px;
 }
 
 .profile-row{
-  padding:11px 0;
-  border-bottom:1px solid #edf0f2;
+  padding:12px 0;
+  border-bottom:1px solid rgba(98,190,255,.10);
 }
 
 .profile-row:last-child{
@@ -276,16 +303,20 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 
 .profile-row small{
   display:block;
-  color:#667085;
-  margin-bottom:3px;
+  color:#9bb2c5;
+  margin-bottom:4px;
+  font-size:12px;
 }
 
 .profile-row strong{
   word-break:break-word;
+  color:#eaf9ff;
+  font-size:14px;
 }
 
 .booking-item{
-  border:1px solid #e4e7ec;
+  border:1px solid rgba(98,190,255,.14);
+  background:#081b2d;
   border-radius:15px;
   padding:18px;
   margin-bottom:15px;
@@ -300,11 +331,12 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
   align-items:center;
   justify-content:space-between;
   gap:10px;
-  margin-bottom:13px;
+  margin-bottom:15px;
 }
 
 .booking-top strong{
-  color:#087f8c;
+  color:#16c9ff;
+  font-size:14px;
 }
 
 .status-badge{
@@ -316,29 +348,34 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 }
 
 .status-pending{
-  background:#fff4cc;
-  color:#795500;
+  background:rgba(255,193,7,.12);
+  color:#ffd866;
+}
+
+.status-confirmed{
+  background:rgba(22,201,255,.12);
+  color:#6ee7ff;
 }
 
 .status-progress{
-  background:#dbeafe;
-  color:#1d4ed8;
+  background:rgba(22,140,255,.12);
+  color:#72b7ff;
 }
 
 .status-completed{
-  background:#dcfce7;
-  color:#166534;
+  background:rgba(76,175,80,.12);
+  color:#7bea94;
 }
 
 .status-cancelled{
-  background:#fee2e2;
-  color:#b42318;
+  background:rgba(244,67,54,.12);
+  color:#ff8e88;
 }
 
 .booking-details{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:9px 15px;
+  gap:11px 15px;
 }
 
 .booking-detail{
@@ -347,57 +384,102 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 
 .booking-detail small{
   display:block;
-  color:#667085;
-  margin-bottom:2px;
+  color:#8199ab;
+  margin-bottom:3px;
 }
 
 .booking-detail strong{
-  color:#101828;
+  color:#eaf9ff;
+  font-weight:600;
+  word-break:break-word;
+}
+
+.booking-problem{
+  margin-top:14px;
+  padding:12px;
+  background:rgba(255,255,255,.025);
+  border:1px solid rgba(98,190,255,.08);
+  border-radius:9px;
+  color:#d8edf5;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.booking-problem small{
+  display:block;
+  color:#8199ab;
+  margin-bottom:4px;
 }
 
 .invoice-box{
   margin-top:15px;
-  background:#f5fafb;
+  background:rgba(22,201,255,.06);
+  border:1px solid rgba(22,201,255,.12);
   border-radius:10px;
-  padding:12px;
+  padding:13px;
   display:flex;
   justify-content:space-between;
+  gap:10px;
+  align-items:center;
+}
+
+.invoice-box span{
+  color:#9bb2c5;
+  font-size:13px;
 }
 
 .invoice-box strong{
-  color:#087f8c;
+  color:#16c9ff;
+  font-size:16px;
 }
 
 .no-bookings{
   text-align:center;
   padding:35px 15px;
-  color:#667085;
+  color:#9bb2c5;
+}
+
+.no-bookings strong{
+  display:block;
+  color:#eaf9ff;
+  margin-bottom:7px;
+}
+
+.no-bookings p{
+  margin:0;
+  color:#8199ab;
+  font-size:13px;
 }
 
 .dashboard-book-btn{
   border:0;
-  background:#087f8c;
+  background:linear-gradient(135deg,#16c9ff,#168cff);
   color:white;
   padding:11px 17px;
   border-radius:9px;
   cursor:pointer;
   font-weight:700;
-  margin-top:12px;
+  margin-top:15px;
 }
 
 .dashboard-refresh{
-  border:1px solid #087f8c;
-  background:white;
-  color:#087f8c;
+  border:1px solid rgba(22,201,255,.35);
+  background:transparent;
+  color:#16c9ff;
   padding:8px 13px;
   border-radius:8px;
   cursor:pointer;
+}
+
+.dashboard-refresh:hover{
+  background:rgba(22,201,255,.08);
 }
 
 .booking-title-row{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:10px;
   margin-bottom:15px;
 }
 
@@ -408,8 +490,9 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
 
 .login-required{
   display:none;
-  background:#fff4cc;
-  color:#795500;
+  background:rgba(255,193,7,.10);
+  color:#ffd866;
+  border:1px solid rgba(255,193,7,.20);
   padding:13px;
   border-radius:10px;
   margin-bottom:15px;
@@ -450,6 +533,10 @@ content="AC repair Karachi, AC service Karachi, AC installation Karachi, refrige
   .booking-top{
     align-items:flex-start;
     flex-direction:column;
+  }
+
+  .dashboard-header h2{
+    font-size:23px;
   }
 
 }
@@ -1118,7 +1205,7 @@ appliance services across Karachi.
 <div class="dashboard-header">
 
 <h2>
-👋 Welcome, <span id="dashboardName">Customer</span>
+Welcome to <span>Smart Cool & Refrigerator</span>
 </h2>
 
 <p>
@@ -1937,7 +2024,6 @@ import {
   addDoc,
   query,
   where,
-  orderBy,
   getDocs,
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
@@ -1950,7 +2036,7 @@ import {
 const firebaseConfig = {
 
   apiKey:
-    "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
+    "AIzaSyAvnAK6gje0ly5XtxNotNl_dEhJhJ9pSHg",
 
   authDomain:
     "smart-cool-6f513.firebaseapp.com",
@@ -1972,10 +2058,6 @@ const firebaseConfig = {
 
 };
 
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
 
 const app =
   initializeApp(firebaseConfig);
@@ -2032,9 +2114,6 @@ const loginRequired =
 
 const dashboard =
   document.getElementById("dashboard");
-
-const dashboardName =
-  document.getElementById("dashboardName");
 
 const profileName =
   document.getElementById("profileName");
@@ -2387,9 +2466,6 @@ async function loadCustomerProfile(user){
         data.name || "Customer";
 
 
-      dashboardName.textContent =
-        name;
-
       profileName.textContent =
         name;
 
@@ -2403,12 +2479,11 @@ async function loadCustomerProfile(user){
         name;
 
 
-      /* AUTO FILL BOOKING */
-
       document
       .getElementById("customerName")
       .value =
         name;
+
 
       if(data.phone){
 
@@ -2420,9 +2495,6 @@ async function loadCustomerProfile(user){
       }
 
     }else{
-
-      dashboardName.textContent =
-        "Customer";
 
       profileName.textContent =
         "Customer";
@@ -2452,6 +2524,9 @@ async function loadCustomerProfile(user){
 
 /* =====================================================
    LOAD BOOKINGS
+   IMPORTANT:
+   No orderBy here.
+   This avoids Firestore index requirement.
 ===================================================== */
 
 async function loadBookings(){
@@ -2464,7 +2539,7 @@ async function loadBookings(){
 
     bookingsList.innerHTML = `
       <div class="no-bookings">
-        Please login to see your bookings.
+        <strong>Please login to see your bookings.</strong>
       </div>
     `;
 
@@ -2492,10 +2567,6 @@ async function loadBookings(){
           "uid",
           "==",
           user.uid
-        ),
-        orderBy(
-          "createdAt",
-          "desc"
         )
       );
 
@@ -2538,14 +2609,53 @@ async function loadBookings(){
     }
 
 
+    /* =========================================
+       CLIENT-SIDE SORTING
+       Newest booking first
+    ========================================= */
+
+    const bookings =
+      snapshot.docs.map(
+        function(docSnap){
+
+          return {
+            id: docSnap.id,
+            data: docSnap.data()
+          };
+
+        }
+      );
+
+
+    bookings.sort(
+      function(a,b){
+
+        const aTime =
+          a.data.createdAt &&
+          a.data.createdAt.toMillis
+            ? a.data.createdAt.toMillis()
+            : 0;
+
+        const bTime =
+          b.data.createdAt &&
+          b.data.createdAt.toMillis
+            ? b.data.createdAt.toMillis()
+            : 0;
+
+        return bTime - aTime;
+
+      }
+    );
+
+
     let html = "";
 
 
-    snapshot.forEach(
-      function(docSnap){
+    bookings.forEach(
+      function(item){
 
         const booking =
-          docSnap.data();
+          item.data;
 
 
         const status =
@@ -2573,6 +2683,12 @@ async function loadBookings(){
             );
 
         }
+
+
+        const amount =
+          Number(
+            booking.invoiceAmount || 0
+          );
 
 
         html += `
@@ -2653,7 +2769,6 @@ async function loadBookings(){
                 </strong>
               </div>
 
-
             </div>
 
 
@@ -2661,31 +2776,17 @@ async function loadBookings(){
               booking.problem
               ?
               `
-              <div
-                style="
-                  margin-top:13px;
-                  padding:10px;
-                  background:#f8fafc;
-                  border-radius:8px;
-                  font-size:13px;
-                ">
+                <div class="booking-problem">
 
-                <small
-                  style="
-                    display:block;
-                    color:#667085;
-                    margin-bottom:4px;
-                  ">
+                  <small>
+                    Problem
+                  </small>
 
-                  Problem
+                  ${escapeHtml(
+                    booking.problem
+                  )}
 
-                </small>
-
-                ${escapeHtml(
-                  booking.problem
-                )}
-
-              </div>
+                </div>
               `
               :
               ""
@@ -2699,9 +2800,7 @@ async function loadBookings(){
               </span>
 
               <strong>
-                Rs. ${Number(
-                  booking.invoiceAmount || 0
-                ).toLocaleString()}
+                Rs. ${amount.toLocaleString("en-PK")}
               </strong>
 
             </div>
@@ -2726,16 +2825,25 @@ async function loadBookings(){
     );
 
 
+    /*
+      Customer ko technical Firebase error
+      nahi dikhana.
+    */
+
     bookingsList.innerHTML = `
 
       <div class="no-bookings">
 
+        <div style="font-size:36px;margin-bottom:10px;">
+          ⚠️
+        </div>
+
         <strong>
-          Bookings load nahi ho sakin.
+          Bookings temporarily unavailable
         </strong>
 
         <p>
-          Firebase Firestore rules/index check karein.
+          Please try Refresh again.
         </p>
 
       </div>
@@ -2755,24 +2863,42 @@ function getStatusClass(status){
 
   const value =
     String(status)
-    .toLowerCase();
+    .toLowerCase()
+    .trim();
 
 
-  if(value.includes("progress")){
+  if(
+    value.includes("confirm")
+  ){
+
+    return "status-confirmed";
+
+  }
+
+
+  if(
+    value.includes("progress") ||
+    value.includes("working")
+  ){
 
     return "status-progress";
 
   }
 
 
-  if(value.includes("complete")){
+  if(
+    value.includes("complete")
+  ){
 
     return "status-completed";
 
   }
 
 
-  if(value.includes("cancel")){
+  if(
+    value.includes("cancel") ||
+    value.includes("reject")
+  ){
 
     return "status-cancelled";
 
@@ -2790,7 +2916,7 @@ function getStatusClass(status){
 
 function escapeHtml(value){
 
-  return String(value)
+  return String(value ?? "")
     .replaceAll("&","&amp;")
     .replaceAll("<","&lt;")
     .replaceAll(">","&gt;")
@@ -3165,8 +3291,6 @@ bookingForm.addEventListener(
       bookingForm.reset();
 
 
-      /* PROFILE DATA DOBARA FILL */
-
       await loadCustomerProfile(
         user
       );
@@ -3358,4 +3482,3 @@ if(footerCopy){
 
 </body>
 </html>
-```
