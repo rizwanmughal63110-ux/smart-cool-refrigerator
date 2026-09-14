@@ -1,192 +1,970 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Smart Cool & Refrigerator</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Cool & Refrigerator Shop</title>
+
+    <meta name="description" content="Smart Cool & Refrigerator Shop - AC, Refrigerator, Freezer and Cooling Services">
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+<!-- ================= HEADER ================= -->
+
 <header class="site-header">
-  <a class="brand" href="#home">
-    <span class="brand-mark">❄</span>
-    <span><b>SMART COOL</b><small>& REFRIGERATOR</small></span>
-  </a>
-  <button id="menuBtn" class="menu-btn">☰</button>
-  <nav id="mainMenu">
-    <a href="#home">Home</a><a href="#services">Services</a><a href="#account">Account</a>
-    <a href="#booking">Book Service</a><a href="#track">Track Booking</a><a href="#contact">Contact</a>
-  </nav>
+    <div class="container header-inner">
+
+        <a href="index.html" class="logo-area">
+            <div class="logo-icon">❄</div>
+
+            <div class="logo-text">
+                <strong>Smart Cool</strong>
+                <span>& Refrigerator Shop</span>
+            </div>
+        </a>
+
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#booking">Booking</a>
+            <a href="tracking.html">Track Booking</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="menu-btn" type="button" onclick="toggleMenu()">
+            ☰
+        </button>
+
+    </div>
 </header>
 
-<main>
-<section id="home" class="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <div class="eyebrow">● PROFESSIONAL APPLIANCE SERVICES</div>
-    <h1>Smart Cooling.<br><span>Reliable Service.</span></h1>
-    <div class="hero-tags">AC • Refrigerator • Water Dispenser</div>
-    <p>Professional installation, repair, service and maintenance at your doorstep. Experienced technicians and reliable service all over Karachi.</p>
-    <div class="hero-actions">
-      <a class="btn primary" href="#booking">📅 Book a Service</a>
-      <a class="btn secondary" href="tel:+923208463110">📞 Call Now</a>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero-section">
+
+    <div class="container hero-content">
+
+        <div class="hero-text">
+
+            <div class="hero-badge">
+                ❄ Professional Cooling Services
+            </div>
+
+            <h1>
+                Smart Cooling.
+                <br>
+                <span>Smart Service.</span>
+            </h1>
+
+            <p>
+                Expert AC, Refrigerator, Freezer and Cooling
+                solutions for your home and business.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#booking" class="btn btn-primary">
+                    Book a Service
+                </a>
+
+                <a href="tracking.html" class="btn btn-secondary">
+                    Track Booking
+                </a>
+
+            </div>
+
+            <div class="hero-features">
+
+                <div class="hero-feature">
+                    <strong>✓</strong>
+                    <span>Professional Technicians</span>
+                </div>
+
+                <div class="hero-feature">
+                    <strong>✓</strong>
+                    <span>Quality Work</span>
+                </div>
+
+                <div class="hero-feature">
+                    <strong>✓</strong>
+                    <span>Affordable Rates</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="hero-card-icon">
+                ❄️
+            </div>
+
+            <h3>Cooling Experts</h3>
+
+            <p>
+                AC & Refrigerator repair,
+                service, installation and
+                maintenance.
+            </p>
+
+            <a href="#contact" class="btn btn-light">
+                Contact Us
+            </a>
+
+        </div>
+
     </div>
-    <div class="trust-row">
-      <span>✓ <b>Professional</b><small>Technicians</small></span>
-      <span>✓ <b>Quality</b><small>Work</small></span>
-      <span>✓ <b>All Over</b><small>Karachi</small></span>
-    </div>
-  </div>
-  <div class="appliance-wrap">
-    <div class="orbit-label ac">❄ <b>AC Service</b><small>Cooling Experts</small></div>
-    <div class="appliance">
-      <div class="appliance-name">SMART COOL</div>
-      <div class="display">24°<small>COOLING</small></div>
-      <div class="vents"></div>
-    </div>
-    <div class="orbit-label fridge">▣ <b>Fridge Repair</b><small>Reliable Service</small></div>
-    <div class="orbit-label water">💧 <b>Water Dispenser</b><small>Quality Service</small></div>
-    <div class="orbit-label city"><b>KARACHI</b><small>ALL AREA</small></div>
-  </div>
+
 </section>
 
-<section id="services" class="services section">
-  <div class="section-head"><div class="eyebrow">WHAT WE DO</div><h2>Complete Appliance<br><span>Solutions</span></h2><p>Professional services for your home and office appliances.</p></div>
-  <div class="service-grid">
-    <article class="service-card"><div class="icon">❄</div><h3>AC Services</h3><p>Repair • Service • Installation</p><a href="#booking" data-service="AC Repairing">Explore →</a></article>
-    <article class="service-card"><div class="icon">▣</div><h3>Refrigerator</h3><p>Repair • Cooling • Compressor</p><a href="#booking" data-service="Refrigerator Repair">Explore →</a></article>
-    <article class="service-card"><div class="icon">💧</div><h3>Water Dispenser</h3><p>Repair • Cooling • Maintenance</p><a href="#booking" data-service="Water Dispenser">Explore →</a></article>
-    <article class="service-card"><div class="icon">⚡</div><h3>Electrician</h3><p>Home • Office • Electrical Work</p><a href="#booking" data-service="Electrician">Explore →</a></article>
-  </div>
-</section>
 
-<section id="account" class="account section">
-  <div class="section-head"><div class="eyebrow">CUSTOMER ACCOUNT</div><h2>Login & <span>Signup</span></h2></div>
-  <div id="authArea" class="auth-grid">
-    <form id="loginForm" class="glass-card"><h3>Customer Login</h3><input id="loginEmail" type="email" placeholder="Email" required><input id="loginPassword" type="password" placeholder="Password" required><button class="btn primary" type="submit">Login</button><p id="loginMsg"></p></form>
-    <form id="signupForm" class="glass-card"><h3>Create Account</h3><input id="signupName" placeholder="Full Name" required><input id="signupPhone" placeholder="Phone Number" required><input id="signupEmail" type="email" placeholder="Email" required><input id="signupPassword" type="password" minlength="6" placeholder="Password (6+)" required><button class="btn primary" type="submit">Create Account</button><p id="signupMsg"></p></form>
-  </div>
-  <div id="userPanel" class="glass-card hidden"><h3>Welcome, <span id="userName"></span> 👋</h3><p id="userEmail"></p><button id="logoutBtn" class="btn secondary">Logout</button></div>
-</section>
 
-<section id="booking" class="booking section">
-  <div class="section-head"><div class="eyebrow">ONLINE BOOKING</div><h2>Book Your <span>Service</span></h2><p>Login first, then submit your service request.</p></div>
-  <form id="bookingForm" class="booking-card">
-    <div class="form-grid">
-      <input id="customerName" placeholder="Customer Name" required>
-      <input id="customerPhone" placeholder="Phone Number" required>
-      <select id="service" required><option value="">Select Service</option><option>AC Repairing</option><option>AC Service</option><option>AC Installation</option><option>AC Gas Charging</option><option>Refrigerator Repair</option><option>Water Dispenser</option><option>Electrician</option></select>
-      <input id="area" placeholder="Area / Karachi" required>
-      <input id="address" class="full" placeholder="Complete Address" required>
-      <textarea id="problem" class="full" rows="4" placeholder="Describe your problem" required></textarea>
+<!-- ================= SERVICES ================= -->
+
+<section class="services-section" id="services">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>OUR SERVICES</span>
+
+            <h2>
+                Complete Cooling Solutions
+            </h2>
+
+            <p>
+                Reliable repair, installation and maintenance
+                services for your cooling appliances.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+            <!-- Service 1 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ❄️
+                </div>
+
+                <h3>AC Service</h3>
+
+                <p>
+                    Complete AC service, cleaning,
+                    maintenance and performance checking.
+                </p>
+
+                <a href="#booking">
+                    Book Service →
+                </a>
+
+            </div>
+
+
+            <!-- Service 2 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🔧
+                </div>
+
+                <h3>AC Repair</h3>
+
+                <p>
+                    Professional diagnosis and repair
+                    for all common AC problems.
+                </p>
+
+                <a href="#booking">
+                    Book Service →
+                </a>
+
+            </div>
+
+
+            <!-- Service 3 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🧊
+                </div>
+
+                <h3>Refrigerator Repair</h3>
+
+                <p>
+                    Refrigerator cooling, compressor,
+                    gas and electrical repair services.
+                </p>
+
+                <a href="#booking">
+                    Book Service →
+                </a>
+
+            </div>
+
+
+            <!-- Service 4 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ⚙️
+                </div>
+
+                <h3>Freezer Repair</h3>
+
+                <p>
+                    Expert freezer repair and cooling
+                    system maintenance.
+                </p>
+
+                <a href="#booking">
+                    Book Service →
+                </a>
+
+            </div>
+
+
+            <!-- Service 5 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🛠️
+                </div>
+
+                <h3>Installation</h3>
+
+                <p>
+                    Professional AC installation and
+                    safe appliance setup.
+                </p>
+
+                <a href="#booking">
+                    Book Service →
+                </a>
+
+            </div>
+
+
+            <!-- Service 6 -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🏠
+                </div>
+
+                <h3>Home Service</h3>
+
+                <p>
+                    Convenient technician home visits
+                    for repair and maintenance.
+                </p>
+
+                <a href="#booking">
+                    Book Service →
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
-    <button class="btn primary full-btn" type="submit">📅 Submit Booking</button>
-    <p id="bookingMsg"></p>
-  </form>
+
 </section>
 
-<section class="why section"><div class="section-head"><div class="eyebrow">WHY SMART COOL</div><h2>Service You Can <span>Trust</span></h2></div><div class="trust-cards"><div>✓<b>Experienced Technicians</b><small>Reliable appliance work</small></div><div>✓<b>Transparent Service</b><small>Clear communication</small></div><div>✓<b>All Over Karachi</b><small>Home service available</small></div></div></section>
 
 
-<section id="track" class="track section">
-  <div class="section-head">
-    <div class="eyebrow">SERVICE TRACKING</div>
-    <h2>Track Your <span>Booking</span></h2>
-    <p>Login to your customer account and enter your Tracking ID to check your service status.</p>
-  </div>
-  <div class="booking-card track-card">
-    <div class="track-input-row">
-      <input id="homeTrackingId" placeholder="Enter Tracking ID (e.g. TRK-12345678)">
-      <button id="homeTrackBtn" class="btn primary">🔎 Track Booking</button>
+<!-- ================= ABOUT ================= -->
+
+<section class="about-section" id="about">
+
+    <div class="container about-grid">
+
+        <div class="about-box">
+
+            <div class="about-big-icon">
+                ❄
+            </div>
+
+            <h3>Smart Cool</h3>
+
+            <p>
+                Cooling & Appliance Experts
+            </p>
+
+            <div class="about-small-box">
+
+                <strong>Professional</strong>
+                <span>Service</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-content">
+
+            <span class="section-label">
+                ABOUT US
+            </span>
+
+            <h2>
+                Your Trusted Cooling
+                Service Partner
+            </h2>
+
+            <p>
+                Smart Cool & Refrigerator Shop provides
+                reliable AC, refrigerator and freezer
+                repair services.
+            </p>
+
+            <p>
+                Our focus is professional workmanship,
+                honest service and customer satisfaction.
+            </p>
+
+
+            <div class="about-points">
+
+                <div>
+                    <strong>✓</strong>
+                    <span>Experienced Technicians</span>
+                </div>
+
+                <div>
+                    <strong>✓</strong>
+                    <span>Quality Service</span>
+                </div>
+
+                <div>
+                    <strong>✓</strong>
+                    <span>Reasonable Prices</span>
+                </div>
+
+                <div>
+                    <strong>✓</strong>
+                    <span>Home Service Available</span>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-    <p id="homeTrackMsg"></p>
-    <div id="homeTrackResult" class="glass-card hidden"></div>
-  </div>
+
 </section>
 
-<section id="contact" class="contact section"><div class="contact-card"><div><div class="eyebrow">GET IN TOUCH</div><h2>Need a technician?</h2><p>Call or WhatsApp Muhammad Rizwan for service all over Karachi.</p></div><div class="hero-actions"><a class="btn primary" href="https://wa.me/923208463110">💬 WhatsApp Us</a><a class="btn secondary" href="tel:+923208463110">📞 0320 8463110</a></div></div></section>
-</main>
 
-<a class="wa-float" href="https://wa.me/923208463110" aria-label="WhatsApp">💬</a>
-<footer><b>SMART COOL & REFRIGERATOR</b><span>© <span id="year"></span> • All Over Karachi • Muhammad Rizwan — 03208463110</span></footer>
 
-<script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {getAuth,initializeAuth,indexedDBLocalPersistence,browserLocalPersistence,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import {getFirestore,doc,setDoc,getDoc,addDoc,collection,serverTimestamp,query,where,limit,getDocs} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+<!-- ================= BOOKING ================= -->
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
-  authDomain: "smart-cool-6f513.firebaseapp.com",
-  projectId: "smart-cool-6f513",
-  storageBucket: "smart-cool-6f513.firebasestorage.app",
-  messagingSenderId: "10468224529",
-  appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
-  measurementId: "G-Y5SPBHP57C"
-};
-try{auth=initializeAuth(app,{persistence:[indexedDBLocalPersistence,browserLocalPersistence]})}catch(e){auth=getAuth(app)}
-const db=getFirestore(app);
+<section class="booking-section" id="booking">
 
-const $=id=>document.getElementById(id);
-$("year").textContent=new Date().getFullYear();
-$("menuBtn").onclick=()=>{$("mainMenu").classList.toggle("active");$("menuBtn").classList.toggle("active")};
-document.querySelectorAll("nav a").forEach(a=>a.onclick=()=> $("mainMenu").classList.remove("active"));
-document.querySelectorAll("[data-service]").forEach(a=>a.onclick=()=>{$("service").value=a.dataset.service});
+    <div class="container">
 
-$("signupForm").onsubmit=async e=>{e.preventDefault();$("signupMsg").textContent="Creating account...";try{const c=await createUserWithEmailAndPassword(auth,$("signupEmail").value,$("signupPassword").value);await setDoc(doc(db,"customers",c.user.uid),{uid:c.user.uid,name:$("signupName").value,phone:$("signupPhone").value,email:c.user.email,createdAt:serverTimestamp()});$("signupMsg").textContent="Account created successfully."}catch(err){$("signupMsg").textContent=err.message}};
-$("loginForm").onsubmit=async e=>{e.preventDefault();$("loginMsg").textContent="Logging in...";try{await signInWithEmailAndPassword(auth,$("loginEmail").value,$("loginPassword").value);$("loginMsg").textContent=""}catch(err){$("loginMsg").textContent=err.message}};
-$("logoutBtn").onclick=()=>signOut(auth);
+        <div class="section-heading">
 
-onAuthStateChanged(auth,async user=>{if(user){$("authArea").classList.add("hidden");$("userPanel").classList.remove("hidden");$("userName").textContent=user.displayName||user.email.split("@")[0];$("userEmail").textContent=user.email;try{const s=await getDoc(doc(db,"customers",user.uid));if(s.exists()){const d=s.data();$("userName").textContent=d.name||$("userName").textContent;$("customerName").value=d.name||"";$("customerPhone").value=d.phone||""}}catch(e){}}else{$("authArea").classList.remove("hidden");$("userPanel").classList.add("hidden")}});
+            <span>BOOK A SERVICE</span>
 
-$("bookingForm").onsubmit=async e=>{e.preventDefault();const user=auth.currentUser;if(!user){$("bookingMsg").textContent="Please login or create an account first.";location.hash="account";return}const id="BK-"+Math.floor(10000000+Math.random()*90000000);const trackingId="TRK-"+Math.floor(10000000+Math.random()*90000000);const data={bookingId:id,trackingId:trackingId,customerUid:user.uid,customerEmail:user.email,customerName:$("customerName").value,customerPhone:$("customerPhone").value,service:$("service").value,area:$("area").value,address:$("address").value,problem:$("problem").value,status:"pending",source:"website",createdAt:serverTimestamp()};$("bookingMsg").textContent="Submitting...";try{await addDoc(collection(db,"serviceRequests"),data);const text=`New Service Booking%0ABooking ID: ${id}%0ATracking ID: ${trackingId}%0AName: ${data.customerName}%0APhone: ${data.customerPhone}%0AService: ${data.service}%0AArea: ${data.area}%0AAddress: ${data.address}%0AProblem: ${data.problem}`;window.open(`https://wa.me/923208463110?text=${text}`,"_blank");$("bookingMsg").textContent=`Booking submitted! Booking ID: ${id} | Tracking ID: ${trackingId}`;$("bookingForm").reset()}catch(err){$("bookingMsg").textContent=err.message}};
+            <h2>
+                Schedule Your Service
+            </h2>
 
-$("homeTrackBtn").onclick = async () => {
-  const id = $("homeTrackingId").value.trim();
-  const msg = $("homeTrackMsg");
-  const result = $("homeTrackResult");
-  const user = auth.currentUser;
-  result.classList.add("hidden");
-  if (!user) {
-    msg.textContent = "Please login to your customer account first.";
-    location.hash = "account";
-    return;
-  }
-  if (!id) {
-    msg.textContent = "Please enter your Tracking ID.";
-    return;
-  }
-  msg.textContent = "Checking your booking...";
-  try {
-    const q = query(collection(db, "serviceRequests"),
-      where("trackingId", "==", id),
-      where("customerUid", "==", user.uid),
-      limit(1));
-    const snap = await getDocs(q);
-    if (snap.empty) {
-      msg.textContent = "Tracking ID not found in your account.";
-      return;
+            <p>
+                Fill out the form and our technician
+                will contact you.
+            </p>
+
+        </div>
+
+
+        <div class="booking-wrapper">
+
+
+            <!-- Booking Information -->
+
+            <div class="booking-info">
+
+                <h3>
+                    Need a Technician?
+                </h3>
+
+                <p>
+                    Book your required service online.
+                    You will receive a unique Tracking ID
+                    for checking your booking status.
+                </p>
+
+
+                <div class="about-points">
+
+                    <div>
+                        <strong>✓</strong>
+                        <span>Easy Online Booking</span>
+                    </div>
+
+                    <div>
+                        <strong>✓</strong>
+                        <span>Unique Tracking ID</span>
+                    </div>
+
+                    <div>
+                        <strong>✓</strong>
+                        <span>Booking Status Tracking</span>
+                    </div>
+
+                    <div>
+                        <strong>✓</strong>
+                        <span>Quick Response</span>
+                    </div>
+
+                </div>
+
+
+                <a href="tracking.html" class="btn btn-secondary">
+                    Track Existing Booking
+                </a>
+
+            </div>
+
+
+
+            <!-- Booking Form -->
+
+            <div class="booking-form">
+
+                <form id="bookingForm">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="customerName">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="customerName"
+                                name="customerName"
+                                placeholder="Enter your name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="customerPhone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="customerPhone"
+                                name="customerPhone"
+                                placeholder="03XX-XXXXXXX"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="serviceType">
+                                Select Service
+                            </label>
+
+                            <select
+                                id="serviceType"
+                                name="serviceType"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Service
+                                </option>
+
+                                <option value="AC Service">
+                                    AC Service
+                                </option>
+
+                                <option value="AC Repair">
+                                    AC Repair
+                                </option>
+
+                                <option value="AC Installation">
+                                    AC Installation
+                                </option>
+
+                                <option value="Refrigerator Repair">
+                                    Refrigerator Repair
+                                </option>
+
+                                <option value="Freezer Repair">
+                                    Freezer Repair
+                                </option>
+
+                                <option value="Home Service">
+                                    Home Service
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="appliance">
+                                Appliance
+                            </label>
+
+                            <input
+                                type="text"
+                                id="appliance"
+                                name="appliance"
+                                placeholder="e.g. Gree 1.5 Ton AC"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="customerAddress">
+                            Address
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerAddress"
+                            name="customerAddress"
+                            placeholder="Enter your complete address"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="preferredDate">
+                                Preferred Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="preferredDate"
+                                name="preferredDate"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="preferredTime">
+                                Preferred Time
+                            </label>
+
+                            <select
+                                id="preferredTime"
+                                name="preferredTime"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Time
+                                </option>
+
+                                <option value="Morning">
+                                    Morning
+                                </option>
+
+                                <option value="Afternoon">
+                                    Afternoon
+                                </option>
+
+                                <option value="Evening">
+                                    Evening
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="customerMessage">
+                            Problem / Message
+                        </label>
+
+                        <textarea
+                            id="customerMessage"
+                            name="customerMessage"
+                            rows="4"
+                            placeholder="Describe the problem..."
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary submit-btn"
+                    >
+                        Submit Booking
+                    </button>
+
+
+                    <div
+                        id="bookingResult"
+                        class="booking-result"
+                    ></div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= TRACKING ================= -->
+
+<section class="tracking-section">
+
+    <div class="container">
+
+        <div class="tracking-card">
+
+            <div class="tracking-icon">
+                🔎
+            </div>
+
+            <div>
+
+                <span class="section-label">
+                    TRACK YOUR BOOKING
+                </span>
+
+                <h2>
+                    Check Your Service Status
+                </h2>
+
+                <p>
+                    Already booked a service?
+                    Use your Tracking ID to check
+                    your booking status.
+                </p>
+
+            </div>
+
+
+            <a
+                href="tracking.html"
+                class="btn btn-primary"
+            >
+                Track Booking
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact-section" id="contact">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>CONTACT US</span>
+
+            <h2>
+                Get In Touch
+            </h2>
+
+            <p>
+                Need help with your AC or refrigerator?
+                Contact us today.
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <h3>Call Us</h3>
+
+                <p>
+                    Contact us for service booking
+                    and information.
+                </p>
+
+                <a href="tel:+923000000000">
+                    Call Now
+                </a>
+
+            </div>
+
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    💬
+                </div>
+
+                <h3>WhatsApp</h3>
+
+                <p>
+                    Send us a message on WhatsApp
+                    for quick assistance.
+                </p>
+
+                <a
+                    href="https://wa.me/923000000000"
+                    target="_blank"
+                >
+                    WhatsApp Us
+                </a>
+
+            </div>
+
+
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <h3>Service Area</h3>
+
+                <p>
+                    Home service available in
+                    your local area.
+                </p>
+
+                <a href="#booking">
+                    Book Home Service
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CTA ================= -->
+
+<section class="cta-section">
+
+    <div class="container cta-content">
+
+        <div>
+
+            <h2>
+                Need Cooling Service?
+            </h2>
+
+            <p>
+                Book a professional technician today.
+            </p>
+
+        </div>
+
+        <a
+            href="#booking"
+            class="btn btn-light"
+        >
+            Book Now
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="site-footer">
+
+    <div class="container footer-grid">
+
+
+        <div class="footer-about">
+
+            <div class="logo-area">
+
+                <div class="logo-icon">
+                    ❄
+                </div>
+
+                <div class="logo-text">
+
+                    <strong>
+                        Smart Cool
+                    </strong>
+
+                    <span>
+                        & Refrigerator Shop
+                    </span>
+
+                </div>
+
+            </div>
+
+            <p>
+                Professional AC, refrigerator,
+                freezer repair and cooling services.
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+            <h3>Quick Links</h3>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#booking">
+                Booking
+            </a>
+
+            <a href="tracking.html">
+                Track Booking
+            </a>
+
+        </div>
+
+
+
+        <div class="footer-contact">
+
+            <h3>Contact</h3>
+
+            <p>
+                📞 +92 300 0000000
+            </p>
+
+            <p>
+                💬 WhatsApp Available
+            </p>
+
+            <p>
+                📍 Home Service Available
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Smart Cool & Refrigerator Shop.
+            All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+<script>
+
+function toggleMenu() {
+
+    const nav = document.querySelector(".main-nav");
+
+    if (nav) {
+        nav.classList.toggle("active");
     }
-    const d = snap.docs[0].data();
-    result.innerHTML = `
-      <h3>Booking Status</h3>
-      <p><b>Tracking ID:</b> ${d.trackingId || "—"}</p>
-      <p><b>Booking ID:</b> ${d.bookingId || "—"}</p>
-      <p><b>Status:</b> <span class="status-pill">${d.status || "pending"}</span></p>
-      <p><b>Service:</b> ${d.service || "—"}</p>
-      <p><b>Customer:</b> ${d.customerName || "—"}</p>
-      <p><b>Area:</b> ${d.area || "—"}</p>
-      <p><b>Address:</b> ${d.address || "—"}</p>
-      <p><b>Problem:</b> ${d.problem || "—"}</p>
-    `;
-    result.classList.remove("hidden");
-    msg.textContent = "Booking found.";
-  } catch (e) {
-    msg.textContent = e.message;
-  }
-};
+
+}
 
 </script>
+
 </body>
 </html>
