@@ -4,2179 +4,3191 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Smart Cool & Refrigerator - Admin Panel</title>
+<title>Smart Cool & Refrigerator | Admin Panel</title>
 
 <style>
+:root{
+    --primary:#087ea4;
+    --primary-dark:#064861;
+    --secondary:#12b8d4;
+    --bg:#f4f9fc;
+    --white:#fff;
+    --text:#102a43;
+    --muted:#718096;
+    --border:#e1edf2;
+
+    --green:#0f9d72;
+    --green-bg:#e9faf4;
+
+    --yellow:#d99000;
+    --yellow-bg:#fff7df;
+
+    --red:#d64545;
+    --red-bg:#fff0f0;
+
+    --purple:#7654d8;
+    --purple-bg:#f2edff;
+
+    --shadow:0 10px 35px rgba(17,76,96,.08);
+}
+
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f1f5f9;
-  color:#0f172a;
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
 }
 
-button,
-input,
-select,
-textarea{
-  font-family:inherit;
+button,input,textarea,select{
+    font:inherit;
 }
 
 button{
-  cursor:pointer;
+    cursor:pointer;
 }
 
 .hidden{
-  display:none !important;
+    display:none!important;
 }
 
-/* LOGIN */
 
-#loginPage{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  background:linear-gradient(135deg,#0f172a,#0369a1,#06b6d4);
+/* ================= LOGIN ================= */
+
+.login-page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+
+    background:
+        radial-gradient(circle at 15% 20%,rgba(18,184,212,.22),transparent 32%),
+        radial-gradient(circle at 85% 80%,rgba(8,126,164,.18),transparent 35%),
+        linear-gradient(135deg,#eafaff,#f7fcff);
 }
 
 .login-box{
-  width:100%;
-  max-width:420px;
-  background:#fff;
-  padding:35px;
-  border-radius:22px;
-  box-shadow:0 25px 60px rgba(0,0,0,.25);
+    width:100%;
+    max-width:430px;
+    padding:38px 30px;
+    border-radius:28px;
+    background:rgba(255,255,255,.96);
+    box-shadow:0 25px 70px rgba(6,82,108,.16);
 }
 
 .login-logo{
-  width:80px;
-  height:80px;
-  object-fit:contain;
-  display:block;
-  margin:0 auto 15px;
+    text-align:center;
+    margin-bottom:28px;
 }
 
-.login-box h1{
-  text-align:center;
-  font-size:25px;
-  margin-bottom:7px;
+.login-icon{
+    width:78px;
+    height:78px;
+    margin:auto;
+    margin-bottom:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:24px;
+
+    font-size:38px;
+    color:#fff;
+
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+
+    box-shadow:0 12px 30px rgba(8,126,164,.25);
 }
 
-.login-box p{
-  text-align:center;
-  color:#64748b;
-  margin-bottom:25px;
+.login-logo h1{
+    font-size:23px;
+    color:var(--primary-dark);
 }
 
-.form-group{
-  margin-bottom:16px;
+.login-logo p{
+    margin-top:6px;
+    font-size:12px;
+    color:var(--muted);
 }
 
-.form-group label{
-  display:block;
-  font-weight:bold;
-  margin-bottom:7px;
-  font-size:14px;
+.login-title{
+    text-align:center;
+    margin-bottom:20px;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea{
-  width:100%;
-  padding:13px 14px;
-  border:1px solid #cbd5e1;
-  border-radius:10px;
-  outline:none;
-  font-size:15px;
-  background:#fff;
+.login-title h2{
+    font-size:20px;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-  border-color:#0284c7;
-  box-shadow:0 0 0 3px rgba(2,132,199,.1);
-}
-
-.login-btn{
-  width:100%;
-  padding:14px;
-  border:0;
-  border-radius:10px;
-  background:#0284c7;
-  color:#fff;
-  font-weight:bold;
-  font-size:16px;
-}
-
-.login-btn:hover{
-  background:#0369a1;
+.login-title p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
 }
 
 .login-error{
-  margin-top:14px;
-  padding:10px;
-  border-radius:8px;
-  background:#fee2e2;
-  color:#b91c1c;
-  display:none;
-  font-size:14px;
+    display:none;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:10px;
+    color:#b42318;
+    background:#fff1f0;
+    border:1px solid #ffd2cf;
+    font-size:13px;
 }
 
-/* ADMIN */
-
-#adminPage{
-  min-height:100vh;
+.form-group{
+    margin-bottom:17px;
 }
+
+.form-group label{
+    display:block;
+    margin-bottom:7px;
+    font-size:12px;
+    font-weight:700;
+    color:#334e68;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+    width:100%;
+    padding:13px;
+    border:1px solid var(--border);
+    border-radius:11px;
+    outline:none;
+    background:#fbfdfe;
+    color:var(--text);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+    border-color:var(--secondary);
+    box-shadow:0 0 0 4px rgba(18,184,212,.1);
+}
+
+.login-btn{
+    width:100%;
+    border:0;
+    padding:14px;
+    border-radius:12px;
+    color:#fff;
+    font-weight:800;
+
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    box-shadow:0 8px 20px rgba(8,126,164,.2);
+}
+
+
+/* ================= LAYOUT ================= */
+
+.admin-page{
+    min-height:100vh;
+    display:flex;
+}
+
+.sidebar{
+    width:250px;
+    min-height:100vh;
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    z-index:200;
+
+    padding:24px 16px;
+
+    color:#fff;
+
+    background:linear-gradient(
+        180deg,
+        #063f55,
+        #075f7c 55%,
+        #087ea4
+    );
+
+    box-shadow:10px 0 35px rgba(5,72,94,.1);
+}
+
+.sidebar-logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:5px 8px 25px;
+    border-bottom:1px solid rgba(255,255,255,.14);
+}
+
+.sidebar-icon{
+    width:43px;
+    height:43px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:13px;
+    background:rgba(255,255,255,.14);
+    font-size:22px;
+}
+
+.sidebar-logo h2{
+    font-size:16px;
+}
+
+.sidebar-logo span{
+    display:block;
+    margin-top:3px;
+    color:rgba(255,255,255,.6);
+    font-size:10px;
+}
+
+.sidebar-menu{
+    margin-top:25px;
+}
+
+.menu-label{
+    padding:0 10px 10px;
+    color:rgba(255,255,255,.45);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.menu-item{
+    width:100%;
+    border:0;
+    background:transparent;
+    color:rgba(255,255,255,.72);
+
+    padding:12px 13px;
+    margin-bottom:5px;
+
+    border-radius:11px;
+
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    text-align:left;
+
+    font-size:13px;
+    font-weight:600;
+}
+
+.menu-item:hover,
+.menu-item.active{
+    color:#fff;
+    background:rgba(255,255,255,.13);
+}
+
+.menu-item.active{
+    box-shadow:inset 3px 0 0 #fff;
+}
+
+.menu-icon{
+    width:22px;
+    text-align:center;
+}
+
+.sidebar-bottom{
+    position:absolute;
+    left:16px;
+    right:16px;
+    bottom:20px;
+}
+
+.admin-profile{
+    padding:12px;
+    margin-bottom:9px;
+    border-radius:14px;
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.admin-profile small{
+    display:block;
+    margin-bottom:3px;
+    color:rgba(255,255,255,.55);
+    font-size:9px;
+}
+
+.admin-profile strong{
+    font-size:11px;
+    word-break:break-all;
+}
+
+.sidebar-logout{
+    width:100%;
+    padding:11px;
+    border-radius:11px;
+    border:1px solid rgba(255,255,255,.13);
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    font-size:12px;
+    font-weight:700;
+}
+
+.main-content{
+    width:calc(100% - 250px);
+    margin-left:250px;
+    min-height:100vh;
+}
+
+
+/* ================= TOPBAR ================= */
 
 .topbar{
-  height:70px;
-  background:#0f172a;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 25px;
-  position:sticky;
-  top:0;
-  z-index:100;
+    height:76px;
+
+    padding:0 28px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    background:rgba(255,255,255,.95);
+    border-bottom:1px solid var(--border);
+    backdrop-filter:blur(15px);
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:bold;
-  font-size:19px;
+.page-heading h1{
+    font-size:21px;
 }
 
-.brand img{
-  width:45px;
-  height:45px;
-  object-fit:contain;
-  background:#fff;
-  border-radius:9px;
+.page-heading p{
+    margin-top:3px;
+    color:var(--muted);
+    font-size:12px;
 }
 
-.logout-btn{
-  border:0;
-  background:#ef4444;
-  color:#fff;
-  padding:10px 16px;
-  border-radius:8px;
-  font-weight:bold;
+.top-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
 }
 
-.logout-btn:hover{
-  background:#dc2626;
+.top-btn{
+    padding:9px 13px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:#fff;
+    color:#334e68;
+    font-size:12px;
+    font-weight:700;
 }
 
-.main{
-  padding:25px;
-  max-width:1500px;
-  margin:auto;
+.mobile-menu{
+    display:none;
 }
 
-/* STATS */
 
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:15px;
-  margin-bottom:25px;
+/* ================= CONTENT ================= */
+
+.container{
+    max-width:1450px;
+    margin:auto;
+    padding:28px;
+}
+
+.welcome{
+    position:relative;
+    overflow:hidden;
+
+    padding:25px 28px;
+    margin-bottom:23px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+
+    border-radius:22px;
+
+    color:#fff;
+
+    background:linear-gradient(
+        115deg,
+        #064861,
+        #087ea4 60%,
+        #12b8d4
+    );
+
+    box-shadow:0 14px 40px rgba(8,126,164,.18);
+}
+
+.welcome::after{
+    content:"â„";
+    position:absolute;
+    right:40px;
+    top:-28px;
+    font-size:145px;
+    color:rgba(255,255,255,.07);
+}
+
+.welcome-content{
+    position:relative;
+    z-index:2;
+}
+
+.welcome h2{
+    font-size:22px;
+    margin-bottom:6px;
+}
+
+.welcome p{
+    color:rgba(255,255,255,.78);
+    font-size:13px;
+}
+
+.welcome-badge{
+    position:relative;
+    z-index:2;
+    padding:11px 15px;
+    border-radius:12px;
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.16);
+    font-size:12px;
+    font-weight:700;
+}
+
+
+/* ================= STATS ================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:13px;
+    margin-bottom:25px;
 }
 
 .stat-card{
-  background:#fff;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 5px 18px rgba(15,23,42,.07);
-  border:1px solid #e2e8f0;
+    min-width:0;
+
+    padding:17px 14px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+    border-radius:17px;
+
+    box-shadow:var(--shadow);
+
+    transition:.2s;
 }
 
-.stat-card .label{
-  color:#64748b;
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:8px;
+.stat-card:hover{
+    transform:translateY(-2px);
 }
 
-.stat-card .value{
-  font-size:25px;
-  font-weight:800;
-  color:#0f172a;
+.stat-icon{
+    width:44px;
+    height:44px;
+    flex-shrink:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    font-size:20px;
 }
 
-/* TOOLBAR */
+.stat-blue{
+    background:#e8f8fc;
+}
+
+.stat-yellow{
+    background:#fff7df;
+}
+
+.stat-green{
+    background:#e9faf4;
+}
+
+.stat-purple{
+    background:#f2edff;
+}
+
+.stat-money{
+    background:#eaf8ef;
+}
+
+.stat-paid{
+    background:#e6f7ff;
+}
+
+.stat-info{
+    min-width:0;
+}
+
+.stat-info .label{
+    color:var(--muted);
+    font-size:9px;
+    font-weight:800;
+    margin-bottom:5px;
+    white-space:nowrap;
+}
+
+.stat-info .number{
+    color:#102a43;
+    font-size:18px;
+    line-height:1.1;
+    font-weight:850;
+    word-break:break-word;
+}
+
+
+/* ================= SECTION ================= */
+
+.section-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:13px;
+}
+
+.section-header h2{
+    font-size:17px;
+}
+
+.section-header span{
+    color:var(--muted);
+    font-size:11px;
+}
+
+
+/* ================= TOOLBAR ================= */
 
 .toolbar{
-  background:#fff;
-  padding:18px;
-  border-radius:15px;
-  margin-bottom:20px;
-  box-shadow:0 5px 18px rgba(15,23,42,.07);
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+
+    padding:13px;
+    margin-bottom:18px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+    border-radius:16px;
+
+    box-shadow:var(--shadow);
 }
 
 .search-box{
-  flex:1;
-  min-width:220px;
+    position:relative;
+    flex:1;
+    min-width:230px;
 }
 
-.search-box input,
+.search-box input{
+    width:100%;
+    padding:11px 13px 11px 38px;
+
+    border:1px solid var(--border);
+    border-radius:10px;
+
+    outline:none;
+    background:#fbfdfe;
+}
+
+.search-icon{
+    position:absolute;
+    left:13px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#8ba6b2;
+}
+
 .filter-select{
-  width:100%;
-  padding:12px 14px;
-  border:1px solid #cbd5e1;
-  border-radius:9px;
-  outline:none;
+    width:180px;
+    padding:11px 12px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:#fbfdfe;
+    color:#334e68;
+    outline:none;
 }
 
-.refresh-btn{
-  border:0;
-  padding:12px 18px;
-  border-radius:9px;
-  background:#0284c7;
-  color:#fff;
-  font-weight:bold;
+
+/* ================= BOOKINGS ================= */
+
+.bookings{
+    display:grid;
+    gap:14px;
 }
 
-/* BOOKINGS */
+.empty,
+.loading{
+    padding:50px 20px;
+    text-align:center;
+    color:var(--muted);
+    background:#fff;
+    border-radius:17px;
+    border:1px dashed #cbdde4;
+}
 
-.bookings-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:18px;
+.spinner{
+    width:36px;
+    height:36px;
+
+    margin:0 auto 12px;
+
+    border:4px solid #e5f0f4;
+    border-top-color:var(--secondary);
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
 }
 
 .booking-card{
-  background:#fff;
-  border-radius:16px;
-  padding:20px;
-  border:1px solid #e2e8f0;
-  box-shadow:0 5px 18px rgba(15,23,42,.07);
+    padding:20px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    transition:.2s;
+}
+
+.booking-card:hover{
+    border-color:#cce4eb;
+    box-shadow:0 15px 40px rgba(17,76,96,.13);
 }
 
 .booking-header{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:flex-start;
-  margin-bottom:15px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:15px;
+
+    padding-bottom:15px;
+    border-bottom:1px solid #edf3f5;
 }
 
-.booking-header h3{
-  font-size:19px;
-  margin-bottom:5px;
+.customer-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-.booking-id{
-  color:#64748b;
-  font-size:12px;
-  word-break:break-all;
+.customer-avatar{
+    width:46px;
+    height:46px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:linear-gradient(
+        135deg,
+        #e5faff,
+        #d5f4fa
+    );
+
+    color:var(--primary);
+
+    font-size:20px;
+    font-weight:800;
 }
 
-.status-badge{
-  padding:7px 11px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:bold;
-  white-space:nowrap;
+.customer-info h3{
+    margin-bottom:4px;
+    font-size:16px;
+}
+
+.booking-date{
+    margin-top:3px;
+    color:var(--muted);
+    font-size:11px;
+}
+
+.booking-date strong{
+    color:var(--primary);
+}
+
+.status{
+    padding:7px 11px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:800;
+    text-transform:uppercase;
+    white-space:nowrap;
 }
 
 .status-pending{
-  background:#fef3c7;
-  color:#92400e;
+    background:var(--yellow-bg);
+    color:var(--yellow);
 }
 
 .status-confirmed{
-  background:#dbeafe;
-  color:#1d4ed8;
+    background:var(--green-bg);
+    color:var(--green);
 }
 
-.status-in-progress{
-  background:#cffafe;
-  color:#0e7490;
+.status-progress{
+    background:#e8f7fc;
+    color:var(--primary);
 }
 
 .status-completed{
-  background:#dcfce7;
-  color:#166534;
+    background:#e7f8f0;
+    color:#087443;
 }
 
 .status-cancelled{
-  background:#fee2e2;
-  color:#b91c1c;
+    background:var(--red-bg);
+    color:var(--red);
 }
 
-.booking-info{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-bottom:16px;
+
+/* ================= BOOKING GRID ================= */
+
+.booking-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:11px;
+    padding:17px 0;
 }
 
 .info-item{
-  background:#f8fafc;
-  padding:11px;
-  border-radius:9px;
-}
+    min-width:0;
 
-.info-item.full{
-  grid-column:1/-1;
+    padding:11px 12px;
+
+    background:#f9fcfd;
+
+    border:1px solid #edf3f5;
+    border-radius:12px;
 }
 
 .info-label{
-  color:#64748b;
-  font-size:11px;
-  font-weight:bold;
-  text-transform:uppercase;
-  margin-bottom:4px;
+    margin-bottom:5px;
+
+    color:#8aa0aa;
+
+    font-size:9px;
+    font-weight:800;
+
+    text-transform:uppercase;
+    letter-spacing:.5px;
 }
 
 .info-value{
-  font-size:14px;
-  font-weight:600;
-  word-break:break-word;
+    color:#29475a;
+
+    font-size:12px;
+    font-weight:700;
+
+    word-break:break-word;
+    line-height:1.45;
 }
 
-.amount-box{
-  background:#ecfeff;
-  border:1px solid #a5f3fc;
-  padding:12px;
-  border-radius:10px;
-  margin-bottom:15px;
+.problem{
+    grid-column:1/-1;
 }
 
-.amount-row{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin:4px 0;
-}
 
-.amount-row strong{
-  color:#0369a1;
-}
+/* ================= PAYMENT BADGE ================= */
 
 .payment-paid{
-  color:#15803d !important;
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    background:var(--green-bg);
+    color:var(--green);
+    font-size:9px;
+    font-weight:800;
 }
 
 .payment-unpaid{
-  color:#b45309 !important;
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    background:var(--red-bg);
+    color:var(--red);
+    font-size:9px;
+    font-weight:800;
 }
 
-/* ACTIONS */
 
-.actions{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-  border-top:1px solid #e2e8f0;
-  padding-top:15px;
+/* ================= ACTIONS ================= */
+
+.booking-actions{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    flex-wrap:wrap;
+
+    padding-top:14px;
+    border-top:1px solid #edf3f5;
 }
 
 .action-btn{
-  border:0;
-  padding:9px 11px;
-  border-radius:8px;
-  color:#fff;
-  font-size:12px;
-  font-weight:bold;
-}
+    padding:9px 12px;
 
-.confirm-btn{
-  background:#2563eb;
-}
+    border:0;
+    border-radius:9px;
 
-.progress-btn{
-  background:#0891b2;
-}
+    font-size:10px;
+    font-weight:800;
 
-.complete-btn{
-  background:#16a34a;
-}
-
-.cancel-btn{
-  background:#dc2626;
-}
-
-.invoice-btn{
-  background:#7c3aed;
-}
-
-.whatsapp-btn{
-  background:#16a34a;
-}
-
-.delete-btn{
-  background:#475569;
+    transition:.18s;
 }
 
 .action-btn:hover{
-  opacity:.88;
+    transform:translateY(-1px);
 }
 
-/* EMPTY */
-
-.empty{
-  background:#fff;
-  border-radius:15px;
-  padding:50px 20px;
-  text-align:center;
-  color:#64748b;
-  grid-column:1/-1;
+.confirm-btn{
+    background:var(--green-bg);
+    color:var(--green);
 }
 
-/* MODAL */
+.progress-btn{
+    background:#e8f7fc;
+    color:var(--primary);
+}
+
+.complete-btn{
+    background:#e7f8f0;
+    color:#087443;
+}
+
+.cancel-btn{
+    background:var(--red-bg);
+    color:var(--red);
+}
+
+.invoice-btn{
+    background:var(--purple-bg);
+    color:var(--purple);
+}
+
+.whatsapp-btn{
+    background:#e8f8ef;
+    color:#12834d;
+}
+
+.delete-btn{
+    background:#fff1f0;
+    color:#b42318;
+}
+
+
+/* ================= MODAL ================= */
 
 .modal{
-  position:fixed;
-  inset:0;
-  background:rgba(15,23,42,.65);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  z-index:500;
-}
+    position:fixed;
+    inset:0;
+    z-index:1000;
 
-.modal.show{
-  display:flex;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:15px;
+
+    background:rgba(8,42,55,.60);
+    backdrop-filter:blur(5px);
 }
 
 .modal-box{
-  background:#fff;
-  width:100%;
-  max-width:520px;
-  max-height:90vh;
-  overflow-y:auto;
-  border-radius:18px;
-  padding:25px;
+    width:100%;
+    max-width:620px;
+    max-height:92vh;
+    overflow:auto;
+
+    padding:25px;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    box-shadow:0 25px 70px rgba(0,0,0,.25);
 }
 
 .modal-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding-bottom:18px;
+    margin-bottom:20px;
+
+    border-bottom:1px solid var(--border);
+}
+
+.modal-title{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.modal-title-icon{
+    width:40px;
+    height:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+    background:var(--purple-bg);
+
+    font-size:19px;
 }
 
 .modal-header h2{
-  font-size:21px;
+    font-size:19px;
+}
+
+.modal-header p{
+    margin-top:2px;
+    color:var(--muted);
+    font-size:11px;
 }
 
 .close-btn{
-  border:0;
-  background:#e2e8f0;
-  width:35px;
-  height:35px;
-  border-radius:50%;
-  font-size:18px;
+    width:34px;
+    height:34px;
+
+    border:0;
+    border-radius:10px;
+
+    background:#f2f6f8;
+    color:#607d8b;
+
+    font-size:20px;
+}
+
+.payment-select{
+    background:#fff;
 }
 
 .modal-actions{
-  display:flex;
-  gap:10px;
-  margin-top:20px;
+    display:flex;
+    justify-content:flex-end;
+    gap:8px;
+    flex-wrap:wrap;
+
+    margin-top:20px;
+    padding-top:17px;
+
+    border-top:1px solid var(--border);
 }
 
-.save-invoice{
-  flex:1;
-  border:0;
-  padding:12px;
-  background:#0284c7;
-  color:#fff;
-  border-radius:9px;
-  font-weight:bold;
-}
+.modal-btn{
+    padding:11px 16px;
+    border:0;
+    border-radius:10px;
 
-.cancel-modal{
-  flex:1;
-  border:0;
-  padding:12px;
-  background:#e2e8f0;
-  color:#0f172a;
-  border-radius:9px;
-  font-weight:bold;
-}
-
-/* TOAST */
-
-#toast{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:#0f172a;
-  color:#fff;
-  padding:13px 18px;
-  border-radius:10px;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
-  transform:translateY(100px);
-  opacity:0;
-  transition:.3s;
-  z-index:1000;
-  max-width:350px;
-}
-
-#toast.show{
-  transform:translateY(0);
-  opacity:1;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1200px){
-  .stats-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-
-@media(max-width:850px){
-  .bookings-grid{
-    grid-template-columns:1fr;
-  }
-
-  .main{
-    padding:15px;
-  }
-
-  .topbar{
-    padding:0 15px;
-  }
-
-  .brand{
-    font-size:15px;
-  }
-}
-
-@media(max-width:600px){
-  .stats-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .stat-card{
-    padding:15px;
-  }
-
-  .stat-card .value{
-    font-size:19px;
-  }
-
-  .booking-info{
-    grid-template-columns:1fr;
-  }
-
-  .info-item.full{
-    grid-column:auto;
-  }
-
-  .login-box{
-    padding:25px 20px;
-  }
-
-  .topbar{
-    height:auto;
-    min-height:70px;
-    gap:10px;
-  }
-
-  .logout-btn{
-    padding:8px 11px;
     font-size:12px;
-  }
+    font-weight:800;
+}
+
+.save-btn{
+    color:#fff;
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+}
+
+.print-btn{
+    color:#475467;
+    background:#f2f4f7;
+}
+
+.cancel-modal-btn{
+    color:#b42318;
+    background:#fff0ef;
+}
+
+
+/* ================= TOAST ================= */
+
+.toast{
+    position:fixed;
+    right:22px;
+    bottom:22px;
+    z-index:3000;
+
+    display:none;
+
+    max-width:340px;
+
+    padding:13px 17px;
+
+    border-radius:12px;
+
+    background:#102a43;
+    color:#fff;
+
+    font-size:12px;
+    font-weight:700;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+
+/* ================= MOBILE ================= */
+
+.sidebar-overlay{
+    display:none;
+}
+
+@media(max-width:1250px){
+
+    .stats{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:1050px){
+
+    .booking-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:800px){
+
+    .sidebar{
+        width:225px;
+        transform:translateX(-100%);
+        transition:.25s;
+    }
+
+    .sidebar.open{
+        transform:translateX(0);
+    }
+
+    .sidebar-overlay.show{
+        display:block;
+
+        position:fixed;
+        inset:0;
+        z-index:150;
+
+        background:rgba(0,0,0,.35);
+    }
+
+    .main-content{
+        width:100%;
+        margin-left:0;
+    }
+
+    .mobile-menu{
+        display:flex;
+
+        width:38px;
+        height:38px;
+
+        align-items:center;
+        justify-content:center;
+
+        border:1px solid var(--border);
+        border-radius:10px;
+
+        background:#fff;
+        color:var(--primary);
+    }
+
+    .topbar{
+        height:68px;
+        padding:0 15px;
+    }
+
+    .page-heading h1{
+        font-size:17px;
+    }
+
+    .page-heading p{
+        display:none;
+    }
+
+    .container{
+        padding:18px 14px 40px;
+    }
+
+    .welcome{
+        padding:20px;
+    }
+
+    .welcome h2{
+        font-size:19px;
+    }
+
+    .welcome-badge{
+        display:none;
+    }
+
+}
+
+@media(max-width:650px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+        gap:9px;
+    }
+
+    .stat-card{
+        padding:13px 10px;
+    }
+
+    .stat-icon{
+        width:38px;
+        height:38px;
+        font-size:17px;
+    }
+
+    .stat-info .number{
+        font-size:16px;
+    }
+
+    .stat-info .label{
+        font-size:8px;
+    }
+
+}
+
+@media(max-width:560px){
+
+    .booking-card{
+        padding:14px;
+    }
+
+    .booking-header{
+        flex-direction:column;
+    }
+
+    .status{
+        align-self:flex-start;
+    }
+
+    .booking-grid{
+        grid-template-columns:1fr;
+    }
+
+    .problem{
+        grid-column:auto;
+    }
+
+    .action-btn{
+        flex:1;
+        min-width:105px;
+        text-align:center;
+    }
+
+    .search-box{
+        min-width:100%;
+    }
+
+    .filter-select{
+        width:100%;
+    }
+
+    .modal-box{
+        padding:18px;
+        border-radius:18px;
+    }
+
+    .modal-actions{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .save-btn{
+        grid-column:1/-1;
+    }
+
+    .top-actions .logout-btn{
+        display:none;
+    }
+
+    .top-actions .refresh-btn{
+        font-size:0;
+        width:38px;
+        height:38px;
+        padding:0;
+    }
+
+    .top-actions .refresh-btn::before{
+        content:"ðŸ”„";
+        font-size:15px;
+    }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= LOGIN ================= -->
 
-<div id="loginPage">
+<!-- =========================================================
+     LOGIN PAGE
+========================================================= -->
 
-  <div class="login-box">
+<div id="loginPage" class="login-page">
 
-    <img
-      src="Logo.png"
-      class="login-logo"
-      onerror="this.style.display='none'"
-      alt="Smart Cool Logo"
-    >
+    <div class="login-box">
 
-    <h1>Smart Cool & Refrigerator</h1>
-    <p>Admin / Owner Panel</p>
+        <div class="login-logo">
 
-    <div class="form-group">
-      <label>Admin Email</label>
-      <input
-        type="email"
-        id="loginEmail"
-        placeholder="Enter admin email"
-        autocomplete="email"
-      >
+            <div class="login-icon">
+                â„ï¸
+            </div>
+
+            <h1>
+                Smart Cool & Refrigerator
+            </h1>
+
+            <p>
+                AC â€¢ Refrigerator â€¢ Electrician Services
+            </p>
+
+        </div>
+
+
+        <div class="login-title">
+
+            <h2>
+                Admin Login
+            </h2>
+
+            <p>
+                Sign in to manage customer bookings
+            </p>
+
+        </div>
+
+
+        <div id="loginError" class="login-error"></div>
+
+
+        <form id="loginForm">
+
+            <div class="form-group">
+
+                <label>
+                    Admin Email
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter admin email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter password"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-btn"
+            >
+                ðŸ” Sign In to Dashboard
+            </button>
+
+        </form>
+
     </div>
 
-    <div class="form-group">
-      <label>Password</label>
-      <input
-        type="password"
-        id="loginPassword"
-        placeholder="Enter password"
-        autocomplete="current-password"
-      >
-    </div>
+</div>
 
-    <button
-      class="login-btn"
-      onclick="ownerLogin()"
-    >
-      Login
-    </button>
+
+
+<!-- =========================================================
+     ADMIN PAGE
+========================================================= -->
+
+<div id="adminPage" class="admin-page hidden">
+
+
+    <!-- SIDEBAR -->
+
+    <aside id="sidebar" class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <div class="sidebar-icon">
+                â„ï¸
+            </div>
+
+            <div>
+
+                <h2>
+                    Smart Cool
+                </h2>
+
+                <span>
+                    & Refrigerator
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-menu">
+
+            <div class="menu-label">
+                Dashboard
+            </div>
+
+
+            <button
+                class="menu-item active"
+                onclick="scrollTopPage();closeSidebar();"
+            >
+                <span class="menu-icon">ðŸ“Š</span>
+                Dashboard
+            </button>
+
+
+            <button
+                class="menu-item"
+                onclick="focusBookings();closeSidebar();"
+            >
+                <span class="menu-icon">ðŸ“‹</span>
+                Service Bookings
+            </button>
+
+
+            <button
+                class="menu-item"
+                onclick="loadBookings();closeSidebar();"
+            >
+                <span class="menu-icon">ðŸ”„</span>
+                Refresh Data
+            </button>
+
+        </div>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-profile">
+
+                <small>
+                    LOGGED IN AS
+                </small>
+
+                <strong id="adminEmailDisplay">
+                    Admin
+                </strong>
+
+            </div>
+
+
+            <button
+                class="sidebar-logout"
+                onclick="logoutAdmin()"
+            >
+                ðŸšª Logout
+            </button>
+
+        </div>
+
+    </aside>
+
 
     <div
-      id="loginError"
-      class="login-error"
+        id="sidebarOverlay"
+        class="sidebar-overlay"
+        onclick="closeSidebar()"
     ></div>
 
-  </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <button
+                class="mobile-menu"
+                onclick="toggleSidebar()"
+            >
+                â˜°
+            </button>
+
+
+            <div class="page-heading">
+
+                <h1>
+                    Admin Dashboard
+                </h1>
+
+                <p>
+                    Manage bookings, payments & invoices
+                </p>
+
+            </div>
+
+
+            <div class="top-actions">
+
+                <button
+                    class="top-btn refresh-btn"
+                    onclick="loadBookings()"
+                >
+                    ðŸ”„ Refresh
+                </button>
+
+
+                <button
+                    class="top-btn logout-btn"
+                    onclick="logoutAdmin()"
+                >
+                    ðŸšª Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- DASHBOARD -->
+
+        <main
+            id="dashboardTop"
+            class="container"
+        >
+
+
+            <!-- WELCOME -->
+
+            <section class="welcome">
+
+                <div class="welcome-content">
+
+                    <h2>
+                        Welcome to Smart Cool ðŸ‘‹
+                    </h2>
+
+                    <p>
+                        Manage AC, refrigerator and electrician service bookings from here.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-badge">
+                    â„ï¸ Service Management
+                </div>
+
+            </section>
+
+
+
+            <!-- STATS -->
+
+            <section class="stats">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon stat-blue">
+                        ðŸ“‹
+                    </div>
+
+                    <div class="stat-info">
+
+                        <div class="label">
+                            TOTAL BOOKINGS
+                        </div>
+
+                        <div
+                            id="totalCount"
+                            class="number"
+                        >
+                            0
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon stat-yellow">
+                        â³
+                    </div>
+
+                    <div class="stat-info">
+
+                        <div class="label">
+                            PENDING
+                        </div>
+
+                        <div
+                            id="pendingCount"
+                            class="number"
+                        >
+                            0
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon stat-green">
+                        âœ…
+                    </div>
+
+                    <div class="stat-info">
+
+                        <div class="label">
+                            CONFIRMED
+                        </div>
+
+                        <div
+                            id="confirmedCount"
+                            class="number"
+                        >
+                            0
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon stat-purple">
+                        ðŸ†
+                    </div>
+
+                    <div class="stat-info">
+
+                        <div class="label">
+                            COMPLETED
+                        </div>
+
+                        <div
+                            id="completedCount"
+                            class="number"
+                        >
+                            0
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon stat-money">
+                        ðŸ’°
+                    </div>
+
+                    <div class="stat-info">
+
+                        <div class="label">
+                            TOTAL AMOUNT
+                        </div>
+
+                        <div
+                            id="totalAmount"
+                            class="number"
+                        >
+                            PKR 0
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon stat-paid">
+                        ðŸ’µ
+                    </div>
+
+                    <div class="stat-info">
+
+                        <div class="label">
+                            PAID AMOUNT
+                        </div>
+
+                        <div
+                            id="paidAmount"
+                            class="number"
+                        >
+                            PKR 0
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <div
+                id="bookingsSection"
+                class="section-header"
+            >
+
+                <h2>
+                    Service Bookings
+                </h2>
+
+                <span>
+                    Customer requests
+                </span>
+
+            </div>
+
+
+
+            <div class="toolbar">
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        ðŸ”Ž
+                    </span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search customer, phone, tracking ID..."
+                        oninput="renderBookings()"
+                    >
+
+                </div>
+
+
+                <select
+                    id="statusFilter"
+                    class="filter-select"
+                    onchange="renderBookings()"
+                >
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="pending">
+                        Pending
+                    </option>
+
+                    <option value="confirmed">
+                        Confirmed
+                    </option>
+
+                    <option value="in-progress">
+                        In Progress
+                    </option>
+
+                    <option value="completed">
+                        Completed
+                    </option>
+
+                    <option value="cancelled">
+                        Cancelled
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div
+                id="bookingsContainer"
+                class="bookings"
+            >
+
+                <div class="loading">
+
+                    <div class="spinner"></div>
+
+                    Loading bookings...
+
+                </div>
+
+            </div>
+
+
+        </main>
+
+    </div>
 
 </div>
 
 
-<!-- ================= ADMIN PAGE ================= -->
 
-<div id="adminPage" class="hidden">
-
-  <div class="topbar">
-
-    <div class="brand">
-
-      <img
-        src="Logo.png"
-        onerror="this.style.display='none'"
-        alt="Logo"
-      >
-
-      <span>Smart Cool & Refrigerator</span>
-
-    </div>
-
-    <button
-      class="logout-btn"
-      onclick="ownerLogout()"
-    >
-      Logout
-    </button>
-
-  </div>
-
-
-  <main class="main">
-
-    <!-- STATS -->
-
-    <div class="stats-grid">
-
-      <div class="stat-card">
-        <div class="label">TOTAL BOOKINGS</div>
-        <div
-          class="value"
-          id="totalCount"
-        >
-          0
-        </div>
-      </div>
-
-      <div class="stat-card">
-        <div class="label">PENDING</div>
-        <div
-          class="value"
-          id="pendingCount"
-        >
-          0
-        </div>
-      </div>
-
-      <div class="stat-card">
-        <div class="label">CONFIRMED</div>
-        <div
-          class="value"
-          id="confirmedCount"
-        >
-          0
-        </div>
-      </div>
-
-      <div class="stat-card">
-        <div class="label">COMPLETED</div>
-        <div
-          class="value"
-          id="completedCount"
-        >
-          0
-        </div>
-      </div>
-
-      <div class="stat-card">
-        <div class="label">TOTAL AMOUNT</div>
-        <div
-          class="value"
-          id="totalAmount"
-        >
-          PKR 0
-        </div>
-      </div>
-
-      <div class="stat-card">
-        <div class="label">PAID AMOUNT</div>
-        <div
-          class="value"
-          id="paidAmount"
-        >
-          PKR 0
-        </div>
-      </div>
-
-    </div>
-
-
-    <!-- TOOLBAR -->
-
-    <div class="toolbar">
-
-      <div class="search-box">
-
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search customer, phone, booking ID or tracking ID..."
-          oninput="renderBookings()"
-        >
-
-      </div>
-
-      <div style="min-width:180px">
-
-        <select
-          id="statusFilter"
-          class="filter-select"
-          onchange="renderBookings()"
-        >
-
-          <option value="all">
-            All Status
-          </option>
-
-          <option value="pending">
-            Pending
-          </option>
-
-          <option value="confirmed">
-            Confirmed
-          </option>
-
-          <option value="in-progress">
-            In Progress
-          </option>
-
-          <option value="completed">
-            Completed
-          </option>
-
-          <option value="cancelled">
-            Cancelled
-          </option>
-
-        </select>
-
-      </div>
-
-      <button
-        class="refresh-btn"
-        onclick="loadRequests()"
-      >
-        🔄 Refresh
-      </button>
-
-    </div>
-
-
-    <!-- BOOKINGS -->
-
-    <div
-      id="bookingsContainer"
-      class="bookings-grid"
-    >
-
-      <div class="empty">
-        Loading bookings...
-      </div>
-
-    </div>
-
-  </main>
-
-</div>
-
-
-<!-- ================= INVOICE MODAL ================= -->
+<!-- =========================================================
+     INVOICE MODAL
+========================================================= -->
 
 <div
-  id="invoiceModal"
-  class="modal"
+    id="invoiceModal"
+    class="modal hidden"
 >
 
-  <div class="modal-box">
+    <div class="modal-box">
 
-    <div class="modal-header">
 
-      <h2>🧾 Create / Update Invoice</h2>
+        <div class="modal-header">
 
-      <button
-        class="close-btn"
-        onclick="closeInvoice()"
-      >
-        ×
-      </button>
+            <div class="modal-title">
+
+                <div class="modal-title-icon">
+                    ðŸ§¾
+                </div>
+
+                <div>
+
+                    <h2>
+                        Service Invoice
+                    </h2>
+
+                    <p>
+                        Create, save and print customer invoice
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="close-btn"
+                onclick="closeInvoiceModal()"
+            >
+                Ã—
+            </button>
+
+        </div>
+
+
+
+        <form id="invoiceForm">
+
+
+            <input
+                type="hidden"
+                id="invoiceBookingId"
+            >
+
+
+            <div class="form-group">
+
+                <label>
+                    Customer Name
+                </label>
+
+                <input
+                    type="text"
+                    id="invoiceCustomer"
+                    readonly
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Tracking ID
+                </label>
+
+                <input
+                    type="text"
+                    id="invoiceTracking"
+                    readonly
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Invoice Amount (PKR)
+                </label>
+
+                <input
+                    type="number"
+                    id="invoiceAmount"
+                    min="0"
+                    placeholder="Enter total service amount"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Payment Status
+                </label>
+
+                <select
+                    id="paymentStatus"
+                    class="payment-select"
+                >
+
+                    <option value="unpaid">
+                        âŒ Unpaid
+                    </option>
+
+                    <option value="paid">
+                        âœ… Paid
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Invoice Note
+                </label>
+
+                <textarea
+                    id="invoiceNote"
+                    rows="4"
+                    placeholder="Example: AC service completed. 1 month service warranty."
+                ></textarea>
+
+            </div>
+
+
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="modal-btn cancel-modal-btn"
+                    onclick="closeInvoiceModal()"
+                >
+                    Close
+                </button>
+
+
+                <button
+                    type="button"
+                    class="modal-btn print-btn"
+                    onclick="printInvoice()"
+                >
+                    ðŸ–¨ï¸ Print Invoice
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="modal-btn save-btn"
+                >
+                    ðŸ’¾ Save Invoice
+                </button>
+
+            </div>
+
+
+        </form>
 
     </div>
-
-
-    <div class="form-group">
-
-      <label>Customer</label>
-
-      <input
-        type="text"
-        id="invoiceCustomer"
-        readonly
-      >
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Tracking ID</label>
-
-      <input
-        type="text"
-        id="invoiceTracking"
-        readonly
-      >
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Invoice Amount (PKR)</label>
-
-      <input
-        type="number"
-        id="invoiceAmount"
-        min="0"
-        placeholder="Enter amount"
-      >
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Payment Status</label>
-
-      <select id="invoicePaymentStatus">
-
-        <option value="unpaid">
-          Unpaid
-        </option>
-
-        <option value="paid">
-          Paid
-        </option>
-
-      </select>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label>Invoice Note</label>
-
-      <textarea
-        id="invoiceNote"
-        rows="4"
-        placeholder="Enter invoice details / notes"
-      ></textarea>
-
-    </div>
-
-
-    <div class="modal-actions">
-
-      <button
-        class="cancel-modal"
-        onclick="closeInvoice()"
-      >
-        Cancel
-      </button>
-
-      <button
-        class="save-invoice"
-        onclick="saveInvoice()"
-      >
-        💾 Save Invoice
-      </button>
-
-    </div>
-
-  </div>
 
 </div>
 
 
-<div id="toast"></div>
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast"
+></div>
 
 
-<!-- ================= FIREBASE ================= -->
+
+<!-- =========================================================
+     FIREBASE
+========================================================= -->
 
 <script type="module">
 
 import {
-  initializeApp
+    initializeApp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 import {
-  getFirestore,
-  collection,
-  query,
-  orderBy,
-  getDocs,
-  updateDoc,
-  deleteDoc,
-  doc,
-  serverTimestamp
+    getFirestore,
+    collection,
+    query,
+    orderBy,
+    getDocs,
+    updateDoc,
+    deleteDoc,
+    doc,
+    serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 
-/* ================= FIREBASE CONFIG ================= */
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
 
 const firebaseConfig = {
 
-  apiKey:
-    "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
+    apiKey:
+        "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
 
-  authDomain:
-    "smart-cool-6f513.firebaseapp.com",
+    authDomain:
+        "smart-cool-6f513.firebaseapp.com",
 
-  projectId:
-    "smart-cool-6f513",
+    projectId:
+        "smart-cool-6f513",
 
-  storageBucket:
-    "smart-cool-6f513.firebasestorage.app",
+    storageBucket:
+        "smart-cool-6f513.firebasestorage.app",
 
-  messagingSenderId:
-    "10468224529",
+    messagingSenderId:
+        "10468224529",
 
-  appId:
-    "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+    appId:
+        "1:10468224529:web:51026a5b4ac67a4ad40bb0",
 
-  measurementId:
-    "G-Y5SPBHP57C"
+    measurementId:
+        "G-Y5SPBHP57C"
 
 };
 
 
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-const db = getFirestore(app);
+const app =
+    initializeApp(firebaseConfig);
 
 
-/* ================= ADMIN EMAIL ================= */
+const auth =
+    getAuth(app);
 
-/*
-  IMPORTANT:
-  Yahan apna Firebase admin email rakhein.
-*/
+
+const db =
+    getFirestore(app);
+
+
+/* =========================================================
+   ADMIN EMAIL
+========================================================= */
 
 const ADMIN_EMAILS = [
-
-  "qoutex798@gmail.com"
-
+    "qoutex798@gmail.com"
 ];
 
 
-/* ================= GLOBAL DATA ================= */
-
 let allBookings = [];
 
-let currentInvoiceFirestoreId = null;
 
+/* =========================================================
+   ELEMENTS
+========================================================= */
 
-/* ================= HELPERS ================= */
-
-function escapeHtml(value){
-
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
-
-
-function escapeJs(value){
-
-  return String(value ?? "")
-    .replace(/\\/g,"\\\\")
-    .replace(/'/g,"\\'")
-    .replace(/"/g,'\\"')
-    .replace(/\n/g,"\\n")
-    .replace(/\r/g,"\\r");
-
-}
-
-
-function formatMoney(amount){
-
-  return Number(amount || 0).toLocaleString("en-PK");
-
-}
-
-
-function getTimestampMs(value){
-
-  if(!value) return 0;
-
-  try{
-
-    if(typeof value.toMillis === "function"){
-      return value.toMillis();
-    }
-
-    if(value.seconds){
-      return Number(value.seconds) * 1000;
-    }
-
-    if(value instanceof Date){
-      return value.getTime();
-    }
-
-    const date = new Date(value);
-
-    if(!isNaN(date.getTime())){
-      return date.getTime();
-    }
-
-  }catch(error){
-
-    console.log(error);
-
-  }
-
-  return 0;
-
-}
-
-
-function formatDate(value){
-
-  const ms = getTimestampMs(value);
-
-  if(!ms){
-    return "N/A";
-  }
-
-  return new Date(ms).toLocaleString("en-PK",{
-    dateStyle:"medium",
-    timeStyle:"short"
-  });
-
-}
-
-
-/* ================= STATUS ================= */
-
-function normalizeStatus(status){
-
-  if(!status){
-    return "pending";
-  }
-
-  const value =
-    String(status)
-      .toLowerCase()
-      .trim();
-
-
-  if(
-    value === "in progress" ||
-    value === "in_progress" ||
-    value === "progress"
-  ){
-
-    return "in-progress";
-
-  }
-
-
-  if(
-    value === "cancel" ||
-    value === "canceled" ||
-    value === "rejected"
-  ){
-
-    return "cancelled";
-
-  }
-
-
-  return value;
-
-}
-
-
-function statusText(status){
-
-  const value = normalizeStatus(status);
-
-  if(value === "in-progress"){
-    return "In Progress";
-  }
-
-  if(value === "cancelled"){
-    return "Cancelled";
-  }
-
-  if(value === "confirmed"){
-    return "Confirmed";
-  }
-
-  if(value === "completed"){
-    return "Completed";
-  }
-
-  return "Pending";
-
-}
-
-
-function statusClass(status){
-
-  const value = normalizeStatus(status);
-
-  if(value === "in-progress"){
-    return "status-in-progress";
-  }
-
-  if(value === "cancelled"){
-    return "status-cancelled";
-  }
-
-  if(value === "confirmed"){
-    return "status-confirmed";
-  }
-
-  if(value === "completed"){
-    return "status-completed";
-  }
-
-  return "status-pending";
-
-}
-
-
-/* ================= PHONE ================= */
-
-/*
-  Customer phone number ko different possible
-  Firebase field names se find karega.
-*/
-
-function getCustomerPhone(booking){
-
-  return (
-
-    booking?.phone ||
-
-    booking?.mobile ||
-
-    booking?.whatsapp ||
-
-    booking?.whatsappNumber ||
-
-    booking?.phoneNumber ||
-
-    booking?.customerPhone ||
-
-    booking?.contactNumber ||
-
-    booking?.contact ||
-
-    booking?.customerMobile ||
-
-    booking?.customerWhatsapp ||
-
-    ""
-
-  );
-
-}
-
-
-/* ================= TRACKING ID ================= */
-
-function generateDisplayId(booking){
-
-  if(
-    booking?.trackingId &&
-    booking.trackingId !== booking.firestoreId
-  ){
-
-    return booking.trackingId;
-
-  }
-
-
-  if(
-    booking?.trackingID &&
-    booking.trackingID !== booking.firestoreId
-  ){
-
-    return booking.trackingID;
-
-  }
-
-
-  const created =
-    getTimestampMs(booking?.createdAt);
-
-
-  if(created){
-
-    return "SC-" + String(created).slice(-8);
-
-  }
-
-
-  return "SC-BOOKING";
-
-}
-
-
-/* ================= BOOKING ID ================= */
-
-function getBookingId(booking){
-
-  const rawBookingId =
-    booking?.bookingId || "";
-
-  if(
-    rawBookingId &&
-    rawBookingId !== booking.firestoreId
-  ){
-
-    return rawBookingId;
-
-  }
-
-  return "";
-
-}
-
-
-/* ================= AMOUNT ================= */
-
-function getInvoiceAmount(booking){
-
-  const possibleValues = [
-
-    booking?.invoiceAmount,
-
-    booking?.totalAmount,
-
-    booking?.amount,
-
-    booking?.price
-
-  ];
-
-
-  for(const value of possibleValues){
-
-    if(
-      value !== undefined &&
-      value !== null &&
-      value !== ""
-    ){
-
-      const number =
-        Number(
-          String(value)
-            .replace(/,/g,"")
-            .replace(/[^\d.-]/g,"")
-        );
-
-
-      if(
-        !isNaN(number) &&
-        number > 0
-      ){
-
-        return number;
-
-      }
-
-    }
-
-  }
-
-
-  return 0;
-
-}
-
-
-/* ================= PAYMENT ================= */
-
-function getPaymentStatus(booking){
-
-  const value =
-    String(
-      booking?.paymentStatus ||
-      booking?.payment ||
-      "unpaid"
-    )
-    .toLowerCase()
-    .trim();
-
-
-  return value === "paid"
-    ? "paid"
-    : "unpaid";
-
-}
-
-
-/* ================= TOAST ================= */
-
-function showToast(message){
-
-  const toast =
-    document.getElementById("toast");
-
-  toast.textContent = message;
-
-  toast.classList.add("show");
-
-
-  setTimeout(()=>{
-
-    toast.classList.remove("show");
-
-  },3000);
-
-}
-
-
-/* ================= LOGIN ================= */
-
-window.ownerLogin = async function(){
-
-  const email =
-    document
-      .getElementById("loginEmail")
-      .value
-      .trim()
-      .toLowerCase();
-
-
-  const password =
-    document
-      .getElementById("loginPassword")
-      .value;
-
-
-  const errorBox =
-    document.getElementById("loginError");
-
-
-  errorBox.style.display = "none";
-
-
-  if(!email || !password){
-
-    errorBox.textContent =
-      "Please enter email and password.";
-
-    errorBox.style.display = "block";
-
-    return;
-
-  }
-
-
-  if(!ADMIN_EMAILS.includes(email)){
-
-    errorBox.textContent =
-      "This email is not authorized as admin.";
-
-    errorBox.style.display = "block";
-
-    return;
-
-  }
-
-
-  try{
-
-    await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
+const loginPage =
+    document.getElementById(
+        "loginPage"
     );
 
-  }catch(error){
+const adminPage =
+    document.getElementById(
+        "adminPage"
+    );
 
-    console.error(error);
+const loginForm =
+    document.getElementById(
+        "loginForm"
+    );
 
-    errorBox.textContent =
-      error.message ||
-      "Login failed.";
+const loginError =
+    document.getElementById(
+        "loginError"
+    );
 
-    errorBox.style.display = "block";
-
-  }
-
-};
-
-
-/* ================= LOGOUT ================= */
-
-window.ownerLogout = async function(){
-
-  try{
-
-    await signOut(auth);
-
-  }catch(error){
-
-    console.error(error);
-
-  }
-
-};
+const bookingsContainer =
+    document.getElementById(
+        "bookingsContainer"
+    );
 
 
-/* ================= AUTH STATE ================= */
+/* =========================================================
+   AUTH
+========================================================= */
 
 onAuthStateChanged(
-  auth,
-  async user => {
+    auth,
+    async (user) => {
 
-    if(user){
+        if(user){
 
-      const email =
-        String(user.email || "")
-          .toLowerCase();
-
-
-      if(!ADMIN_EMAILS.includes(email)){
-
-        await signOut(auth);
-
-        return;
-
-      }
+            const email =
+                (user.email || "")
+                .toLowerCase();
 
 
-      document
-        .getElementById("loginPage")
-        .classList.add("hidden");
+            if(
+                !ADMIN_EMAILS.includes(
+                    email
+                )
+            ){
+
+                await signOut(auth);
+
+                showLoginError(
+                    "This account is not authorized as admin."
+                );
+
+                return;
+
+            }
 
 
-      document
-        .getElementById("adminPage")
-        .classList.remove("hidden");
+            loginPage.classList.add(
+                "hidden"
+            );
+
+            adminPage.classList.remove(
+                "hidden"
+            );
 
 
-      await loadRequests();
-
-    }else{
-
-      document
-        .getElementById("loginPage")
-        .classList.remove("hidden");
+            document.getElementById(
+                "adminEmailDisplay"
+            ).textContent =
+                user.email || "Admin";
 
 
-      document
-        .getElementById("adminPage")
-        .classList.add("hidden");
-
-    }
-
-  }
-);
+            await loadBookings();
 
 
-/* ================= LOAD BOOKINGS ================= */
+        }else{
 
-window.loadRequests = async function(){
+            loginPage.classList.remove(
+                "hidden"
+            );
 
-  const container =
-    document.getElementById(
-      "bookingsContainer"
-    );
-
-
-  container.innerHTML = `
-    <div class="empty">
-      Loading bookings...
-    </div>
-  `;
-
-
-  try{
-
-    const q =
-      query(
-        collection(
-          db,
-          "serviceRequests"
-        ),
-        orderBy(
-          "createdAt",
-          "desc"
-        )
-      );
-
-
-    const snapshot =
-      await getDocs(q);
-
-
-    allBookings =
-      snapshot.docs.map(item =>({
-
-        firestoreId:item.id,
-
-        ...item.data()
-
-      }));
-
-
-    updateStats();
-
-    renderBookings();
-
-
-  }catch(error){
-
-    console.error(error);
-
-
-    container.innerHTML = `
-      <div class="empty">
-        <h3>Unable to load bookings</h3>
-        <p style="margin-top:8px">
-          ${escapeHtml(error.message)}
-        </p>
-      </div>
-    `;
-
-  }
-
-};
-
-
-/* ================= STATS ================= */
-
-function updateStats(){
-
-  const total =
-    allBookings.length;
-
-
-  const pending =
-    allBookings.filter(
-      b =>
-        normalizeStatus(b.status)
-        === "pending"
-    ).length;
-
-
-  const confirmed =
-    allBookings.filter(
-      b =>
-        normalizeStatus(b.status)
-        === "confirmed"
-    ).length;
-
-
-  const completed =
-    allBookings.filter(
-      b =>
-        normalizeStatus(b.status)
-        === "completed"
-    ).length;
-
-
-  const totalAmount =
-    allBookings.reduce(
-      (sum,b) =>
-        sum + getInvoiceAmount(b),
-      0
-    );
-
-
-  const paidAmount =
-    allBookings.reduce(
-      (sum,b) => {
-
-        if(
-          getPaymentStatus(b)
-          === "paid"
-        ){
-
-          return sum +
-            getInvoiceAmount(b);
+            adminPage.classList.add(
+                "hidden"
+            );
 
         }
 
-        return sum;
-
-      },
-      0
-    );
+    }
+);
 
 
-  document
-    .getElementById("totalCount")
-    .textContent = total;
+/* =========================================================
+   LOGIN
+========================================================= */
+
+loginForm.addEventListener(
+    "submit",
+    async (e) => {
+
+        e.preventDefault();
+
+        loginError.style.display =
+            "none";
 
 
-  document
-    .getElementById("pendingCount")
-    .textContent = pending;
+        const email =
+            document.getElementById(
+                "loginEmail"
+            ).value
+            .trim()
+            .toLowerCase();
 
 
-  document
-    .getElementById("confirmedCount")
-    .textContent = confirmed;
+        const password =
+            document.getElementById(
+                "loginPassword"
+            ).value;
 
 
-  document
-    .getElementById("completedCount")
-    .textContent = completed;
+        if(
+            !ADMIN_EMAILS.includes(email)
+        ){
+
+            showLoginError(
+                "This email is not authorized."
+            );
+
+            return;
+
+        }
 
 
-  document
-    .getElementById("totalAmount")
-    .textContent =
-      "PKR " +
-      formatMoney(totalAmount);
+        try{
+
+            await signInWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+        }catch(error){
+
+            console.error(error);
+
+            showLoginError(
+                getFirebaseError(error)
+            );
+
+        }
+
+    }
+);
 
 
-  document
-    .getElementById("paidAmount")
-    .textContent =
-      "PKR " +
-      formatMoney(paidAmount);
+function showLoginError(message){
+
+    loginError.textContent =
+        message;
+
+    loginError.style.display =
+        "block";
 
 }
 
 
-/* ================= RENDER BOOKINGS ================= */
+function getFirebaseError(error){
 
-window.renderBookings = function(){
+    const code =
+        error?.code || "";
 
-  const container =
-    document.getElementById(
-      "bookingsContainer"
+
+    if(
+        code.includes(
+            "invalid-credential"
+        )
+    ){
+
+        return "Email or password is incorrect.";
+
+    }
+
+
+    if(
+        code.includes(
+            "wrong-password"
+        )
+    ){
+
+        return "Password is incorrect.";
+
+    }
+
+
+    if(
+        code.includes(
+            "user-not-found"
+        )
+    ){
+
+        return "Admin account not found.";
+
+    }
+
+
+    if(
+        code.includes(
+            "too-many-requests"
+        )
+    ){
+
+        return "Too many attempts. Please try again later.";
+
+    }
+
+
+    return (
+        error?.message ||
+        "Login failed."
     );
 
-
-  const search =
-    document
-      .getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
+}
 
 
-  const filter =
-    document
-      .getElementById("statusFilter")
-      .value;
+/* =========================================================
+   LOGOUT
+========================================================= */
 
+window.logoutAdmin =
+async function(){
 
-  const filtered =
-    allBookings.filter(booking => {
+    try{
 
-      const customerName =
-        booking.customerName ||
-        booking.name ||
-        "";
+        await signOut(auth);
 
+    }catch(error){
 
-      const phone =
-        getCustomerPhone(booking);
+        console.error(error);
 
-
-      const trackingId =
-        generateDisplayId(booking);
-
-
-      const bookingId =
-        getBookingId(booking);
-
-
-      const service =
-        booking.service ||
-        booking.serviceType ||
-        "";
-
-
-      const searchText =
-        (
-          customerName +
-          " " +
-          phone +
-          " " +
-          trackingId +
-          " " +
-          bookingId +
-          " " +
-          service
-        )
-        .toLowerCase();
-
-
-      const matchesSearch =
-        !search ||
-        searchText.includes(search);
-
-
-      const matchesStatus =
-        filter === "all" ||
-        normalizeStatus(
-          booking.status
-        ) === filter;
-
-
-      return (
-        matchesSearch &&
-        matchesStatus
-      );
-
-    });
-
-
-  if(filtered.length === 0){
-
-    container.innerHTML = `
-      <div class="empty">
-        <h3>No bookings found</h3>
-        <p style="margin-top:7px">
-          Try changing your search or filter.
-        </p>
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  container.innerHTML =
-    filtered
-      .map(createBookingCard)
-      .join("");
+    }
 
 };
 
 
-/* ================= BOOKING CARD ================= */
+/* =========================================================
+   LOAD BOOKINGS
+========================================================= */
 
-function createBookingCard(booking){
+window.loadBookings =
+async function(){
 
-  const firestoreId =
-    booking.firestoreId;
+    bookingsContainer.innerHTML = `
 
+        <div class="loading">
 
-  const customerName =
-    booking.customerName ||
-    booking.name ||
-    "Customer";
+            <div class="spinner"></div>
 
+            Loading bookings...
 
-  const phone =
-    getCustomerPhone(booking);
+        </div>
 
-
-  const trackingId =
-    generateDisplayId(booking);
+    `;
 
 
-  const bookingId =
-    getBookingId(booking);
+    try{
+
+        const bookingsRef =
+            collection(
+                db,
+                "serviceRequests"
+            );
 
 
-  const service =
-    booking.service ||
-    booking.serviceType ||
-    booking.category ||
-    "Service";
+        const q =
+            query(
+                bookingsRef,
+                orderBy(
+                    "createdAt",
+                    "desc"
+                )
+            );
 
 
-  const address =
-    booking.address ||
-    booking.location ||
-    "Not provided";
+        const snapshot =
+            await getDocs(q);
 
 
-  const city =
-    booking.city ||
-    "Karachi";
+        allBookings = [];
 
 
-  const notes =
-    booking.message ||
-    booking.notes ||
-    booking.problem ||
-    booking.description ||
-    "No additional details";
+        snapshot.forEach(
+            (item) => {
 
+                allBookings.push({
 
-  const createdAt =
-    booking.createdAt;
+                    firestoreId:
+                        item.id,
 
+                    ...item.data()
 
-  const amount =
-    getInvoiceAmount(booking);
+                });
 
-
-  const paymentStatus =
-    getPaymentStatus(booking);
-
-
-  const status =
-    normalizeStatus(booking.status);
-
-
-  return `
-
-    <div class="booking-card">
-
-      <div class="booking-header">
-
-        <div>
-
-          <h3>
-            ${escapeHtml(customerName)}
-          </h3>
-
-          <div class="booking-id">
-            ${
-              bookingId
-                ? "Booking ID: " +
-                  escapeHtml(bookingId)
-                : "Booking ID: —"
             }
-          </div>
+        );
 
-        </div>
 
+        updateStats();
 
-        <span
-          class="status-badge ${statusClass(status)}"
-        >
-          ${statusText(status)}
-        </span>
+        renderBookings();
 
-      </div>
 
+    }catch(error){
 
-      <div class="booking-info">
+        console.error(
+            "Primary loading error:",
+            error
+        );
 
-        <div class="info-item">
 
-          <div class="info-label">
-            Tracking ID
-          </div>
+        try{
 
-          <div class="info-value">
-            ${escapeHtml(trackingId)}
-          </div>
+            const snapshot =
+                await getDocs(
+                    collection(
+                        db,
+                        "serviceRequests"
+                    )
+                );
 
-        </div>
 
+            allBookings = [];
 
-        <div class="info-item">
 
-          <div class="info-label">
-            Phone / WhatsApp
-          </div>
+            snapshot.forEach(
+                (item) => {
 
-          <div class="info-value">
-            ${
-              phone
-                ? escapeHtml(phone)
-                : "Not provided"
-            }
-          </div>
+                    allBookings.push({
 
-        </div>
+                        firestoreId:
+                            item.id,
 
+                        ...item.data()
 
-        <div class="info-item">
+                    });
 
-          <div class="info-label">
-            Service
-          </div>
+                }
+            );
 
-          <div class="info-value">
-            ${escapeHtml(service)}
-          </div>
 
-        </div>
+            allBookings.sort(
+                (a,b) =>
+                    getTimestampMs(
+                        b.createdAt
+                    )
+                    -
+                    getTimestampMs(
+                        a.createdAt
+                    )
+            );
 
 
-        <div class="info-item">
+            updateStats();
 
-          <div class="info-label">
-            Date
-          </div>
+            renderBookings();
 
-          <div class="info-value">
-            ${escapeHtml(
-              formatDate(createdAt)
-            )}
-          </div>
 
-        </div>
+        }catch(error2){
 
+            console.error(error2);
 
-        <div class="info-item full">
 
-          <div class="info-label">
-            Address
-          </div>
+            bookingsContainer.innerHTML = `
 
-          <div class="info-value">
-            ${escapeHtml(address)}
-            ${
-              city
-                ? ", " + escapeHtml(city)
-                : ""
-            }
-          </div>
+                <div class="empty">
 
-        </div>
+                    âŒ Unable to load bookings.
 
+                    <br><br>
 
-        <div class="info-item full">
+                    ${escapeHtml(
+                        error2.message ||
+                        "Unknown error"
+                    )}
 
-          <div class="info-label">
-            Customer Details
-          </div>
+                </div>
 
-          <div class="info-value">
-            ${escapeHtml(notes)}
-          </div>
-
-        </div>
+            `;
 
-      </div>
+        }
 
+    }
 
-      <div class="amount-box">
+};
 
-        <div class="amount-row">
 
-          <span>
-            Invoice Amount
-          </span>
-
-          <strong>
-            PKR ${formatMoney(amount)}
-          </strong>
-
-        </div>
+/* =========================================================
+   UPDATE STATS
+========================================================= */
 
-
-        <div class="amount-row">
-
-          <span>
-            Payment
-          </span>
-
-          <strong
-            class="${
-              paymentStatus === "paid"
-                ? "payment-paid"
-                : "payment-unpaid"
-            }"
-          >
-            ${
-              paymentStatus === "paid"
-                ? "PAID"
-                : "UNPAID"
-            }
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      <div class="actions">
-
-        <button
-          class="action-btn confirm-btn"
-          onclick="updateBookingStatus(
-            '${escapeJs(firestoreId)}',
-            'Confirmed'
-          )"
-        >
-          Confirm
-        </button>
-
-
-        <button
-          class="action-btn progress-btn"
-          onclick="updateBookingStatus(
-            '${escapeJs(firestoreId)}',
-            'In Progress'
-          )"
-        >
-          🔧 In Progress
-        </button>
-
-
-        <button
-          class="action-btn complete-btn"
-          onclick="updateBookingStatus(
-            '${escapeJs(firestoreId)}',
-            'Completed'
-          )"
-        >
-          ✔️ Completed
-        </button>
-
-
-        <button
-          class="action-btn cancel-btn"
-          onclick="updateBookingStatus(
-            '${escapeJs(firestoreId)}',
-            'Cancelled'
-          )"
-        >
-          ❌ Cancel
-        </button>
-
-
-        <button
-          class="action-btn invoice-btn"
-          onclick="openInvoice(
-            '${escapeJs(firestoreId)}'
-          )"
-        >
-          🧾 Invoice
-        </button>
-
-
-        <!--
-          WhatsApp button ALWAYS appears.
-          Agar number available nahi hoga to alert show hoga.
-        -->
-
-        <button
-          class="action-btn whatsapp-btn"
-          onclick="openWhatsApp(
-            '${escapeJs(phone)}',
-            '${escapeJs(customerName)}',
-            '${escapeJs(trackingId)}'
-          )"
-        >
-          📱 WhatsApp
-        </button>
-
-
-        <button
-          class="action-btn delete-btn"
-          onclick="deleteBooking(
-            '${escapeJs(firestoreId)}'
-          )"
-        >
-          🗑️ Delete
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
+function updateStats(){
+
+    const total =
+        allBookings.length;
+
+
+    const pending =
+        allBookings.filter(
+            b =>
+                normalizeStatus(
+                    b.status
+                ) === "pending"
+        ).length;
+
+
+    const confirmed =
+        allBookings.filter(
+            b =>
+                normalizeStatus(
+                    b.status
+                ) === "confirmed"
+        ).length;
+
+
+    const completed =
+        allBookings.filter(
+            b =>
+                normalizeStatus(
+                    b.status
+                ) === "completed"
+        ).length;
+
+
+    const totalAmount =
+        allBookings.reduce(
+            (sum,b) => {
+
+                return (
+                    sum +
+                    getInvoiceAmount(b)
+                );
+
+            },
+            0
+        );
+
+
+    const paidAmount =
+        allBookings.reduce(
+            (sum,b) => {
+
+                if(
+                    getPaymentStatus(b)
+                    === "paid"
+                ){
+
+                    return (
+                        sum +
+                        getInvoiceAmount(b)
+                    );
+
+                }
+
+                return sum;
+
+            },
+            0
+        );
+
+
+    document.getElementById(
+        "totalCount"
+    ).textContent =
+        total;
+
+
+    document.getElementById(
+        "pendingCount"
+    ).textContent =
+        pending;
+
+
+    document.getElementById(
+        "confirmedCount"
+    ).textContent =
+        confirmed;
+
+
+    document.getElementById(
+        "completedCount"
+    ).textContent =
+        completed;
+
+
+    document.getElementById(
+        "totalAmount"
+    ).textContent =
+        "PKR " +
+        formatMoney(
+            totalAmount
+        );
+
+
+    document.getElementById(
+        "paidAmount"
+    ).textContent =
+        "PKR " +
+        formatMoney(
+            paidAmount
+        );
 
 }
 
 
-/* ================= TRACKING LINK ================= */
+/* =========================================================
+   RENDER BOOKINGS
+========================================================= */
 
-function getTrackingLink(){
+window.renderBookings =
+function(){
 
-  /*
-    IMPORTANT:
-    Ye aapki GitHub Pages tracking.html file ka link hai.
-  */
-
-  return "https://rizwanmughal63110-ux.github.io/smart-cool-refrigerator/tracking.html";
-
-}
+    const search =
+        document.getElementById(
+            "searchInput"
+        ).value
+        .trim()
+        .toLowerCase();
 
 
-/* ================= STATUS WHATSAPP MESSAGE ================= */
+    const status =
+        document.getElementById(
+            "statusFilter"
+        ).value;
 
-function getStatusMessage(
-  status,
-  customerName,
-  trackingId
+
+    const filtered =
+        allBookings.filter(
+            booking => {
+
+                const currentStatus =
+                    normalizeStatus(
+                        booking.status
+                    );
+
+
+                if(
+                    status !== "all" &&
+                    currentStatus !== status
+                ){
+
+                    return false;
+
+                }
+
+
+                if(!search){
+
+                    return true;
+
+                }
+
+
+                const text = [
+
+                    booking.customerName,
+                    booking.name,
+                    booking.phone,
+                    booking.mobile,
+                    booking.whatsapp,
+                    booking.whatsappNumber,
+                    booking.phoneNumber,
+                    booking.customerPhone,
+                    booking.contactNumber,
+                    booking.contact,
+                    booking.customerMobile,
+                    booking.customerWhatsapp,
+                    booking.trackingId,
+                    booking.trackingID,
+                    booking.bookingId,
+                    booking.service,
+                    booking.serviceType,
+                    booking.problem,
+                    booking.address
+
+                ]
+                .filter(Boolean)
+                .join(" ")
+                .toLowerCase();
+
+
+                return text.includes(
+                    search
+                );
+
+            }
+        );
+
+
+    if(
+        filtered.length === 0
+    ){
+
+        bookingsContainer.innerHTML = `
+
+            <div class="empty">
+
+                ðŸ“­
+
+                <br><br>
+
+                No bookings found.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    bookingsContainer.innerHTML =
+        filtered
+        .map(
+            bookingCardHtml
+        )
+        .join("");
+
+};
+
+
+/* =========================================================
+   BOOKING CARD
+========================================================= */
+
+function bookingCardHtml(
+    booking
 ){
 
-  const trackingLink =
-    getTrackingLink();
+    const customerName =
+        booking.customerName ||
+        booking.name ||
+        "Customer";
 
 
-  const normalized =
-    normalizeStatus(status);
+    /*
+       Support all common customer
+       phone/WhatsApp field names.
+    */
+
+    const phone =
+        booking.phone ||
+        booking.mobile ||
+        booking.whatsapp ||
+        booking.whatsappNumber ||
+        booking.phoneNumber ||
+        booking.customerPhone ||
+        booking.contactNumber ||
+        booking.contact ||
+        booking.customerMobile ||
+        booking.customerWhatsapp ||
+        "Not provided";
 
 
-  if(normalized === "confirmed"){
+    const service =
+        booking.service ||
+        booking.serviceType ||
+        "Service";
 
-    return `Assalam o Alaikum ${customerName},
+
+    const problem =
+        booking.problem ||
+        booking.issue ||
+        booking.message ||
+        "Not provided";
+
+
+    const address =
+        booking.address ||
+        booking.location ||
+        "Not provided";
+
+
+    const preferredDate =
+        booking.preferredDate ||
+        booking.date ||
+        "Not provided";
+
+
+    const preferredTime =
+        booking.preferredTime ||
+        booking.time ||
+        "Not provided";
+
+
+    const trackingId =
+        booking.trackingId ||
+        booking.trackingID ||
+        generateDisplayId(
+            booking
+        );
+
+
+    const rawBookingId =
+        booking.bookingId || "";
+
+
+    const validBookingId =
+        rawBookingId &&
+        rawBookingId !==
+            booking.firestoreId
+            ?
+            rawBookingId
+            :
+            "";
+
+
+    const status =
+        normalizeStatus(
+            booking.status
+        );
+
+
+    const invoiceAmount =
+        getInvoiceAmount(
+            booking
+        );
+
+
+    const paymentStatus =
+        getPaymentStatus(
+            booking
+        );
+
+
+    const initial =
+        escapeHtml(
+            customerName
+            .charAt(0)
+            .toUpperCase()
+        );
+
+
+    return `
+
+        <article class="booking-card">
+
+
+            <div class="booking-header">
+
+                <div class="customer-area">
+
+                    <div class="customer-avatar">
+                        ${initial}
+                    </div>
+
+
+                    <div class="customer-info">
+
+                        <h3>
+                            ${escapeHtml(
+                                customerName
+                            )}
+                        </h3>
+
+
+                        ${
+                            validBookingId
+                            ?
+                            `
+                            <div class="booking-date">
+
+                                Booking ID:
+
+                                <strong>
+                                    ${escapeHtml(
+                                        validBookingId
+                                    )}
+                                </strong>
+
+                            </div>
+                            `
+                            :
+                            ""
+                        }
+
+
+                        <div class="booking-date">
+
+                            Tracking ID:
+
+                            <strong>
+                                ${escapeHtml(
+                                    trackingId
+                                )}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="booking-date">
+
+                            Submitted:
+
+                            ${escapeHtml(
+                                formatDate(
+                                    booking.createdAt
+                                )
+                            )}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <span
+                    class="status status-${statusClass(status)}"
+                >
+                    ${escapeHtml(
+                        statusLabel(status)
+                    )}
+                </span>
+
+            </div>
+
+
+
+            <div class="booking-grid">
+
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Phone
+                    </div>
+
+                    <div class="info-value">
+                        ${escapeHtml(phone)}
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Service
+                    </div>
+
+                    <div class="info-value">
+                        ${escapeHtml(service)}
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Preferred Date
+                    </div>
+
+                    <div class="info-value">
+                        ${escapeHtml(
+                            preferredDate
+                        )}
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Preferred Time
+                    </div>
+
+                    <div class="info-value">
+                        ${escapeHtml(
+                            preferredTime
+                        )}
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Address
+                    </div>
+
+                    <div class="info-value">
+                        ${escapeHtml(
+                            address
+                        )}
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Invoice Amount
+                    </div>
+
+                    <div class="info-value">
+
+                        ${
+                            invoiceAmount > 0
+                            ?
+                            "PKR " +
+                            formatMoney(
+                                invoiceAmount
+                            )
+                            :
+                            "Not created"
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Payment
+                    </div>
+
+                    <div class="info-value">
+
+                        ${
+                            paymentStatus === "paid"
+                            ?
+                            `
+                            <span class="payment-paid">
+                                âœ… PAID
+                            </span>
+                            `
+                            :
+                            `
+                            <span class="payment-unpaid">
+                                âŒ UNPAID
+                            </span>
+                            `
+                        }
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Customer Problem
+                    </div>
+
+                    <div class="info-value">
+                        ${escapeHtml(problem)}
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="booking-actions">
+
+
+                <button
+                    class="action-btn confirm-btn"
+                    onclick="updateBookingStatus(
+                        '${booking.firestoreId}',
+                        'confirmed'
+                    )"
+                >
+                    âœ… Confirm
+                </button>
+
+
+                <button
+                    class="action-btn progress-btn"
+                    onclick="updateBookingStatus(
+                        '${booking.firestoreId}',
+                        'in-progress'
+                    )"
+                >
+                    ðŸ”§ In Progress
+                </button>
+
+
+                <button
+                    class="action-btn complete-btn"
+                    onclick="updateBookingStatus(
+                        '${booking.firestoreId}',
+                        'completed'
+                    )"
+                >
+                    âœ”ï¸ Completed
+                </button>
+
+
+                <button
+                    class="action-btn cancel-btn"
+                    onclick="updateBookingStatus(
+                        '${booking.firestoreId}',
+                        'cancelled'
+                    )"
+                >
+                    âŒ Cancel
+                </button>
+
+
+                <button
+                    class="action-btn invoice-btn"
+                    onclick="openInvoiceModal(
+                        '${booking.firestoreId}'
+                    )"
+                >
+                    ðŸ§¾ Invoice
+                </button>
+
+
+                <!-- WHATSAPP IS NOW ALWAYS VISIBLE -->
+
+                <button
+                    class="action-btn whatsapp-btn"
+                    onclick="openWhatsApp(
+                        '${escapeJs(phone)}',
+                        '${escapeJs(customerName)}',
+                        '${escapeJs(trackingId)}'
+                    )"
+                >
+                    ðŸ“± WhatsApp
+                </button>
+
+
+                <button
+                    class="action-btn delete-btn"
+                    onclick="deleteBooking(
+                        '${booking.firestoreId}'
+                    )"
+                >
+                    ðŸ—‘ï¸ Delete
+                </button>
+
+
+            </div>
+
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================================================
+   GET INVOICE AMOUNT
+========================================================= */
+
+function getInvoiceAmount(
+    booking
+){
+
+    const value =
+        Number(
+            booking?.invoiceAmount || 0
+        );
+
+
+    return isNaN(value)
+        ? 0
+        : value;
+
+}
+
+
+/* =========================================================
+   GET PAYMENT STATUS
+========================================================= */
+
+function getPaymentStatus(
+    booking
+){
+
+    const value =
+        String(
+            booking?.paymentStatus ||
+            "unpaid"
+        )
+        .toLowerCase()
+        .trim();
+
+
+    return value === "paid"
+        ? "paid"
+        : "unpaid";
+
+}
+
+
+/* =========================================================
+   NEW WHATSAPP STATUS MESSAGE
+========================================================= */
+
+function getStatusWhatsAppMessage(
+    status,
+    customerName,
+    trackingId
+){
+
+    const trackingLink =
+        "https://rizwanmughal63110-ux.github.io/smart-cool-refrigerator/tracking.html";
+
+
+    if(status === "confirmed"){
+
+        return `Assalam o Alaikum ${customerName},
 
 Your Smart Cool & Refrigerator service booking has been CONFIRMED. ✅
 
@@ -2192,12 +3204,12 @@ Our team will contact you regarding the service.
 Thank you for choosing Smart Cool & Refrigerator.
 All over Karachi.`;
 
-  }
+    }
 
 
-  if(normalized === "in-progress"){
+    if(status === "in-progress"){
 
-    return `Assalam o Alaikum ${customerName},
+        return `Assalam o Alaikum ${customerName},
 
 Your Smart Cool & Refrigerator service is now IN PROGRESS. 🔧
 
@@ -2212,12 +3224,12 @@ Our technician is working on your service request.
 
 Thank you for choosing Smart Cool & Refrigerator.`;
 
-  }
+    }
 
 
-  if(normalized === "completed"){
+    if(status === "completed"){
 
-    return `Assalam o Alaikum ${customerName},
+        return `Assalam o Alaikum ${customerName},
 
 Your Smart Cool & Refrigerator service has been COMPLETED successfully. ✔️
 
@@ -2232,12 +3244,12 @@ Thank you for choosing Smart Cool & Refrigerator.
 
 For any further assistance, please contact us.`;
 
-  }
+    }
 
 
-  if(normalized === "cancelled"){
+    if(status === "cancelled"){
 
-    return `Assalam o Alaikum ${customerName},
+        return `Assalam o Alaikum ${customerName},
 
 Your Smart Cool & Refrigerator service booking has been CANCELLED. ❌
 
@@ -2252,14 +3264,14 @@ If you need any assistance or want to book again, please contact us.
 
 Thank you.`;
 
-  }
+    }
 
 
-  return `Assalam o Alaikum ${customerName},
+    return `Assalam o Alaikum ${customerName},
 
 Your Smart Cool & Refrigerator booking status has been updated.
 
-Current Status: ${status}
+Current Status: ${statusLabel(status)}
 
 Tracking ID: ${trackingId}
 
@@ -2268,1089 +3280,1833 @@ ${trackingLink}
 
 Thank you for choosing Smart Cool & Refrigerator.`;
 
-
 }
 
 
-/* ================= STATUS UPDATE ================= */
+/* =========================================================
+   UPDATE STATUS + WHATSAPP
+========================================================= */
 
 window.updateBookingStatus =
 async function(
-  firestoreId,
-  newStatus
+    firestoreId,
+    newStatus
 ){
 
-  const booking =
-    allBookings.find(
-      item =>
-        item.firestoreId === firestoreId
-    );
+    const booking =
+        allBookings.find(
+            item =>
+                item.firestoreId ===
+                firestoreId
+        );
 
 
-  if(!booking){
+    if(!booking){
 
-    showToast(
-      "Booking not found."
-    );
+        showToast(
+            "Booking not found."
+        );
 
-    return;
+        return;
 
-  }
-
-
-  /*
-    WhatsApp tab pehle open kar rahe hain
-    taake browser popup blocker na lagaye.
-  */
-
-  let waWindow = null;
-
-
-  try{
-
-    waWindow =
-      window.open(
-        "about:blank",
-        "_blank"
-      );
-
-  }catch(error){
-
-    console.log(error);
-
-  }
-
-
-  try{
-
-    await updateDoc(
-
-      doc(
-        db,
-        "serviceRequests",
-        firestoreId
-      ),
-
-      {
-        status:newStatus,
-
-        updatedAt:
-          serverTimestamp()
-
-      }
-
-    );
-
-
-    booking.status =
-      newStatus;
-
-
-    updateStats();
-
-    renderBookings();
+    }
 
 
     const customerName =
-      booking.customerName ||
-      booking.name ||
-      "Customer";
+        booking.customerName ||
+        booking.name ||
+        "Customer";
 
 
     const phone =
-      getCustomerPhone(booking);
+        booking.phone ||
+        booking.mobile ||
+        booking.whatsapp ||
+        booking.whatsappNumber ||
+        booking.phoneNumber ||
+        booking.customerPhone ||
+        booking.contactNumber ||
+        booking.contact ||
+        booking.customerMobile ||
+        booking.customerWhatsapp ||
+        "";
 
 
     const trackingId =
-      generateDisplayId(booking);
+        booking.trackingId ||
+        booking.trackingID ||
+        generateDisplayId(
+            booking
+        );
 
 
     /*
-      Status-specific WhatsApp message
-      + Tracking ID
-      + Tracking page link
+       Open blank tab immediately.
+       This helps mobile browsers allow
+       the WhatsApp popup.
     */
 
-    const message =
-      getStatusMessage(
-        newStatus,
-        customerName,
-        trackingId
-      );
+    let whatsappWindow = null;
 
 
     if(phone){
 
-      let cleanPhone =
-        String(phone)
-          .replace(/\D/g,"");
+        whatsappWindow =
+            window.open(
+                "about:blank",
+                "_blank"
+            );
+
+    }
 
 
-      /*
-        Pakistan number:
-        03001234567
-        becomes:
-        923001234567
-      */
+    try{
 
-      if(
-        cleanPhone.startsWith("0")
-      ){
+        await updateDoc(
+            doc(
+                db,
+                "serviceRequests",
+                firestoreId
+            ),
+            {
+                status:newStatus,
 
-        cleanPhone =
-          "92" +
-          cleanPhone.substring(1);
-
-      }
-
-
-      /*
-        If number doesn't start with
-        Pakistan country code.
-      */
-
-      if(
-        !cleanPhone.startsWith("92")
-      ){
-
-        cleanPhone =
-          "92" +
-          cleanPhone;
-
-      }
-
-
-      const whatsappUrl =
-        "https://wa.me/" +
-        cleanPhone +
-        "?text=" +
-        encodeURIComponent(message);
-
-
-      if(waWindow){
-
-        waWindow.location.href =
-          whatsappUrl;
-
-      }else{
-
-        window.open(
-          whatsappUrl,
-          "_blank"
+                updatedAt:
+                    serverTimestamp()
+            }
         );
 
-      }
+
+        booking.status =
+            newStatus;
 
 
-      showToast(
-        "Status updated. WhatsApp message is ready."
-      );
+        updateStats();
 
-    }else{
-
-      /*
-        Number missing ho to status update
-        phir bhi Firebase mein save ho jayega.
-      */
-
-      if(waWindow){
-
-        waWindow.close();
-
-      }
+        renderBookings();
 
 
-      showToast(
-        "Status updated, but customer WhatsApp number was not found."
-      );
+        showToast(
+            "Booking status updated."
+        );
+
+
+        if(phone){
+
+            let cleanPhone =
+                String(phone)
+                .replace(
+                    /\D/g,
+                    ""
+                );
+
+
+            if(
+                cleanPhone.startsWith("0")
+            ){
+
+                cleanPhone =
+                    "92" +
+                    cleanPhone.substring(1);
+
+            }
+
+
+            if(
+                !cleanPhone.startsWith("92")
+            ){
+
+                cleanPhone =
+                    "92" +
+                    cleanPhone;
+
+            }
+
+
+            const message =
+                getStatusWhatsAppMessage(
+                    newStatus,
+                    customerName,
+                    trackingId
+                );
+
+
+            const whatsappUrl =
+                "https://wa.me/" +
+                cleanPhone +
+                "?text=" +
+                encodeURIComponent(
+                    message
+                );
+
+
+            if(
+                whatsappWindow &&
+                !whatsappWindow.closed
+            ){
+
+                whatsappWindow.location.href =
+                    whatsappUrl;
+
+            }else{
+
+                window.open(
+                    whatsappUrl,
+                    "_blank"
+                );
+
+            }
+
+        }
+
+
+    }catch(error){
+
+        console.error(
+            "Status update error:",
+            error
+        );
+
+
+        if(
+            whatsappWindow &&
+            !whatsappWindow.closed
+        ){
+
+            whatsappWindow.close();
+
+        }
+
+
+        showToast(
+            "Status update failed."
+        );
 
     }
-
-  }catch(error){
-
-    console.error(error);
-
-
-    if(waWindow){
-
-      waWindow.close();
-
-    }
-
-
-    showToast(
-      "Status update failed: " +
-      error.message
-    );
-
-  }
 
 };
 
 
-/* ================= NORMAL WHATSAPP ================= */
+/* =========================================================
+   DELETE
+========================================================= */
 
-window.openWhatsApp =
-function(
-  phone,
-  customerName,
-  trackingId
+window.deleteBooking =
+async function(
+    firestoreId
 ){
 
-  if(!phone){
-
-    alert(
-      "Customer WhatsApp number is not available in this booking."
-    );
-
-    return;
-
-  }
+    const booking =
+        allBookings.find(
+            item =>
+                item.firestoreId ===
+                firestoreId
+        );
 
 
-  let cleanPhone =
-    String(phone)
-      .replace(/\D/g,"");
+    if(!booking){
+
+        showToast(
+            "Booking not found."
+        );
+
+        return;
+
+    }
 
 
-  if(
-    cleanPhone.startsWith("0")
-  ){
-
-    cleanPhone =
-      "92" +
-      cleanPhone.substring(1);
-
-  }
+    const name =
+        booking.customerName ||
+        booking.name ||
+        "this booking";
 
 
-  if(
-    !cleanPhone.startsWith("92")
-  ){
+    if(
+        !confirm(
+            `Delete booking for ${name}?`
+        )
+    ){
 
-    cleanPhone =
-      "92" +
-      cleanPhone;
+        return;
 
-  }
-
-
-  const trackingLink =
-    getTrackingLink();
+    }
 
 
-  const message =
-`Assalam o Alaikum ${customerName},
+    try{
 
-This is Smart Cool & Refrigerator regarding your service booking.
-
-Tracking ID: ${trackingId}
-
-Track your booking here:
-${trackingLink}
-
-Please use your Tracking ID to check your booking status.
-
-How can we help you?
-
-AC • Refrigerator • Water Dispenser • Electrician Services
-
-All over Karachi.`;
+        await deleteDoc(
+            doc(
+                db,
+                "serviceRequests",
+                firestoreId
+            )
+        );
 
 
-  const url =
-    "https://wa.me/" +
-    cleanPhone +
-    "?text=" +
-    encodeURIComponent(message);
+        allBookings =
+            allBookings.filter(
+                item =>
+                    item.firestoreId !==
+                    firestoreId
+            );
 
 
-  window.open(
-    url,
-    "_blank"
-  );
+        updateStats();
 
-};
+        renderBookings();
 
 
-/* ================= INVOICE OPEN ================= */
-
-window.openInvoice =
-function(firestoreId){
-
-  const booking =
-    allBookings.find(
-      item =>
-        item.firestoreId === firestoreId
-    );
+        showToast(
+            "Booking deleted successfully."
+        );
 
 
-  if(!booking){
+    }catch(error){
 
-    showToast(
-      "Booking not found."
-    );
+        console.error(error);
 
-    return;
+        showToast(
+            "Delete failed."
+        );
 
-  }
-
-
-  currentInvoiceFirestoreId =
-    firestoreId;
-
-
-  const customerName =
-    booking.customerName ||
-    booking.name ||
-    "Customer";
-
-
-  const trackingId =
-    generateDisplayId(booking);
-
-
-  const amount =
-    getInvoiceAmount(booking);
-
-
-  const paymentStatus =
-    getPaymentStatus(booking);
-
-
-  const note =
-    booking.invoiceNote ||
-    "";
-
-
-  document
-    .getElementById("invoiceCustomer")
-    .value =
-      customerName;
-
-
-  document
-    .getElementById("invoiceTracking")
-    .value =
-      trackingId;
-
-
-  document
-    .getElementById("invoiceAmount")
-    .value =
-      amount || "";
-
-
-  document
-    .getElementById("invoicePaymentStatus")
-    .value =
-      paymentStatus;
-
-
-  document
-    .getElementById("invoiceNote")
-    .value =
-      note;
-
-
-  document
-    .getElementById("invoiceModal")
-    .classList.add("show");
+    }
 
 };
 
 
-/* ================= CLOSE INVOICE ================= */
+/* =========================================================
+   OPEN INVOICE MODAL
+========================================================= */
 
-window.closeInvoice =
+window.openInvoiceModal =
+function(
+    firestoreId
+){
+
+    const booking =
+        allBookings.find(
+            item =>
+                item.firestoreId ===
+                firestoreId
+        );
+
+
+    if(!booking){
+
+        showToast(
+            "Booking not found."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "invoiceBookingId"
+    ).value =
+        firestoreId;
+
+
+    document.getElementById(
+        "invoiceCustomer"
+    ).value =
+        booking.customerName ||
+        booking.name ||
+        "";
+
+
+    document.getElementById(
+        "invoiceTracking"
+    ).value =
+        booking.trackingId ||
+        booking.trackingID ||
+        generateDisplayId(
+            booking
+        );
+
+
+    document.getElementById(
+        "invoiceAmount"
+    ).value =
+        booking.invoiceAmount != null
+        ?
+        booking.invoiceAmount
+        :
+        "";
+
+
+    document.getElementById(
+        "paymentStatus"
+    ).value =
+        getPaymentStatus(
+            booking
+        );
+
+
+    document.getElementById(
+        "invoiceNote"
+    ).value =
+        booking.invoiceNote ||
+        "";
+
+
+    document.getElementById(
+        "invoiceModal"
+    ).classList.remove(
+        "hidden"
+    );
+
+};
+
+
+/* =========================================================
+   CLOSE INVOICE
+========================================================= */
+
+window.closeInvoiceModal =
 function(){
 
-  document
-    .getElementById("invoiceModal")
-    .classList.remove("show");
-
-
-  currentInvoiceFirestoreId =
-    null;
+    document.getElementById(
+        "invoiceModal"
+    ).classList.add(
+        "hidden"
+    );
 
 };
 
 
-/* ================= SAVE INVOICE ================= */
+/* =========================================================
+   SAVE INVOICE
+========================================================= */
 
-window.saveInvoice =
-async function(){
+document.getElementById(
+    "invoiceForm"
+).addEventListener(
+    "submit",
+    async function(e){
 
-  if(!currentInvoiceFirestoreId){
-
-    showToast(
-      "No booking selected."
-    );
-
-    return;
-
-  }
+        e.preventDefault();
 
 
-  const amount =
-    Number(
-      document
-        .getElementById("invoiceAmount")
-        .value
-    );
+        const firestoreId =
+            document.getElementById(
+                "invoiceBookingId"
+            ).value;
 
 
-  const paymentStatus =
-    document
-      .getElementById(
-        "invoicePaymentStatus"
-      )
-      .value;
+        const amount =
+            Number(
+                document.getElementById(
+                    "invoiceAmount"
+                ).value || 0
+            );
 
 
-  const note =
-    document
-      .getElementById(
-        "invoiceNote"
-      )
-      .value
-      .trim();
+        const paymentStatus =
+            document.getElementById(
+                "paymentStatus"
+            ).value;
 
 
-  if(
-    isNaN(amount) ||
-    amount < 0
-  ){
-
-    showToast(
-      "Please enter a valid amount."
-    );
-
-    return;
-
-  }
+        const note =
+            document.getElementById(
+                "invoiceNote"
+            ).value
+            .trim();
 
 
-  try{
+        if(!firestoreId){
 
-    await updateDoc(
+            showToast(
+                "Booking not selected."
+            );
 
-      doc(
-        db,
-        "serviceRequests",
-        currentInvoiceFirestoreId
-      ),
+            return;
 
-      {
+        }
 
-        invoiceAmount:
-          amount,
 
-        paymentStatus:
-          paymentStatus,
+        try{
 
-        invoiceNote:
-          note,
+            await updateDoc(
+                doc(
+                    db,
+                    "serviceRequests",
+                    firestoreId
+                ),
+                {
 
-        invoiceUpdatedAt:
-          serverTimestamp(),
+                    invoiceAmount:
+                        amount,
 
-        updatedAt:
-          serverTimestamp()
+                    paymentStatus:
+                        paymentStatus,
 
-      }
+                    invoiceNote:
+                        note,
 
-    );
+                    invoiceUpdatedAt:
+                        serverTimestamp(),
+
+                    updatedAt:
+                        serverTimestamp()
+
+                }
+            );
+
+
+            const booking =
+                allBookings.find(
+                    item =>
+                        item.firestoreId ===
+                        firestoreId
+                );
+
+
+            if(booking){
+
+                booking.invoiceAmount =
+                    amount;
+
+                booking.paymentStatus =
+                    paymentStatus;
+
+                booking.invoiceNote =
+                    note;
+
+            }
+
+
+            updateStats();
+
+            renderBookings();
+
+            closeInvoiceModal();
+
+
+            showToast(
+                paymentStatus === "paid"
+                ?
+                "Invoice saved & marked PAID."
+                :
+                "Invoice saved as UNPAID."
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showToast(
+                "Invoice save failed."
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PRINT INVOICE
+========================================================= */
+
+window.printInvoice =
+function(){
+
+    const firestoreId =
+        document.getElementById(
+            "invoiceBookingId"
+        ).value;
 
 
     const booking =
-      allBookings.find(
-        item =>
-          item.firestoreId ===
-          currentInvoiceFirestoreId
-      );
+        allBookings.find(
+            item =>
+                item.firestoreId ===
+                firestoreId
+        );
 
 
-    if(booking){
+    if(!booking){
 
-      booking.invoiceAmount =
-        amount;
+        showToast(
+            "Booking not found."
+        );
 
-      booking.paymentStatus =
-        paymentStatus;
-
-      booking.invoiceNote =
-        note;
+        return;
 
     }
 
 
-    updateStats();
-
-    closeInvoice();
-
-    renderBookings();
-
-
-    showToast(
-      "Invoice saved successfully."
-    );
+    const customerName =
+        booking.customerName ||
+        booking.name ||
+        "Customer";
 
 
-  }catch(error){
-
-    console.error(error);
-
-    showToast(
-      "Invoice save failed: " +
-      error.message
-    );
-
-  }
-
-};
-
-
-/* ================= PRINT INVOICE ================= */
-
-window.printInvoice =
-function(firestoreId){
-
-  const booking =
-    allBookings.find(
-      item =>
-        item.firestoreId ===
-        firestoreId
-    );
+    const phone =
+        booking.phone ||
+        booking.mobile ||
+        booking.whatsapp ||
+        booking.whatsappNumber ||
+        booking.phoneNumber ||
+        booking.customerPhone ||
+        booking.contactNumber ||
+        booking.contact ||
+        booking.customerMobile ||
+        booking.customerWhatsapp ||
+        "Not provided";
 
 
-  if(!booking){
-
-    showToast(
-      "Booking not found."
-    );
-
-    return;
-
-  }
+    const service =
+        booking.service ||
+        booking.serviceType ||
+        "Service";
 
 
-  const customerName =
-    booking.customerName ||
-    booking.name ||
-    "Customer";
+    const address =
+        booking.address ||
+        booking.location ||
+        "Not provided";
 
 
-  const phone =
-    getCustomerPhone(booking);
+    const preferredDate =
+        booking.preferredDate ||
+        booking.date ||
+        "Not provided";
 
 
-  const trackingId =
-    generateDisplayId(booking);
+    const preferredTime =
+        booking.preferredTime ||
+        booking.time ||
+        "Not provided";
 
 
-  const service =
-    booking.service ||
-    booking.serviceType ||
-    "Service";
+    const problem =
+        booking.problem ||
+        booking.issue ||
+        booking.message ||
+        "Not provided";
 
 
-  const address =
-    booking.address ||
-    booking.location ||
-    "Not provided";
+    const trackingId =
+        booking.trackingId ||
+        booking.trackingID ||
+        generateDisplayId(
+            booking
+        );
 
 
-  const amount =
-    getInvoiceAmount(booking);
+    const bookingId =
+        booking.bookingId &&
+        booking.bookingId !==
+            booking.firestoreId
+        ?
+        booking.bookingId
+        :
+        "";
 
 
-  const payment =
-    getPaymentStatus(booking);
+    const amount =
+        Number(
+            document.getElementById(
+                "invoiceAmount"
+            ).value ||
+            booking.invoiceAmount ||
+            0
+        );
 
 
-  const note =
-    booking.invoiceNote ||
-    "";
+    const paymentStatus =
+        document.getElementById(
+            "paymentStatus"
+        ).value ||
+        getPaymentStatus(
+            booking
+        );
 
 
-  const invoiceDate =
-    formatDate(
-      booking.invoiceUpdatedAt ||
-      booking.updatedAt ||
-      booking.createdAt
-    );
+    const note =
+        document.getElementById(
+            "invoiceNote"
+        ).value
+        .trim() ||
+        booking.invoiceNote ||
+        "";
 
 
-  const printWindow =
-    window.open(
-      "",
-      "_blank"
-    );
+    const invoiceDate =
+        new Date()
+        .toLocaleDateString(
+            "en-PK",
+            {
+                day:"2-digit",
+                month:"2-digit",
+                year:"numeric"
+            }
+        );
 
 
-  if(!printWindow){
-
-    alert(
-      "Please allow popups to print invoice."
-    );
-
-    return;
-
-  }
+    const paymentText =
+        paymentStatus === "paid"
+        ?
+        "PAID"
+        :
+        "UNPAID";
 
 
-  printWindow.document.write(`
+    const printWindow =
+        window.open(
+            "",
+            "_blank",
+            "width=850,height=900"
+        );
+
+
+    if(!printWindow){
+
+        showToast(
+            "Popup blocked. Please allow popups."
+        );
+
+        return;
+
+    }
+
+
+    printWindow.document.write(`
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
 
-<title>Smart Cool Invoice</title>
+<title>
+Smart Cool & Refrigerator - Invoice
+</title>
+
 
 <style>
 
+*{
+    box-sizing:border-box;
+}
+
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  margin:0;
-  padding:30px;
-  color:#0f172a;
+    margin:0;
+    padding:35px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color:#102a43;
+
+    background:#fff;
 }
 
 .invoice{
-  max-width:750px;
-  margin:auto;
-  border:1px solid #ddd;
-  padding:35px;
+    max-width:800px;
+
+    margin:auto;
+
+    padding:35px;
+
+    border:1px solid #dce8ed;
+    border-radius:10px;
 }
 
 .header{
-  display:flex;
-  justify-content:space-between;
-  border-bottom:2px solid #0284c7;
-  padding-bottom:20px;
-  margin-bottom:25px;
+    display:flex;
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding-bottom:20px;
+    margin-bottom:25px;
+
+    border-bottom:4px solid #087ea4;
 }
 
-.logo{
-  font-size:25px;
-  font-weight:bold;
-  color:#0369a1;
+.company h1{
+    margin:0;
+
+    color:#087ea4;
+
+    font-size:27px;
 }
 
-.small{
-  color:#64748b;
-  font-size:13px;
-  margin-top:5px;
+.company p{
+    margin:6px 0 0;
+
+    color:#718096;
+
+    font-size:12px;
 }
 
-h2{
-  margin:0;
+.invoice-title{
+    text-align:right;
 }
 
-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:20px;
+.invoice-title h2{
+    margin:0;
+
+    font-size:27px;
 }
 
-td{
-  padding:11px;
-  border-bottom:1px solid #e5e7eb;
+.invoice-title p{
+    margin:6px 0 0;
+
+    color:#718096;
+
+    font-size:12px;
+}
+
+.payment-status{
+    display:inline-block;
+
+    margin-top:9px;
+
+    padding:7px 13px;
+
+    border-radius:20px;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    background:
+        ${paymentStatus === "paid"
+            ? "#e9faf4"
+            : "#fff0f0"};
+
+    color:
+        ${paymentStatus === "paid"
+            ? "#0f9d72"
+            : "#d64545"};
+}
+
+.info{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+    margin-bottom:22px;
+}
+
+.box{
+    padding:13px;
+
+    border:1px solid #e1edf1;
+
+    border-radius:7px;
 }
 
 .label{
-  font-weight:bold;
-  width:35%;
+    margin-bottom:5px;
+
+    color:#8196a0;
+
+    font-size:9px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+}
+
+.value{
+    color:#29475a;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    word-break:break-word;
+}
+
+table{
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:15px;
+}
+
+th{
+    padding:12px;
+
+    text-align:left;
+
+    background:#edf8fb;
+
+    color:#24566b;
+
+    border:1px solid #d7e7ec;
+
+    font-size:11px;
+}
+
+td{
+    padding:12px;
+
+    border:1px solid #d7e7ec;
+
+    font-size:12px;
+
+    vertical-align:top;
+
+    line-height:1.5;
 }
 
 .total{
-  font-size:22px;
-  font-weight:bold;
-  color:#0369a1;
+    margin-top:22px;
+
+    text-align:right;
+
+    color:#087ea4;
+
+    font-size:23px;
+
+    font-weight:bold;
+}
+
+.note{
+    margin-top:22px;
+
+    padding:14px;
+
+    background:#f6fafc;
+
+    border:1px solid #dfecef;
+
+    border-radius:7px;
+
+    font-size:12px;
+}
+
+.note strong{
+    display:block;
+
+    margin-bottom:6px;
+
+    color:#24566b;
 }
 
 .footer{
-  margin-top:35px;
-  padding-top:20px;
-  border-top:1px solid #ddd;
-  text-align:center;
-  color:#64748b;
-  font-size:13px;
-}
+    margin-top:32px;
 
-.paid{
-  color:#15803d;
-  font-weight:bold;
-}
+    padding-top:18px;
 
-.unpaid{
-  color:#b45309;
-  font-weight:bold;
+    text-align:center;
+
+    border-top:1px solid #dce8ed;
+
+    color:#718096;
+
+    font-size:11px;
+
+    line-height:1.6;
 }
 
 @media print{
-  body{
-    padding:0;
-  }
 
-  .invoice{
-    border:0;
-  }
+    body{
+        padding:0;
+    }
+
+    .invoice{
+        max-width:none;
+        border:0;
+        padding:25px;
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
+
 
 <div class="invoice">
 
-  <div class="header">
 
-    <div>
+    <div class="header">
 
-      <div class="logo">
-        Smart Cool & Refrigerator
-      </div>
 
-      <div class="small">
-        AC • Refrigerator • Water Dispenser • Electrician
-      </div>
+        <div class="company">
 
-      <div class="small">
-        All Over Karachi
-      </div>
+            <h1>
+                Smart Cool & Refrigerator
+            </h1>
+
+            <p>
+                AC â€¢ Refrigerator â€¢ Electrician Services
+            </p>
+
+            <p>
+                All over Karachi
+            </p>
+
+        </div>
+
+
+        <div class="invoice-title">
+
+            <h2>
+                INVOICE
+            </h2>
+
+            <p>
+                Date:
+                ${escapeHtml(
+                    invoiceDate
+                )}
+            </p>
+
+            <div class="payment-status">
+                ${paymentText}
+            </div>
+
+        </div>
+
 
     </div>
 
-    <div style="text-align:right">
-
-      <h2>INVOICE</h2>
-
-      <div class="small">
-        ${escapeHtml(invoiceDate)}
-      </div>
-
-    </div>
-
-  </div>
 
 
-  <table>
-
-    <tr>
-      <td class="label">
-        Customer
-      </td>
-
-      <td>
-        ${escapeHtml(customerName)}
-      </td>
-    </tr>
+    <div class="info">
 
 
-    <tr>
-      <td class="label">
-        Phone
-      </td>
+        <div class="box">
 
-      <td>
-        ${escapeHtml(phone || "N/A")}
-      </td>
-    </tr>
+            <div class="label">
+                Customer Name
+            </div>
 
+            <div class="value">
+                ${escapeHtml(
+                    customerName
+                )}
+            </div>
 
-    <tr>
-      <td class="label">
-        Tracking ID
-      </td>
-
-      <td>
-        ${escapeHtml(trackingId)}
-      </td>
-    </tr>
+        </div>
 
 
-    <tr>
-      <td class="label">
-        Service
-      </td>
+        <div class="box">
 
-      <td>
-        ${escapeHtml(service)}
-      </td>
-    </tr>
+            <div class="label">
+                Phone
+            </div>
 
+            <div class="value">
+                ${escapeHtml(
+                    phone
+                )}
+            </div>
 
-    <tr>
-      <td class="label">
-        Address
-      </td>
+        </div>
 
-      <td>
-        ${escapeHtml(address)}
-      </td>
-    </tr>
-
-
-    <tr>
-      <td class="label">
-        Payment Status
-      </td>
-
-      <td class="${
-        payment === "paid"
-          ? "paid"
-          : "unpaid"
-      }">
 
         ${
-          payment === "paid"
-            ? "PAID"
-            : "UNPAID"
+            bookingId
+            ?
+            `
+            <div class="box">
+
+                <div class="label">
+                    Booking ID
+                </div>
+
+                <div class="value">
+                    ${escapeHtml(
+                        bookingId
+                    )}
+                </div>
+
+            </div>
+            `
+            :
+            ""
         }
 
-      </td>
-    </tr>
 
+        <div class="box">
 
-    <tr>
+            <div class="label">
+                Tracking ID
+            </div>
 
-      <td class="label">
-        Total Amount
-      </td>
+            <div class="value">
+                ${escapeHtml(
+                    trackingId
+                )}
+            </div>
 
-      <td class="total">
-        PKR ${formatMoney(amount)}
-      </td>
-
-    </tr>
-
-  </table>
-
-
-  ${
-    note
-      ? `
-        <div style="
-          margin-top:25px;
-          padding:15px;
-          background:#f8fafc;
-          border-radius:8px;
-        ">
-          <strong>Note:</strong><br>
-          ${escapeHtml(note)}
         </div>
-      `
-      : ""
-  }
 
 
-  <div class="footer">
+        <div class="box">
 
-    <strong>
-      Muhammad Rizwan
-    </strong>
+            <div class="label">
+                Service
+            </div>
 
-    <br>
+            <div class="value">
+                ${escapeHtml(
+                    service
+                )}
+            </div>
 
-    03208463110
+        </div>
 
-    <br><br>
 
-    Thank you for choosing
-    Smart Cool & Refrigerator.
+        <div class="box">
 
-  </div>
+            <div class="label">
+                Address
+            </div>
+
+            <div class="value">
+                ${escapeHtml(
+                    address
+                )}
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>
+                    Service / Description
+                </th>
+
+                <th>
+                    Date
+                </th>
+
+                <th>
+                    Time
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+
+                <td>
+
+                    <strong>
+                        ${escapeHtml(
+                            service
+                        )}
+                    </strong>
+
+                    <br><br>
+
+                    Problem:
+
+                    ${escapeHtml(
+                        problem
+                    )}
+
+                </td>
+
+
+                <td>
+                    ${escapeHtml(
+                        preferredDate
+                    )}
+                </td>
+
+
+                <td>
+                    ${escapeHtml(
+                        preferredTime
+                    )}
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+
+    <div class="total">
+
+        Total:
+        PKR ${formatMoney(
+            amount
+        )}
+
+    </div>
+
+
+
+    ${
+        note
+        ?
+        `
+        <div class="note">
+
+            <strong>
+                Invoice Note
+            </strong>
+
+            ${escapeHtml(
+                note
+            )}
+
+        </div>
+        `
+        :
+        ""
+    }
+
+
+
+    <div class="footer">
+
+        <strong>
+            Thank you for choosing Smart Cool & Refrigerator
+        </strong>
+
+        <br>
+
+        AC â€¢ Refrigerator â€¢ Electrician Services
+
+        <br>
+
+        All over Karachi
+
+    </div>
+
 
 </div>
 
 
 <script>
 
-window.onload = function(){
+window.onload=function(){
 
-  window.print();
+    setTimeout(
+        function(){
+
+            window.print();
+
+        },
+        400
+    );
 
 };
 
 <\/script>
 
+
 </body>
 
 </html>
 
-  `);
+    `);
 
 
-  printWindow.document.close();
-
-};
-
-
-/* ================= DELETE BOOKING ================= */
-
-window.deleteBooking =
-async function(firestoreId){
-
-  const booking =
-    allBookings.find(
-      item =>
-        item.firestoreId === firestoreId
-    );
-
-
-  if(!booking){
-
-    showToast(
-      "Booking not found."
-    );
-
-    return;
-
-  }
-
-
-  const customerName =
-    booking.customerName ||
-    booking.name ||
-    "Customer";
-
-
-  const confirmed =
-    confirm(
-      "Delete booking for " +
-      customerName +
-      "?\n\nThis action cannot be undone."
-    );
-
-
-  if(!confirmed){
-
-    return;
-
-  }
-
-
-  try{
-
-    await deleteDoc(
-
-      doc(
-        db,
-        "serviceRequests",
-        firestoreId
-      )
-
-    );
-
-
-    allBookings =
-      allBookings.filter(
-        item =>
-          item.firestoreId !==
-          firestoreId
-      );
-
-
-    updateStats();
-
-    renderBookings();
-
-
-    showToast(
-      "Booking deleted successfully."
-    );
-
-
-  }catch(error){
-
-    console.error(error);
-
-    showToast(
-      "Delete failed: " +
-      error.message
-    );
-
-  }
+    printWindow.document.close();
 
 };
 
 
-/* ================= AUTO REFRESH ================= */
+/* =========================================================
+   WHATSAPP
+========================================================= */
 
-/*
-  Har 60 seconds bookings refresh hongi.
-*/
+window.openWhatsApp =
+function(
+    phone,
+    customerName,
+    trackingId
+){
 
-setInterval(
-  async () => {
+    if(
+        !phone ||
+        phone === "Not provided"
+    ){
 
-    const user =
-      auth.currentUser;
+        showToast(
+            "Customer phone number not available."
+        );
 
-    if(user){
-
-      try{
-
-        await loadRequests();
-
-      }catch(error){
-
-        console.log(error);
-
-      }
+        return;
 
     }
 
-  },
-  60000
+
+    let cleanPhone =
+        String(phone)
+        .replace(
+            /\D/g,
+            ""
+        );
+
+
+    if(
+        cleanPhone.startsWith("0")
+    ){
+
+        cleanPhone =
+            "92" +
+            cleanPhone.substring(1);
+
+    }
+
+
+    if(
+        !cleanPhone.startsWith("92")
+    ){
+
+        cleanPhone =
+            "92" +
+            cleanPhone;
+
+    }
+
+
+    const message =
+        `Assalam o Alaikum ${customerName},
+
+This is Smart Cool & Refrigerator regarding your service booking.
+
+Tracking ID: ${trackingId}
+
+Track your booking here:
+https://rizwanmughal63110-ux.github.io/smart-cool-refrigerator/tracking.html
+
+Thank you for choosing Smart Cool & Refrigerator.
+All over Karachi.`;
+
+
+    const url =
+        "https://wa.me/" +
+        cleanPhone +
+        "?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+};
+
+
+/* =========================================================
+   STATUS HELPERS
+========================================================= */
+
+function normalizeStatus(
+    status
+){
+
+    if(!status){
+
+        return "pending";
+
+    }
+
+
+    const value =
+        String(status)
+        .toLowerCase()
+        .trim();
+
+
+    if(
+        value === "in progress" ||
+        value === "in_progress" ||
+        value === "progress"
+    ){
+
+        return "in-progress";
+
+    }
+
+
+    return value;
+
+}
+
+
+function statusLabel(
+    status
+){
+
+    const labels = {
+
+        pending:"Pending",
+
+        confirmed:"Confirmed",
+
+        "in-progress":"In Progress",
+
+        completed:"Completed",
+
+        cancelled:"Cancelled"
+
+    };
+
+
+    return (
+        labels[status] ||
+        "Pending"
+    );
+
+}
+
+
+function statusClass(
+    status
+){
+
+    if(
+        status === "in-progress"
+    ){
+
+        return "progress";
+
+    }
+
+
+    return [
+        "pending",
+        "confirmed",
+        "completed",
+        "cancelled"
+    ].includes(status)
+    ?
+    status
+    :
+    "pending";
+
+}
+
+
+/* =========================================================
+   DATE HELPERS
+========================================================= */
+
+function getTimestampMs(
+    value
+){
+
+    if(!value){
+
+        return 0;
+
+    }
+
+
+    try{
+
+        if(
+            typeof value.toMillis ===
+            "function"
+        ){
+
+            return value.toMillis();
+
+        }
+
+
+        if(value.seconds){
+
+            return (
+                value.seconds *
+                1000
+            );
+
+        }
+
+
+        const date =
+            new Date(value);
+
+
+        return isNaN(
+            date.getTime()
+        )
+        ?
+        0
+        :
+        date.getTime();
+
+    }catch(error){
+
+        return 0;
+
+    }
+
+}
+
+
+function formatDate(
+    value
+){
+
+    const ms =
+        getTimestampMs(value);
+
+
+    if(!ms){
+
+        return "Not provided";
+
+    }
+
+
+    try{
+
+        return new Date(ms)
+            .toLocaleString(
+                "en-PK",
+                {
+                    day:"2-digit",
+                    month:"short",
+                    year:"numeric",
+                    hour:"2-digit",
+                    minute:"2-digit"
+                }
+            );
+
+    }catch(error){
+
+        return "Not provided";
+
+    }
+
+}
+
+
+/* =========================================================
+   DISPLAY ID
+========================================================= */
+
+function generateDisplayId(
+    booking
+){
+
+    if(
+        booking.trackingId
+    ){
+
+        return booking.trackingId;
+
+    }
+
+
+    if(
+        booking.trackingID
+    ){
+
+        return booking.trackingID;
+
+    }
+
+
+    const created =
+        getTimestampMs(
+            booking.createdAt
+        );
+
+
+    if(created){
+
+        return (
+            "SC-" +
+            String(created)
+            .slice(-8)
+        );
+
+    }
+
+
+    return "SC-BOOKING";
+
+}
+
+
+/* =========================================================
+   MONEY
+========================================================= */
+
+function formatMoney(
+    amount
+){
+
+    return Number(
+        amount || 0
+    ).toLocaleString(
+        "en-PK"
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(
+    value
+){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE JS
+========================================================= */
+
+function escapeJs(
+    value
+){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /\\/g,
+        "\\\\"
+    )
+    .replace(
+        /'/g,
+        "\\'"
+    )
+    .replace(
+        /"/g,
+        '\\"'
+    )
+    .replace(
+        /\n/g,
+        "\\n"
+    )
+    .replace(
+        /\r/g,
+        "\\r"
+    );
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(
+    message
+){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.style.display =
+        "block";
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
+        setTimeout(
+            () => {
+
+                toast.style.display =
+                    "none";
+
+            },
+            3000
+        );
+
+}
+
+
+/* =========================================================
+   MOBILE SIDEBAR
+========================================================= */
+
+window.toggleSidebar =
+function(){
+
+    document
+    .getElementById(
+        "sidebar"
+    )
+    .classList.toggle(
+        "open"
+    );
+
+
+    document
+    .getElementById(
+        "sidebarOverlay"
+    )
+    .classList.toggle(
+        "show"
+    );
+
+};
+
+
+window.closeSidebar =
+function(){
+
+    document
+    .getElementById(
+        "sidebar"
+    )
+    .classList.remove(
+        "open"
+    );
+
+
+    document
+    .getElementById(
+        "sidebarOverlay"
+    )
+    .classList.remove(
+        "show"
+    );
+
+};
+
+
+window.scrollTopPage =
+function(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+};
+
+
+window.focusBookings =
+function(){
+
+    document
+    .getElementById(
+        "bookingsSection"
+    )
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+};
+
+
+/* =========================================================
+   MODAL BACKDROP
+========================================================= */
+
+document.getElementById(
+    "invoiceModal"
+).addEventListener(
+    "click",
+    function(e){
+
+        if(
+            e.target === this
+        ){
+
+            closeInvoiceModal();
+
+        }
+
+    }
 );
 
 
-/* ================= ENTER LOGIN ================= */
+/* =========================================================
+   AUTO REFRESH
+========================================================= */
 
-document
-  .getElementById("loginPassword")
-  .addEventListener(
-    "keydown",
-    event => {
+setInterval(
+    () => {
 
-      if(event.key === "Enter"){
+        if(
+            auth.currentUser &&
+            !adminPage
+                .classList
+                .contains("hidden")
+        ){
 
-        ownerLogin();
+            loadBookings();
 
-      }
+        }
 
-    }
-  );
-
-
-/* ================= MODAL CLICK OUTSIDE ================= */
-
-document
-  .getElementById("invoiceModal")
-  .addEventListener(
-    "click",
-    event => {
-
-      if(
-        event.target.id ===
-        "invoiceModal"
-      ){
-
-        closeInvoice();
-
-      }
-
-    }
-  );
+    },
+    60000
+);
 
 </script>
 
