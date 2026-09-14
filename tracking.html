@@ -1,1 +1,510 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Track Booking - Smart Cool</title><link rel="stylesheet" href="style.css"></head><body><header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">❄</span><span><b>SMART COOL</b><small>& REFRIGERATOR</small></span></a></header><main class="section"><div class="section-head"><div class="eyebrow">BOOKING TRACKING</div><h2>Track Your <span>Service</span></h2><p>Enter your Tracking ID to view your service request.</p></div><div class="booking-card"><input id="bookingId" placeholder="e.g. TRK-12345678"><button id="trackBtn" class="btn primary full-btn">🔎 Track My Booking</button><p id="msg"></p><div id="result" class="glass-card hidden"></div></div></main><script type="module">import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";import{getAuth,initializeAuth,indexedDBLocalPersistence,browserLocalPersistence,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";import{getFirestore,collection,query,where,limit,getDocs}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";const c={apiKey:"AIzaSyB9g0b9RzqYQvVhZ9dVQ0g7jKx2bYx2u0",authDomain:"smart-cool-6f513.firebaseapp.com",projectId:"smart-cool-6f513",storageBucket:"smart-cool-6f513.firebasestorage.app",messagingSenderId:"10468224529",appId:"1:10468224529:web:51026a5b4ac67a4ad40bb0"};const a=initializeApp(c);let auth;try{auth=initializeAuth(a,{persistence:[indexedDBLocalPersistence,browserLocalPersistence]})}catch(e){auth=getAuth(a)}const db=getFirestore(a);let user=null;onAuthStateChanged(auth,u=>user=u);document.getElementById("trackBtn").onclick=async()=>{const id=document.getElementById("bookingId").value.trim();const m=document.getElementById("msg");if(!user){m.textContent="Please login first from the main website.";return}if(!id){m.textContent="Enter Tracking ID.";return}m.textContent="Checking...";try{const q=query(collection(db,"serviceRequests"),where("trackingId","==",id),where("customerUid","==",user.uid),limit(1));const s=await getDocs(q);if(s.empty){m.textContent="Booking not found.";return}const d=s.docs[0].data();document.getElementById("result").classList.remove("hidden");document.getElementById("result").innerHTML=`<h3>Tracking ${d.trackingId||"—"}</h3><p><b>Booking ID:</b> ${d.bookingId||"—"}</p><p><b>Status:</b> ${d.status||"pending"}</p><p><b>Customer:</b> ${d.customerName}</p><p><b>Phone:</b> ${d.customerPhone}</p><p><b>Service:</b> ${d.service}</p><p><b>Area:</b> ${d.area}</p><p><b>Address:</b> ${d.address}</p><p><b>Problem:</b> ${d.problem}</p>`;m.textContent=""}catch(e){m.textContent=e.message}};</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Track Booking | Smart Cool</title>
+
+    <meta name="description"
+          content="Track your Smart Cool AC and refrigerator service booking.">
+          
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <div class="logo-area">
+
+                <div class="logo-icon">
+                    ❄️
+                </div>
+
+                <div class="logo-text">
+
+                    <h1>Smart Cool</h1>
+
+                    <span>
+                        & Refrigerator Shop
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <nav class="main-nav">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#services">
+                    Services
+                </a>
+
+                <a href="index.html#about">
+                    About
+                </a>
+
+                <a href="index.html#booking">
+                    Booking
+                </a>
+
+                <a href="tracking.html">
+                    Track Booking
+                </a>
+
+                <a href="index.html#contact">
+                    Contact
+                </a>
+
+            </nav>
+
+
+            <button
+                class="menu-btn"
+                type="button"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         TRACKING HERO
+    ========================== -->
+
+    <section class="tracking-section">
+
+        <div class="container">
+
+            <div class="tracking-card">
+
+                <div class="tracking-icon">
+                    🔎
+                </div>
+
+
+                <span class="section-label">
+                    BOOKING TRACKING
+                </span>
+
+
+                <h2>
+                    Track Your Booking
+                </h2>
+
+
+                <p>
+                    Enter your Tracking ID below to check
+                    the current status of your service booking.
+                </p>
+
+
+                <!-- TRACKING FORM -->
+
+                <form
+                    id="trackingForm"
+                    class="tracking-form"
+                >
+
+                    <input
+                        type="text"
+                        id="trackingId"
+                        name="trackingId"
+                        placeholder="Enter Tracking ID"
+                        autocomplete="off"
+                        required
+                    >
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        🔎 Track Booking
+                    </button>
+
+                </form>
+
+
+                <!-- RESULT -->
+
+                <div
+                    id="trackingResult"
+                    class="tracking-result"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INFORMATION SECTION
+    ========================== -->
+
+    <section class="services-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <span>
+                    HOW IT WORKS
+                </span>
+
+                <h2>
+                    Track In 3 Easy Steps
+                </h2>
+
+                <p>
+                    Keep your Tracking ID safe after booking
+                    your service.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        1️⃣
+                    </div>
+
+                    <h3>
+                        Get Tracking ID
+                    </h3>
+
+                    <p>
+                        After submitting your service booking,
+                        you will receive a unique Tracking ID.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        2️⃣
+                    </div>
+
+                    <h3>
+                        Enter Your ID
+                    </h3>
+
+                    <p>
+                        Enter your Tracking ID in the box
+                        above to search for your booking.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        3️⃣
+                    </div>
+
+                    <h3>
+                        Check Status
+                    </h3>
+
+                    <p>
+                        View your booking information and
+                        current service status.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-grid">
+
+
+            <div class="footer-about">
+
+                <div class="footer-logo">
+                    ❄️ Smart Cool
+                </div>
+
+                <p>
+                    Professional AC and refrigerator repair,
+                    service and home solutions.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#services">
+                    Services
+                </a>
+
+                <a href="index.html#booking">
+                    Booking
+                </a>
+
+                <a href="tracking.html">
+                    Track Booking
+                </a>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <h3>
+                    Services
+                </h3>
+
+                <a href="index.html#booking">
+                    AC Service
+                </a>
+
+                <a href="index.html#booking">
+                    AC Repair
+                </a>
+
+                <a href="index.html#booking">
+                    Refrigerator Repair
+                </a>
+
+                <a href="index.html#booking">
+                    Gas Charging
+                </a>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    📞 03XX-XXXXXXX
+                </p>
+
+                <p>
+                    🏠 Home Service
+                </p>
+
+                <p>
+                    🕐 7 Days a Week
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Smart Cool & Refrigerator Shop.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         TRACKING JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        document
+            .getElementById("trackingForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const trackingId =
+                    document
+                        .getElementById("trackingId")
+                        .value
+                        .trim()
+                        .toUpperCase();
+
+                const result =
+                    document
+                        .getElementById("trackingResult");
+
+
+                if (trackingId === "") {
+
+                    result.innerHTML = `
+                        <p>
+                            Please enter your Tracking ID.
+                        </p>
+                    `;
+
+                    return;
+                }
+
+
+                /*
+                 * Temporary tracking system.
+                 *
+                 * The real booking database will be
+                 * connected in the JavaScript/backend
+                 * step.
+                 */
+
+                const bookings =
+                    JSON.parse(
+                        localStorage.getItem("smartCoolBookings")
+                    ) || [];
+
+
+                const booking =
+                    bookings.find(function(item) {
+
+                        return item.trackingId === trackingId;
+
+                    });
+
+
+                if (!booking) {
+
+                    result.innerHTML = `
+                        <div style="
+                            padding:20px;
+                            margin-top:20px;
+                            border-radius:12px;
+                            background:#fff3f3;
+                            border:1px solid #ffd4d4;
+                        ">
+
+                            <strong>
+                                ❌ Booking Not Found
+                            </strong>
+
+                            <p style="margin-top:8px;">
+                                Please check your Tracking ID
+                                and try again.
+                            </p>
+
+                        </div>
+                    `;
+
+                    return;
+                }
+
+
+                result.innerHTML = `
+
+                    <div style="
+                        margin-top:25px;
+                        padding:25px;
+                        text-align:left;
+                        border-radius:15px;
+                        background:#effbfd;
+                        border:1px solid #ccecf1;
+                    ">
+
+                        <h3 style="
+                            color:#07839e;
+                            margin-bottom:15px;
+                        ">
+                            ✅ Booking Found
+                        </h3>
+
+
+                        <p>
+                            <strong>Tracking ID:</strong>
+                            ${booking.trackingId}
+                        </p>
+
+
+                        <p>
+                            <strong>Name:</strong>
+                            ${booking.customerName}
+                        </p>
+
+
+                        <p>
+                            <strong>Phone:</strong>
+                            ${booking.phone}
+                        </p>
+
+
+                        <p>
+                            <strong>Service:</strong>
+                            ${booking.service}
+                        </p>
+
+
+                        <p>
+                            <strong>Date:</strong>
+                            ${booking.preferredDate || "Not specified"}
+                        </p>
+
+
+                        <p>
+                            <strong>Status:</strong>
+                            <span style="
+                                color:#07839e;
+                                font-weight:bold;
+                            ">
+                                ${booking.status || "Pending"}
+                            </span>
+                        </p>
+
+                    </div>
+
+                `;
+
+            });
+
+    </script>
+
+</body>
+
+</html>
