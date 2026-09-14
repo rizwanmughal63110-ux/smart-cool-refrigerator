@@ -430,12 +430,6 @@ button{
     box-shadow:0 14px 40px rgba(8,126,164,.18);
 }
 
-.welcome{
-    position:relative;
-    overflow:hidden;
-    box-shadow:0 14px 40px rgba(8,126,164,.18);
-}
-
 .welcome::after{
     content:"❄";
     position:absolute;
@@ -1255,7 +1249,7 @@ button{
     }
 
     .top-actions .refresh-btn::before{
-        content:"ðŸ”„";
+        content:"🔄";
         font-size:15px;
     }
 
@@ -1265,10 +1259,7 @@ button{
 
 <body>
 
-
-<!-- =========================================================
-     LOGIN PAGE
-========================================================= -->
+<!-- LOGIN PAGE -->
 
 <div id="loginPage" class="login-page">
 
@@ -1277,7 +1268,7 @@ button{
         <div class="login-logo">
 
             <div class="login-icon">
-                â„ï¸
+                ❄️
             </div>
 
             <h1>
@@ -1285,11 +1276,10 @@ button{
             </h1>
 
             <p>
-                AC â€¢ Refrigerator â€¢ Electrician Services
+                AC • Refrigerator • Electrician Services
             </p>
 
         </div>
-
 
         <div class="login-title">
 
@@ -1303,9 +1293,7 @@ button{
 
         </div>
 
-
         <div id="loginError" class="login-error"></div>
-
 
         <form id="loginForm">
 
@@ -1324,7 +1312,6 @@ button{
 
             </div>
 
-
             <div class="form-group">
 
                 <label>
@@ -1340,12 +1327,11 @@ button{
 
             </div>
 
-
             <button
                 type="submit"
                 class="login-btn"
             >
-                ðŸ” Sign In to Dashboard
+                🔐 Sign In to Dashboard
             </button>
 
         </form>
@@ -1355,13 +1341,9 @@ button{
 </div>
 
 
-
-<!-- =========================================================
-     ADMIN PAGE
-========================================================= -->
+<!-- ADMIN PAGE -->
 
 <div id="adminPage" class="admin-page hidden">
-
 
     <!-- SIDEBAR -->
 
@@ -1370,7 +1352,7 @@ button{
         <div class="sidebar-logo">
 
             <div class="sidebar-icon">
-                â„ï¸
+                ❄️
             </div>
 
             <div>
@@ -1387,42 +1369,37 @@ button{
 
         </div>
 
-
         <div class="sidebar-menu">
 
             <div class="menu-label">
                 Dashboard
             </div>
 
-
             <button
                 class="menu-item active"
                 onclick="scrollTopPage();closeSidebar();"
             >
-                <span class="menu-icon">ðŸ“Š</span>
+                <span class="menu-icon">📊</span>
                 Dashboard
             </button>
-
 
             <button
                 class="menu-item"
                 onclick="focusBookings();closeSidebar();"
             >
-                <span class="menu-icon">ðŸ“‹</span>
+                <span class="menu-icon">📋</span>
                 Service Bookings
             </button>
-
 
             <button
                 class="menu-item"
                 onclick="loadBookings();closeSidebar();"
             >
-                <span class="menu-icon">ðŸ”„</span>
+                <span class="menu-icon">🔄</span>
                 Refresh Data
             </button>
 
         </div>
-
 
         <div class="sidebar-bottom">
 
@@ -1438,18 +1415,16 @@ button{
 
             </div>
 
-
             <button
                 class="sidebar-logout"
                 onclick="logoutAdmin()"
             >
-                ðŸšª Logout
+                🚪 Logout
             </button>
 
         </div>
 
     </aside>
-
 
     <div
         id="sidebarOverlay"
@@ -1458,11 +1433,9 @@ button{
     ></div>
 
 
-
     <!-- MAIN CONTENT -->
 
     <div class="main-content">
-
 
         <!-- TOPBAR -->
 
@@ -1472,9 +1445,8 @@ button{
                 class="mobile-menu"
                 onclick="toggleSidebar()"
             >
-                â˜°
+                ☰
             </button>
-
 
             <div class="page-heading">
 
@@ -1488,28 +1460,25 @@ button{
 
             </div>
 
-
             <div class="top-actions">
 
                 <button
                     class="top-btn refresh-btn"
                     onclick="loadBookings()"
                 >
-                    ðŸ”„ Refresh
+                    🔄 Refresh
                 </button>
-
 
                 <button
                     class="top-btn logout-btn"
                     onclick="logoutAdmin()"
                 >
-                    ðŸšª Logout
+                    🚪 Logout
                 </button>
 
             </div>
 
         </header>
-
 
 
         <!-- DASHBOARD -->
@@ -1519,7 +1488,6 @@ button{
             class="container"
         >
 
-
             <!-- WELCOME -->
 
             <section class="welcome">
@@ -1527,7 +1495,7 @@ button{
                 <div class="welcome-content">
 
                     <h2>
-                        Welcome to Smart Cool ðŸ‘‹
+                        Welcome to Smart Cool 👋
                     </h2>
 
                     <p>
@@ -1536,24 +1504,21 @@ button{
 
                 </div>
 
-
                 <div class="welcome-badge">
-                    â„ï¸ Service Management
+                    ❄️ Service Management
                 </div>
 
             </section>
-
 
 
             <!-- STATS -->
 
             <section class="stats">
 
-
                 <div class="stat-card">
 
                     <div class="stat-icon stat-blue">
-                        ðŸ“‹
+                        📋
                     </div>
 
                     <div class="stat-info">
@@ -1577,7 +1542,7 @@ button{
                 <div class="stat-card">
 
                     <div class="stat-icon stat-yellow">
-                        â³
+                        ⏳
                     </div>
 
                     <div class="stat-info">
@@ -1601,7 +1566,7 @@ button{
                 <div class="stat-card">
 
                     <div class="stat-icon stat-green">
-                        âœ…
+                        ✅
                     </div>
 
                     <div class="stat-info">
@@ -1625,7 +1590,7 @@ button{
                 <div class="stat-card">
 
                     <div class="stat-icon stat-purple">
-                        ðŸ†
+                        🏆
                     </div>
 
                     <div class="stat-info">
@@ -1649,7 +1614,7 @@ button{
                 <div class="stat-card">
 
                     <div class="stat-icon stat-money">
-                        ðŸ’°
+                        💰
                     </div>
 
                     <div class="stat-info">
@@ -1673,7 +1638,7 @@ button{
                 <div class="stat-card">
 
                     <div class="stat-icon stat-paid">
-                        ðŸ’µ
+                        💵
                     </div>
 
                     <div class="stat-info">
@@ -1693,9 +1658,7 @@ button{
 
                 </div>
 
-
             </section>
-
 
 
             <div
@@ -1714,13 +1677,12 @@ button{
             </div>
 
 
-
             <div class="toolbar">
 
                 <div class="search-box">
 
                     <span class="search-icon">
-                        ðŸ”Ž
+                        🔎
                     </span>
 
                     <input
@@ -1768,7 +1730,6 @@ button{
             </div>
 
 
-
             <div
                 id="bookingsContainer"
                 class="bookings"
@@ -1784,7 +1745,6 @@ button{
 
             </div>
 
-
         </main>
 
     </div>
@@ -1792,10 +1752,7 @@ button{
 </div>
 
 
-
-<!-- =========================================================
-     INVOICE MODAL
-========================================================= -->
+<!-- INVOICE MODAL -->
 
 <div
     id="invoiceModal"
@@ -1804,13 +1761,12 @@ button{
 
     <div class="modal-box">
 
-
         <div class="modal-header">
 
             <div class="modal-title">
 
                 <div class="modal-title-icon">
-                    ðŸ§¾
+                    🧾
                 </div>
 
                 <div>
@@ -1827,27 +1783,23 @@ button{
 
             </div>
 
-
             <button
                 type="button"
                 class="close-btn"
                 onclick="closeInvoiceModal()"
             >
-                Ã—
+                ×
             </button>
 
         </div>
 
 
-
         <form id="invoiceForm">
-
 
             <input
                 type="hidden"
                 id="invoiceBookingId"
             >
-
 
             <div class="form-group">
 
@@ -1907,11 +1859,11 @@ button{
                 >
 
                     <option value="unpaid">
-                        âŒ Unpaid
+                        ❌ Unpaid
                     </option>
 
                     <option value="paid">
-                        âœ… Paid
+                        ✅ Paid
                     </option>
 
                 </select>
@@ -1934,7 +1886,6 @@ button{
             </div>
 
 
-
             <div class="modal-actions">
 
                 <button
@@ -1945,32 +1896,28 @@ button{
                     Close
                 </button>
 
-
                 <button
                     type="button"
                     class="modal-btn print-btn"
                     onclick="printInvoice()"
                 >
-                    ðŸ–¨ï¸ Print Invoice
+                    🖨️ Print Invoice
                 </button>
-
 
                 <button
                     type="submit"
                     class="modal-btn save-btn"
                 >
-                    ðŸ’¾ Save Invoice
+                    💾 Save Invoice
                 </button>
 
             </div>
-
 
         </form>
 
     </div>
 
 </div>
-
 
 
 <!-- TOAST -->
@@ -1981,10 +1928,7 @@ button{
 ></div>
 
 
-
-<!-- =========================================================
-     FIREBASE
-========================================================= -->
+<!-- FIREBASE -->
 
 <script type="module">
 
@@ -2045,10 +1989,8 @@ const firebaseConfig = {
 const app =
     initializeApp(firebaseConfig);
 
-
 const auth =
     getAuth(app);
-
 
 const db =
     getFirestore(app);
@@ -2445,7 +2387,7 @@ async function(){
 
                 <div class="empty">
 
-                    âŒ Unable to load bookings.
+                    ❌ Unable to load bookings.
 
                     <br><br>
 
@@ -2675,7 +2617,7 @@ function(){
 
             <div class="empty">
 
-                ðŸ“­
+                📭
 
                 <br><br>
 
@@ -2713,11 +2655,6 @@ function bookingCardHtml(
         booking.name ||
         "Customer";
 
-
-    /*
-       Support all common customer
-       phone/WhatsApp field names.
-    */
 
     const phone =
         booking.phone ||
@@ -2816,7 +2753,6 @@ function bookingCardHtml(
 
         <article class="booking-card">
 
-
             <div class="booking-header">
 
                 <div class="customer-area">
@@ -2897,9 +2833,7 @@ function bookingCardHtml(
             </div>
 
 
-
             <div class="booking-grid">
-
 
                 <div class="info-item">
 
@@ -3009,13 +2943,13 @@ function bookingCardHtml(
                             ?
                             `
                             <span class="payment-paid">
-                                âœ… PAID
+                                ✅ PAID
                             </span>
                             `
                             :
                             `
                             <span class="payment-unpaid">
-                                âŒ UNPAID
+                                ❌ UNPAID
                             </span>
                             `
                         }
@@ -3037,13 +2971,10 @@ function bookingCardHtml(
 
                 </div>
 
-
             </div>
 
 
-
             <div class="booking-actions">
-
 
                 <button
                     class="action-btn confirm-btn"
@@ -3052,7 +2983,7 @@ function bookingCardHtml(
                         'confirmed'
                     )"
                 >
-                    âœ… Confirm
+                    ✅ Confirm
                 </button>
 
 
@@ -3063,7 +2994,7 @@ function bookingCardHtml(
                         'in-progress'
                     )"
                 >
-                    ðŸ”§ In Progress
+                    🔧 In Progress
                 </button>
 
 
@@ -3074,7 +3005,7 @@ function bookingCardHtml(
                         'completed'
                     )"
                 >
-                    âœ”ï¸ Completed
+                    ✔️ Completed
                 </button>
 
 
@@ -3085,7 +3016,7 @@ function bookingCardHtml(
                         'cancelled'
                     )"
                 >
-                    âŒ Cancel
+                    ❌ Cancel
                 </button>
 
 
@@ -3095,11 +3026,9 @@ function bookingCardHtml(
                         '${booking.firestoreId}'
                     )"
                 >
-                    ðŸ§¾ Invoice
+                    🧾 Invoice
                 </button>
 
-
-                <!-- WHATSAPP IS NOW ALWAYS VISIBLE -->
 
                 <button
                     class="action-btn whatsapp-btn"
@@ -3109,7 +3038,7 @@ function bookingCardHtml(
                         '${escapeJs(trackingId)}'
                     )"
                 >
-                    ðŸ“± WhatsApp
+                    📱 WhatsApp
                 </button>
 
 
@@ -3119,12 +3048,11 @@ function bookingCardHtml(
                         '${booking.firestoreId}'
                     )"
                 >
-                    ðŸ—‘ï¸ Delete
+                    🗑️ Delete
                 </button>
 
 
             </div>
-
 
         </article>
 
@@ -3179,7 +3107,7 @@ function getPaymentStatus(
 
 
 /* =========================================================
-   NEW WHATSAPP STATUS MESSAGE
+   WHATSAPP STATUS MESSAGE
 ========================================================= */
 
 function getStatusWhatsAppMessage(
@@ -3345,12 +3273,6 @@ async function(
             booking
         );
 
-
-    /*
-       Open blank tab immediately.
-       This helps mobile browsers allow
-       the WhatsApp popup.
-    */
 
     let whatsappWindow = null;
 
@@ -3996,7 +3918,6 @@ function(){
 Smart Cool & Refrigerator - Invoice
 </title>
 
-
 <style>
 
 *{
@@ -4240,15 +4161,11 @@ td{
 
 </head>
 
-
 <body>
-
 
 <div class="invoice">
 
-
     <div class="header">
-
 
         <div class="company">
 
@@ -4257,7 +4174,7 @@ td{
             </h1>
 
             <p>
-                AC â€¢ Refrigerator â€¢ Electrician Services
+                AC • Refrigerator • Electrician Services
             </p>
 
             <p>
@@ -4286,13 +4203,10 @@ td{
 
         </div>
 
-
     </div>
 
 
-
     <div class="info">
-
 
         <div class="box">
 
@@ -4391,9 +4305,7 @@ td{
 
         </div>
 
-
     </div>
-
 
 
     <table>
@@ -4462,7 +4374,6 @@ td{
     </table>
 
 
-
     <div class="total">
 
         Total:
@@ -4471,7 +4382,6 @@ td{
         )}
 
     </div>
-
 
 
     ${
@@ -4495,7 +4405,6 @@ td{
     }
 
 
-
     <div class="footer">
 
         <strong>
@@ -4504,14 +4413,13 @@ td{
 
         <br>
 
-        AC â€¢ Refrigerator â€¢ Electrician Services
+        AC • Refrigerator • Electrician Services
 
         <br>
 
         All over Karachi
 
     </div>
-
 
 </div>
 
@@ -4532,7 +4440,6 @@ window.onload=function(){
 };
 
 <\/script>
-
 
 </body>
 
