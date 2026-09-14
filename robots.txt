@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin.html
+
+Sitemap: https://rizwanmughal63110-ux.github.io/smart-cool-refrigerator/sitemap.xml
