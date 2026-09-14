@@ -1,510 +1,697 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Track Booking | Smart Cool</title>
+  <title>Track Booking | Smart Cool & Refrigerator</title>
 
-    <meta name="description"
-          content="Track your Smart Cool AC and refrigerator service booking.">
-          
-    <link rel="stylesheet" href="style.css">
+  <meta name="description"
+    content="Track your Smart Cool & Refrigerator service booking using your Tracking ID.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .tracking-page {
+      min-height: 100vh;
+      padding: 110px 20px 60px;
+    }
+
+    .tracking-container {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .tracking-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.25);
+    }
+
+    .tracking-title {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .tracking-title h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    .tracking-title p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .tracking-form {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .tracking-form input {
+      flex: 1;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg-two);
+      color: var(--light);
+      outline: none;
+      font-size: 16px;
+    }
+
+    .tracking-form input:focus {
+      border-color: var(--cyan);
+    }
+
+    .track-btn {
+      border: none;
+      padding: 15px 25px;
+      border-radius: 10px;
+      background: var(--gradient);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .track-btn:hover {
+      opacity: .9;
+    }
+
+    .result {
+      margin-top: 30px;
+    }
+
+    .result-card {
+      background: var(--bg-two);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .result-header h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .status {
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .status.pending {
+      background: rgba(255,193,7,.15);
+      color: #ffc107;
+    }
+
+    .status.confirmed {
+      background: rgba(0,200,255,.15);
+      color: var(--cyan);
+    }
+
+    .status.progress {
+      background: rgba(33,150,243,.15);
+      color: #2196f3;
+    }
+
+    .status.completed {
+      background: rgba(40,167,69,.15);
+      color: #4caf50;
+    }
+
+    .status.cancelled {
+      background: rgba(244,67,54,.15);
+      color: #f44336;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .info-box {
+      background: rgba(255,255,255,.025);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 15px;
+    }
+
+    .info-box small {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .info-box strong {
+      color: var(--light);
+      word-break: break-word;
+    }
+
+    .invoice-box {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(22,201,255,.05);
+    }
+
+    .invoice-box h3 {
+      margin-top: 0;
+    }
+
+    .invoice-amount {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+
+    .message {
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    .message.error {
+      display: block;
+      background: rgba(244,67,54,.1);
+      border: 1px solid rgba(244,67,54,.3);
+      color: #ff8a80;
+    }
+
+    .message.success {
+      display: block;
+      background: rgba(76,175,80,.1);
+      border: 1px solid rgba(76,175,80,.3);
+      color: #81c784;
+    }
+
+    .loading {
+      text-align: center;
+      color: var(--muted);
+      padding: 20px;
+    }
+
+    .footer-contact {
+      text-align: center;
+      margin-top: 35px;
+      color: var(--muted);
+    }
+
+    .footer-contact a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    @media (max-width: 650px) {
+      .tracking-page {
+        padding: 90px 15px 40px;
+      }
+
+      .tracking-card {
+        padding: 22px;
+      }
+
+      .tracking-title h1 {
+        font-size: 26px;
+      }
+
+      .tracking-form {
+        flex-direction: column;
+      }
+
+      .track-btn {
+        width: 100%;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+  <main class="tracking-page">
+    <div class="tracking-container">
 
-    <header class="site-header">
+      <div class="tracking-card">
 
-        <div class="container header-inner">
-
-            <div class="logo-area">
-
-                <div class="logo-icon">
-                    ❄️
-                </div>
-
-                <div class="logo-text">
-
-                    <h1>Smart Cool</h1>
-
-                    <span>
-                        & Refrigerator Shop
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <nav class="main-nav">
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="index.html#services">
-                    Services
-                </a>
-
-                <a href="index.html#about">
-                    About
-                </a>
-
-                <a href="index.html#booking">
-                    Booking
-                </a>
-
-                <a href="tracking.html">
-                    Track Booking
-                </a>
-
-                <a href="index.html#contact">
-                    Contact
-                </a>
-
-            </nav>
-
-
-            <button
-                class="menu-btn"
-                type="button"
-            >
-                ☰
-            </button>
-
+        <div class="tracking-title">
+          <h1>Track Your Booking</h1>
+          <p>Enter your Smart Cool booking Tracking ID</p>
         </div>
 
-    </header>
+        <form id="trackingForm" class="tracking-form">
+
+          <input
+            type="text"
+            id="trackingId"
+            placeholder="Example: SC-12345678"
+            required
+            autocomplete="off"
+          >
+
+          <button type="submit" class="track-btn">
+            Track Booking
+          </button>
+
+        </form>
+
+        <div id="message" class="message"></div>
+
+        <div id="result" class="result"></div>
+
+      </div>
+
+      <div class="footer-contact">
+        Need help?
+        <a href="https://wa.me/923208463110" target="_blank">
+          WhatsApp Muhammad Rizwan — 0320 8463110
+        </a>
+      </div>
+
+    </div>
+  </main>
 
 
-    <!-- =========================
-         TRACKING HERO
-    ========================== -->
+  <!-- Firebase -->
+  <script type="module">
 
-    <section class="tracking-section">
+    import {
+      initializeApp
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-        <div class="container">
-
-            <div class="tracking-card">
-
-                <div class="tracking-icon">
-                    🔎
-                </div>
-
-
-                <span class="section-label">
-                    BOOKING TRACKING
-                </span>
+    import {
+      getFirestore,
+      collection,
+      query,
+      where,
+      getDocs
+    } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-                <h2>
-                    Track Your Booking
-                </h2>
+    // ==============================
+    // FIREBASE CONFIG
+    // ==============================
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dEhJhJ9pSHg",
+      authDomain: "smart-cool-6f513.firebaseapp.com",
+      projectId: "smart-cool-6f513",
+      storageBucket: "smart-cool-6f513.firebasestorage.app",
+      messagingSenderId: "10468224529",
+      appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+      measurementId: "G-Y5SPBHP57C"
+    };
 
 
-                <p>
-                    Enter your Tracking ID below to check
-                    the current status of your service booking.
-                </p>
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
 
-                <!-- TRACKING FORM -->
+    // ==============================
+    // ELEMENTS
+    // ==============================
 
-                <form
-                    id="trackingForm"
-                    class="tracking-form"
-                >
-
-                    <input
-                        type="text"
-                        id="trackingId"
-                        name="trackingId"
-                        placeholder="Enter Tracking ID"
-                        autocomplete="off"
-                        required
-                    >
+    const form = document.getElementById("trackingForm");
+    const trackingInput = document.getElementById("trackingId");
+    const result = document.getElementById("result");
+    const message = document.getElementById("message");
 
 
-                    <button
-                        type="submit"
-                        class="btn btn-primary"
-                    >
-                        🔎 Track Booking
-                    </button>
+    // ==============================
+    // STATUS CLASS
+    // ==============================
 
-                </form>
+    function getStatusClass(status) {
+
+      const value = String(status || "Pending")
+        .toLowerCase()
+        .trim();
+
+      if (value === "confirmed") {
+        return "confirmed";
+      }
+
+      if (
+        value === "in progress" ||
+        value === "progress" ||
+        value === "working"
+      ) {
+        return "progress";
+      }
+
+      if (value === "completed") {
+        return "completed";
+      }
+
+      if (
+        value === "cancelled" ||
+        value === "canceled" ||
+        value === "rejected"
+      ) {
+        return "cancelled";
+      }
+
+      return "pending";
+    }
 
 
-                <!-- RESULT -->
+    // ==============================
+    // FORMAT DATE
+    // ==============================
 
-                <div
-                    id="trackingResult"
-                    class="tracking-result"
-                ></div>
+    function formatDate(value) {
 
-            </div>
+      if (!value) return "—";
 
+      try {
+
+        if (value.toDate) {
+          return value.toDate().toLocaleString("en-PK", {
+            dateStyle: "medium",
+            timeStyle: "short"
+          });
+        }
+
+        return new Date(value).toLocaleString("en-PK", {
+          dateStyle: "medium",
+          timeStyle: "short"
+        });
+
+      } catch (error) {
+        return "—";
+      }
+    }
+
+
+    // ==============================
+    // ESCAPE HTML
+    // ==============================
+
+    function escapeHTML(value) {
+
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+
+    // ==============================
+    // SHOW MESSAGE
+    // ==============================
+
+    function showMessage(text, type = "error") {
+
+      message.className = "message " + type;
+      message.textContent = text;
+
+    }
+
+
+    function clearMessage() {
+
+      message.className = "message";
+      message.textContent = "";
+
+    }
+
+
+    // ==============================
+    // TRACK BOOKING
+    // ==============================
+
+    form.addEventListener("submit", async function(event) {
+
+      event.preventDefault();
+
+      clearMessage();
+      result.innerHTML = "";
+
+      const trackingId = trackingInput.value.trim();
+
+      if (!trackingId) {
+
+        showMessage("Please enter your Tracking ID.");
+
+        return;
+      }
+
+
+      result.innerHTML = `
+        <div class="loading">
+          Searching your booking...
         </div>
+      `;
 
-    </section>
+
+      try {
+
+        const bookingQuery = query(
+          collection(db, "serviceRequests"),
+          where("trackingId", "==", trackingId)
+        );
 
 
-    <!-- =========================
-         INFORMATION SECTION
-    ========================== -->
+        const snapshot = await getDocs(bookingQuery);
 
-    <section class="services-section">
 
-        <div class="container">
+        if (snapshot.empty) {
 
-            <div class="section-heading">
+          result.innerHTML = "";
 
-                <span>
-                    HOW IT WORKS
-                </span>
+          showMessage(
+            "Booking not found. Please check your Tracking ID and try again."
+          );
 
-                <h2>
-                    Track In 3 Easy Steps
-                </h2>
+          return;
+        }
 
-                <p>
-                    Keep your Tracking ID safe after booking
-                    your service.
-                </p>
+
+        // First matching booking
+        const bookingDoc = snapshot.docs[0];
+        const booking = bookingDoc.data();
+
+
+        const status = booking.status || "Pending";
+        const statusClass = getStatusClass(status);
+
+
+        const invoiceAmount =
+          Number(booking.invoiceAmount || 0);
+
+
+        result.innerHTML = `
+
+          <div class="result-card">
+
+            <div class="result-header">
+
+              <h2>
+                Booking Details
+              </h2>
+
+              <span class="status ${statusClass}">
+                ${escapeHTML(status)}
+              </span>
 
             </div>
 
 
-            <div class="services-grid">
+            <div class="info-grid">
+
+              <div class="info-box">
+                <small>Tracking ID</small>
+                <strong>
+                  ${escapeHTML(booking.trackingId || trackingId)}
+                </strong>
+              </div>
 
 
-                <div class="service-card">
+              <div class="info-box">
+                <small>Booking ID</small>
+                <strong>
+                  ${escapeHTML(
+                    booking.bookingId ||
+                    bookingDoc.id
+                  )}
+                </strong>
+              </div>
 
-                    <div class="service-icon">
-                        1️⃣
-                    </div>
 
-                    <h3>
-                        Get Tracking ID
-                    </h3>
+              <div class="info-box">
+                <small>Customer Name</small>
+                <strong>
+                  ${escapeHTML(booking.customerName || "—")}
+                </strong>
+              </div>
 
-                    <p>
-                        After submitting your service booking,
-                        you will receive a unique Tracking ID.
-                    </p>
+
+              <div class="info-box">
+                <small>Phone</small>
+                <strong>
+                  ${escapeHTML(booking.phone || "—")}
+                </strong>
+              </div>
+
+
+              <div class="info-box">
+                <small>Service</small>
+                <strong>
+                  ${escapeHTML(booking.service || "—")}
+                </strong>
+              </div>
+
+
+              <div class="info-box">
+                <small>Area / Address</small>
+                <strong>
+                  ${escapeHTML(
+                    booking.area ||
+                    booking.address ||
+                    "—"
+                  )}
+                </strong>
+              </div>
+
+
+              <div class="info-box">
+                <small>Preferred Date</small>
+                <strong>
+                  ${escapeHTML(
+                    booking.preferredDate ||
+                    booking.date ||
+                    "—"
+                  )}
+                </strong>
+              </div>
+
+
+              <div class="info-box">
+                <small>Preferred Time</small>
+                <strong>
+                  ${escapeHTML(
+                    booking.preferredTime ||
+                    booking.time ||
+                    "—"
+                  )}
+                </strong>
+              </div>
+
+
+              <div class="info-box">
+                <small>Created</small>
+                <strong>
+                  ${escapeHTML(
+                    formatDate(booking.createdAt)
+                  )}
+                </strong>
+              </div>
+
+
+              <div class="info-box">
+                <small>Last Updated</small>
+                <strong>
+                  ${escapeHTML(
+                    formatDate(booking.updatedAt)
+                  )}
+                </strong>
+              </div>
+
+            </div>
+
+
+            ${
+              booking.problem
+              ?
+              `
+                <div class="info-box" style="margin-top:15px;">
+                  <small>Problem / Customer Message</small>
+                  <strong>
+                    ${escapeHTML(booking.problem)}
+                  </strong>
+                </div>
+              `
+              :
+              ""
+            }
+
+
+            ${
+              invoiceAmount > 0
+              ?
+              `
+                <div class="invoice-box">
+
+                  <h3>Invoice</h3>
+
+                  <div class="invoice-amount">
+                    Rs. ${invoiceAmount.toLocaleString("en-PK")}
+                  </div>
+
+                  ${
+                    booking.invoiceNote
+                    ?
+                    `
+                      <p>
+                        ${escapeHTML(booking.invoiceNote)}
+                      </p>
+                    `
+                    :
+                    ""
+                  }
 
                 </div>
+              `
+              :
+              ""
+            }
 
+          </div>
 
-                <div class="service-card">
+        `;
 
-                    <div class="service-icon">
-                        2️⃣
-                    </div>
+        showMessage(
+          "Booking found successfully.",
+          "success"
+        );
 
-                    <h3>
-                        Enter Your ID
-                    </h3>
 
-                    <p>
-                        Enter your Tracking ID in the box
-                        above to search for your booking.
-                    </p>
+      } catch (error) {
 
-                </div>
+        console.error("Tracking error:", error);
 
+        result.innerHTML = "";
 
-                <div class="service-card">
+        showMessage(
+          "Unable to search booking right now. Please try again."
+        );
 
-                    <div class="service-icon">
-                        3️⃣
-                    </div>
+      }
 
-                    <h3>
-                        Check Status
-                    </h3>
+    });
 
-                    <p>
-                        View your booking information and
-                        current service status.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer class="site-footer">
-
-        <div class="container footer-grid">
-
-
-            <div class="footer-about">
-
-                <div class="footer-logo">
-                    ❄️ Smart Cool
-                </div>
-
-                <p>
-                    Professional AC and refrigerator repair,
-                    service and home solutions.
-                </p>
-
-            </div>
-
-
-            <div class="footer-links">
-
-                <h3>
-                    Quick Links
-                </h3>
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="index.html#services">
-                    Services
-                </a>
-
-                <a href="index.html#booking">
-                    Booking
-                </a>
-
-                <a href="tracking.html">
-                    Track Booking
-                </a>
-
-            </div>
-
-
-            <div class="footer-links">
-
-                <h3>
-                    Services
-                </h3>
-
-                <a href="index.html#booking">
-                    AC Service
-                </a>
-
-                <a href="index.html#booking">
-                    AC Repair
-                </a>
-
-                <a href="index.html#booking">
-                    Refrigerator Repair
-                </a>
-
-                <a href="index.html#booking">
-                    Gas Charging
-                </a>
-
-            </div>
-
-
-            <div class="footer-contact">
-
-                <h3>
-                    Contact
-                </h3>
-
-                <p>
-                    📞 03XX-XXXXXXX
-                </p>
-
-                <p>
-                    🏠 Home Service
-                </p>
-
-                <p>
-                    🕐 7 Days a Week
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 Smart Cool & Refrigerator Shop.
-                All Rights Reserved.
-            </p>
-
-        </div>
-
-    </footer>
-
-
-    <!-- =========================
-         TRACKING JAVASCRIPT
-    ========================== -->
-
-    <script>
-
-        document
-            .getElementById("trackingForm")
-            .addEventListener("submit", function(event) {
-
-                event.preventDefault();
-
-                const trackingId =
-                    document
-                        .getElementById("trackingId")
-                        .value
-                        .trim()
-                        .toUpperCase();
-
-                const result =
-                    document
-                        .getElementById("trackingResult");
-
-
-                if (trackingId === "") {
-
-                    result.innerHTML = `
-                        <p>
-                            Please enter your Tracking ID.
-                        </p>
-                    `;
-
-                    return;
-                }
-
-
-                /*
-                 * Temporary tracking system.
-                 *
-                 * The real booking database will be
-                 * connected in the JavaScript/backend
-                 * step.
-                 */
-
-                const bookings =
-                    JSON.parse(
-                        localStorage.getItem("smartCoolBookings")
-                    ) || [];
-
-
-                const booking =
-                    bookings.find(function(item) {
-
-                        return item.trackingId === trackingId;
-
-                    });
-
-
-                if (!booking) {
-
-                    result.innerHTML = `
-                        <div style="
-                            padding:20px;
-                            margin-top:20px;
-                            border-radius:12px;
-                            background:#fff3f3;
-                            border:1px solid #ffd4d4;
-                        ">
-
-                            <strong>
-                                ❌ Booking Not Found
-                            </strong>
-
-                            <p style="margin-top:8px;">
-                                Please check your Tracking ID
-                                and try again.
-                            </p>
-
-                        </div>
-                    `;
-
-                    return;
-                }
-
-
-                result.innerHTML = `
-
-                    <div style="
-                        margin-top:25px;
-                        padding:25px;
-                        text-align:left;
-                        border-radius:15px;
-                        background:#effbfd;
-                        border:1px solid #ccecf1;
-                    ">
-
-                        <h3 style="
-                            color:#07839e;
-                            margin-bottom:15px;
-                        ">
-                            ✅ Booking Found
-                        </h3>
-
-
-                        <p>
-                            <strong>Tracking ID:</strong>
-                            ${booking.trackingId}
-                        </p>
-
-
-                        <p>
-                            <strong>Name:</strong>
-                            ${booking.customerName}
-                        </p>
-
-
-                        <p>
-                            <strong>Phone:</strong>
-                            ${booking.phone}
-                        </p>
-
-
-                        <p>
-                            <strong>Service:</strong>
-                            ${booking.service}
-                        </p>
-
-
-                        <p>
-                            <strong>Date:</strong>
-                            ${booking.preferredDate || "Not specified"}
-                        </p>
-
-
-                        <p>
-                            <strong>Status:</strong>
-                            <span style="
-                                color:#07839e;
-                                font-weight:bold;
-                            ">
-                                ${booking.status || "Pending"}
-                            </span>
-                        </p>
-
-                    </div>
-
-                `;
-
-            });
-
-    </script>
+  </script>
 
 </body>
-
 </html>
