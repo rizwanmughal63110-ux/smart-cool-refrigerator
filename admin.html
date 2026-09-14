@@ -56,7 +56,6 @@ button{
     display:none!important;
 }
 
-
 /* ================= LOGIN ================= */
 
 .login-page{
@@ -190,7 +189,6 @@ button{
 
     box-shadow:0 8px 20px rgba(8,126,164,.2);
 }
-
 
 /* ================= LAYOUT ================= */
 
@@ -344,7 +342,6 @@ button{
     min-height:100vh;
 }
 
-
 /* ================= TOPBAR ================= */
 
 .topbar{
@@ -394,7 +391,6 @@ button{
 .mobile-menu{
     display:none;
 }
-
 
 /* ================= CONTENT ================= */
 
@@ -464,7 +460,6 @@ button{
     font-size:12px;
     font-weight:700;
 }
-
 
 /* ================= STATS ================= */
 
@@ -556,7 +551,6 @@ button{
     word-break:break-word;
 }
 
-
 /* ================= SECTION ================= */
 
 .section-header{
@@ -574,7 +568,6 @@ button{
     color:var(--muted);
     font-size:11px;
 }
-
 
 /* ================= TOOLBAR ================= */
 
@@ -629,7 +622,6 @@ button{
     color:#334e68;
     outline:none;
 }
-
 
 /* ================= BOOKINGS ================= */
 
@@ -772,7 +764,6 @@ button{
     color:var(--red);
 }
 
-
 /* ================= BOOKING GRID ================= */
 
 .booking-grid{
@@ -819,8 +810,7 @@ button{
     grid-column:1/-1;
 }
 
-
-/* ================= PAYMENT BADGE ================= */
+/* ================= PAYMENT ================= */
 
 .payment-paid{
     display:inline-block;
@@ -841,7 +831,6 @@ button{
     font-size:9px;
     font-weight:800;
 }
-
 
 /* ================= ACTIONS ================= */
 
@@ -905,7 +894,6 @@ button{
     background:#fff1f0;
     color:#b42318;
 }
-
 
 /* ================= MODAL ================= */
 
@@ -1037,7 +1025,6 @@ button{
     background:#fff0ef;
 }
 
-
 /* ================= TOAST ================= */
 
 .toast{
@@ -1063,19 +1050,17 @@ button{
     box-shadow:0 15px 35px rgba(0,0,0,.2);
 }
 
-
-/* ================= MOBILE ================= */
-
 .sidebar-overlay{
     display:none;
 }
+
+/* ================= MOBILE ================= */
 
 @media(max-width:1250px){
 
     .stats{
         grid-template-columns:repeat(3,1fr);
     }
-
 }
 
 @media(max-width:1050px){
@@ -1083,7 +1068,6 @@ button{
     .booking-grid{
         grid-template-columns:repeat(2,1fr);
     }
-
 }
 
 @media(max-width:800px){
@@ -1157,7 +1141,6 @@ button{
     .welcome-badge{
         display:none;
     }
-
 }
 
 @media(max-width:650px){
@@ -1184,7 +1167,6 @@ button{
     .stat-info .label{
         font-size:8px;
     }
-
 }
 
 @media(max-width:560px){
@@ -1252,17 +1234,13 @@ button{
         content:"🔄";
         font-size:15px;
     }
-
 }
 </style>
 </head>
 
 <body>
 
-
-<!-- =========================================================
-     LOGIN PAGE
-========================================================= -->
+<!-- ================= LOGIN ================= -->
 
 <div id="loginPage" class="login-page">
 
@@ -1274,40 +1252,27 @@ button{
                 ❄️
             </div>
 
-            <h1>
-                Smart Cool & Refrigerator
-            </h1>
+            <h1>Smart Cool & Refrigerator</h1>
 
-            <p>
-                AC • Refrigerator • Electrician Services
-            </p>
+            <p>AC • Refrigerator • Electrician Services</p>
 
         </div>
-
 
         <div class="login-title">
 
-            <h2>
-                Admin Login
-            </h2>
+            <h2>Admin Login</h2>
 
-            <p>
-                Sign in to manage customer bookings
-            </p>
+            <p>Sign in to manage customer bookings</p>
 
         </div>
 
-
         <div id="loginError" class="login-error"></div>
-
 
         <form id="loginForm">
 
             <div class="form-group">
 
-                <label>
-                    Admin Email
-                </label>
+                <label>Admin Email</label>
 
                 <input
                     type="email"
@@ -1318,12 +1283,9 @@ button{
 
             </div>
 
-
             <div class="form-group">
 
-                <label>
-                    Password
-                </label>
+                <label>Password</label>
 
                 <input
                     type="password"
@@ -1334,11 +1296,7 @@ button{
 
             </div>
 
-
-            <button
-                type="submit"
-                class="login-btn"
-            >
+            <button type="submit" class="login-btn">
                 🔐 Sign In to Dashboard
             </button>
 
@@ -1348,16 +1306,9 @@ button{
 
 </div>
 
-
-
-<!-- =========================================================
-     ADMIN PAGE
-========================================================= -->
+<!-- ================= ADMIN ================= -->
 
 <div id="adminPage" class="admin-page hidden">
-
-
-    <!-- SIDEBAR -->
 
     <aside id="sidebar" class="sidebar">
 
@@ -1369,25 +1320,19 @@ button{
 
             <div>
 
-                <h2>
-                    Smart Cool
-                </h2>
+                <h2>Smart Cool</h2>
 
-                <span>
-                    & Refrigerator
-                </span>
+                <span>& Refrigerator</span>
 
             </div>
 
         </div>
 
-
         <div class="sidebar-menu">
 
             <div class="menu-label">
-                Dashboard
+                DASHBOARD
             </div>
-
 
             <button
                 class="menu-item active"
@@ -1397,7 +1342,6 @@ button{
                 Dashboard
             </button>
 
-
             <button
                 class="menu-item"
                 onclick="focusBookings();closeSidebar();"
@@ -1405,7 +1349,6 @@ button{
                 <span class="menu-icon">📋</span>
                 Service Bookings
             </button>
-
 
             <button
                 class="menu-item"
@@ -1417,21 +1360,17 @@ button{
 
         </div>
 
-
         <div class="sidebar-bottom">
 
             <div class="admin-profile">
 
-                <small>
-                    LOGGED IN AS
-                </small>
+                <small>LOGGED IN AS</small>
 
                 <strong id="adminEmailDisplay">
                     Admin
                 </strong>
 
             </div>
-
 
             <button
                 class="sidebar-logout"
@@ -1444,21 +1383,13 @@ button{
 
     </aside>
 
-
     <div
         id="sidebarOverlay"
         class="sidebar-overlay"
         onclick="closeSidebar()"
     ></div>
 
-
-
-    <!-- MAIN CONTENT -->
-
     <div class="main-content">
-
-
-        <!-- TOPBAR -->
 
         <header class="topbar">
 
@@ -1469,19 +1400,15 @@ button{
                 ☰
             </button>
 
-
             <div class="page-heading">
 
-                <h1>
-                    Admin Dashboard
-                </h1>
+                <h1>Admin Dashboard</h1>
 
                 <p>
                     Manage bookings, payments & invoices
                 </p>
 
             </div>
-
 
             <div class="top-actions">
 
@@ -1491,7 +1418,6 @@ button{
                 >
                     🔄 Refresh
                 </button>
-
 
                 <button
                     class="top-btn logout-btn"
@@ -1504,17 +1430,10 @@ button{
 
         </header>
 
-
-
-        <!-- DASHBOARD -->
-
         <main
             id="dashboardTop"
             class="container"
         >
-
-
-            <!-- WELCOME -->
 
             <section class="welcome">
 
@@ -1530,21 +1449,15 @@ button{
 
                 </div>
 
-
                 <div class="welcome-badge">
                     ❄️ Service Management
                 </div>
 
             </section>
 
-
-
-            <!-- STATS -->
+            <!-- ================= STATS ================= -->
 
             <section class="stats">
-
-
-                <!-- TOTAL BOOKINGS -->
 
                 <div class="stat-card">
 
@@ -1558,19 +1471,13 @@ button{
                             TOTAL BOOKINGS
                         </div>
 
-                        <div
-                            id="totalCount"
-                            class="number"
-                        >
+                        <div id="totalCount" class="number">
                             0
                         </div>
 
                     </div>
 
                 </div>
-
-
-                <!-- PENDING -->
 
                 <div class="stat-card">
 
@@ -1584,19 +1491,13 @@ button{
                             PENDING
                         </div>
 
-                        <div
-                            id="pendingCount"
-                            class="number"
-                        >
+                        <div id="pendingCount" class="number">
                             0
                         </div>
 
                     </div>
 
                 </div>
-
-
-                <!-- CONFIRMED -->
 
                 <div class="stat-card">
 
@@ -1610,19 +1511,13 @@ button{
                             CONFIRMED
                         </div>
 
-                        <div
-                            id="confirmedCount"
-                            class="number"
-                        >
+                        <div id="confirmedCount" class="number">
                             0
                         </div>
 
                     </div>
 
                 </div>
-
-
-                <!-- COMPLETED -->
 
                 <div class="stat-card">
 
@@ -1636,19 +1531,13 @@ button{
                             COMPLETED
                         </div>
 
-                        <div
-                            id="completedCount"
-                            class="number"
-                        >
+                        <div id="completedCount" class="number">
                             0
                         </div>
 
                     </div>
 
                 </div>
-
-
-                <!-- TOTAL AMOUNT -->
 
                 <div class="stat-card">
 
@@ -1662,19 +1551,13 @@ button{
                             TOTAL AMOUNT
                         </div>
 
-                        <div
-                            id="totalAmount"
-                            class="number"
-                        >
+                        <div id="totalAmount" class="number">
                             PKR 0
                         </div>
 
                     </div>
 
                 </div>
-
-
-                <!-- PAID AMOUNT -->
 
                 <div class="stat-card">
 
@@ -1688,10 +1571,7 @@ button{
                             PAID AMOUNT
                         </div>
 
-                        <div
-                            id="paidAmount"
-                            class="number"
-                        >
+                        <div id="paidAmount" class="number">
                             PKR 0
                         </div>
 
@@ -1699,31 +1579,18 @@ button{
 
                 </div>
 
-
             </section>
-
-
-
-            <!-- BOOKINGS TITLE -->
 
             <div
                 id="bookingsSection"
                 class="section-header"
             >
 
-                <h2>
-                    Service Bookings
-                </h2>
+                <h2>Service Bookings</h2>
 
-                <span>
-                    Customer requests
-                </span>
+                <span>Customer requests</span>
 
             </div>
-
-
-
-            <!-- TOOLBAR -->
 
             <div class="toolbar">
 
@@ -1741,7 +1608,6 @@ button{
                     >
 
                 </div>
-
 
                 <select
                     id="statusFilter"
@@ -1777,10 +1643,6 @@ button{
 
             </div>
 
-
-
-            <!-- BOOKINGS -->
-
             <div
                 id="bookingsContainer"
                 class="bookings"
@@ -1796,18 +1658,13 @@ button{
 
             </div>
 
-
         </main>
 
     </div>
 
 </div>
 
-
-
-<!-- =========================================================
-     INVOICE MODAL
-========================================================= -->
+<!-- ================= INVOICE MODAL ================= -->
 
 <div
     id="invoiceModal"
@@ -1815,7 +1672,6 @@ button{
 >
 
     <div class="modal-box">
-
 
         <div class="modal-header">
 
@@ -1827,9 +1683,7 @@ button{
 
                 <div>
 
-                    <h2>
-                        Service Invoice
-                    </h2>
+                    <h2>Service Invoice</h2>
 
                     <p>
                         Create, save and print customer invoice
@@ -1838,7 +1692,6 @@ button{
                 </div>
 
             </div>
-
 
             <button
                 type="button"
@@ -1850,22 +1703,16 @@ button{
 
         </div>
 
-
-
         <form id="invoiceForm">
-
 
             <input
                 type="hidden"
                 id="invoiceBookingId"
             >
 
-
             <div class="form-group">
 
-                <label>
-                    Customer Name
-                </label>
+                <label>Customer Name</label>
 
                 <input
                     type="text"
@@ -1875,12 +1722,9 @@ button{
 
             </div>
 
-
             <div class="form-group">
 
-                <label>
-                    Tracking ID
-                </label>
+                <label>Tracking ID</label>
 
                 <input
                     type="text"
@@ -1890,12 +1734,9 @@ button{
 
             </div>
 
-
             <div class="form-group">
 
-                <label>
-                    Invoice Amount (PKR)
-                </label>
+                <label>Invoice Amount (PKR)</label>
 
                 <input
                     type="number"
@@ -1906,14 +1747,9 @@ button{
 
             </div>
 
-
-            <!-- PAYMENT STATUS -->
-
             <div class="form-group">
 
-                <label>
-                    Payment Status
-                </label>
+                <label>Payment Status</label>
 
                 <select
                     id="paymentStatus"
@@ -1932,12 +1768,9 @@ button{
 
             </div>
 
-
             <div class="form-group">
 
-                <label>
-                    Invoice Note
-                </label>
+                <label>Invoice Note</label>
 
                 <textarea
                     id="invoiceNote"
@@ -1946,8 +1779,6 @@ button{
                 ></textarea>
 
             </div>
-
-
 
             <div class="modal-actions">
 
@@ -1959,7 +1790,6 @@ button{
                     Close
                 </button>
 
-
                 <button
                     type="button"
                     class="modal-btn print-btn"
@@ -1967,7 +1797,6 @@ button{
                 >
                     🖨️ Print Invoice
                 </button>
-
 
                 <button
                     type="submit"
@@ -1978,27 +1807,15 @@ button{
 
             </div>
 
-
         </form>
 
     </div>
 
 </div>
 
+<div id="toast" class="toast"></div>
 
-
-<!-- TOAST -->
-
-<div
-    id="toast"
-    class="toast"
-></div>
-
-
-
-<!-- =========================================================
-     FIREBASE
-========================================================= -->
+<!-- ================= FIREBASE ================= -->
 
 <script type="module">
 
@@ -2025,11 +1842,7 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
-
-/* =========================================================
-   FIREBASE CONFIG
-========================================================= */
+/* ================= FIREBASE CONFIG ================= */
 
 const firebaseConfig = {
 
@@ -2053,70 +1866,43 @@ const firebaseConfig = {
 
     measurementId:
         "G-Y5SPBHP57C"
-
 };
-
 
 const app =
     initializeApp(firebaseConfig);
 
-
 const auth =
     getAuth(app);
-
 
 const db =
     getFirestore(app);
 
-
-
-/* =========================================================
-   ADMIN EMAIL
-========================================================= */
+/* ================= ADMIN ================= */
 
 const ADMIN_EMAILS = [
     "qoutex798@gmail.com"
 ];
 
-
 let allBookings = [];
 
-
-
-/* =========================================================
-   ELEMENTS
-========================================================= */
+/* ================= ELEMENTS ================= */
 
 const loginPage =
-    document.getElementById(
-        "loginPage"
-    );
+    document.getElementById("loginPage");
 
 const adminPage =
-    document.getElementById(
-        "adminPage"
-    );
+    document.getElementById("adminPage");
 
 const loginForm =
-    document.getElementById(
-        "loginForm"
-    );
+    document.getElementById("loginForm");
 
 const loginError =
-    document.getElementById(
-        "loginError"
-    );
+    document.getElementById("loginError");
 
 const bookingsContainer =
-    document.getElementById(
-        "bookingsContainer"
-    );
+    document.getElementById("bookingsContainer");
 
-
-
-/* =========================================================
-   AUTH
-========================================================= */
+/* ================= AUTH ================= */
 
 onAuthStateChanged(
     auth,
@@ -2128,11 +1914,8 @@ onAuthStateChanged(
                 (user.email || "")
                 .toLowerCase();
 
-
             if(
-                !ADMIN_EMAILS.includes(
-                    email
-                )
+                !ADMIN_EMAILS.includes(email)
             ){
 
                 await signOut(auth);
@@ -2142,48 +1925,30 @@ onAuthStateChanged(
                 );
 
                 return;
-
             }
 
+            loginPage.classList.add("hidden");
 
-            loginPage.classList.add(
-                "hidden"
-            );
-
-            adminPage.classList.remove(
-                "hidden"
-            );
-
+            adminPage.classList.remove("hidden");
 
             document.getElementById(
                 "adminEmailDisplay"
             ).textContent =
                 user.email || "Admin";
 
-
             await loadBookings();
-
 
         }else{
 
-            loginPage.classList.remove(
-                "hidden"
-            );
+            loginPage.classList.remove("hidden");
 
-            adminPage.classList.add(
-                "hidden"
-            );
-
+            adminPage.classList.add("hidden");
         }
 
     }
 );
 
-
-
-/* =========================================================
-   LOGIN
-========================================================= */
+/* ================= LOGIN ================= */
 
 loginForm.addEventListener(
     "submit",
@@ -2191,9 +1956,7 @@ loginForm.addEventListener(
 
         e.preventDefault();
 
-        loginError.style.display =
-            "none";
-
+        loginError.style.display = "none";
 
         const email =
             document.getElementById(
@@ -2202,12 +1965,10 @@ loginForm.addEventListener(
             .trim()
             .toLowerCase();
 
-
         const password =
             document.getElementById(
                 "loginPassword"
             ).value;
-
 
         if(
             !ADMIN_EMAILS.includes(email)
@@ -2218,9 +1979,7 @@ loginForm.addEventListener(
             );
 
             return;
-
         }
-
 
         try{
 
@@ -2237,88 +1996,58 @@ loginForm.addEventListener(
             showLoginError(
                 getFirebaseError(error)
             );
-
         }
 
     }
 );
 
-
-
 function showLoginError(message){
 
-    loginError.textContent =
-        message;
+    loginError.textContent = message;
 
-    loginError.style.display =
-        "block";
-
+    loginError.style.display = "block";
 }
-
-
 
 function getFirebaseError(error){
 
     const code =
         error?.code || "";
 
-
     if(
-        code.includes(
-            "invalid-credential"
-        )
+        code.includes("invalid-credential")
     ){
 
         return "Email or password is incorrect.";
-
     }
 
-
     if(
-        code.includes(
-            "wrong-password"
-        )
+        code.includes("wrong-password")
     ){
 
         return "Password is incorrect.";
-
     }
 
-
     if(
-        code.includes(
-            "user-not-found"
-        )
+        code.includes("user-not-found")
     ){
 
         return "Admin account not found.";
-
     }
 
-
     if(
-        code.includes(
-            "too-many-requests"
-        )
+        code.includes("too-many-requests")
     ){
 
         return "Too many attempts. Please try again later.";
-
     }
-
 
     return (
         error?.message ||
         "Login failed."
     );
-
 }
 
-
-
-/* =========================================================
-   LOGOUT
-========================================================= */
+/* ================= LOGOUT ================= */
 
 window.logoutAdmin =
 async function(){
@@ -2330,16 +2059,11 @@ async function(){
     }catch(error){
 
         console.error(error);
-
     }
 
 };
 
-
-
-/* =========================================================
-   LOAD BOOKINGS
-========================================================= */
+/* ================= LOAD BOOKINGS ================= */
 
 window.loadBookings =
 async function(){
@@ -2353,9 +2077,7 @@ async function(){
             Loading bookings...
 
         </div>
-
     `;
-
 
     try{
 
@@ -2364,7 +2086,6 @@ async function(){
                 db,
                 "serviceRequests"
             );
-
 
         const q =
             query(
@@ -2375,13 +2096,10 @@ async function(){
                 )
             );
 
-
         const snapshot =
             await getDocs(q);
 
-
         allBookings = [];
-
 
         snapshot.forEach(
             (item) => {
@@ -2398,11 +2116,9 @@ async function(){
             }
         );
 
-
         updateStats();
 
         renderBookings();
-
 
     }catch(error){
 
@@ -2410,9 +2126,6 @@ async function(){
             "Primary loading error:",
             error
         );
-
-
-        /* FALLBACK */
 
         try{
 
@@ -2424,9 +2137,7 @@ async function(){
                     )
                 );
 
-
             allBookings = [];
-
 
             snapshot.forEach(
                 (item) => {
@@ -2443,28 +2154,23 @@ async function(){
                 }
             );
 
-
             allBookings.sort(
                 (a,b) =>
                     getTimestampMs(
                         b.createdAt
-                    )
-                    -
+                    ) -
                     getTimestampMs(
                         a.createdAt
                     )
             );
 
-
             updateStats();
 
             renderBookings();
 
-
         }catch(error2){
 
             console.error(error2);
-
 
             bookingsContainer.innerHTML = `
 
@@ -2480,26 +2186,17 @@ async function(){
                     )}
 
                 </div>
-
             `;
-
         }
-
     }
-
 };
 
-
-
-/* =========================================================
-   UPDATE STATS
-========================================================= */
+/* ================= STATS ================= */
 
 function updateStats(){
 
     const total =
         allBookings.length;
-
 
     const pending =
         allBookings.filter(
@@ -2509,7 +2206,6 @@ function updateStats(){
                 ) === "pending"
         ).length;
 
-
     const confirmed =
         allBookings.filter(
             b =>
@@ -2517,7 +2213,6 @@ function updateStats(){
                     b.status
                 ) === "confirmed"
         ).length;
-
 
     const completed =
         allBookings.filter(
@@ -2527,31 +2222,12 @@ function updateStats(){
                 ) === "completed"
         ).length;
 
-
-    /*
-       TOTAL AMOUNT
-       = all invoiceAmount values
-    */
-
     const totalAmount =
         allBookings.reduce(
-            (sum,b) => {
-
-                return (
-                    sum +
-                    getInvoiceAmount(b)
-                );
-
-            },
+            (sum,b) =>
+                sum + getInvoiceAmount(b),
             0
         );
-
-
-    /*
-       PAID AMOUNT
-       = invoiceAmount only where
-         paymentStatus is paid
-    */
 
     const paidAmount =
         allBookings.reduce(
@@ -2566,7 +2242,6 @@ function updateStats(){
                         sum +
                         getInvoiceAmount(b)
                     );
-
                 }
 
                 return sum;
@@ -2575,55 +2250,40 @@ function updateStats(){
             0
         );
 
-
     document.getElementById(
         "totalCount"
     ).textContent =
         total;
-
 
     document.getElementById(
         "pendingCount"
     ).textContent =
         pending;
 
-
     document.getElementById(
         "confirmedCount"
     ).textContent =
         confirmed;
-
 
     document.getElementById(
         "completedCount"
     ).textContent =
         completed;
 
-
     document.getElementById(
         "totalAmount"
     ).textContent =
         "PKR " +
-        formatMoney(
-            totalAmount
-        );
-
+        formatMoney(totalAmount);
 
     document.getElementById(
         "paidAmount"
     ).textContent =
         "PKR " +
-        formatMoney(
-            paidAmount
-        );
-
+        formatMoney(paidAmount);
 }
 
-
-
-/* =========================================================
-   RENDER BOOKINGS
-========================================================= */
+/* ================= RENDER ================= */
 
 window.renderBookings =
 function(){
@@ -2635,12 +2295,10 @@ function(){
         .trim()
         .toLowerCase();
 
-
     const status =
         document.getElementById(
             "statusFilter"
         ).value;
-
 
     const filtered =
         allBookings.filter(
@@ -2651,23 +2309,18 @@ function(){
                         booking.status
                     );
 
-
                 if(
                     status !== "all" &&
                     currentStatus !== status
                 ){
 
                     return false;
-
                 }
-
 
                 if(!search){
 
                     return true;
-
                 }
-
 
                 const text = [
 
@@ -2675,6 +2328,12 @@ function(){
                     booking.name,
                     booking.phone,
                     booking.mobile,
+                    booking.whatsapp,
+                    booking.whatsappNumber,
+                    booking.phoneNumber,
+                    booking.customerPhone,
+                    booking.contactNumber,
+                    booking.contact,
                     booking.trackingId,
                     booking.trackingID,
                     booking.bookingId,
@@ -2688,14 +2347,10 @@ function(){
                 .join(" ")
                 .toLowerCase();
 
-
-                return text.includes(
-                    search
-                );
+                return text.includes(search);
 
             }
         );
-
 
     if(
         filtered.length === 0
@@ -2712,13 +2367,10 @@ function(){
                 No bookings found.
 
             </div>
-
         `;
 
         return;
-
     }
-
 
     bookingsContainer.innerHTML =
         filtered
@@ -2726,36 +2378,46 @@ function(){
             bookingCardHtml
         )
         .join("");
-
 };
 
+/* ================= GET CUSTOMER PHONE ================= */
 
+function getCustomerPhone(booking){
 
-/* =========================================================
-   BOOKING CARD
-========================================================= */
+    return (
+        booking?.phone ||
+        booking?.mobile ||
+        booking?.whatsapp ||
+        booking?.whatsappNumber ||
+        booking?.phoneNumber ||
+        booking?.customerPhone ||
+        booking?.contactNumber ||
+        booking?.contact ||
+        booking?.customerMobile ||
+        booking?.customerWhatsapp ||
+        ""
+    );
+}
 
-function bookingCardHtml(
-    booking
-){
+/* ================= BOOKING CARD ================= */
+
+function bookingCardHtml(booking){
 
     const customerName =
         booking.customerName ||
         booking.name ||
         "Customer";
 
-
     const phone =
-        booking.phone ||
-        booking.mobile ||
-        "Not provided";
+        getCustomerPhone(booking);
 
+    const phoneDisplay =
+        phone || "Not provided";
 
     const service =
         booking.service ||
         booking.serviceType ||
         "Service";
-
 
     const problem =
         booking.problem ||
@@ -2763,69 +2425,47 @@ function bookingCardHtml(
         booking.message ||
         "Not provided";
 
-
     const address =
         booking.address ||
         booking.location ||
         "Not provided";
-
 
     const preferredDate =
         booking.preferredDate ||
         booking.date ||
         "Not provided";
 
-
     const preferredTime =
         booking.preferredTime ||
         booking.time ||
         "Not provided";
 
-
     const trackingId =
         booking.trackingId ||
         booking.trackingID ||
-        generateDisplayId(
-            booking
-        );
-
-
-    /*
-       IMPORTANT:
-       Firestore document ID is NEVER shown.
-    */
+        generateDisplayId(booking);
 
     const rawBookingId =
         booking.bookingId || "";
 
-
     const validBookingId =
         rawBookingId &&
-        rawBookingId !==
-            booking.firestoreId
-            ?
-            rawBookingId
-            :
-            "";
-
+        rawBookingId !== booking.firestoreId
+        ?
+        rawBookingId
+        :
+        "";
 
     const status =
         normalizeStatus(
             booking.status
         );
 
-
     const invoiceAmount =
-        getInvoiceAmount(
-            booking
-        );
-
+        getInvoiceAmount(booking);
 
     const paymentStatus =
-        getPaymentStatus(
-            booking
-        );
-
+        getPaymentStatus(booking);
 
     const initial =
         escapeHtml(
@@ -2834,11 +2474,9 @@ function bookingCardHtml(
             .toUpperCase()
         );
 
-
     return `
 
         <article class="booking-card">
-
 
             <div class="booking-header">
 
@@ -2848,7 +2486,6 @@ function bookingCardHtml(
                         ${initial}
                     </div>
 
-
                     <div class="customer-info">
 
                         <h3>
@@ -2856,7 +2493,6 @@ function bookingCardHtml(
                                 customerName
                             )}
                         </h3>
-
 
                         ${
                             validBookingId
@@ -2878,7 +2514,6 @@ function bookingCardHtml(
                             ""
                         }
 
-
                         <div class="booking-date">
 
                             Tracking ID:
@@ -2890,7 +2525,6 @@ function bookingCardHtml(
                             </strong>
 
                         </div>
-
 
                         <div class="booking-date">
 
@@ -2908,7 +2542,6 @@ function bookingCardHtml(
 
                 </div>
 
-
                 <span
                     class="status status-${statusClass(status)}"
                 >
@@ -2919,10 +2552,7 @@ function bookingCardHtml(
 
             </div>
 
-
-
             <div class="booking-grid">
-
 
                 <div class="info-item">
 
@@ -2931,11 +2561,12 @@ function bookingCardHtml(
                     </div>
 
                     <div class="info-value">
-                        ${escapeHtml(phone)}
+                        ${escapeHtml(
+                            phoneDisplay
+                        )}
                     </div>
 
                 </div>
-
 
                 <div class="info-item">
 
@@ -2948,7 +2579,6 @@ function bookingCardHtml(
                     </div>
 
                 </div>
-
 
                 <div class="info-item">
 
@@ -2964,7 +2594,6 @@ function bookingCardHtml(
 
                 </div>
 
-
                 <div class="info-item">
 
                     <div class="info-label">
@@ -2979,7 +2608,6 @@ function bookingCardHtml(
 
                 </div>
 
-
                 <div class="info-item">
 
                     <div class="info-label">
@@ -2987,13 +2615,10 @@ function bookingCardHtml(
                     </div>
 
                     <div class="info-value">
-                        ${escapeHtml(
-                            address
-                        )}
+                        ${escapeHtml(address)}
                     </div>
 
                 </div>
-
 
                 <div class="info-item">
 
@@ -3017,7 +2642,6 @@ function bookingCardHtml(
                     </div>
 
                 </div>
-
 
                 <div class="info-item">
 
@@ -3047,8 +2671,7 @@ function bookingCardHtml(
 
                 </div>
 
-
-                <div class="info-item">
+                <div class="info-item problem">
 
                     <div class="info-label">
                         Customer Problem
@@ -3060,159 +2683,150 @@ function bookingCardHtml(
 
                 </div>
 
-
             </div>
 
-
-
             <div class="booking-actions">
-
 
                 <button
                     class="action-btn confirm-btn"
                     onclick="updateBookingStatus(
-                        '${booking.firestoreId}',
+                        '${escapeJs(booking.firestoreId)}',
                         'confirmed'
                     )"
                 >
                     ✅ Confirm
                 </button>
 
-
                 <button
                     class="action-btn progress-btn"
                     onclick="updateBookingStatus(
-                        '${booking.firestoreId}',
+                        '${escapeJs(booking.firestoreId)}',
                         'in-progress'
                     )"
                 >
                     🔧 In Progress
                 </button>
 
-
                 <button
                     class="action-btn complete-btn"
                     onclick="updateBookingStatus(
-                        '${booking.firestoreId}',
+                        '${escapeJs(booking.firestoreId)}',
                         'completed'
                     )"
                 >
                     ✔️ Completed
                 </button>
 
-
                 <button
                     class="action-btn cancel-btn"
                     onclick="updateBookingStatus(
-                        '${booking.firestoreId}',
+                        '${escapeJs(booking.firestoreId)}',
                         'cancelled'
                     )"
                 >
                     ❌ Cancel
                 </button>
 
-
                 <button
                     class="action-btn invoice-btn"
                     onclick="openInvoiceModal(
-                        '${booking.firestoreId}'
+                        '${escapeJs(booking.firestoreId)}'
                     )"
                 >
                     🧾 Invoice
                 </button>
 
+                <!-- WHATSAPP ALWAYS VISIBLE -->
 
-                ${
-                    phone &&
-                    phone !== "Not provided"
-                    ?
-                    `
-                    <button
-                        class="action-btn whatsapp-btn"
-                        onclick="openWhatsApp(
-                            '${escapeJs(phone)}',
-                            '${escapeJs(customerName)}'
-                        )"
-                    >
-                        📱 WhatsApp
-                    </button>
-                    `
-                    :
-                    ""
-                }
-
+                <button
+                    class="action-btn whatsapp-btn"
+                    onclick="openWhatsApp(
+                        '${escapeJs(phone)}',
+                        '${escapeJs(customerName)}',
+                        '${escapeJs(trackingId)}'
+                    )"
+                >
+                    📱 WhatsApp
+                </button>
 
                 <button
                     class="action-btn delete-btn"
                     onclick="deleteBooking(
-                        '${booking.firestoreId}'
+                        '${escapeJs(booking.firestoreId)}'
                     )"
                 >
                     🗑️ Delete
                 </button>
 
-
             </div>
-
 
         </article>
 
     `;
-
 }
 
+/* ================= INVOICE AMOUNT ================= */
 
+function getInvoiceAmount(booking){
 
-/* =========================================================
-   GET INVOICE AMOUNT
-========================================================= */
+    const possibleValues = [
 
-function getInvoiceAmount(
-    booking
-){
+        booking?.invoiceAmount,
+        booking?.totalAmount,
+        booking?.amount,
+        booking?.price
 
-    const value =
-        Number(
-            booking?.invoiceAmount || 0
-        );
+    ];
 
+    for(
+        const value of possibleValues
+    ){
 
-    return isNaN(value)
-        ? 0
-        : value;
+        if(
+            value !== undefined &&
+            value !== null &&
+            value !== ""
+        ){
 
+            const number =
+                Number(
+                    String(value)
+                    .replace(/,/g,"")
+                    .replace(/[^\d.-]/g,"")
+                );
+
+            if(
+                !isNaN(number) &&
+                number > 0
+            ){
+
+                return number;
+            }
+        }
+    }
+
+    return 0;
 }
 
+/* ================= PAYMENT ================= */
 
-
-/* =========================================================
-   GET PAYMENT STATUS
-========================================================= */
-
-function getPaymentStatus(
-    booking
-){
+function getPaymentStatus(booking){
 
     const value =
         String(
             booking?.paymentStatus ||
+            booking?.payment ||
             "unpaid"
         )
         .toLowerCase()
         .trim();
 
-
     return value === "paid"
         ? "paid"
         : "unpaid";
-
 }
 
-
-
-/* =========================================================
-   UPDATE STATUS
-========================================================= */
+/* ================= STATUS UPDATE ================= */
 
 window.updateBookingStatus =
 async function(
@@ -3227,7 +2841,6 @@ async function(
                 firestoreId
         );
 
-
     if(!booking){
 
         showToast(
@@ -3235,9 +2848,29 @@ async function(
         );
 
         return;
-
     }
 
+    /*
+       Open blank tab immediately.
+       This helps prevent popup blocker
+       after Firebase update.
+    */
+
+    let waWindow = null;
+
+    try{
+
+        waWindow =
+            window.open(
+                "about:blank",
+                "_blank"
+            );
+
+    }catch(error){
+
+        console.log(error);
+
+    }
 
     try{
 
@@ -3248,50 +2881,215 @@ async function(
                 firestoreId
             ),
             {
-                status:newStatus,
+
+                status:
+                    newStatus,
 
                 updatedAt:
                     serverTimestamp()
+
             }
         );
 
-
         booking.status =
             newStatus;
-
 
         updateStats();
 
         renderBookings();
 
+        const customerName =
+            booking.customerName ||
+            booking.name ||
+            "Customer";
 
-        showToast(
-            "Booking status updated."
-        );
+        const phone =
+            getCustomerPhone(booking);
 
+        const trackingId =
+            booking.trackingId ||
+            booking.trackingID ||
+            generateDisplayId(booking);
+
+        let statusMessage = "";
+
+        if(
+            newStatus === "confirmed"
+        ){
+
+            statusMessage =
+`Assalam o Alaikum ${customerName},
+
+Your Smart Cool & Refrigerator service booking has been CONFIRMED. ✅
+
+Tracking ID: ${trackingId}
+
+Our team will contact you regarding your service.
+
+Thank you for choosing Smart Cool & Refrigerator.
+
+AC • Refrigerator • Water Dispenser • Electrician Services
+All over Karachi.`;
+
+        }else if(
+            newStatus === "in-progress"
+        ){
+
+            statusMessage =
+`Assalam o Alaikum ${customerName},
+
+Your Smart Cool & Refrigerator service is now IN PROGRESS. 🔧
+
+Tracking ID: ${trackingId}
+
+Our technician is working on your service request.
+
+Thank you for choosing Smart Cool & Refrigerator.
+
+All over Karachi.`;
+
+        }else if(
+            newStatus === "completed"
+        ){
+
+            statusMessage =
+`Assalam o Alaikum ${customerName},
+
+Your Smart Cool & Refrigerator service has been COMPLETED successfully. ✔️
+
+Tracking ID: ${trackingId}
+
+Thank you for choosing Smart Cool & Refrigerator.
+
+For any further assistance, please contact us.
+
+All over Karachi.`;
+
+        }else if(
+            newStatus === "cancelled"
+        ){
+
+            statusMessage =
+`Assalam o Alaikum ${customerName},
+
+Your Smart Cool & Refrigerator service booking has been CANCELLED. ❌
+
+Tracking ID: ${trackingId}
+
+If you need any assistance or want to book again, please contact us.
+
+Thank you.`;
+
+        }else{
+
+            statusMessage =
+`Assalam o Alaikum ${customerName},
+
+Your Smart Cool & Refrigerator booking status has been updated.
+
+New Status: ${statusLabel(newStatus)}
+
+Tracking ID: ${trackingId}
+
+Thank you for choosing Smart Cool & Refrigerator.`;
+        }
+
+        if(phone){
+
+            let cleanPhone =
+                String(phone)
+                .replace(
+                    /\D/g,
+                    ""
+                );
+
+            /*
+               Pakistan number conversion
+               0300xxxxxxx -> 92300xxxxxxx
+            */
+
+            if(
+                cleanPhone.startsWith("0")
+            ){
+
+                cleanPhone =
+                    "92" +
+                    cleanPhone.substring(1);
+            }
+
+            /*
+               If number is 300xxxxxxx
+               add Pakistan code.
+            */
+
+            if(
+                !cleanPhone.startsWith("92")
+            ){
+
+                cleanPhone =
+                    "92" +
+                    cleanPhone;
+            }
+
+            const whatsappUrl =
+                "https://wa.me/" +
+                cleanPhone +
+                "?text=" +
+                encodeURIComponent(
+                    statusMessage
+                );
+
+            if(waWindow){
+
+                waWindow.location.href =
+                    whatsappUrl;
+
+            }else{
+
+                window.open(
+                    whatsappUrl,
+                    "_blank"
+                );
+            }
+
+            showToast(
+                "Status updated. WhatsApp message is ready."
+            );
+
+        }else{
+
+            if(waWindow){
+
+                waWindow.close();
+            }
+
+            showToast(
+                "Status updated, but customer phone number is missing."
+            );
+        }
 
     }catch(error){
 
-        console.error(error);
+        console.error(
+            "Status update error:",
+            error
+        );
+
+        if(waWindow){
+
+            waWindow.close();
+        }
 
         showToast(
             "Status update failed."
         );
-
     }
-
 };
 
-
-
-/* =========================================================
-   DELETE
-========================================================= */
+/* ================= DELETE ================= */
 
 window.deleteBooking =
-async function(
-    firestoreId
-){
+async function(firestoreId){
 
     const booking =
         allBookings.find(
@@ -3300,7 +3098,6 @@ async function(
                 firestoreId
         );
 
-
     if(!booking){
 
         showToast(
@@ -3308,15 +3105,12 @@ async function(
         );
 
         return;
-
     }
-
 
     const name =
         booking.customerName ||
         booking.name ||
         "this booking";
-
 
     if(
         !confirm(
@@ -3325,9 +3119,7 @@ async function(
     ){
 
         return;
-
     }
-
 
     try{
 
@@ -3339,7 +3131,6 @@ async function(
             )
         );
 
-
         allBookings =
             allBookings.filter(
                 item =>
@@ -3347,16 +3138,13 @@ async function(
                     firestoreId
             );
 
-
         updateStats();
 
         renderBookings();
 
-
         showToast(
             "Booking deleted successfully."
         );
-
 
     }catch(error){
 
@@ -3365,21 +3153,13 @@ async function(
         showToast(
             "Delete failed."
         );
-
     }
-
 };
 
-
-
-/* =========================================================
-   OPEN INVOICE MODAL
-========================================================= */
+/* ================= INVOICE MODAL ================= */
 
 window.openInvoiceModal =
-function(
-    firestoreId
-){
+function(firestoreId){
 
     const booking =
         allBookings.find(
@@ -3388,7 +3168,6 @@ function(
                 firestoreId
         );
 
-
     if(!booking){
 
         showToast(
@@ -3396,15 +3175,12 @@ function(
         );
 
         return;
-
     }
-
 
     document.getElementById(
         "invoiceBookingId"
     ).value =
         firestoreId;
-
 
     document.getElementById(
         "invoiceCustomer"
@@ -3413,16 +3189,12 @@ function(
         booking.name ||
         "";
 
-
     document.getElementById(
         "invoiceTracking"
     ).value =
         booking.trackingId ||
         booking.trackingID ||
-        generateDisplayId(
-            booking
-        );
-
+        generateDisplayId(booking);
 
     document.getElementById(
         "invoiceAmount"
@@ -3433,14 +3205,10 @@ function(
         :
         "";
 
-
     document.getElementById(
         "paymentStatus"
     ).value =
-        getPaymentStatus(
-            booking
-        );
-
+        getPaymentStatus(booking);
 
     document.getElementById(
         "invoiceNote"
@@ -3448,37 +3216,20 @@ function(
         booking.invoiceNote ||
         "";
 
-
     document.getElementById(
         "invoiceModal"
-    ).classList.remove(
-        "hidden"
-    );
-
+    ).classList.remove("hidden");
 };
-
-
-
-/* =========================================================
-   CLOSE INVOICE
-========================================================= */
 
 window.closeInvoiceModal =
 function(){
 
     document.getElementById(
         "invoiceModal"
-    ).classList.add(
-        "hidden"
-    );
-
+    ).classList.add("hidden");
 };
 
-
-
-/* =========================================================
-   SAVE INVOICE
-========================================================= */
+/* ================= SAVE INVOICE ================= */
 
 document.getElementById(
     "invoiceForm"
@@ -3488,12 +3239,10 @@ document.getElementById(
 
         e.preventDefault();
 
-
         const firestoreId =
             document.getElementById(
                 "invoiceBookingId"
             ).value;
-
 
         const amount =
             Number(
@@ -3502,19 +3251,16 @@ document.getElementById(
                 ).value || 0
             );
 
-
         const paymentStatus =
             document.getElementById(
                 "paymentStatus"
             ).value;
-
 
         const note =
             document.getElementById(
                 "invoiceNote"
             ).value
             .trim();
-
 
         if(!firestoreId){
 
@@ -3523,9 +3269,7 @@ document.getElementById(
             );
 
             return;
-
         }
-
 
         try{
 
@@ -3551,10 +3295,8 @@ document.getElementById(
 
                     updatedAt:
                         serverTimestamp()
-
                 }
             );
-
 
             const booking =
                 allBookings.find(
@@ -3562,7 +3304,6 @@ document.getElementById(
                         item.firestoreId ===
                         firestoreId
                 );
-
 
             if(booking){
 
@@ -3574,16 +3315,13 @@ document.getElementById(
 
                 booking.invoiceNote =
                     note;
-
             }
-
 
             updateStats();
 
             renderBookings();
 
             closeInvoiceModal();
-
 
             showToast(
                 paymentStatus === "paid"
@@ -3593,7 +3331,6 @@ document.getElementById(
                 "Invoice saved as UNPAID."
             );
 
-
         }catch(error){
 
             console.error(error);
@@ -3601,17 +3338,80 @@ document.getElementById(
             showToast(
                 "Invoice save failed."
             );
-
         }
-
     }
 );
 
+/* ================= WHATSAPP ================= */
 
+window.openWhatsApp =
+function(
+    phone,
+    customerName,
+    trackingId
+){
 
-/* =========================================================
-   PRINT INVOICE
-========================================================= */
+    if(!phone){
+
+        alert(
+            "Customer WhatsApp number is not available in this booking."
+        );
+
+        return;
+    }
+
+    let cleanPhone =
+        String(phone)
+        .replace(
+            /\D/g,
+            ""
+        );
+
+    if(
+        cleanPhone.startsWith("0")
+    ){
+
+        cleanPhone =
+            "92" +
+            cleanPhone.substring(1);
+    }
+
+    if(
+        !cleanPhone.startsWith("92")
+    ){
+
+        cleanPhone =
+            "92" +
+            cleanPhone;
+    }
+
+    const message =
+`Assalam o Alaikum ${customerName},
+
+This is Smart Cool & Refrigerator regarding your service booking.
+
+Tracking ID: ${trackingId}
+
+How can we help you?
+
+AC • Refrigerator • Water Dispenser • Electrician Services
+All over Karachi.`;
+
+    const url =
+        "https://wa.me/" +
+        cleanPhone +
+        "?text=" +
+        encodeURIComponent(
+            message
+        );
+
+    window.open(
+        url,
+        "_blank"
+    );
+};
+
+/* ================= PRINT INVOICE ================= */
 
 window.printInvoice =
 function(){
@@ -3621,14 +3421,12 @@ function(){
             "invoiceBookingId"
         ).value;
 
-
     const booking =
         allBookings.find(
             item =>
                 item.firestoreId ===
                 firestoreId
         );
-
 
     if(!booking){
 
@@ -3637,45 +3435,36 @@ function(){
         );
 
         return;
-
     }
-
 
     const customerName =
         booking.customerName ||
         booking.name ||
         "Customer";
 
-
     const phone =
-        booking.phone ||
-        booking.mobile ||
+        getCustomerPhone(booking) ||
         "Not provided";
-
 
     const service =
         booking.service ||
         booking.serviceType ||
         "Service";
 
-
     const address =
         booking.address ||
         booking.location ||
         "Not provided";
-
 
     const preferredDate =
         booking.preferredDate ||
         booking.date ||
         "Not provided";
 
-
     const preferredTime =
         booking.preferredTime ||
         booking.time ||
         "Not provided";
-
 
     const problem =
         booking.problem ||
@@ -3683,14 +3472,10 @@ function(){
         booking.message ||
         "Not provided";
 
-
     const trackingId =
         booking.trackingId ||
         booking.trackingID ||
-        generateDisplayId(
-            booking
-        );
-
+        generateDisplayId(booking);
 
     const bookingId =
         booking.bookingId &&
@@ -3701,7 +3486,6 @@ function(){
         :
         "";
 
-
     const amount =
         Number(
             document.getElementById(
@@ -3711,15 +3495,11 @@ function(){
             0
         );
 
-
     const paymentStatus =
         document.getElementById(
             "paymentStatus"
         ).value ||
-        getPaymentStatus(
-            booking
-        );
-
+        getPaymentStatus(booking);
 
     const note =
         document.getElementById(
@@ -3728,7 +3508,6 @@ function(){
         .trim() ||
         booking.invoiceNote ||
         "";
-
 
     const invoiceDate =
         new Date()
@@ -3741,14 +3520,12 @@ function(){
             }
         );
 
-
     const paymentText =
         paymentStatus === "paid"
         ?
         "PAID"
         :
         "UNPAID";
-
 
     const printWindow =
         window.open(
@@ -3757,7 +3534,6 @@ function(){
             "width=850,height=900"
         );
 
-
     if(!printWindow){
 
         showToast(
@@ -3765,9 +3541,7 @@ function(){
         );
 
         return;
-
     }
-
 
     printWindow.document.write(`
 
@@ -3782,7 +3556,6 @@ function(){
 <title>
 Smart Cool & Refrigerator - Invoice
 </title>
-
 
 <style>
 
@@ -3812,16 +3585,19 @@ body{
     padding:35px;
 
     border:1px solid #dce8ed;
+
     border-radius:10px;
 }
 
 .header{
     display:flex;
+
     justify-content:space-between;
 
     gap:20px;
 
     padding-bottom:20px;
+
     margin-bottom:25px;
 
     border-bottom:4px solid #087ea4;
@@ -4017,25 +3793,22 @@ td{
 
     .invoice{
         max-width:none;
+
         border:0;
+
         padding:25px;
     }
-
 }
 
 </style>
 
 </head>
 
-
 <body>
-
 
 <div class="invoice">
 
-
     <div class="header">
-
 
         <div class="company">
 
@@ -4053,7 +3826,6 @@ td{
 
         </div>
 
-
         <div class="invoice-title">
 
             <h2>
@@ -4062,9 +3834,7 @@ td{
 
             <p>
                 Date:
-                ${escapeHtml(
-                    invoiceDate
-                )}
+                ${escapeHtml(invoiceDate)}
             </p>
 
             <div class="payment-status">
@@ -4073,13 +3843,9 @@ td{
 
         </div>
 
-
     </div>
 
-
-
     <div class="info">
-
 
         <div class="box">
 
@@ -4088,13 +3854,10 @@ td{
             </div>
 
             <div class="value">
-                ${escapeHtml(
-                    customerName
-                )}
+                ${escapeHtml(customerName)}
             </div>
 
         </div>
-
 
         <div class="box">
 
@@ -4103,13 +3866,10 @@ td{
             </div>
 
             <div class="value">
-                ${escapeHtml(
-                    phone
-                )}
+                ${escapeHtml(phone)}
             </div>
 
         </div>
-
 
         ${
             bookingId
@@ -4122,9 +3882,7 @@ td{
                 </div>
 
                 <div class="value">
-                    ${escapeHtml(
-                        bookingId
-                    )}
+                    ${escapeHtml(bookingId)}
                 </div>
 
             </div>
@@ -4133,7 +3891,6 @@ td{
             ""
         }
 
-
         <div class="box">
 
             <div class="label">
@@ -4141,13 +3898,10 @@ td{
             </div>
 
             <div class="value">
-                ${escapeHtml(
-                    trackingId
-                )}
+                ${escapeHtml(trackingId)}
             </div>
 
         </div>
-
 
         <div class="box">
 
@@ -4156,13 +3910,10 @@ td{
             </div>
 
             <div class="value">
-                ${escapeHtml(
-                    service
-                )}
+                ${escapeHtml(service)}
             </div>
 
         </div>
-
 
         <div class="box">
 
@@ -4171,17 +3922,12 @@ td{
             </div>
 
             <div class="value">
-                ${escapeHtml(
-                    address
-                )}
+                ${escapeHtml(address)}
             </div>
 
         </div>
 
-
     </div>
-
-
 
     <table>
 
@@ -4205,7 +3951,6 @@ td{
 
         </thead>
 
-
         <tbody>
 
             <tr>
@@ -4213,33 +3958,23 @@ td{
                 <td>
 
                     <strong>
-                        ${escapeHtml(
-                            service
-                        )}
+                        ${escapeHtml(service)}
                     </strong>
 
                     <br><br>
 
                     Problem:
 
-                    ${escapeHtml(
-                        problem
-                    )}
+                    ${escapeHtml(problem)}
 
                 </td>
 
-
                 <td>
-                    ${escapeHtml(
-                        preferredDate
-                    )}
+                    ${escapeHtml(preferredDate)}
                 </td>
 
-
                 <td>
-                    ${escapeHtml(
-                        preferredTime
-                    )}
+                    ${escapeHtml(preferredTime)}
                 </td>
 
             </tr>
@@ -4248,18 +3983,12 @@ td{
 
     </table>
 
-
-
     <div class="total">
 
         Total:
-        PKR ${formatMoney(
-            amount
-        )}
+        PKR ${formatMoney(amount)}
 
     </div>
-
-
 
     ${
         note
@@ -4271,17 +4000,13 @@ td{
                 Invoice Note
             </strong>
 
-            ${escapeHtml(
-                note
-            )}
+            ${escapeHtml(note)}
 
         </div>
         `
         :
         ""
     }
-
-
 
     <div class="footer">
 
@@ -4297,11 +4022,13 @@ td{
 
         All over Karachi
 
+        <br>
+
+        Muhammad Rizwan • 03208463110
+
     </div>
 
-
 </div>
-
 
 <script>
 
@@ -4320,102 +4047,28 @@ window.onload=function(){
 
 <\/script>
 
-
 </body>
 
 </html>
 
     `);
 
-
     printWindow.document.close();
-
 };
 
+/* ================= STATUS HELPERS ================= */
 
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
-
-window.openWhatsApp =
-function(
-    phone,
-    customerName
-){
-
-    let cleanPhone =
-        String(phone)
-        .replace(
-            /\D/g,
-            ""
-        );
-
-
-    if(
-        cleanPhone.startsWith("0")
-    ){
-
-        cleanPhone =
-            "92" +
-            cleanPhone.substring(1);
-
-    }
-
-
-    if(
-        !cleanPhone.startsWith("92")
-    ){
-
-        cleanPhone =
-            "92" +
-            cleanPhone;
-
-    }
-
-
-    const message =
-        `Assalam o Alaikum ${customerName}, this is Smart Cool & Refrigerator regarding your service booking.`;
-
-
-    const url =
-        "https://wa.me/" +
-        cleanPhone +
-        "?text=" +
-        encodeURIComponent(
-            message
-        );
-
-
-    window.open(
-        url,
-        "_blank"
-    );
-
-};
-
-
-
-/* =========================================================
-   STATUS HELPERS
-========================================================= */
-
-function normalizeStatus(
-    status
-){
+function normalizeStatus(status){
 
     if(!status){
 
         return "pending";
-
     }
-
 
     const value =
         String(status)
         .toLowerCase()
         .trim();
-
 
     if(
         value === "in progress" ||
@@ -4424,18 +4077,21 @@ function normalizeStatus(
     ){
 
         return "in-progress";
-
     }
 
+    if(
+        value === "cancel" ||
+        value === "canceled" ||
+        value === "rejected"
+    ){
+
+        return "cancelled";
+    }
 
     return value;
-
 }
 
-
-function statusLabel(
-    status
-){
+function statusLabel(status){
 
     const labels = {
 
@@ -4448,30 +4104,22 @@ function statusLabel(
         completed:"Completed",
 
         cancelled:"Cancelled"
-
     };
-
 
     return (
         labels[status] ||
         "Pending"
     );
-
 }
 
-
-function statusClass(
-    status
-){
+function statusClass(status){
 
     if(
         status === "in-progress"
     ){
 
         return "progress";
-
     }
-
 
     return [
         "pending",
@@ -4483,25 +4131,16 @@ function statusClass(
     status
     :
     "pending";
-
 }
 
+/* ================= DATE ================= */
 
-
-/* =========================================================
-   DATE HELPERS
-========================================================= */
-
-function getTimestampMs(
-    value
-){
+function getTimestampMs(value){
 
     if(!value){
 
         return 0;
-
     }
-
 
     try{
 
@@ -4511,23 +4150,20 @@ function getTimestampMs(
         ){
 
             return value.toMillis();
-
         }
 
-
-        if(value.seconds){
+        if(
+            value.seconds
+        ){
 
             return (
                 value.seconds *
                 1000
             );
-
         }
-
 
         const date =
             new Date(value);
-
 
         return isNaN(
             date.getTime()
@@ -4540,26 +4176,18 @@ function getTimestampMs(
     }catch(error){
 
         return 0;
-
     }
-
 }
 
-
-function formatDate(
-    value
-){
+function formatDate(value){
 
     const ms =
         getTimestampMs(value);
 
-
     if(!ms){
 
         return "Not provided";
-
     }
-
 
     try{
 
@@ -4578,48 +4206,31 @@ function formatDate(
     }catch(error){
 
         return "Not provided";
-
     }
-
 }
 
+/* ================= DISPLAY ID ================= */
 
-
-/* =========================================================
-   DISPLAY ID
-========================================================= */
-
-function generateDisplayId(
-    booking
-){
-
-    /*
-       NEVER use Firestore ID.
-    */
+function generateDisplayId(booking){
 
     if(
         booking.trackingId
     ){
 
         return booking.trackingId;
-
     }
-
 
     if(
         booking.trackingID
     ){
 
         return booking.trackingID;
-
     }
-
 
     const created =
         getTimestampMs(
             booking.createdAt
         );
-
 
     if(created){
 
@@ -4628,41 +4239,25 @@ function generateDisplayId(
             String(created)
             .slice(-8)
         );
-
     }
 
-
     return "SC-BOOKING";
-
 }
 
+/* ================= MONEY ================= */
 
-
-/* =========================================================
-   MONEY
-========================================================= */
-
-function formatMoney(
-    amount
-){
+function formatMoney(amount){
 
     return Number(
         amount || 0
     ).toLocaleString(
         "en-PK"
     );
-
 }
 
+/* ================= ESCAPE HTML ================= */
 
-
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHtml(
-    value
-){
+function escapeHtml(value){
 
     return String(
         value ?? ""
@@ -4687,18 +4282,11 @@ function escapeHtml(
         /'/g,
         "&#039;"
     );
-
 }
 
+/* ================= ESCAPE JS ================= */
 
-
-/* =========================================================
-   ESCAPE JS
-========================================================= */
-
-function escapeJs(
-    value
-){
+function escapeJs(value){
 
     return String(
         value ?? ""
@@ -4723,37 +4311,26 @@ function escapeJs(
         /\r/g,
         "\\r"
     );
-
 }
 
+/* ================= TOAST ================= */
 
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-function showToast(
-    message
-){
+function showToast(message){
 
     const toast =
         document.getElementById(
             "toast"
         );
 
-
     toast.textContent =
         message;
-
 
     toast.style.display =
         "block";
 
-
     clearTimeout(
         window.toastTimer
     );
-
 
     window.toastTimer =
         setTimeout(
@@ -4763,16 +4340,11 @@ function showToast(
                     "none";
 
             },
-            3000
+            3500
         );
-
 }
 
-
-
-/* =========================================================
-   MOBILE SIDEBAR
-========================================================= */
+/* ================= MOBILE ================= */
 
 window.toggleSidebar =
 function(){
@@ -4785,7 +4357,6 @@ function(){
         "open"
     );
 
-
     document
     .getElementById(
         "sidebarOverlay"
@@ -4793,9 +4364,7 @@ function(){
     .classList.toggle(
         "show"
     );
-
 };
-
 
 window.closeSidebar =
 function(){
@@ -4808,7 +4377,6 @@ function(){
         "open"
     );
 
-
     document
     .getElementById(
         "sidebarOverlay"
@@ -4816,9 +4384,7 @@ function(){
     .classList.remove(
         "show"
     );
-
 };
-
 
 window.scrollTopPage =
 function(){
@@ -4827,9 +4393,7 @@ function(){
         top:0,
         behavior:"smooth"
     });
-
 };
-
 
 window.focusBookings =
 function(){
@@ -4841,14 +4405,9 @@ function(){
     .scrollIntoView({
         behavior:"smooth"
     });
-
 };
 
-
-
-/* =========================================================
-   MODAL BACKDROP
-========================================================= */
+/* ================= MODAL BACKDROP ================= */
 
 document.getElementById(
     "invoiceModal"
@@ -4861,17 +4420,11 @@ document.getElementById(
         ){
 
             closeInvoiceModal();
-
         }
-
     }
 );
 
-
-
-/* =========================================================
-   AUTO REFRESH
-========================================================= */
+/* ================= AUTO REFRESH ================= */
 
 setInterval(
     () => {
@@ -4884,7 +4437,6 @@ setInterval(
         ){
 
             loadBookings();
-
         }
 
     },
