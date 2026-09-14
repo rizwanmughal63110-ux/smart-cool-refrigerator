@@ -1,984 +1,946 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Smart Cool & Refrigerator Shop</title>
+<title>Smart Cool | Admin Dashboard</title>
 
-    <meta name="description"
-          content="Smart Cool & Refrigerator Shop - AC, Refrigerator Repair, Installation and Home Services">
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-    <meta name="theme-color" content="#0b7285">
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f7fb;
+    color:#172033;
+}
+
+.topbar{
+    background:#087f8c;
+    color:white;
+    padding:16px 20px;
+    box-shadow:0 3px 12px rgba(0,0,0,.12);
+}
+
+.topbar-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-icon{
+    font-size:32px;
+}
+
+.logo h1{
+    font-size:22px;
+}
+
+.logo span{
+    font-size:12px;
+    opacity:.9;
+}
+
+.home-btn{
+    color:white;
+    text-decoration:none;
+    border:1px solid rgba(255,255,255,.5);
+    padding:9px 14px;
+    border-radius:8px;
+    font-size:14px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:25px 18px 50px;
+}
+
+.page-title{
+    margin-bottom:22px;
+}
+
+.page-title h2{
+    font-size:28px;
+    margin-bottom:6px;
+}
+
+.page-title p{
+    color:#667085;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.stat-card{
+    background:white;
+    padding:20px;
+    border-radius:14px;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+    border-left:5px solid #087f8c;
+}
+
+.stat-card h3{
+    font-size:28px;
+    margin-bottom:5px;
+}
+
+.stat-card p{
+    color:#667085;
+    font-size:14px;
+}
+
+/* TOOLBAR */
+
+.toolbar{
+    background:white;
+    padding:16px;
+    border-radius:14px;
+    margin-bottom:20px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    box-shadow:0 3px 15px rgba(0,0,0,.05);
+}
+
+.search-box{
+    flex:1;
+    min-width:220px;
+}
+
+.search-box input,
+.filter select{
+    width:100%;
+    padding:12px;
+    border:1px solid #d0d5dd;
+    border-radius:8px;
+    font-size:14px;
+    outline:none;
+}
+
+.search-box input:focus,
+.filter select:focus{
+    border-color:#087f8c;
+}
+
+/* BOOKINGS */
+
+.bookings{
+    display:grid;
+    gap:18px;
+}
+
+.booking-card{
+    background:white;
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+    border-left:5px solid #087f8c;
+}
+
+.booking-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.booking-id{
+    font-size:18px;
+    font-weight:bold;
+    color:#087f8c;
+}
+
+.booking-date{
+    color:#667085;
+    font-size:13px;
+    margin-top:5px;
+}
+
+.status{
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.status-Pending{
+    background:#fff4cc;
+    color:#946200;
+}
+
+.status-Confirmed{
+    background:#dff4ff;
+    color:#006b8f;
+}
+
+.status-Completed{
+    background:#dcfce7;
+    color:#16713a;
+}
+
+.status-Cancelled{
+    background:#fee2e2;
+    color:#b42318;
+}
+
+.booking-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.info-box{
+    background:#f8fafc;
+    padding:12px;
+    border-radius:8px;
+}
+
+.info-box small{
+    display:block;
+    color:#667085;
+    font-size:11px;
+    margin-bottom:4px;
+    text-transform:uppercase;
+}
+
+.info-box strong{
+    font-size:14px;
+    word-break:break-word;
+}
+
+.problem{
+    background:#f8fafc;
+    padding:13px;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+.problem small{
+    color:#667085;
+    display:block;
+    margin-bottom:5px;
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.actions select{
+    padding:9px;
+    border:1px solid #d0d5dd;
+    border-radius:7px;
+}
+
+.btn{
+    border:0;
+    padding:9px 13px;
+    border-radius:7px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.delete-btn{
+    background:#fee2e2;
+    color:#b42318;
+}
+
+.whatsapp-btn{
+    background:#dcfce7;
+    color:#16713a;
+}
+
+.empty{
+    background:white;
+    padding:45px 20px;
+    text-align:center;
+    border-radius:14px;
+    color:#667085;
+    box-shadow:0 3px 15px rgba(0,0,0,.05);
+}
+
+.empty-icon{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .booking-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .topbar-inner{
+        align-items:flex-start;
+    }
+
+    .logo h1{
+        font-size:18px;
+    }
+
+    .home-btn{
+        font-size:12px;
+        padding:8px 10px;
+    }
+
+    .container{
+        padding:20px 12px 40px;
+    }
+
+    .page-title h2{
+        font-size:23px;
+    }
+
+    .stats{
+        gap:10px;
+    }
+
+    .stat-card{
+        padding:15px;
+    }
+
+    .stat-card h3{
+        font-size:23px;
+    }
+
+    .booking-top{
+        flex-direction:column;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
-    <header class="site-header">
+<header class="topbar">
 
-        <div class="container header-inner">
+    <div class="topbar-inner">
 
-            <div class="logo-area">
-                <div class="logo-icon">❄️</div>
+        <div class="logo">
 
-                <div class="logo-text">
-                    <h1>Smart Cool</h1>
-                    <span>& Refrigerator Shop</span>
-                </div>
-            </div>
-
-            <nav class="main-nav">
-
-                <a href="#home">Home</a>
-
-                <a href="#services">Services</a>
-
-                <a href="#about">About</a>
-
-                <a href="#booking">Booking</a>
-
-                <a href="#tracking">Track Booking</a>
-
-                <a href="#contact">Contact</a>
-
-            </nav>
-
-            <button class="menu-btn" type="button">
-                ☰
-            </button>
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================
-         HERO SECTION
-    ========================== -->
-    <section id="home" class="hero-section">
-
-        <div class="container hero-content">
-
-            <div class="hero-text">
-
-                <span class="hero-badge">
-                    ❄ Professional Cooling Services
-                </span>
-
-                <h2>
-                    Your Trusted
-                    <span>AC & Refrigerator</span>
-                    Experts
-                </h2>
-
-                <p>
-                    Professional AC service, repair, installation,
-                    refrigerator repair and home appliance solutions
-                    at your doorstep.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#booking" class="btn btn-primary">
-                        📅 Book a Service
-                    </a>
-
-                    <a href="#tracking" class="btn btn-secondary">
-                        🔎 Track Booking
-                    </a>
-
-                </div>
-
-                <div class="hero-features">
-
-                    <div class="hero-feature">
-                        <strong>✓</strong>
-                        <span>Professional Service</span>
-                    </div>
-
-                    <div class="hero-feature">
-                        <strong>✓</strong>
-                        <span>Home Visit</span>
-                    </div>
-
-                    <div class="hero-feature">
-                        <strong>✓</strong>
-                        <span>Reliable Work</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="hero-card">
-
-                <div class="hero-card-icon">
-                    ❄️
-                </div>
-
-                <h3>
-                    Smart Cool
-                </h3>
-
-                <p>
-                    Complete Cooling Solutions
-                </p>
-
-                <div class="hero-card-line"></div>
-
-                <div class="hero-card-info">
-                    <span>🔧</span>
-                    <span>AC & Refrigerator Experts</span>
-                </div>
-
-                <div class="hero-card-info">
-                    <span>🏠</span>
-                    <span>Home Service Available</span>
-                </div>
-
-                <div class="hero-card-info">
-                    <span>📞</span>
-                    <span>Quick Response</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         SERVICES
-    ========================== -->
-    <section id="services" class="services-section">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span>
-                    OUR SERVICES
-                </span>
-
-                <h2>
-                    Professional Services
-                </h2>
-
-                <p>
-                    We provide reliable repair and maintenance
-                    services for your cooling appliances.
-                </p>
-
-            </div>
-
-
-            <div class="services-grid">
-
-                <!-- Service 1 -->
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        ❄️
-                    </div>
-
-                    <h3>
-                        AC Service
-                    </h3>
-
-                    <p>
-                        Complete AC cleaning, maintenance and
-                        performance checking.
-                    </p>
-
-                    <a href="#booking">
-                        Book Service →
-                    </a>
-
-                </div>
-
-
-                <!-- Service 2 -->
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        🔧
-                    </div>
-
-                    <h3>
-                        AC Repair
-                    </h3>
-
-                    <p>
-                        Professional troubleshooting and repair
-                        for inverter and non-inverter ACs.
-                    </p>
-
-                    <a href="#booking">
-                        Book Service →
-                    </a>
-
-                </div>
-
-
-                <!-- Service 3 -->
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        🧊
-                    </div>
-
-                    <h3>
-                        Refrigerator Repair
-                    </h3>
-
-                    <p>
-                        Refrigerator cooling problems, compressor,
-                        gas and electrical troubleshooting.
-                    </p>
-
-                    <a href="#booking">
-                        Book Service →
-                    </a>
-
-                </div>
-
-
-                <!-- Service 4 -->
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        ⚙️
-                    </div>
-
-                    <h3>
-                        Gas Charging
-                    </h3>
-
-                    <p>
-                        AC and refrigerator gas charging with
-                        professional checking.
-                    </p>
-
-                    <a href="#booking">
-                        Book Service →
-                    </a>
-
-                </div>
-
-
-                <!-- Service 5 -->
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        🏠
-                    </div>
-
-                    <h3>
-                        Home Service
-                    </h3>
-
-                    <p>
-                        Get professional appliance service
-                        conveniently at your home.
-                    </p>
-
-                    <a href="#booking">
-                        Book Service →
-                    </a>
-
-                </div>
-
-
-                <!-- Service 6 -->
-                <div class="service-card">
-
-                    <div class="service-icon">
-                        🛠️
-                    </div>
-
-                    <h3>
-                        Installation
-                    </h3>
-
-                    <p>
-                        Safe and professional AC installation
-                        and uninstallation services.
-                    </p>
-
-                    <a href="#booking">
-                        Book Service →
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT
-    ========================== -->
-    <section id="about" class="about-section">
-
-        <div class="container about-grid">
-
-            <div class="about-box">
-
-                <div class="about-big-icon">
-                    ❄️
-                </div>
-
-                <div class="about-small-box">
-                    <strong>100%</strong>
-                    <span>Professional Service</span>
-                </div>
-
-            </div>
-
-
-            <div class="about-content">
-
-                <span class="section-label">
-                    ABOUT SMART COOL
-                </span>
-
-                <h2>
-                    Cooling Solutions
-                    You Can Trust
-                </h2>
-
-                <p>
-                    Smart Cool & Refrigerator Shop provides
-                    professional AC and refrigerator services
-                    with a focus on quality, reliability and
-                    customer satisfaction.
-                </p>
-
-                <p>
-                    From routine maintenance to complicated
-                    repairs, our goal is to provide a fast,
-                    professional and convenient service.
-                </p>
-
-
-                <div class="about-points">
-
-                    <div>
-                        <span>✓</span>
-                        <p>Experienced Service</p>
-                    </div>
-
-                    <div>
-                        <span>✓</span>
-                        <p>Home Service Available</p>
-                    </div>
-
-                    <div>
-                        <span>✓</span>
-                        <p>Quality Work</p>
-                    </div>
-
-                    <div>
-                        <span>✓</span>
-                        <p>Customer Satisfaction</p>
-                    </div>
-
-                </div>
-
-                <a href="#booking" class="btn btn-primary">
-                    Book a Service
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         BOOKING SECTION
-    ========================== -->
-    <section id="booking" class="booking-section">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span>
-                    ONLINE BOOKING
-                </span>
-
-                <h2>
-                    Book Your Service
-                </h2>
-
-                <p>
-                    Fill out the form and request a service
-                    from Smart Cool.
-                </p>
-
-            </div>
-
-
-            <div class="booking-wrapper">
-
-                <div class="booking-info">
-
-                    <h3>
-                        Why Book With Us?
-                    </h3>
-
-                    <p>
-                        Submit your service request online
-                        and keep your Tracking ID safe to
-                        check your booking status later.
-                    </p>
-
-                    <div class="booking-info-item">
-                        <span>📅</span>
-                        <div>
-                            <strong>Easy Booking</strong>
-                            <p>Submit your request online.</p>
-                        </div>
-                    </div>
-
-                    <div class="booking-info-item">
-                        <span>🆔</span>
-                        <div>
-                            <strong>Tracking ID</strong>
-                            <p>Track your booking anytime.</p>
-                        </div>
-                    </div>
-
-                    <div class="booking-info-item">
-                        <span>🏠</span>
-                        <div>
-                            <strong>Home Service</strong>
-                            <p>Technician visits your location.</p>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <form id="bookingForm" class="booking-form">
-
-                    <div class="form-row">
-
-                        <div class="form-group">
-
-                            <label for="customerName">
-                                Full Name
-                            </label>
-
-                            <input
-                                type="text"
-                                id="customerName"
-                                name="customerName"
-                                placeholder="Enter your name"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="phone">
-                                Phone Number
-                            </label>
-
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="03XX-XXXXXXX"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-row">
-
-                        <div class="form-group">
-
-                            <label for="service">
-                                Select Service
-                            </label>
-
-                            <select
-                                id="service"
-                                name="service"
-                                required
-                            >
-
-                                <option value="">
-                                    Select Service
-                                </option>
-
-                                <option value="AC Service">
-                                    AC Service
-                                </option>
-
-                                <option value="AC Repair">
-                                    AC Repair
-                                </option>
-
-                                <option value="AC Installation">
-                                    AC Installation
-                                </option>
-
-                                <option value="AC Uninstallation">
-                                    AC Uninstallation
-                                </option>
-
-                                <option value="Refrigerator Repair">
-                                    Refrigerator Repair
-                                </option>
-
-                                <option value="Gas Charging">
-                                    Gas Charging
-                                </option>
-
-                                <option value="Other">
-                                    Other
-                                </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="preferredDate">
-                                Preferred Date
-                            </label>
-
-                            <input
-                                type="date"
-                                id="preferredDate"
-                                name="preferredDate"
-                            >
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="address">
-                            Complete Address
-                        </label>
-
-                        <textarea
-                            id="address"
-                            name="address"
-                            rows="3"
-                            placeholder="Enter your complete address"
-                            required
-                        ></textarea>
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="problem">
-                            Problem Details
-                        </label>
-
-                        <textarea
-                            id="problem"
-                            name="problem"
-                            rows="4"
-                            placeholder="Describe your AC / refrigerator problem"
-                        ></textarea>
-
-                    </div>
-
-
-                    <button
-                        type="submit"
-                        class="btn btn-primary submit-btn"
-                    >
-                        📅 Submit Booking
-                    </button>
-
-
-                    <div
-                        id="bookingResult"
-                        class="booking-result"
-                    ></div>
-
-                </form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         TRACKING SECTION
-    ========================== -->
-    <section id="tracking" class="tracking-section">
-
-        <div class="container">
-
-            <div class="tracking-card">
-
-                <div class="tracking-icon">
-                    🔎
-                </div>
-
-                <span class="section-label">
-                    BOOKING TRACKING
-                </span>
-
-                <h2>
-                    Track Your Booking
-                </h2>
-
-                <p>
-                    Enter the Tracking ID you received after
-                    submitting your service booking.
-                </p>
-
-
-                <div class="tracking-form">
-
-                    <input
-                        type="text"
-                        id="trackingId"
-                        placeholder="Enter Tracking ID e.g. SC-1001"
-                        autocomplete="off"
-                    >
-
-                    <button
-                        type="button"
-                        id="trackButton"
-                        class="btn btn-primary"
-                        onclick="trackBooking()"
-                    >
-                        Track Booking
-                    </button>
-
-                </div>
-
-
-                <div
-                    id="trackingResult"
-                    class="tracking-result"
-                ></div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTACT
-    ========================== -->
-    <section id="contact" class="contact-section">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <span>
-                    CONTACT US
-                </span>
-
-                <h2>
-                    Get In Touch
-                </h2>
-
-                <p>
-                    Need AC or refrigerator service?
-                    Contact Smart Cool today.
-                </p>
-
-            </div>
-
-
-            <div class="contact-grid">
-
-                <div class="contact-card">
-
-                    <div class="contact-icon">
-                        📞
-                    </div>
-
-                    <h3>
-                        Phone
-                    </h3>
-
-                    <p>
-                        03XX-XXXXXXX
-                    </p>
-
-                    <a href="tel:03XXXXXXXXX">
-                        Call Now
-                    </a>
-
-                </div>
-
-
-                <div class="contact-card">
-
-                    <div class="contact-icon">
-                        💬
-                    </div>
-
-                    <h3>
-                        WhatsApp
-                    </h3>
-
-                    <p>
-                        Quick Service Booking
-                    </p>
-
-                    <a
-                        href="https://wa.me/923XXXXXXXXX"
-                        target="_blank"
-                    >
-                        WhatsApp Us
-                    </a>
-
-                </div>
-
-
-                <div class="contact-card">
-
-                    <div class="contact-icon">
-                        🏠
-                    </div>
-
-                    <h3>
-                        Home Service
-                    </h3>
-
-                    <p>
-                        Service at your doorstep
-                    </p>
-
-                    <a href="#booking">
-                        Book Visit
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         CALL TO ACTION
-    ========================== -->
-    <section class="cta-section">
-
-        <div class="container cta-content">
+            <div class="logo-icon">❄️</div>
 
             <div>
+                <h1>Smart Cool</h1>
+                <span>Admin Dashboard</span>
+            </div>
 
-                <span>
-                    NEED A TECHNICIAN?
-                </span>
+        </div>
 
-                <h2>
-                    Book Your Service Today
-                </h2>
+        <a href="index.html" class="home-btn">
+            ← Website
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="page-title">
+
+        <h2>📊 Booking Dashboard</h2>
+
+        <p>
+            Smart Cool & Refrigerator — Customer Service Bookings
+        </p>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div class="stat-card">
+
+            <h3 id="totalBookings">0</h3>
+
+            <p>Total Bookings</p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3 id="pendingBookings">0</h3>
+
+            <p>Pending</p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3 id="confirmedBookings">0</h3>
+
+            <p>Confirmed</p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <h3 id="completedBookings">0</h3>
+
+            <p>Completed</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="toolbar">
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search Tracking ID, name, phone, service..."
+                oninput="renderBookings()"
+            >
+
+        </div>
+
+
+        <div class="filter">
+
+            <select
+                id="statusFilter"
+                onchange="renderBookings()"
+            >
+
+                <option value="All">All Status</option>
+
+                <option value="Pending">Pending</option>
+
+                <option value="Confirmed">Confirmed</option>
+
+                <option value="Completed">Completed</option>
+
+                <option value="Cancelled">Cancelled</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- BOOKINGS -->
+
+    <div id="bookingsContainer" class="bookings"></div>
+
+</main>
+
+
+<script>
+
+/* =========================
+   GET BOOKINGS
+========================= */
+
+function getBookings(){
+
+    return JSON.parse(
+        localStorage.getItem("smartCoolBookings")
+    ) || [];
+
+}
+
+
+/* =========================
+   SAVE BOOKINGS
+========================= */
+
+function saveBookings(bookings){
+
+    localStorage.setItem(
+        "smartCoolBookings",
+        JSON.stringify(bookings)
+    );
+
+}
+
+
+/* =========================
+   DASHBOARD STATS
+========================= */
+
+function updateStats(bookings){
+
+    document.getElementById("totalBookings").textContent =
+        bookings.length;
+
+    document.getElementById("pendingBookings").textContent =
+        bookings.filter(b => b.status === "Pending").length;
+
+    document.getElementById("confirmedBookings").textContent =
+        bookings.filter(b => b.status === "Confirmed").length;
+
+    document.getElementById("completedBookings").textContent =
+        bookings.filter(b => b.status === "Completed").length;
+
+}
+
+
+/* =========================
+   RENDER BOOKINGS
+========================= */
+
+function renderBookings(){
+
+    const bookings = getBookings();
+
+    updateStats(bookings);
+
+    const container =
+        document.getElementById("bookingsContainer");
+
+    const search =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const filter =
+        document.getElementById("statusFilter")
+        .value;
+
+
+    let filtered = bookings.filter(function(booking){
+
+        const searchable = [
+
+            booking.trackingId,
+            booking.customerName,
+            booking.phone,
+            booking.service,
+            booking.area,
+            booking.problem
+
+        ]
+        .join(" ")
+        .toLowerCase();
+
+
+        const matchesSearch =
+            searchable.includes(search);
+
+
+        const matchesStatus =
+            filter === "All" ||
+            booking.status === filter;
+
+
+        return matchesSearch && matchesStatus;
+
+    });
+
+
+    /* NEWEST FIRST */
+
+    filtered.reverse();
+
+
+    if(filtered.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-icon">📭</div>
+
+                <h3>No Bookings Found</h3>
 
                 <p>
-                    Fast and professional AC & refrigerator
-                    service at your doorstep.
+                    Customer bookings will appear here
+                    after they submit the booking form.
                 </p>
 
             </div>
 
-            <a href="#booking" class="btn btn-light">
-                Book Now →
-            </a>
+        `;
 
-        </div>
+        return;
 
-    </section>
+    }
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
-    <footer class="site-footer">
+    container.innerHTML = filtered.map(function(booking){
 
-        <div class="container footer-grid">
+        return `
 
-            <div class="footer-about">
+        <div class="booking-card">
 
-                <div class="footer-logo">
-                    ❄️ Smart Cool
+            <div class="booking-top">
+
+                <div>
+
+                    <div class="booking-id">
+                        🆔 ${escapeHtml(booking.trackingId)}
+                    </div>
+
+                    <div class="booking-date">
+                        Created:
+                        ${formatDate(booking.createdAt)}
+                    </div>
+
                 </div>
 
-                <p>
-                    Professional AC and refrigerator
-                    repair, service and home solutions.
-                </p>
+
+                <span class="status status-${escapeHtml(booking.status)}">
+                    ${escapeHtml(booking.status)}
+                </span>
 
             </div>
 
 
-            <div class="footer-links">
+            <div class="booking-grid">
 
-                <h3>
-                    Quick Links
-                </h3>
+                <div class="info-box">
 
-                <a href="#home">
-                    Home
-                </a>
+                    <small>Customer</small>
 
-                <a href="#services">
-                    Services
-                </a>
+                    <strong>
+                        👤 ${escapeHtml(booking.customerName)}
+                    </strong>
 
-                <a href="#booking">
-                    Booking
-                </a>
+                </div>
 
-                <a href="#tracking">
-                    Track Booking
-                </a>
+
+                <div class="info-box">
+
+                    <small>Phone</small>
+
+                    <strong>
+                        📞 ${escapeHtml(booking.phone)}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <small>Service</small>
+
+                    <strong>
+                        🔧 ${escapeHtml(booking.service)}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <small>Area</small>
+
+                    <strong>
+                        📍 ${escapeHtml(booking.area)}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <small>Preferred Date</small>
+
+                    <strong>
+                        📅 ${escapeHtml(booking.preferredDate || "Not specified")}
+                    </strong>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <small>Preferred Time</small>
+
+                    <strong>
+                        🕐 ${escapeHtml(booking.preferredTime || "Not specified")}
+                    </strong>
+
+                </div>
 
             </div>
 
 
-            <div class="footer-links">
+            <div class="problem">
 
-                <h3>
-                    Services
-                </h3>
+                <small>Problem Details</small>
 
-                <a href="#booking">
-                    AC Service
-                </a>
-
-                <a href="#booking">
-                    AC Repair
-                </a>
-
-                <a href="#booking">
-                    Refrigerator Repair
-                </a>
-
-                <a href="#booking">
-                    Gas Charging
-                </a>
+                <strong>
+                    ${escapeHtml(booking.problem || "No details provided")}
+                </strong>
 
             </div>
 
 
-            <div class="footer-contact">
+            <div class="actions">
 
-                <h3>
-                    Contact
-                </h3>
+                <select
+                    onchange="changeStatus('${escapeJs(booking.trackingId)}', this.value)"
+                >
 
-                <p>
-                    📞 03XX-XXXXXXX
-                </p>
+                    <option value="Pending"
+                        ${booking.status === "Pending" ? "selected" : ""}>
+                        Pending
+                    </option>
 
-                <p>
-                    🏠 Home Service
-                </p>
+                    <option value="Confirmed"
+                        ${booking.status === "Confirmed" ? "selected" : ""}>
+                        Confirmed
+                    </option>
 
-                <p>
-                    🕐 7 Days a Week
-                </p>
+                    <option value="Completed"
+                        ${booking.status === "Completed" ? "selected" : ""}>
+                        Completed
+                    </option>
+
+                    <option value="Cancelled"
+                        ${booking.status === "Cancelled" ? "selected" : ""}>
+                        Cancelled
+                    </option>
+
+                </select>
+
+
+                <button
+                    class="btn whatsapp-btn"
+                    onclick="openWhatsApp('${escapeJs(booking.phone)}')"
+                >
+                    💬 WhatsApp
+                </button>
+
+
+                <button
+                    class="btn delete-btn"
+                    onclick="deleteBooking('${escapeJs(booking.trackingId)}')"
+                >
+                    🗑️ Delete
+                </button>
 
             </div>
 
         </div>
 
+        `;
 
-        <div class="footer-bottom">
+    }).join("");
 
-            <p>
-                © 2026 Smart Cool & Refrigerator Shop.
-                All Rights Reserved.
-            </p>
-
-        </div>
-
-    </footer>
+}
 
 
-    <!-- =========================
-         JAVASCRIPT PLACEHOLDER
-         Actual functionality will
-         be added in the JS file.
-    ========================== -->
+/* =========================
+   CHANGE STATUS
+========================= */
 
-    <script>
+function changeStatus(trackingId, newStatus){
 
-        function trackBooking() {
+    const bookings = getBookings();
 
-            const trackingId =
-                document.getElementById("trackingId").value.trim();
+    const booking =
+        bookings.find(
+            b => b.trackingId === trackingId
+        );
 
-            const result =
-                document.getElementById("trackingResult");
 
-            if (trackingId === "") {
+    if(!booking){
+        return;
+    }
 
-                result.innerHTML =
-                    "<p>Please enter your Tracking ID.</p>";
 
-                return;
+    booking.status = newStatus;
+
+    saveBookings(bookings);
+
+    renderBookings();
+
+}
+
+
+/* =========================
+   DELETE BOOKING
+========================= */
+
+function deleteBooking(trackingId){
+
+    const confirmDelete =
+        confirm(
+            "Kya aap is booking ko delete karna chahte hain?"
+        );
+
+
+    if(!confirmDelete){
+        return;
+    }
+
+
+    let bookings = getBookings();
+
+
+    bookings = bookings.filter(
+        b => b.trackingId !== trackingId
+    );
+
+
+    saveBookings(bookings);
+
+    renderBookings();
+
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function openWhatsApp(phone){
+
+    let number =
+        phone.replace(/\D/g, "");
+
+
+    if(number.startsWith("03")){
+
+        number =
+            "92" + number.substring(1);
+
+    }
+
+
+    window.open(
+        "https://wa.me/" + number,
+        "_blank"
+    );
+
+}
+
+
+/* =========================
+   DATE FORMAT
+========================= */
+
+function formatDate(date){
+
+    if(!date){
+        return "Unknown";
+    }
+
+
+    try{
+
+        return new Date(date).toLocaleString(
+            "en-PK",
+            {
+                dateStyle:"medium",
+                timeStyle:"short"
             }
+        );
 
-            result.innerHTML =
-                "<p>Searching for booking: <strong>"
-                + trackingId
-                + "</strong></p>";
+    }catch(error){
 
-        }
+        return date;
+
+    }
+
+}
 
 
-        document
-            .getElementById("bookingForm")
-            .addEventListener("submit", function(event) {
+/* =========================
+   SECURITY / HTML ESCAPE
+========================= */
 
-                event.preventDefault();
+function escapeHtml(value){
 
-                const result =
-                    document.getElementById("bookingResult");
+    if(value === null || value === undefined){
+        return "";
+    }
 
-                result.innerHTML =
-                    "<p>Booking form submitted successfully. " +
-                    "Tracking ID system will be connected in the next step.</p>";
 
-            });
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
-    </script>
+}
+
+
+function escapeJs(value){
+
+    if(value === null || value === undefined){
+        return "";
+    }
+
+
+    return String(value)
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'")
+        .replace(/"/g,'\\"');
+
+}
+
+
+/* =========================
+   START DASHBOARD
+========================= */
+
+renderBookings();
+
+
+/* =========================
+   AUTO REFRESH
+========================= */
+
+setInterval(function(){
+
+    renderBookings();
+
+},3000);
+
+</script>
 
 </body>
 </html>
+```
