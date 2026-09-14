@@ -1,1770 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Search Console Verification -->
-  <meta name="google-site-verification" content="ahz4hfAGhkIxru4Oz2neMctm_B4pn92iIqUVnbQYtbc" />
-
-  <title>Smart Cool & Refrigerator | AC & Fridge Services Karachi</title>
-
-  <meta name="description" content="Smart Cool & Refrigerator provides AC repairing, AC service, AC installation, AC gas charging, refrigerator repair, water dispenser repair and electrician services all over Karachi.">
-
-  <meta name="keywords" content="AC repair Karachi, AC service Karachi, AC installation Karachi, AC gas charging Karachi, refrigerator repair Karachi, fridge repair Karachi, electrician Karachi, water dispenser repair Karachi, Smart Cool Refrigerator">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: #f4f8fb;
-      color: #222;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #0077b6;
-      color: white;
-      padding: 15px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
-
-    .header-inner {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .logo {
-      font-size: 21px;
-      font-weight: bold;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 8px 11px;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      background: rgba(255,255,255,0.18);
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #0077b6, #00b4d8);
-      color: white;
-      padding: 70px 20px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .hero-buttons {
-      margin-top: 25px;
-    }
-
-    .hero-btn {
-      display: inline-block;
-      background: white;
-      color: #0077b6;
-      padding: 12px 22px;
-      border-radius: 7px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 5px;
-    }
-
-    .hero-btn:hover {
-      background: #eaf7ff;
-    }
-
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 55px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      color: #0077b6;
-      margin-bottom: 30px;
-      font-size: 30px;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .service-card {
-      background: white;
-      padding: 25px 20px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      transition: 0.2s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .service-icon {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    .service-card h3 {
-      color: #0077b6;
-      margin-bottom: 8px;
-    }
-
-    .account-wrapper {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .account-box {
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      margin-bottom: 25px;
-    }
-
-    .account-box h3 {
-      color: #0077b6;
-      margin-bottom: 18px;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 6px;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 15px;
-      outline: none;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #0077b6;
-    }
-
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    button {
-      border: none;
-      cursor: pointer;
-      padding: 12px 20px;
-      border-radius: 7px;
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    .primary-btn {
-      background: #0077b6;
-      color: white;
-    }
-
-    .primary-btn:hover {
-      background: #005f91;
-    }
-
-    .success-btn {
-      background: #198754;
-      color: white;
-    }
-
-    .success-btn:hover {
-      background: #146c43;
-    }
-
-    .logout-btn {
-      background: #dc3545;
-      color: white;
-    }
-
-    .logout-btn:hover {
-      background: #bb2d3b;
-    }
-
-    .message {
-      margin-top: 12px;
-      padding: 10px;
-      border-radius: 6px;
-      display: none;
-    }
-
-    .message.success {
-      display: block;
-      background: #d1e7dd;
-      color: #0f5132;
-    }
-
-    .message.error {
-      display: block;
-      background: #f8d7da;
-      color: #842029;
-    }
-
-    .user-panel {
-      background: #e9f7ff;
-      border-left: 5px solid #0077b6;
-      padding: 20px;
-      border-radius: 8px;
-      display: none;
-    }
-
-    .user-panel h3 {
-      color: #0077b6;
-      margin-bottom: 8px;
-    }
-
-    .user-panel p {
-      margin-bottom: 12px;
-    }
-
-    .booking-section {
-      background: #eef9ff;
-      border-top: 1px solid #d5edf8;
-      border-bottom: 1px solid #d5edf8;
-    }
-
-    .booking-box {
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
-
-    .login-required {
-      text-align: center;
-      background: #fff3cd;
-      color: #664d03;
-      padding: 15px;
-      border-radius: 7px;
-      margin-bottom: 20px;
-    }
-
-    .contact-box {
-      text-align: center;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    }
-
-    .contact-box h3 {
-      color: #0077b6;
-      margin-bottom: 10px;
-    }
-
-    .contact-number {
-      font-size: 22px;
-      font-weight: bold;
-      margin: 10px 0;
-    }
-
-    .whatsapp-btn {
-      display: inline-block;
-      background: #25D366;
-      color: white;
-      text-decoration: none;
-      padding: 12px 22px;
-      border-radius: 7px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    footer {
-      background: #023e8a;
-      color: white;
-      text-align: center;
-      padding: 25px 15px;
-      margin-top: 30px;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    @media (max-width: 700px) {
-
-      .header-inner {
-        flex-direction: column;
-      }
-
-      nav {
-        justify-content: center;
-      }
-
-      .hero h1 {
-        font-size: 30px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      section {
-        padding: 40px 15px;
-      }
-
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="ahz4hfAGhkIxru4Oz2neMctm_B4pn92iIqUVnbQYtbc">
+<title>Smart Cool & Refrigerator | AC & Fridge Services Karachi</title>
+<meta name="description" content="Smart Cool & Refrigerator provides AC repairing, AC service, AC installation, AC gas charging, refrigerator repair, water dispenser repair and electrician services all over Karachi.">
+<meta name="keywords" content="AC repair Karachi, AC service Karachi, AC installation Karachi, AC gas charging Karachi, refrigerator repair Karachi, water dispenser repair Karachi, electrician Karachi">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header>
+<header class="navbar">
+  <div class="nav-container">
+    <a class="brand" href="#home">
+      <span class="brand-mark">❄</span>
+      <span><b>SMART COOL</b><small>& REFRIGERATOR</small></span>
+    </a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+    <nav class="menu" id="mainMenu">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#rates">Rates</a>
+      <a href="#account">Account</a>
+      <a href="#booking">Book Service</a>
+      <a href="tracking.html">Track Booking</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-    <div class="header-inner">
-
-      <div class="logo">
-        Smart Cool & Refrigerator
-      </div>
-
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#account">Account</a>
-        <a href="#booking">Book Service</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-    </div>
-
-  </header>
-
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-
-    <h1>
-      Smart Cool & Refrigerator
-    </h1>
-
-    <p>
-      Professional AC, Refrigerator, Water Dispenser &
-      Electrician Services
-    </p>
-
-    <p style="margin-top:10px;">
-      🏠 Home Service — All Over Karachi
-    </p>
-
+<main>
+<section class="hero" id="home">
+  <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
+  <div class="hero-container">
+    <div class="eyebrow">AC • REFRIGERATOR • WATER DISPENSER • ELECTRICIAN</div>
+    <h1>Cooling that works.<br><span>Service you can trust.</span></h1>
+    <p>Professional home service for AC, refrigerator, water dispenser and electrical work — available all over Karachi.</p>
     <div class="hero-buttons">
-
-      <a
-        href="#booking"
-        class="hero-btn"
-      >
-        Book Service
-      </a>
-
-      <a
-        href="https://wa.me/923208463110"
-        class="hero-btn"
-        target="_blank"
-      >
-        WhatsApp Us
-      </a>
-
+      <a href="#booking" class="btn btn-primary">📅 Book a Service</a>
+      <a href="https://wa.me/923208463110" class="btn btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp Us</a>
+      <a href="tel:+923208463110" class="btn btn-outline">📞 Call Now</a>
     </div>
-
-  </section>
-
-
-  <!-- SERVICES -->
-  <section id="services">
-
-    <h2 class="section-title">
-      Our Services
-    </h2>
-
-    <div class="services">
-
-      <div class="service-card">
-
-        <div class="service-icon">
-          ❄️
-        </div>
-
-        <h3>
-          AC Repairing
-        </h3>
-
-        <p>
-          Professional AC repairing service for home and office.
-        </p>
-
-      </div>
-
-
-      <div class="service-card">
-
-        <div class="service-icon">
-          🧊
-        </div>
-
-        <h3>
-          AC Service
-        </h3>
-
-        <p>
-          Complete AC cleaning and maintenance service.
-        </p>
-
-      </div>
-
-
-      <div class="service-card">
-
-        <div class="service-icon">
-          🔧
-        </div>
-
-        <h3>
-          AC Installation
-        </h3>
-
-        <p>
-          Expert AC installation and shifting service.
-        </p>
-
-      </div>
-
-
-      <div class="service-card">
-
-        <div class="service-icon">
-          💨
-        </div>
-
-        <h3>
-          AC Gas Charging
-        </h3>
-
-        <p>
-          R22 and R410 gas charging service.
-        </p>
-
-      </div>
-
-
-      <div class="service-card">
-
-        <div class="service-icon">
-          🧊
-        </div>
-
-        <h3>
-          Refrigerator Repair
-        </h3>
-
-        <p>
-          Fridge compressor, cooling and electrical repair.
-        </p>
-
-      </div>
-
-
-      <div class="service-card">
-
-        <div class="service-icon">
-          🚰
-        </div>
-
-        <h3>
-          Water Dispenser
-        </h3>
-
-        <p>
-          Water dispenser repairing and maintenance service.
-        </p>
-
-      </div>
-
-
-      <div class="service-card">
-
-        <div class="service-icon">
-          ⚡
-        </div>
-
-        <h3>
-          Electrician
-        </h3>
-
-        <p>
-          Home electrical repair and electrician services.
-        </p>
-
-      </div>
-
+    <div class="hero-trust">
+      <div><strong>✓</strong><span>Home Service<br><small>All Over Karachi</small></span></div>
+      <div><strong>✓</strong><span>Experienced Work<br><small>Reliable Service</small></span></div>
+      <div><strong>✓</strong><span>Booking ID<br><small>Track Your Request</small></span></div>
     </div>
+  </div>
+</section>
 
-  </section>
-
-
-  <!-- ACCOUNT -->
-  <section id="account">
-
-    <h2 class="section-title">
-      Customer Account
-    </h2>
-
-    <div class="account-wrapper">
-
-
-      <!-- LOGIN -->
-      <div
-        class="account-box"
-        id="loginBox"
-      >
-
-        <h3>
-          Customer Login
-        </h3>
-
-        <div class="form-group">
-
-          <label>
-            Email
-          </label>
-
-          <input
-            type="email"
-            id="loginEmail"
-            placeholder="Enter your email"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Password
-          </label>
-
-          <input
-            type="password"
-            id="loginPassword"
-            placeholder="Enter your password"
-          >
-
-        </div>
-
-
-        <button
-          class="primary-btn"
-          id="loginBtn"
-        >
-          Login
-        </button>
-
-
-        <div
-          id="loginMessage"
-          class="message"
-        ></div>
-
-      </div>
-
-
-      <!-- SIGNUP -->
-      <div
-        class="account-box"
-        id="signupBox"
-      >
-
-        <h3>
-          Create Customer Account
-        </h3>
-
-
-        <div class="form-group">
-
-          <label>
-            Full Name
-          </label>
-
-          <input
-            type="text"
-            id="signupName"
-            placeholder="Enter your name"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Phone Number
-          </label>
-
-          <input
-            type="tel"
-            id="signupPhone"
-            placeholder="03XXXXXXXXX"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Email
-          </label>
-
-          <input
-            type="email"
-            id="signupEmail"
-            placeholder="Enter your email"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Password
-          </label>
-
-          <input
-            type="password"
-            id="signupPassword"
-            placeholder="Create password"
-          >
-
-        </div>
-
-
-        <button
-          class="success-btn"
-          id="signupBtn"
-        >
-          Sign Up
-        </button>
-
-
-        <div
-          id="signupMessage"
-          class="message"
-        ></div>
-
-      </div>
-
-
-      <!-- LOGGED IN USER -->
-      <div
-        class="user-panel"
-        id="userPanel"
-      >
-
-        <h3>
-          Welcome!
-        </h3>
-
-        <p>
-          You are successfully logged in.
-        </p>
-
-        <p>
-          <strong>Name:</strong>
-          <span id="userName"></span>
-        </p>
-
-        <p>
-          <strong>Email:</strong>
-          <span id="userEmail"></span>
-        </p>
-
-        <p>
-          <strong>Phone:</strong>
-          <span id="userPhone"></span>
-        </p>
-
-        <button
-          class="logout-btn"
-          id="logoutBtn"
-        >
-          Logout
-        </button>
-
-      </div>
-
+<section id="services">
+  <div class="container">
+    <div class="section-title"><span>WHAT WE DO</span><h2>Our Services</h2><p>Professional solutions for your cooling & electrical needs.</p></div>
+    <div class="services-grid">
+      <article class="service-card"><div class="service-icon">❄️</div><h3>AC Repairing</h3><p>Professional AC repairing for home and office systems.</p><a href="#booking">Book Service →</a></article>
+      <article class="service-card"><div class="service-icon">🧊</div><h3>AC Service</h3><p>Complete cleaning, maintenance and performance service.</p><a href="#booking">Book Service →</a></article>
+      <article class="service-card"><div class="service-icon">🔧</div><h3>AC Installation</h3><p>Expert AC installation and shifting service.</p><a href="#booking">Book Service →</a></article>
+      <article class="service-card"><div class="service-icon">💨</div><h3>AC Gas Charging</h3><p>R22 and R410 gas charging service.</p><a href="#booking">Book Service →</a></article>
+      <article class="service-card"><div class="service-icon">🧊</div><h3>Refrigerator Repair</h3><p>Compressor, cooling and electrical refrigerator repair.</p><a href="#booking">Book Service →</a></article>
+      <article class="service-card"><div class="service-icon">🚰</div><h3>Water Dispenser</h3><p>Water dispenser repairing and maintenance service.</p><a href="#booking">Book Service →</a></article>
+      <article class="service-card"><div class="service-icon">⚡</div><h3>Electrician</h3><p>Home electrical repair and electrician services.</p><a href="#booking">Book Service →</a></article>
     </div>
+  </div>
+</section>
 
-  </section>
-
-
-  <!-- BOOKING -->
-  <section
-    id="booking"
-    class="booking-section"
-  >
-
-    <h2 class="section-title">
-      Book a Service
-    </h2>
-
-
-    <div class="booking-box">
-
-      <div
-        id="loginRequired"
-        class="login-required"
-      >
-        🔐 Please login or create an account before booking a service.
-      </div>
-
-
-      <form id="bookingForm">
-
-
-        <div class="form-group">
-
-          <label>
-            Customer Name
-          </label>
-
-          <input
-            type="text"
-            id="customerName"
-            required
-            placeholder="Your name"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Phone Number
-          </label>
-
-          <input
-            type="tel"
-            id="customerPhone"
-            required
-            placeholder="03XXXXXXXXX"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Select Service
-          </label>
-
-          <select
-            id="service"
-            required
-          >
-
-            <option value="">
-              Select a service
-            </option>
-
-            <option value="AC Repairing">
-              AC Repairing
-            </option>
-
-            <option value="AC Service">
-              AC Service
-            </option>
-
-            <option value="AC Installation">
-              AC Installation
-            </option>
-
-            <option value="AC Gas Charging">
-              AC Gas Charging
-            </option>
-
-            <option value="Refrigerator Repair">
-              Refrigerator Repair
-            </option>
-
-            <option value="Water Dispenser Repair">
-              Water Dispenser Repair
-            </option>
-
-            <option value="Electrician">
-              Electrician
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Area
-          </label>
-
-          <input
-            type="text"
-            id="area"
-            required
-            placeholder="Your area in Karachi"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Complete Address
-          </label>
-
-          <textarea
-            id="address"
-            required
-            placeholder="Enter your complete address"
-          ></textarea>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            Problem / Requirement
-          </label>
-
-          <textarea
-            id="problem"
-            required
-            placeholder="Describe your AC, fridge or electrical problem"
-          ></textarea>
-
-        </div>
-
-
-        <button
-          type="submit"
-          class="primary-btn"
-          id="bookingBtn"
-        >
-          Book Service
-        </button>
-
-
-        <div
-          id="bookingMessage"
-          class="message"
-        ></div>
-
-      </form>
-
+<section class="dark-section" id="rates">
+  <div class="container">
+    <div class="section-title light"><span>TRANSPARENT PRICING</span><h2>Popular Service Rates</h2><p>Final price may vary after inspection of the appliance.</p></div>
+    <div class="rates-grid">
+      <article class="rate-card featured"><div class="rate-top"><span>AC REPAIR</span><b>1 Ton</b></div><h3>AC Repair — 1 Ton</h3><div class="price">Rs. 10,500</div><p>Professional repair service</p><small>✓ 1 month warranty</small></article>
+      <article class="rate-card"><div class="rate-top"><span>AC SERVICE</span><b>1 Ton</b></div><h3>AC Service — 1 Ton</h3><div class="price">Rs. 3,000</div><p>Cleaning & maintenance</p><small>✓ No warranty</small></article>
+      <article class="rate-card"><div class="rate-top"><span>GAS CHARGING</span><b>1 Ton</b></div><h3>AC Gas Charging — 1 Ton</h3><div class="price">Rs. 5,500</div><p>Gas charging service</p><small>✓ No warranty</small></article>
     </div>
+  </div>
+</section>
 
-  </section>
-
-
-  <!-- CONTACT -->
-  <section id="contact">
-
-    <h2 class="section-title">
-      Contact Us
-    </h2>
-
-
-    <div class="contact-box">
-
-      <h3>
-        Smart Cool & Refrigerator
-      </h3>
-
-      <p>
-        AC, Refrigerator, Water Dispenser & Electrician Services
-      </p>
-
-      <p>
-        📍 All Over Karachi
-      </p>
-
-      <div class="contact-number">
-        📞 03208463110
-      </div>
-
-
-      <a
-        href="https://wa.me/923208463110"
-        class="whatsapp-btn"
-        target="_blank"
-      >
-        WhatsApp Muhammad Rizwan
-      </a>
-
+<section class="trust">
+  <div class="container">
+    <div class="section-title"><span>WHY SMART COOL</span><h2>Built Around Your Convenience</h2></div>
+    <div class="trust-grid">
+      <div class="trust-box"><div>⚡</div><h3>Fast Response</h3><p>Quick booking response for your service request.</p></div>
+      <div class="trust-box"><div>🛠️</div><h3>Professional Work</h3><p>Careful diagnosis and service for your appliance.</p></div>
+      <div class="trust-box"><div>📍</div><h3>Karachi Wide</h3><p>Home service available across Karachi.</p></div>
+      <div class="trust-box"><div>🔎</div><h3>Track Booking</h3><p>Use your Booking ID to check service status.</p></div>
     </div>
-
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer>
-
-    <p>
-      © 2026 Smart Cool & Refrigerator
-    </p>
-
-    <p>
-      All Over Karachi
-    </p>
-
-    <p style="margin-top:8px;">
-      Muhammad Rizwan — 03208463110
-    </p>
-
-  </footer>
-
-
-  <!-- FIREBASE -->
-  <script type="module">
-
-    import {
-      initializeApp
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-
-    import {
-      initializeAuth,
-      createUserWithEmailAndPassword,
-      signInWithEmailAndPassword,
-      signOut,
-      onAuthStateChanged,
-      indexedDBLocalPersistence,
-      browserLocalPersistence
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-
-    import {
-      getFirestore,
-      doc,
-      setDoc,
-      addDoc,
-      collection,
-      serverTimestamp,
-      getDoc
-    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
-    const firebaseConfig = {
-
-      apiKey:
-        "AIzaSyAvNAl6gje0ly5XtxNotNl_dJhEhJ9pSHg",
-
-      authDomain:
-        "smart-cool-6f513.firebaseapp.com",
-
-      projectId:
-        "smart-cool-6f513",
-
-      storageBucket:
-        "smart-cool-6f513.firebasestorage.app",
-
-      messagingSenderId:
-        "10468224529",
-
-      appId:
-        "1:10468224529:web:51026a5b4ac67a4ad40bb0",
-
-      measurementId:
-        "G-Y5SPBHP57C"
-
-    };
-
-
-    const app =
-      initializeApp(firebaseConfig);
-
-
-    const auth =
-      initializeAuth(app, {
-
-        persistence: [
-          indexedDBLocalPersistence,
-          browserLocalPersistence
-        ]
-
-      });
-
-
-    const db =
-      getFirestore(app);
-
-
-    const loginBox =
-      document.getElementById("loginBox");
-
-    const signupBox =
-      document.getElementById("signupBox");
-
-    const userPanel =
-      document.getElementById("userPanel");
-
-    const loginRequired =
-      document.getElementById("loginRequired");
-
-    const bookingForm =
-      document.getElementById("bookingForm");
-
-
-    function showMessage(
-      element,
-      message,
-      type
-    ) {
-
-      element.textContent =
-        message;
-
-      element.className =
-        "message " + type;
-
-    }
-
-
-    // SIGN UP
-
-    document
-      .getElementById("signupBtn")
-      .addEventListener(
-        "click",
-        async () => {
-
-          const name =
-            document
-              .getElementById("signupName")
-              .value
-              .trim();
-
-          const phone =
-            document
-              .getElementById("signupPhone")
-              .value
-              .trim();
-
-          const email =
-            document
-              .getElementById("signupEmail")
-              .value
-              .trim();
-
-          const password =
-            document
-              .getElementById("signupPassword")
-              .value;
-
-
-          const message =
-            document
-              .getElementById("signupMessage");
-
-
-          if (
-            !name ||
-            !phone ||
-            !email ||
-            !password
-          ) {
-
-            showMessage(
-              message,
-              "Please fill all fields.",
-              "error"
-            );
-
-            return;
-
-          }
-
-
-          if (password.length < 6) {
-
-            showMessage(
-              message,
-              "Password must be at least 6 characters.",
-              "error"
-            );
-
-            return;
-
-          }
-
-
-          try {
-
-            const userCredential =
-              await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-              );
-
-
-            const user =
-              userCredential.user;
-
-
-            await setDoc(
-              doc(
-                db,
-                "customers",
-                user.uid
-              ),
-              {
-
-                uid:
-                  user.uid,
-
-                name:
-                  name,
-
-                phone:
-                  phone,
-
-                email:
-                  email,
-
-                createdAt:
-                  serverTimestamp()
-
-              }
-            );
-
-
-            showMessage(
-              message,
-              "Account created successfully!",
-              "success"
-            );
-
-
-            document
-              .getElementById("signupName")
-              .value = "";
-
-            document
-              .getElementById("signupPhone")
-              .value = "";
-
-            document
-              .getElementById("signupEmail")
-              .value = "";
-
-            document
-              .getElementById("signupPassword")
-              .value = "";
-
-
-          } catch (error) {
-
-            console.error(error);
-
-
-            let text =
-              "Signup failed. Please try again.";
-
-
-            if (
-              error.code ===
-              "auth/email-already-in-use"
-            ) {
-
-              text =
-                "This email is already registered.";
-
-            }
-
-
-            if (
-              error.code ===
-              "auth/invalid-email"
-            ) {
-
-              text =
-                "Please enter a valid email.";
-
-            }
-
-
-            if (
-              error.code ===
-              "auth/weak-password"
-            ) {
-
-              text =
-                "Password is too weak.";
-
-            }
-
-
-            showMessage(
-              message,
-              text,
-              "error"
-            );
-
-          }
-
-        }
-      );
-
-
-    // LOGIN
-
-    document
-      .getElementById("loginBtn")
-      .addEventListener(
-        "click",
-        async () => {
-
-          const email =
-            document
-              .getElementById("loginEmail")
-              .value
-              .trim();
-
-          const password =
-            document
-              .getElementById("loginPassword")
-              .value;
-
-
-          const message =
-            document
-              .getElementById("loginMessage");
-
-
-          if (!email || !password) {
-
-            showMessage(
-              message,
-              "Please enter email and password.",
-              "error"
-            );
-
-            return;
-
-          }
-
-
-          try {
-
-            await signInWithEmailAndPassword(
-              auth,
-              email,
-              password
-            );
-
-
-            showMessage(
-              message,
-              "Login successful!",
-              "success"
-            );
-
-
-          } catch (error) {
-
-            console.error(error);
-
-
-            showMessage(
-              message,
-              "Email or password is incorrect.",
-              "error"
-            );
-
-          }
-
-        }
-      );
-
-
-    // LOGOUT
-
-    document
-      .getElementById("logoutBtn")
-      .addEventListener(
-        "click",
-        async () => {
-
-          try {
-
-            await signOut(auth);
-
-          } catch (error) {
-
-            console.error(error);
-
-          }
-
-        }
-      );
-
-
-    // AUTH STATE
-
-    onAuthStateChanged(
-      auth,
-      async (user) => {
-
-        if (user) {
-
-          loginBox.classList.add(
-            "hidden"
-          );
-
-          signupBox.classList.add(
-            "hidden"
-          );
-
-          userPanel.style.display =
-            "block";
-
-          loginRequired.classList.add(
-            "hidden"
-          );
-
-
-          try {
-
-            const customerDoc =
-              await getDoc(
-                doc(
-                  db,
-                  "customers",
-                  user.uid
-                )
-              );
-
-
-            if (
-              customerDoc.exists()
-            ) {
-
-              const data =
-                customerDoc.data();
-
-
-              document
-                .getElementById("userName")
-                .textContent =
-                data.name || "";
-
-
-              document
-                .getElementById("userEmail")
-                .textContent =
-                data.email ||
-                user.email ||
-                "";
-
-
-              document
-                .getElementById("userPhone")
-                .textContent =
-                data.phone || "";
-
-
-              document
-                .getElementById("customerName")
-                .value =
-                data.name || "";
-
-
-              document
-                .getElementById("customerPhone")
-                .value =
-                data.phone || "";
-
-            }
-
-          } catch (error) {
-
-            console.error(
-              "Customer data error:",
-              error
-            );
-
-          }
-
-
-        } else {
-
-          loginBox.classList.remove(
-            "hidden"
-          );
-
-          signupBox.classList.remove(
-            "hidden"
-          );
-
-          userPanel.style.display =
-            "none";
-
-          loginRequired.classList.remove(
-            "hidden"
-          );
-
-        }
-
+  </div>
+</section>
+
+<section id="account">
+  <div class="container">
+    <div class="section-title"><span>CUSTOMER AREA</span><h2>Your Account</h2><p>Login or create an account before booking a service.</p></div>
+    <div class="account-grid">
+      <div class="account-box" id="loginBox">
+        <div class="box-badge">CUSTOMER LOGIN</div><h3>Welcome back</h3><p class="muted">Login to manage your service bookings.</p>
+        <label>Email</label><input type="email" id="loginEmail" placeholder="Enter your email">
+        <label>Password</label><input type="password" id="loginPassword" placeholder="Enter your password">
+        <button class="btn btn-primary full" id="loginBtn">🔐 Login</button>
+        <div id="loginMessage" class="message"></div>
+      </div>
+      <div class="account-box" id="signupBox">
+        <div class="box-badge cyan">NEW CUSTOMER</div><h3>Create account</h3><p class="muted">Create your account in a few seconds.</p>
+        <label>Full Name</label><input type="text" id="signupName" placeholder="Enter your name">
+        <label>Phone Number</label><input type="tel" id="signupPhone" placeholder="03XXXXXXXXX">
+        <label>Email</label><input type="email" id="signupEmail" placeholder="Enter your email">
+        <label>Password</label><input type="password" id="signupPassword" placeholder="Create password">
+        <button class="btn btn-success full" id="signupBtn">✨ Sign Up</button>
+        <div id="signupMessage" class="message"></div>
+      </div>
+      <div class="user-panel" id="userPanel">
+        <div class="profile-icon">✓</div><div class="box-badge">LOGGED IN</div><h3>Welcome!</h3><p class="muted">Your customer account is active.</p>
+        <div class="profile-row"><span>Name</span><b id="userName"></b></div>
+        <div class="profile-row"><span>Email</span><b id="userEmail"></b></div>
+        <div class="profile-row"><span>Phone</span><b id="userPhone"></b></div>
+        <a href="#booking" class="btn btn-primary full">📅 Book Service</a>
+        <button class="btn btn-danger full" id="logoutBtn">Logout</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="booking-section" id="booking">
+  <div class="container">
+    <div class="section-title light"><span>ONLINE BOOKING</span><h2>Book a Service</h2><p>Submit your request and receive a Booking ID.</p></div>
+    <div class="booking-layout">
+      <div class="booking-info">
+        <div class="booking-number">01</div><h3>Tell us what you need.</h3><p>Fill in your details and describe the problem. Your request will be saved securely and sent to the service team.</p>
+        <div class="mini-feature">🔐 <span><b>Secure Account</b><small>Login required for booking</small></span></div>
+        <div class="mini-feature">🆔 <span><b>Unique Booking ID</b><small>Track your request anytime</small></span></div>
+        <div class="mini-feature">💬 <span><b>WhatsApp Confirmation</b><small>Booking details are sent to WhatsApp</small></span></div>
+      </div>
+      <div class="booking-box">
+        <div id="loginRequired" class="login-required">🔐 Please login or create an account before booking a service.</div>
+        <form id="bookingForm">
+          <div class="form-grid"><div><label>Customer Name</label><input type="text" id="customerName" required placeholder="Your name"></div><div><label>Phone Number</label><input type="tel" id="customerPhone" required placeholder="03XXXXXXXXX"></div></div>
+          <label>Select Service</label><select id="service" required><option value="">Select a service</option><option>AC Repairing</option><option>AC Service</option><option>AC Installation</option><option>AC Gas Charging</option><option>Refrigerator Repair</option><option>Water Dispenser Repair</option><option>Electrician</option></select>
+          <div class="form-grid"><div><label>Area</label><input type="text" id="area" required placeholder="Your area in Karachi"></div><div><label>Complete Address</label><input type="text" id="address" required placeholder="Complete address"></div></div>
+          <label>Problem / Requirement</label><textarea id="problem" required placeholder="Describe your AC, fridge or electrical problem"></textarea>
+          <button type="submit" class="btn btn-primary full" id="bookingBtn">📅 Book Service</button>
+          <div id="bookingMessage" class="message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact-box">
+    <div class="section-title"><span>GET IN TOUCH</span><h2>Need a Technician?</h2><p>Call or WhatsApp us for service in Karachi.</p></div>
+    <div class="contact-number">📞 0320 8463110</div>
+    <div class="contact-buttons"><a href="tel:+923208463110" class="btn btn-primary">📞 Call Muhammad Rizwan</a><a href="https://wa.me/923208463110" class="btn btn-whatsapp" target="_blank" rel="noopener">💬 WhatsApp</a><a href="tracking.html" class="btn btn-dark">🔎 Track Booking</a></div>
+    <div class="location-pill">📍 Home Service — All Over Karachi</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div><a class="brand footer-brand" href="#home"><span class="brand-mark">❄</span><span><b>SMART COOL</b><small>& REFRIGERATOR</small></span></a><p>Professional cooling & electrical home services across Karachi.</p></div>
+    <div><h4>Quick Links</h4><a href="#services">Services</a><a href="#booking">Book Service</a><a href="tracking.html">Track Booking</a></div>
+    <div><h4>Contact</h4><a href="tel:+923208463110">0320 8463110</a><a href="https://wa.me/923208463110" target="_blank">WhatsApp</a><span>Karachi, Pakistan</span></div>
+  </div>
+  <div class="footer-copy">© 2026 Smart Cool & Refrigerator<br>AC • Refrigerator • Water Dispenser</div>
+</footer>
+
+<a href="https://wa.me/923208463110" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { initializeAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, indexedDBLocalPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, setDoc, addDoc, collection, serverTimestamp, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig={apiKey:"AIzaSyAvnAL6gje0ly5XtxNotNl_dJhEhJ9pSHg",authDomain:"smart-cool-6f513.firebaseapp.com",projectId:"smart-cool-6f513",storageBucket:"smart-cool-6f513.firebasestorage.app",messagingSenderId:"10468224529",appId:"1:10468224529:web:51026a5b4ac67a4ad40bb0",measurementId:"G-Y5SPBHP57C"};
+const app=initializeApp(firebaseConfig);
+const auth=initializeAuth(app,{persistence:[indexedDBLocalPersistence,browserLocalPersistence]});
+const db=getFirestore(app);
+
+const $=id=>document.getElementById(id);
+const showMessage=(el,msg,type)=>{el.textContent=msg;el.className="message "+type;};
+
+$("signupBtn").addEventListener("click",async()=>{
+  const name=$("signupName").value.trim(),phone=$("signupPhone").value.trim(),email=$("signupEmail").value.trim(),password=$("signupPassword").value,message=$("signupMessage");
+  if(!name||!phone||!email||!password)return showMessage(message,"Please fill all fields.","error");
+  if(password.length<6)return showMessage(message,"Password must be at least 6 characters.","error");
+  try{
+    const c=await createUserWithEmailAndPassword(auth,email,password),u=c.user;
+    await setDoc(doc(db,"customers",u.uid),{uid:u.uid,name,phone,email,createdAt:serverTimestamp()});
+    showMessage(message,"Account created successfully!","success");
+    ["signupName","signupPhone","signupEmail","signupPassword"].forEach(id=>$(id).value="");
+  }catch(error){
+    let text="Signup failed. Please try again.";
+    if(error.code==="auth/email-already-in-use")text="This email is already registered.";
+    if(error.code==="auth/invalid-email")text="Please enter a valid email.";
+    if(error.code==="auth/weak-password")text="Password is too weak.";
+    showMessage(message,text,"error");
+  }
+});
+
+$("loginBtn").addEventListener("click",async()=>{
+  const email=$("loginEmail").value.trim(),password=$("loginPassword").value,message=$("loginMessage");
+  if(!email||!password)return showMessage(message,"Please enter email and password.","error");
+  try{await signInWithEmailAndPassword(auth,email,password);showMessage(message,"Login successful!","success");}
+  catch(error){showMessage(message,"Email or password is incorrect.","error");}
+});
+
+$("logoutBtn").addEventListener("click",async()=>{try{await signOut(auth);}catch(error){console.error(error);}});
+
+onAuthStateChanged(auth,async(user)=>{
+  if(user){
+    $("loginBox").classList.add("hidden");$("signupBox").classList.add("hidden");$("userPanel").style.display="block";$("loginRequired").classList.add("hidden");
+    try{
+      const snap=await getDoc(doc(db,"customers",user.uid));
+      if(snap.exists()){
+        const d=snap.data();
+        $("userName").textContent=d.name||"";$("userEmail").textContent=d.email||user.email||"";$("userPhone").textContent=d.phone||"";
+        $("customerName").value=d.name||"";$("customerPhone").value=d.phone||"";
       }
-    );
-
-
-    // BOOKING
-
-    bookingForm.addEventListener(
-      "submit",
-      async (event) => {
-
-        event.preventDefault();
-
-
-        const user =
-          auth.currentUser;
-
-
-        if (!user) {
-
-          const message =
-            document
-              .getElementById(
-                "bookingMessage"
-              );
-
-
-          showMessage(
-            message,
-            "Please login before booking a service.",
-            "error"
-          );
-
-
-          document
-            .getElementById("account")
-            .scrollIntoView({
-              behavior: "smooth"
-            });
-
-
-          return;
-
-        }
-
-
-        const customerName =
-          document
-            .getElementById(
-              "customerName"
-            )
-            .value
-            .trim();
-
-
-        const customerPhone =
-          document
-            .getElementById(
-              "customerPhone"
-            )
-            .value
-            .trim();
-
-
-        const service =
-          document
-            .getElementById(
-              "service"
-            )
-            .value;
-
-
-        const area =
-          document
-            .getElementById(
-              "area"
-            )
-            .value
-            .trim();
-
-
-        const address =
-          document
-            .getElementById(
-              "address"
-            )
-            .value
-            .trim();
-
-
-        const problem =
-          document
-            .getElementById(
-              "problem"
-            )
-            .value
-            .trim();
-
-
-        const message =
-          document
-            .getElementById(
-              "bookingMessage"
-            );
-
-
-        const bookingBtn =
-          document
-            .getElementById(
-              "bookingBtn"
-            );
-
-
-        if (
-          !customerName ||
-          !customerPhone ||
-          !service ||
-          !area ||
-          !address ||
-          !problem
-        ) {
-
-          showMessage(
-            message,
-            "Please fill all booking fields.",
-            "error"
-          );
-
-          return;
-
-        }
-
-
-        bookingBtn.disabled =
-          true;
-
-        bookingBtn.textContent =
-          "Submitting...";
-
-
-        try {
-
-          const bookingId =
-            "BK-" +
-            Math.floor(
-              10000000 +
-              Math.random() *
-              90000000
-            );
-
-
-          await addDoc(
-            collection(
-              db,
-              "serviceRequests"
-            ),
-            {
-
-              bookingId:
-                bookingId,
-
-              customerUid:
-                user.uid,
-
-              customerEmail:
-                user.email || "",
-
-              customerName:
-                customerName,
-
-              customerPhone:
-                customerPhone,
-
-              service:
-                service,
-
-              area:
-                area,
-
-              address:
-                address,
-
-              problem:
-                problem,
-
-              status:
-                "pending",
-
-              source:
-                "website",
-
-              createdAt:
-                serverTimestamp()
-
-            }
-          );
-
-
-          const whatsappMessage =
-`New Service Booking
-
-Booking ID: ${bookingId}
-
-Customer Name: ${customerName}
-Phone: ${customerPhone}
-
-Service: ${service}
-
-Area: ${area}
-
-Address:
-${address}
-
-Problem:
-${problem}
-
-Status: Pending`;
-
-
-          const whatsappURL =
-            "https://wa.me/923208463110?text=" +
-            encodeURIComponent(
-              whatsappMessage
-            );
-
-
-          showMessage(
-            message,
-            "Booking submitted successfully! Booking ID: " +
-            bookingId,
-            "success"
-          );
-
-
-          bookingForm.reset();
-
-
-          document
-            .getElementById(
-              "customerName"
-            )
-            .value =
-            customerName;
-
-
-          document
-            .getElementById(
-              "customerPhone"
-            )
-            .value =
-            customerPhone;
-
-
-          setTimeout(
-            () => {
-
-              window.open(
-                whatsappURL,
-                "_blank"
-              );
-
-            },
-            700
-          );
-
-
-        } catch (error) {
-
-          console.error(
-            "Booking error:",
-            error
-          );
-
-
-          showMessage(
-            message,
-            "Booking failed. Please try again.",
-            "error"
-          );
-
-        }
-
-
-        bookingBtn.disabled =
-          false;
-
-        bookingBtn.textContent =
-          "Book Service";
-
-      }
-    );
-
-  </script>
-
+    }catch(e){console.error("Customer data error:",e);}
+  }else{
+    $("loginBox").classList.remove("hidden");$("signupBox").classList.remove("hidden");$("userPanel").style.display="none";$("loginRequired").classList.remove("hidden");
+  }
+});
+
+$("bookingForm").addEventListener("submit",async event=>{
+  event.preventDefault();
+  const user=auth.currentUser;
+  if(!user){showMessage($("bookingMessage"),"Please login before booking a service.","error");$("account").scrollIntoView({behavior:"smooth"});return;}
+  const customerName=$("customerName").value.trim(),customerPhone=$("customerPhone").value.trim(),service=$("service").value,area=$("area").value.trim(),address=$("address").value.trim(),problem=$("problem").value.trim(),message=$("bookingMessage"),btn=$("bookingBtn");
+  if(!customerName||!customerPhone||!service||!area||!address||!problem)return showMessage(message,"Please fill all booking fields.","error");
+  btn.disabled=true;btn.textContent="Submitting...";
+  try{
+    const bookingId="BK-"+Math.floor(10000000+Math.random()*90000000);
+    await addDoc(collection(db,"serviceRequests"),{bookingId,customerUid:user.uid,customerEmail:user.email||"",customerName,customerPhone,service,area,address,problem,status:"pending",source:"website",createdAt:serverTimestamp()});
+    const whatsappMessage=`New Service Booking\n\nBooking ID: ${bookingId}\n\nCustomer Name: ${customerName}\nPhone: ${customerPhone}\n\nService: ${service}\n\nArea: ${area}\n\nAddress:\n${address}\n\nProblem:\n${problem}\n\nStatus: Pending`;
+    const whatsappURL="https://wa.me/923208463110?text="+encodeURIComponent(whatsappMessage);
+    showMessage(message,"Booking submitted successfully! Booking ID: "+bookingId,"success");
+    $("bookingForm").reset();$("customerName").value=customerName;$("customerPhone").value=customerPhone;
+    setTimeout(()=>window.open(whatsappURL,"_blank"),700);
+  }catch(error){console.error("Booking error:",error);showMessage(message,"Booking failed. Please try again.","error");}
+  btn.disabled=false;btn.textContent="📅 Book Service";
+});
+
+$("mobileMenuBtn").addEventListener("click",()=>{$("mainMenu").classList.toggle("active");});
+document.querySelectorAll(".menu a").forEach(a=>a.addEventListener("click",()=> $("mainMenu").classList.remove("active")));
+</script>
 </body>
 </html>
