@@ -1,18 +1,18 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Smart Cool & Refrigerator | AC Repair, Fridge & Water Dispenser Services Karachi</title>
+  <title>Smart Cool & Refrigerator | AC Repair, Installation & Home Appliance Services Karachi</title>
 
   <meta name="description"
-    content="Smart Cool & Refrigerator provides AC repair, AC service, refrigerator repair, water dispenser and electrician services all over Karachi. Book your service online.">
+    content="Smart Cool & Refrigerator provides professional AC repair, AC service, AC installation, refrigerator repair, water dispenser and electrician services all over Karachi. Book your service online.">
 
   <meta name="keywords"
-    content="AC repair Karachi, AC service Karachi, refrigerator repair Karachi, fridge repair Karachi, water dispenser repair Karachi, electrician Karachi, Smart Cool Refrigerator">
+    content="AC repair Karachi, AC installation Karachi, AC service Karachi, HVAC Karachi, refrigerator repair Karachi, fridge repair Karachi, water dispenser repair Karachi, electrician Karachi, Smart Cool Refrigerator">
 
   <meta name="robots" content="index, follow">
   <meta name="googlebot" content="index, follow">
@@ -23,19 +23,14 @@
   <link rel="canonical"
     href="https://rizwanmughal63110-ux.github.io/smart-cool-refrigerator/">
 
-  <meta property="og:title"
-    content="Smart Cool & Refrigerator">
-
+  <meta property="og:title" content="Smart Cool & Refrigerator">
   <meta property="og:description"
-    content="AC, Refrigerator, Water Dispenser & Electrician Services All Over Karachi">
-
+    content="AC Repair, Installation, Refrigerator, Water Dispenser & Electrician Services All Over Karachi">
   <meta property="og:type" content="website">
-
   <meta property="og:url"
     content="https://rizwanmughal63110-ux.github.io/smart-cool-refrigerator/">
 
   <meta name="theme-color" content="#061a33">
-
 
   <style>
 
@@ -54,6 +49,7 @@
       background: #061a33;
       color: #eaf4ff;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     a {
@@ -68,26 +64,99 @@
       font-family: inherit;
     }
 
+    img {
+      max-width: 100%;
+    }
 
-    /* =========================
+    .hidden {
+      display: none !important;
+    }
+
+    .message {
+      padding: 12px;
+      border-radius: 9px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      display: none;
+    }
+
+    .message.success {
+      display: block;
+      background: rgba(36, 115, 58, .18);
+      border: 1px solid rgba(76, 180, 95, .25);
+      color: #72d586;
+    }
+
+    .message.error {
+      display: block;
+      background: rgba(165, 42, 42, .18);
+      border: 1px solid rgba(255, 100, 100, .22);
+      color: #ff8585;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 30px;
+      color: #91aec9;
+    }
+
+
+    /* =========================================================
+       TOP BAR
+    ========================================================= */
+
+    .top-bar {
+      background: #031226;
+      border-bottom: 1px solid rgba(55, 160, 255, .12);
+      padding: 7px 20px;
+    }
+
+    .top-bar-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      font-size: 12px;
+      color: #91aec9;
+    }
+
+    .top-bar-left,
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .top-bar strong {
+      color: #38a0ff;
+    }
+
+    .top-bar a:hover {
+      color: #38a0ff;
+    }
+
+
+    /* =========================================================
        HEADER
-    ========================== */
+    ========================================================= */
 
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(4, 19, 39, 0.97);
-      box-shadow: 0 3px 18px rgba(0, 0, 0, 0.35);
-      border-bottom: 1px solid rgba(47, 145, 255, 0.16);
+      background: rgba(4, 19, 39, .97);
+      box-shadow: 0 5px 25px rgba(0, 0, 0, .3);
+      border-bottom: 1px solid rgba(47, 145, 255, .16);
+      backdrop-filter: blur(10px);
     }
 
     .nav-container {
       max-width: 1200px;
       margin: auto;
-      min-height: 78px;
-      padding: 10px 20px;
-
+      min-height: 76px;
+      padding: 9px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -98,17 +167,16 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      min-width: 210px;
+      min-width: 215px;
     }
 
     .logo img {
-      width: 58px;
-      height: 58px;
+      width: 55px;
+      height: 55px;
       object-fit: cover;
       border-radius: 50%;
-      display: block;
       border: 2px solid #198cff;
-      box-shadow: 0 0 15px rgba(8, 118, 223, 0.35);
+      box-shadow: 0 0 17px rgba(8, 118, 223, .35);
     }
 
     .logo-text {
@@ -120,27 +188,28 @@
     .logo-text strong {
       color: #38a0ff;
       font-size: 18px;
-      letter-spacing: 0.5px;
+      letter-spacing: .5px;
     }
 
     .logo-text span {
       color: #b8d5f0;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: bold;
-      letter-spacing: 0.5px;
+      letter-spacing: .7px;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 13px;
     }
 
     nav a {
       color: #d5e8fa;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
-      transition: 0.25s;
+      transition: .25s;
+      white-space: nowrap;
     }
 
     nav a:hover {
@@ -148,36 +217,28 @@
     }
 
     .nav-btn {
-      color: white !important;
-      padding: 9px 15px;
-      border-radius: 9px;
-      box-shadow: 0 5px 15px rgba(8, 118, 223, 0.25);
+      padding: 9px 14px !important;
+      border-radius: 8px;
     }
 
     .login-top {
       background: #0876df !important;
-      color: #ffffff !important;
-      padding: 10px 17px !important;
-      border-radius: 9px;
-      box-shadow: 0 5px 15px rgba(8, 118, 223, 0.30);
+      color: white !important;
+      box-shadow: 0 5px 15px rgba(8, 118, 223, .25);
     }
 
     .login-top:hover {
       background: #168cff !important;
-      color: #ffffff !important;
     }
 
     .signup-top {
       background: transparent !important;
       color: #38a0ff !important;
       border: 1px solid #0876df;
-      padding: 9px 16px !important;
-      border-radius: 9px;
     }
 
     .signup-top:hover {
-      background: rgba(8, 118, 223, 0.15) !important;
-      color: #55b0ff !important;
+      background: rgba(8, 118, 223, .15) !important;
     }
 
     .mobile-menu {
@@ -192,33 +253,73 @@
     }
 
 
-    /* =========================
+    /* =========================================================
        HERO
-    ========================== */
+    ========================================================= */
 
     .hero {
-      background:
-        radial-gradient(circle at 85% 20%, rgba(8, 118, 223, 0.24), transparent 35%),
-        linear-gradient(135deg, #061a33, #082b52 55%, #073768);
-      padding: 70px 20px 80px;
+      position: relative;
       overflow: hidden;
+      background:
+        radial-gradient(circle at 82% 25%, rgba(8, 118, 223, .25), transparent 30%),
+        radial-gradient(circle at 15% 80%, rgba(22, 140, 255, .08), transparent 25%),
+        linear-gradient(135deg, #061a33, #082b52 55%, #073768);
+      padding: 75px 20px 105px;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 1px solid rgba(55, 160, 255, .1);
+      border-radius: 50%;
+      right: -150px;
+      top: -170px;
+    }
+
+    .hero:after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgba(55, 160, 255, .08);
+      border-radius: 50%;
+      left: -120px;
+      bottom: -130px;
     }
 
     .hero-container {
       max-width: 1200px;
       margin: auto;
-
+      position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.1fr .9fr;
       align-items: center;
-      gap: 40px;
+      gap: 45px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(8, 118, 223, .13);
+      border: 1px solid rgba(55, 160, 255, .25);
+      color: #73bfff;
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 18px;
     }
 
     .hero-content h1 {
-      color: #ffffff;
-      font-size: clamp(35px, 5vw, 58px);
-      line-height: 1.1;
+      color: #fff;
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.06;
       margin-bottom: 20px;
+      letter-spacing: -1.5px;
     }
 
     .hero-content h1 span {
@@ -229,31 +330,46 @@
       color: #b8d1e9;
       font-size: 18px;
       max-width: 650px;
-      margin-bottom: 25px;
+      margin-bottom: 28px;
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0;
+    }
+
+    .hero-highlight {
+      background: rgba(4, 19, 39, .48);
+      border: 1px solid rgba(55, 160, 255, .16);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: #c9e2f7;
+      font-size: 12px;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 12px;
+      gap: 11px;
       flex-wrap: wrap;
-      align-items: center;
     }
 
     .btn {
       display: inline-block;
       border: none;
       cursor: pointer;
-      padding: 13px 22px;
-      border-radius: 10px;
+      padding: 13px 21px;
+      border-radius: 9px;
       font-weight: bold;
-      font-size: 15px;
-      transition: 0.25s;
+      font-size: 14px;
+      transition: .25s;
     }
 
     .btn-primary {
       background: #0876df;
       color: white;
-      box-shadow: 0 7px 18px rgba(8, 118, 223, 0.25);
+      box-shadow: 0 7px 20px rgba(8, 118, 223, .28);
     }
 
     .btn-primary:hover {
@@ -272,101 +388,97 @@
       transform: translateY(-2px);
     }
 
-
-    /* =========================
-       WHATSAPP
-    ========================== */
-
     .whatsapp-btn {
       background: #25D366 !important;
-      color: #ffffff !important;
+      color: white !important;
       border: 1px solid #25D366 !important;
-      box-shadow: 0 7px 18px rgba(37, 211, 102, 0.22);
+      box-shadow: 0 7px 18px rgba(37, 211, 102, .2);
     }
 
     .whatsapp-btn:hover {
       background: #1ebe5d !important;
-      border-color: #1ebe5d !important;
-      color: #ffffff !important;
       transform: translateY(-2px);
-    }
-
-    .whatsapp-link {
-      color: #25D366 !important;
-      font-weight: bold;
-    }
-
-    .whatsapp-link:hover {
-      color: #1ebe5d !important;
-    }
-
-    .hero .login-top {
-      background: #0876df !important;
-      color: #ffffff !important;
-      border: 1px solid #0876df;
-    }
-
-    .hero .signup-top {
-      background: transparent !important;
-      color: #38a0ff !important;
-      border: 1px solid #0876df;
     }
 
     .hero-logo-box {
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
     }
 
-    .hero-logo {
-      width: 280px;
-      height: 280px;
-      background: #09294c;
-      border: 1px solid rgba(55, 160, 255, 0.28);
+    .hero-logo-ring {
+      width: 350px;
+      height: 350px;
       border-radius: 50%;
-      padding: 12px;
+      padding: 14px;
+      background: rgba(9, 41, 76, .75);
+      border: 1px solid rgba(55, 160, 255, .28);
       box-shadow:
-        0 15px 50px rgba(0, 0, 0, 0.35),
-        0 0 35px rgba(8, 118, 223, 0.15);
+        0 20px 60px rgba(0, 0, 0, .4),
+        0 0 50px rgba(8, 118, 223, .14);
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .hero-logo img {
+    .hero-logo-ring img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 50%;
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      background: #0a2748;
+      border: 1px solid rgba(55, 160, 255, .25);
+      border-radius: 12px;
+      padding: 13px 17px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, .35);
+    }
+
+    .hero-floating-card strong {
       display: block;
+      color: #38a0ff;
+      font-size: 19px;
+    }
+
+    .hero-floating-card span {
+      color: #a9c5df;
+      font-size: 11px;
     }
 
 
-    /* =========================
+    /* =========================================================
        STATS
-    ========================== */
+    ========================================================= */
 
     .stats {
       max-width: 1100px;
-      margin: -35px auto 0;
+      margin: -45px auto 0;
       position: relative;
       z-index: 5;
-
       background: #0a2748;
-      border: 1px solid rgba(55, 160, 255, 0.2);
+      border: 1px solid rgba(55, 160, 255, .2);
       border-radius: 18px;
-      padding: 25px;
-
+      padding: 22px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+      gap: 10px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .35);
     }
 
     .stat {
       text-align: center;
-      padding: 10px;
+      padding: 12px;
+      border-right: 1px solid rgba(155, 190, 220, .1);
+    }
+
+    .stat:last-child {
+      border-right: none;
     }
 
     .stat strong {
@@ -377,16 +489,16 @@
 
     .stat span {
       color: #a9c5df;
-      font-size: 13px;
+      font-size: 12px;
     }
 
 
-    /* =========================
-       SECTIONS
-    ========================== */
+    /* =========================================================
+       GENERAL SECTIONS
+    ========================================================= */
 
     section {
-      padding: 75px 20px;
+      padding: 78px 20px;
     }
 
     .section-container {
@@ -399,62 +511,303 @@
       margin-bottom: 45px;
     }
 
+    .section-kicker {
+      display: inline-block;
+      color: #38a0ff;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
     .section-title h2 {
       color: #38a0ff;
-      font-size: 34px;
-      margin-bottom: 8px;
+      font-size: 35px;
+      line-height: 1.15;
+      margin-bottom: 9px;
     }
 
     .section-title p {
       color: #91aec9;
+      max-width: 680px;
+      margin: auto;
     }
 
 
-    /* =========================
+    /* =========================================================
        SERVICES
-    ========================== */
+    ========================================================= */
+
+    .services-section {
+      background: #061a33;
+    }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 19px;
     }
 
     .service-card {
-      background: #0a2748;
-      border-radius: 16px;
+      position: relative;
+      background: linear-gradient(180deg, #0b2b4e, #092442);
+      border-radius: 15px;
       padding: 28px 20px;
       text-align: center;
-      box-shadow: 0 7px 25px rgba(0, 0, 0, 0.28);
-      border: 1px solid rgba(55, 160, 255, 0.18);
-      transition: 0.25s;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, .25);
+      border: 1px solid rgba(55, 160, 255, .16);
+      transition: .3s;
+      overflow: hidden;
+    }
+
+    .service-card:before {
+      content: "";
+      position: absolute;
+      height: 3px;
+      left: 0;
+      right: 0;
+      top: 0;
+      background: #0876df;
+      transform: scaleX(0);
+      transition: .3s;
     }
 
     .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(8, 118, 223, 0.2);
-      border-color: rgba(55, 160, 255, 0.35);
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(8, 118, 223, .18);
+      border-color: rgba(55, 160, 255, .35);
+    }
+
+    .service-card:hover:before {
+      transform: scaleX(1);
     }
 
     .service-icon {
-      font-size: 45px;
-      margin-bottom: 12px;
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      background: rgba(8, 118, 223, .12);
+      border: 1px solid rgba(55, 160, 255, .16);
+      font-size: 34px;
     }
 
     .service-card h3 {
       color: #eaf5ff;
       margin-bottom: 8px;
+      font-size: 18px;
     }
 
     .service-card p {
       color: #9db8d1;
-      font-size: 14px;
+      font-size: 13px;
+    }
+
+    .service-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: #38a0ff;
+      font-size: 12px;
+      font-weight: bold;
     }
 
 
-    /* =========================
+    /* =========================================================
+       EXTRA SERVICES STRIP
+    ========================================================= */
+
+    .service-strip {
+      background: #071f3b;
+      border-top: 1px solid rgba(55, 160, 255, .08);
+      border-bottom: 1px solid rgba(55, 160, 255, .08);
+      padding: 22px 20px;
+    }
+
+    .service-strip-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .strip-item {
+      color: #a9c5df;
+      background: rgba(10, 39, 72, .7);
+      border: 1px solid rgba(55, 160, 255, .12);
+      border-radius: 30px;
+      padding: 8px 14px;
+      font-size: 12px;
+    }
+
+
+    /* =========================================================
+       WHY CHOOSE US
+    ========================================================= */
+
+    .why-section {
+      background:
+        linear-gradient(180deg, #071f3b, #061a33);
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .why-image {
+      min-height: 380px;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(8, 118, 223, .25), transparent 32%),
+        linear-gradient(145deg, #0a2748, #061a33);
+      border: 1px solid rgba(55, 160, 255, .18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-image-icon {
+      font-size: 110px;
+      filter: drop-shadow(0 15px 20px rgba(0, 0, 0, .3));
+    }
+
+    .why-image-badge {
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      right: 25px;
+      background: rgba(3, 18, 38, .85);
+      border: 1px solid rgba(55, 160, 255, .2);
+      padding: 14px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .why-image-badge strong {
+      color: #38a0ff;
+      display: block;
+      font-size: 20px;
+    }
+
+    .why-image-badge span {
+      color: #91aec9;
+      font-size: 12px;
+    }
+
+    .why-content h2 {
+      color: #fff;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .why-content > p {
+      color: #9db8d1;
+      margin-bottom: 22px;
+    }
+
+    .why-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .why-item {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      background: #0a2748;
+      border: 1px solid rgba(55, 160, 255, .13);
+      border-radius: 11px;
+      padding: 14px;
+    }
+
+    .why-check {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8, 118, 223, .15);
+      color: #38a0ff;
+    }
+
+    .why-item strong {
+      display: block;
+      color: #eaf5ff;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+
+    .why-item span {
+      color: #91aec9;
+      font-size: 12px;
+    }
+
+
+    /* =========================================================
+       HOW IT WORKS
+    ========================================================= */
+
+    .process-section {
+      background: #061a33;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .process-card {
+      position: relative;
+      text-align: center;
+      background: #0a2748;
+      border: 1px solid rgba(55, 160, 255, .15);
+      border-radius: 15px;
+      padding: 25px 18px;
+    }
+
+    .process-number {
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 13px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0876df;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 7px 20px rgba(8, 118, 223, .25);
+    }
+
+    .process-card h3 {
+      color: #eaf5ff;
+      font-size: 16px;
+      margin-bottom: 7px;
+    }
+
+    .process-card p {
+      color: #91aec9;
+      font-size: 12px;
+    }
+
+
+    /* =========================================================
        RATES
-    ========================== */
+    ========================================================= */
 
     .rates-section {
       background:
@@ -469,10 +822,10 @@
 
     .rate-card {
       background: #0a2748;
-      border: 1px solid rgba(55, 160, 255, 0.18);
+      border: 1px solid rgba(55, 160, 255, .18);
       border-radius: 17px;
       overflow: hidden;
-      box-shadow: 0 7px 25px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, .28);
     }
 
     .rate-card h3 {
@@ -480,6 +833,7 @@
       color: white;
       padding: 17px;
       text-align: center;
+      font-size: 18px;
     }
 
     .rate-list {
@@ -491,7 +845,7 @@
       justify-content: space-between;
       gap: 15px;
       padding: 13px 0;
-      border-bottom: 1px solid rgba(155, 190, 220, 0.14);
+      border-bottom: 1px solid rgba(155, 190, 220, .14);
     }
 
     .rate-row:last-child {
@@ -509,8 +863,8 @@
 
     .warranty {
       margin: 0 20px 20px;
-      background: rgba(36, 115, 58, 0.16);
-      border: 1px solid rgba(76, 180, 95, 0.2);
+      background: rgba(36, 115, 58, .16);
+      border: 1px solid rgba(76, 180, 95, .2);
       color: #72d586;
       padding: 10px;
       border-radius: 8px;
@@ -519,23 +873,79 @@
       font-size: 13px;
     }
 
+    .rate-note {
+      text-align: center;
+      color: #7895b0;
+      font-size: 12px;
+      margin-top: 20px;
+    }
 
-    /* =========================
+
+    /* =========================================================
        BOOKING
-    ========================== */
+    ========================================================= */
 
     .booking-section {
       background: #061a33;
     }
 
+    .booking-layout {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 25px;
+      align-items: stretch;
+    }
+
+    .booking-info {
+      background:
+        radial-gradient(circle at 80% 15%, rgba(8, 118, 223, .2), transparent 30%),
+        #0a2748;
+      border: 1px solid rgba(55, 160, 255, .2);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .booking-info h3 {
+      color: #fff;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .booking-info > p {
+      color: #9db8d1;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .booking-info-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .booking-info-item {
+      display: flex;
+      gap: 11px;
+      align-items: center;
+      color: #cde3f6;
+      font-size: 13px;
+    }
+
+    .booking-info-item span:first-child {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8, 118, 223, .14);
+      border-radius: 8px;
+    }
+
     .booking-box {
-      max-width: 800px;
-      margin: auto;
       background: #0a2748;
-      border: 1px solid rgba(55, 160, 255, 0.2);
+      border: 1px solid rgba(55, 160, 255, .2);
       border-radius: 18px;
       padding: 30px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .3);
     }
 
     .form-grid {
@@ -555,7 +965,7 @@
     label {
       display: block;
       color: #d7eaff;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
       margin-bottom: 7px;
     }
@@ -580,14 +990,14 @@
 
     select option {
       background: #0a2748;
-      color: #ffffff;
+      color: white;
     }
 
     input:focus,
     select:focus,
     textarea:focus {
       border-color: #0876df;
-      box-shadow: 0 0 0 3px rgba(8, 118, 223, 0.13);
+      box-shadow: 0 0 0 3px rgba(8, 118, 223, .13);
     }
 
     textarea {
@@ -596,8 +1006,8 @@
     }
 
     .booking-note {
-      background: rgba(8, 118, 223, 0.12);
-      border: 1px solid rgba(55, 160, 255, 0.18);
+      background: rgba(8, 118, 223, .12);
+      border: 1px solid rgba(55, 160, 255, .18);
       color: #b8d5ef;
       padding: 12px;
       border-radius: 9px;
@@ -606,32 +1016,28 @@
     }
 
 
-    /* =========================
+    /* =========================================================
        ACCOUNT
-    ========================== */
+    ========================================================= */
 
     .account-section {
-      background:
-        linear-gradient(180deg, #071f3b, #061a33);
+      background: linear-gradient(180deg, #071f3b, #061a33);
     }
 
     .account-box {
       max-width: 500px;
       margin: auto;
       background: #0a2748;
-      border: 1px solid rgba(55, 160, 255, 0.2);
+      border: 1px solid rgba(55, 160, 255, .2);
       border-radius: 18px;
       padding: 30px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .3);
     }
 
     .account-logo {
-      width: 90px;
-      height: 90px;
-      margin: 0 auto 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 14px;
     }
 
     .account-logo img {
@@ -639,9 +1045,8 @@
       height: 100%;
       object-fit: cover;
       border-radius: 50%;
-      display: block;
       border: 2px solid #198cff;
-      box-shadow: 0 0 18px rgba(8, 118, 223, 0.3);
+      box-shadow: 0 0 18px rgba(8, 118, 223, .3);
     }
 
     .account-title {
@@ -673,9 +1078,9 @@
     }
 
 
-    /* =========================
+    /* =========================================================
        DASHBOARD
-    ========================== */
+    ========================================================= */
 
     .dashboard-section {
       background: #061a33;
@@ -706,7 +1111,7 @@
 
     .booking-card {
       background: #0a2748;
-      border: 1px solid rgba(55, 160, 255, 0.18);
+      border: 1px solid rgba(55, 160, 255, .18);
       border-radius: 15px;
       padding: 20px;
     }
@@ -735,12 +1140,12 @@
     }
 
     .status.completed {
-      background: rgba(36, 115, 58, 0.18);
+      background: rgba(36, 115, 58, .18);
       color: #72d586;
     }
 
     .status.rejected {
-      background: rgba(165, 42, 42, 0.18);
+      background: rgba(165, 42, 42, .18);
       color: #ff8585;
     }
 
@@ -754,7 +1159,7 @@
       background: #061c35;
       padding: 10px;
       border-radius: 8px;
-      border: 1px solid rgba(155, 190, 220, 0.1);
+      border: 1px solid rgba(155, 190, 220, .1);
     }
 
     .detail-item small {
@@ -772,8 +1177,8 @@
       margin-top: 18px;
       padding: 15px;
       border-radius: 10px;
-      background: rgba(8, 118, 223, 0.1);
-      border: 1px solid rgba(55, 160, 255, 0.18);
+      background: rgba(8, 118, 223, .1);
+      border: 1px solid rgba(55, 160, 255, .18);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -788,38 +1193,75 @@
     }
 
 
-    /* =========================
-       CUSTOMER REVIEWS
-    ========================== */
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about-section {
+      background: linear-gradient(180deg, #071f3b, #061a33);
+    }
+
+    .about-box {
+      max-width: 950px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .about-card {
+      background: #0a2748;
+      border: 1px solid rgba(55, 160, 255, .17);
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .about-card h3 {
+      color: #38a0ff;
+      margin-bottom: 9px;
+    }
+
+    .about-card p {
+      color: #9db8d1;
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       REVIEWS
+    ========================================================= */
 
     .reviews-section {
-      background:
-        linear-gradient(180deg, #071f3b, #061a33);
+      background: #061a33;
     }
 
     .reviews-summary {
       max-width: 520px;
       margin: 0 auto 35px;
       background: #0a2748;
-      border: 1px solid rgba(55, 160, 255, 0.2);
+      border: 1px solid rgba(55, 160, 255, .2);
       border-radius: 18px;
       padding: 25px;
       text-align: center;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .28);
     }
 
     .rating-score {
-      color: #ffffff;
+      color: white;
       font-size: 46px;
       line-height: 1;
       font-weight: bold;
       margin-bottom: 8px;
     }
 
-    .rating-stars {
+    .rating-stars,
+    .review-stars {
       color: #ffd45a;
-      font-size: 30px;
       letter-spacing: 3px;
+    }
+
+    .rating-stars {
+      font-size: 30px;
       margin-bottom: 5px;
     }
 
@@ -836,10 +1278,10 @@
 
     .review-card {
       background: #0a2748;
-      border: 1px solid rgba(55, 160, 255, 0.18);
+      border: 1px solid rgba(55, 160, 255, .18);
       border-radius: 15px;
       padding: 20px;
-      box-shadow: 0 7px 25px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 7px 25px rgba(0, 0, 0, .25);
     }
 
     .review-header {
@@ -862,9 +1304,7 @@
     }
 
     .review-stars {
-      color: #ffd45a;
       font-size: 20px;
-      letter-spacing: 1px;
       margin-bottom: 5px;
     }
 
@@ -886,7 +1326,7 @@
       margin-top: 20px;
       padding: 20px;
       background: #071f3b;
-      border: 1px solid rgba(55, 160, 255, 0.22);
+      border: 1px solid rgba(55, 160, 255, .22);
       border-radius: 14px;
     }
 
@@ -914,7 +1354,7 @@
       line-height: 1;
       cursor: pointer;
       padding: 2px 5px;
-      transition: 0.2s;
+      transition: .2s;
     }
 
     .star-btn:hover,
@@ -928,10 +1368,6 @@
       color: #91aec9;
       font-size: 13px;
       margin-bottom: 15px;
-    }
-
-    .rating-panel textarea {
-      margin-bottom: 12px;
     }
 
     .rating-actions {
@@ -950,17 +1386,21 @@
       margin-top: 18px;
       padding: 8px 13px;
       border-radius: 8px;
-      background: rgba(36, 115, 58, 0.18);
-      border: 1px solid rgba(76, 180, 95, 0.2);
+      background: rgba(36, 115, 58, .18);
+      border: 1px solid rgba(76, 180, 95, .2);
       color: #72d586;
       font-size: 13px;
       font-weight: bold;
     }
 
 
-    /* =========================
+    /* =========================================================
        FAQ
-    ========================== */
+    ========================================================= */
+
+    .faq-section {
+      background: linear-gradient(180deg, #071f3b, #061a33);
+    }
 
     .faq-list {
       max-width: 850px;
@@ -971,7 +1411,7 @@
 
     .faq-item {
       background: #0a2748;
-      border: 1px solid rgba(55, 160, 255, 0.18);
+      border: 1px solid rgba(55, 160, 255, .18);
       border-radius: 10px;
       overflow: hidden;
     }
@@ -990,13 +1430,53 @@
     }
 
 
-    /* =========================
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .cta-section {
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(8, 118, 223, .24), transparent 45%),
+        #061a33;
+    }
+
+    .cta-box {
+      max-width: 1050px;
+      margin: auto;
+      background: linear-gradient(135deg, #0a2748, #082b52);
+      border: 1px solid rgba(55, 160, 255, .22);
+      border-radius: 20px;
+      padding: 38px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .28);
+    }
+
+    .cta-box h2 {
+      color: white;
+      font-size: 31px;
+      margin-bottom: 8px;
+    }
+
+    .cta-box p {
+      color: #a9c5df;
+      margin-bottom: 22px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+
+    /* =========================================================
        CONTACT
-    ========================== */
+    ========================================================= */
 
     .contact-section {
-      background:
-        linear-gradient(180deg, #071f3b, #061a33);
+      background: #071f3b;
     }
 
     .contact-grid {
@@ -1007,16 +1487,23 @@
 
     .contact-card {
       background: #0a2748;
-      border: 1px solid rgba(55, 160, 255, 0.18);
+      border: 1px solid rgba(55, 160, 255, .18);
       padding: 25px;
       text-align: center;
       border-radius: 15px;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 6px 22px rgba(0, 0, 0, .25);
     }
 
     .contact-card .icon {
-      font-size: 32px;
-      margin-bottom: 10px;
+      width: 55px;
+      height: 55px;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8, 118, 223, .13);
+      border-radius: 12px;
+      font-size: 28px;
     }
 
     .contact-card h3 {
@@ -1026,18 +1513,24 @@
 
     .contact-card p {
       color: #9db8d1;
+      font-size: 14px;
+    }
+
+    .whatsapp-link {
+      color: #25D366 !important;
+      font-weight: bold;
     }
 
 
-    /* =========================
+    /* =========================================================
        FOOTER
-    ========================== */
+    ========================================================= */
 
     footer {
       background: #031226;
       color: white;
-      padding: 40px 20px 20px;
-      border-top: 1px solid rgba(55, 160, 255, 0.16);
+      padding: 45px 20px 20px;
+      border-top: 1px solid rgba(55, 160, 255, .16);
     }
 
     .footer-container {
@@ -1050,7 +1543,7 @@
 
     footer h3 {
       margin-bottom: 12px;
-      color: #ffffff;
+      color: white;
     }
 
     footer p,
@@ -1063,9 +1556,16 @@
       color: #38a0ff;
     }
 
+    .footer-brand {
+      color: #38a0ff;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
     .copyright {
       text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, .1);
       margin-top: 30px;
       padding-top: 18px;
       color: #7895b0;
@@ -1073,61 +1573,53 @@
     }
 
 
-    /* =========================
-       HIDDEN
-    ========================== */
-
-    .hidden {
-      display: none !important;
-    }
-
-    .message {
-      padding: 11px;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      font-size: 13px;
-      display: none;
-    }
-
-    .message.success {
-      display: block;
-      background: rgba(36, 115, 58, 0.18);
-      border: 1px solid rgba(76, 180, 95, 0.2);
-      color: #72d586;
-    }
-
-    .message.error {
-      display: block;
-      background: rgba(165, 42, 42, 0.18);
-      border: 1px solid rgba(255, 100, 100, 0.18);
-      color: #ff8585;
-    }
-
-    .loading {
-      text-align: center;
-      padding: 25px;
-      color: #91aec9;
-    }
-
-
-    /* =========================
+    /* =========================================================
        MOBILE
-    ========================== */
+    ========================================================= */
+
+    @media(max-width: 1000px) {
+
+      nav {
+        gap: 8px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .reviews-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    }
+
 
     @media(max-width: 900px) {
+
+      .top-bar {
+        display: none;
+      }
 
       nav {
         display: none;
         position: absolute;
-        top: 78px;
+        top: 76px;
         left: 0;
         right: 0;
         background: #061a33;
         padding: 18px 20px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .35);
         flex-direction: column;
         align-items: stretch;
-        border-top: 1px solid rgba(55, 160, 255, 0.15);
+        border-top: 1px solid rgba(55, 160, 255, .15);
       }
 
       nav.show {
@@ -1135,7 +1627,8 @@
       }
 
       nav a {
-        padding: 10px;
+        padding: 9px 10px;
+        font-size: 14px;
       }
 
       .mobile-menu {
@@ -1147,7 +1640,13 @@
         text-align: center;
       }
 
-      .hero-buttons {
+      .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons,
+      .hero-highlights {
         justify-content: center;
       }
 
@@ -1155,31 +1654,40 @@
         order: -1;
       }
 
-      .hero-logo {
-        width: 200px;
-        height: 200px;
+      .hero-logo-ring {
+        width: 230px;
+        height: 230px;
       }
 
-      .services-grid {
-        grid-template-columns: 1fr 1fr;
+      .hero-floating-card {
+        right: 15%;
+      }
+
+      .stats {
+        margin: -28px 20px 0;
+      }
+
+      .why-grid,
+      .booking-layout,
+      .about-box {
+        grid-template-columns: 1fr;
+      }
+
+      .why-image {
+        min-height: 300px;
       }
 
       .rates-grid {
         grid-template-columns: 1fr;
-        max-width: 600px;
+        max-width: 650px;
         margin: auto;
       }
 
-      .stats {
+      .contact-grid {
         grid-template-columns: 1fr 1fr;
-        margin: -25px 20px 0;
       }
 
       .footer-container {
-        grid-template-columns: 1fr;
-      }
-
-      .reviews-list {
         grid-template-columns: 1fr 1fr;
       }
 
@@ -1189,12 +1697,21 @@
     @media(max-width: 600px) {
 
       .nav-container {
-        min-height: 70px;
+        min-height: 68px;
+        padding: 8px 15px;
+      }
+
+      nav {
+        top: 68px;
+      }
+
+      .logo {
+        min-width: 0;
       }
 
       .logo img {
-        width: 48px;
-        height: 48px;
+        width: 47px;
+        height: 47px;
       }
 
       .logo-text strong {
@@ -1202,15 +1719,15 @@
       }
 
       .logo-text span {
-        font-size: 9px;
+        font-size: 8px;
       }
 
       .hero {
-        padding: 50px 15px 60px;
+        padding: 50px 15px 70px;
       }
 
       .hero-content h1 {
-        font-size: 36px;
+        font-size: 37px;
       }
 
       .hero-content p {
@@ -1227,21 +1744,65 @@
         text-align: center;
       }
 
-      section {
-        padding: 55px 15px;
+      .hero-highlights {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
       }
 
-      .services-grid {
-        grid-template-columns: 1fr;
+      .hero-highlight {
+        font-size: 10px;
+      }
+
+      .hero-logo-ring {
+        width: 190px;
+        height: 190px;
+      }
+
+      .hero-floating-card {
+        right: 2%;
+        bottom: -12px;
+        padding: 10px 13px;
       }
 
       .stats {
         grid-template-columns: 1fr 1fr;
-        padding: 15px;
+        padding: 12px;
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+
+      .stat {
+        border-right: none;
+        padding: 9px 5px;
       }
 
       .stat strong {
-        font-size: 21px;
+        font-size: 19px;
+      }
+
+      section {
+        padding: 58px 15px;
+      }
+
+      .section-title {
+        margin-bottom: 32px;
+      }
+
+      .section-title h2 {
+        font-size: 29px;
+      }
+
+      .services-grid,
+      .process-grid,
+      .reviews-list,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-box,
+      .booking-info,
+      .account-box {
+        padding: 20px;
       }
 
       .form-grid {
@@ -1256,17 +1817,20 @@
         grid-template-columns: 1fr;
       }
 
-      .booking-box,
-      .account-box {
-        padding: 20px;
+      .invoice-box {
+        align-items: flex-start;
       }
 
-      .contact-grid {
+      .footer-container {
         grid-template-columns: 1fr;
       }
 
-      .reviews-list {
-        grid-template-columns: 1fr;
+      .cta-box {
+        padding: 28px 18px;
+      }
+
+      .cta-box h2 {
+        font-size: 25px;
       }
 
       .rating-score {
@@ -1274,11 +1838,11 @@
       }
 
       .rating-stars {
-        font-size: 26px;
+        font-size: 25px;
       }
 
       .star-btn {
-        font-size: 32px;
+        font-size: 31px;
       }
 
     }
@@ -1290,9 +1854,44 @@
 <body>
 
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+  <!-- TOP BAR -->
+
+  <div class="top-bar">
+
+    <div class="top-bar-inner">
+
+      <div class="top-bar-left">
+
+        <span>
+          📍 <strong>All Over Karachi</strong>
+        </span>
+
+        <span>
+          🕐 Professional Home Service
+        </span>
+
+      </div>
+
+      <div class="top-bar-right">
+
+        <a href="tel:03208463110">
+          📞 0320 8463110
+        </a>
+
+        <a
+          href="https://wa.me/923208463110?text=Assalam-o-Alaikum%20Smart%20Cool%20%26%20Refrigerator%2C%20mujhe%20service%20book%20karwani%20hai."
+          target="_blank">
+          💬 WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- HEADER -->
 
   <header>
 
@@ -1300,19 +1899,24 @@
 
       <a href="#home" class="logo">
 
-        <img src="Logo.png"
+        <img
+          src="Logo.png"
           alt="Smart Cool & Refrigerator Logo"
           onerror="this.style.display='none';">
 
         <div class="logo-text">
+
           <strong>SMART COOL</strong>
+
           <span>& REFRIGERATOR</span>
+
         </div>
 
       </a>
 
 
-      <button class="mobile-menu"
+      <button
+        class="mobile-menu"
         onclick="toggleMenu()">
         ☰
       </button>
@@ -1342,13 +1946,15 @@
 
         <a href="#contact" onclick="closeMenu()">Contact</a>
 
-        <a href="javascript:void(0)"
+        <a
+          href="javascript:void(0)"
           class="nav-btn login-top"
           onclick="showLogin(); closeMenu();">
           🔐 Login
         </a>
 
-        <a href="javascript:void(0)"
+        <a
+          href="javascript:void(0)"
           class="nav-btn signup-top"
           onclick="showSignup(); closeMenu();">
           ✨ Signup
@@ -1361,9 +1967,7 @@
   </header>
 
 
-  <!-- =========================
-       HERO
-  ========================== -->
+  <!-- HERO -->
 
   <section class="hero" id="home">
 
@@ -1371,43 +1975,62 @@
 
       <div class="hero-content">
 
+        <div class="hero-badge">
+          🔧 PROFESSIONAL HOME SERVICE IN KARACHI
+        </div>
+
         <h1>
-          Smart Cooling.<br>
-          <span>Reliable Service.</span>
+          AC Repair &<br>
+          <span>Home Appliance Service</span>
         </h1>
 
         <p>
-          Professional AC, Refrigerator, Water Dispenser
-          and Electrician services all over Karachi.
+          Professional AC repair, installation, service,
+          refrigerator, water dispenser and electrician
+          services at your doorstep — all over Karachi.
         </p>
+
+        <div class="hero-highlights">
+
+          <div class="hero-highlight">
+            ✓ Expert Technicians
+          </div>
+
+          <div class="hero-highlight">
+            ✓ Transparent Rates
+          </div>
+
+          <div class="hero-highlight">
+            ✓ 1 Month Warranty
+          </div>
+
+          <div class="hero-highlight">
+            ✓ All Karachi
+          </div>
+
+        </div>
 
 
         <div class="hero-buttons">
 
-          <a href="#booking"
+          <a
+            href="#booking"
             class="btn btn-primary">
             🔧 Book Service
           </a>
 
-
-          <a href="https://wa.me/923208463110?text=Assalam-o-Alaikum%20Smart%20Cool%20%26%20Refrigerator%2C%20mujhe%20service%20book%20karwani%20hai."
+          <a
+            href="https://wa.me/923208463110?text=Assalam-o-Alaikum%20Smart%20Cool%20%26%20Refrigerator%2C%20mujhe%20service%20book%20karwani%20hai."
             class="btn whatsapp-btn"
             target="_blank">
             🟢 WhatsApp Us
           </a>
 
-
-          <a href="javascript:void(0)"
-            class="btn login-top"
+          <a
+            href="javascript:void(0)"
+            class="btn btn-secondary"
             onclick="showLogin();">
             🔐 Login
-          </a>
-
-
-          <a href="javascript:void(0)"
-            class="btn signup-top"
-            onclick="showSignup();">
-            ✨ Signup
           </a>
 
         </div>
@@ -1417,11 +2040,20 @@
 
       <div class="hero-logo-box">
 
-        <div class="hero-logo">
+        <div class="hero-logo-ring">
 
-          <img src="Logo.png"
+          <img
+            src="Logo.png"
             alt="Smart Cool & Refrigerator"
             onerror="this.style.display='none';">
+
+        </div>
+
+        <div class="hero-floating-card">
+
+          <strong>24/7</strong>
+
+          <span>WhatsApp Booking</span>
 
         </div>
 
@@ -1432,49 +2064,89 @@
   </section>
 
 
-  <!-- =========================
-       STATS
-  ========================== -->
+  <!-- STATS -->
 
   <div class="stats">
 
     <div class="stat">
+
       <strong>6+</strong>
+
       <span>Services</span>
+
     </div>
 
     <div class="stat">
+
       <strong>1 Month</strong>
+
       <span>Warranty</span>
+
     </div>
 
     <div class="stat">
+
       <strong>24/7</strong>
+
       <span>WhatsApp Booking</span>
+
     </div>
 
     <div class="stat">
+
       <strong>100%</strong>
+
       <span>Customer Focus</span>
+
     </div>
 
   </div>
 
 
-  <!-- =========================
-       SERVICES
-  ========================== -->
+  <!-- SERVICE STRIP -->
 
-  <section id="services">
+  <div class="service-strip">
+
+    <div class="service-strip-inner">
+
+      <div class="strip-item">❄️ AC Repair</div>
+
+      <div class="strip-item">🛠️ AC Installation</div>
+
+      <div class="strip-item">🔧 AC Maintenance</div>
+
+      <div class="strip-item">🧊 Refrigerator</div>
+
+      <div class="strip-item">💧 Water Dispenser</div>
+
+      <div class="strip-item">⚡ Electrician</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- SERVICES -->
+
+  <section
+    id="services"
+    class="services-section">
 
     <div class="section-container">
 
       <div class="section-title">
 
-        <h2>Our Services</h2>
+        <span class="section-kicker">
+          WHAT WE DO
+        </span>
+
+        <h2>
+          Our Professional Services
+        </h2>
 
         <p>
-          Professional home appliance and electrical services
+          Complete home appliance and electrical
+          services by professional technicians.
         </p>
 
       </div>
@@ -1485,51 +2157,436 @@
 
         <div class="service-card">
 
-          <div class="service-icon">❄️</div>
+          <div class="service-icon">
+            ❄️
+          </div>
 
-          <h3>AC Service</h3>
+          <h3>
+            AC Service
+          </h3>
 
           <p>
-            Complete AC cleaning, servicing and maintenance.
+            Complete AC cleaning, servicing and
+            preventive maintenance.
           </p>
+
+          <a
+            href="#booking"
+            class="service-link">
+            Book Service →
+          </a>
 
         </div>
 
 
         <div class="service-card">
 
-          <div class="service-icon">🔧</div>
+          <div class="service-icon">
+            🔧
+          </div>
 
-          <h3>AC Repair</h3>
+          <h3>
+            AC Repair
+          </h3>
 
           <p>
-            Professional AC fault diagnosis and repair.
+            Professional AC fault diagnosis,
+            troubleshooting and repair.
           </p>
+
+          <a
+            href="#booking"
+            class="service-link">
+            Book Service →
+          </a>
 
         </div>
 
 
         <div class="service-card">
 
-          <div class="service-icon">🧊</div>
+          <div class="service-icon">
+            🛠️
+          </div>
 
-          <h3>Refrigerator</h3>
+          <h3>
+            AC Installation
+          </h3>
 
           <p>
-            Fridge and refrigerator repair services.
+            Reliable AC installation and
+            replacement assistance.
           </p>
+
+          <a
+            href="#booking"
+            class="service-link">
+            Book Service →
+          </a>
 
         </div>
 
 
         <div class="service-card">
 
-          <div class="service-icon">💧</div>
+          <div class="service-icon">
+            🧊
+          </div>
 
-          <h3>Water Dispenser</h3>
+          <h3>
+            Refrigerator
+          </h3>
 
           <p>
-            Water dispenser repair and maintenance.
+            Fridge and refrigerator repair,
+            cooling and maintenance services.
+          </p>
+
+          <a
+            href="#booking"
+            class="service-link">
+            Book Service →
+          </a>
+
+        </div>
+
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            💧
+          </div>
+
+          <h3>
+            Water Dispenser
+          </h3>
+
+          <p>
+            Water dispenser repair and
+            maintenance at your doorstep.
+          </p>
+
+          <a
+            href="#booking"
+            class="service-link">
+            Book Service →
+          </a>
+
+        </div>
+
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            ⚡
+          </div>
+
+          <h3>
+            Electrician
+          </h3>
+
+          <p>
+            Professional home electrical
+            repair and maintenance service.
+          </p>
+
+          <a
+            href="#booking"
+            class="service-link">
+            Book Service →
+          </a>
+
+        </div>
+
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            🧯
+          </div>
+
+          <h3>
+            AC Gas Charging
+          </h3>
+
+          <p>
+            AC gas charging and cooling
+            performance service.
+          </p>
+
+          <a
+            href="#booking"
+            class="service-link">
+            Book Service →
+          </a>
+
+        </div>
+
+
+        <div class="service-card">
+
+          <div class="service-icon">
+            🏠
+          </div>
+
+          <h3>
+            Home Maintenance
+          </h3>
+
+          <p>
+            Convenient appliance and home
+            service at your doorstep.
+          </p>
+
+          <a
+            href="#booking"
+            class="service-link">
+            Book Service →
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHY CHOOSE US -->
+
+  <section class="why-section">
+
+    <div class="section-container">
+
+      <div class="why-grid">
+
+        <div class="why-image">
+
+          <div class="why-image-icon">
+            🧑‍🔧
+          </div>
+
+          <div class="why-image-badge">
+
+            <strong>
+              Smart & Reliable
+            </strong>
+
+            <span>
+              Professional service at your doorstep
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="why-content">
+
+          <span class="section-kicker">
+            WHY CHOOSE US
+          </span>
+
+          <h2>
+            Reliable Service You Can Trust
+          </h2>
+
+          <p>
+            We focus on professional workmanship,
+            clear communication and customer
+            satisfaction.
+          </p>
+
+
+          <div class="why-list">
+
+
+            <div class="why-item">
+
+              <div class="why-check">
+                ✓
+              </div>
+
+              <div>
+
+                <strong>
+                  Professional Service
+                </strong>
+
+                <span>
+                  Service handled with care and attention.
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="why-item">
+
+              <div class="why-check">
+                ✓
+              </div>
+
+              <div>
+
+                <strong>
+                  Transparent Pricing
+                </strong>
+
+                <span>
+                  Check our listed rates before booking.
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="why-item">
+
+              <div class="why-check">
+                ✓
+              </div>
+
+              <div>
+
+                <strong>
+                  Customer Booking System
+                </strong>
+
+                <span>
+                  Login, book and track your service online.
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="why-item">
+
+              <div class="why-check">
+                ✓
+              </div>
+
+              <div>
+
+                <strong>
+                  Karachi Wide Coverage
+                </strong>
+
+                <span>
+                  Home service available all over Karachi.
+                </span>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+
+  <section class="process-section">
+
+    <div class="section-container">
+
+      <div class="section-title">
+
+        <span class="section-kicker">
+          SIMPLE PROCESS
+        </span>
+
+        <h2>
+          How It Works
+        </h2>
+
+        <p>
+          Book your service in just a few simple steps.
+        </p>
+
+      </div>
+
+
+      <div class="process-grid">
+
+
+        <div class="process-card">
+
+          <div class="process-number">
+            1
+          </div>
+
+          <h3>
+            Create Account
+          </h3>
+
+          <p>
+            Sign up or login to your customer account.
+          </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+          <div class="process-number">
+            2
+          </div>
+
+          <h3>
+            Book Service
+          </h3>
+
+          <p>
+            Select service and enter your address.
+          </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+          <div class="process-number">
+            3
+          </div>
+
+          <h3>
+            Track Booking
+          </h3>
+
+          <p>
+            Use your Tracking ID to check the status.
+          </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+          <div class="process-number">
+            4
+          </div>
+
+          <h3>
+            Service Complete
+          </h3>
+
+          <p>
+            Get service and rate your experience.
           </p>
 
         </div>
@@ -1542,17 +2599,23 @@
   </section>
 
 
-  <!-- =========================
-       RATES
-  ========================== -->
+  <!-- RATES -->
 
-  <section id="rates" class="rates-section">
+  <section
+    id="rates"
+    class="rates-section">
 
     <div class="section-container">
 
       <div class="section-title">
 
-        <h2>AC Service Rates</h2>
+        <span class="section-kicker">
+          TRANSPARENT PRICING
+        </span>
+
+        <h2>
+          AC Service Rates
+        </h2>
 
         <p>
           Current service charges
@@ -1566,7 +2629,9 @@
 
         <div class="rate-card">
 
-          <h3>AC Repair</h3>
+          <h3>
+            AC Repair
+          </h3>
 
           <div class="rate-list">
 
@@ -1588,7 +2653,7 @@
           </div>
 
           <div class="warranty">
-            1 Month Warranty
+            ✓ 1 Month Warranty
           </div>
 
         </div>
@@ -1596,7 +2661,9 @@
 
         <div class="rate-card">
 
-          <h3>AC Service</h3>
+          <h3>
+            AC Service
+          </h3>
 
           <div class="rate-list">
 
@@ -1622,7 +2689,9 @@
 
         <div class="rate-card">
 
-          <h3>AC Gas Charging</h3>
+          <h3>
+            AC Gas Charging
+          </h3>
 
           <div class="rate-list">
 
@@ -1648,149 +2717,111 @@
 
       </div>
 
+      <div class="rate-note">
+        * Final charges may depend on the actual problem/service requirement.
+      </div>
+
     </div>
 
   </section>
 
 
-  <!-- =========================
-       BOOKING
-  ========================== -->
+  <!-- BOOKING -->
 
-  <section id="booking" class="booking-section">
+  <section
+    id="booking"
+    class="booking-section">
 
     <div class="section-container">
 
       <div class="section-title">
 
-        <h2>Book a Service</h2>
+        <span class="section-kicker">
+          ONLINE BOOKING
+        </span>
+
+        <h2>
+          Book a Service
+        </h2>
 
         <p>
-          Fill the form and submit your service request
+          Tell us what service you need and our team
+          will handle your request.
         </p>
 
       </div>
 
 
-      <div class="booking-box">
-
-        <div id="bookingMessage"
-          class="message">
-        </div>
+      <div class="booking-layout">
 
 
-        <div class="booking-note">
+        <div class="booking-info">
 
-          🔐 Please Login / Signup before booking a service.
+          <h3>
+            Need a Technician?
+          </h3>
 
-          Your booking will be securely saved in your account.
-
-        </div>
-
-
-        <form id="bookingForm">
-
-          <div class="form-grid">
+          <p>
+            Submit your service request online.
+            Your booking will be saved securely
+            in your account.
+          </p>
 
 
-            <div class="form-group">
+          <div class="booking-info-list">
 
-              <label>Customer Name</label>
 
-              <input
-                type="text"
-                id="customerName"
-                required
-                placeholder="Enter your name">
+            <div class="booking-info-item">
+
+              <span>🔐</span>
+
+              <span>
+                Secure customer account
+              </span>
 
             </div>
 
 
-            <div class="form-group">
+            <div class="booking-info-item">
 
-              <label>Phone Number</label>
+              <span>📋</span>
 
-              <input
-                type="tel"
-                id="customerPhone"
-                required
-                placeholder="03XXXXXXXXX">
+              <span>
+                Easy online booking
+              </span>
 
             </div>
 
 
-            <div class="form-group">
+            <div class="booking-info-item">
 
-              <label>Service</label>
+              <span>🔎</span>
 
-              <select id="service" required>
-
-                <option value="">
-                  Select Service
-                </option>
-
-                <option value="AC Repair">
-                  AC Repair
-                </option>
-
-                <option value="AC Service">
-                  AC Service
-                </option>
-
-                <option value="AC Gas Charging">
-                  AC Gas Charging
-                </option>
-
-                <option value="Refrigerator Repair">
-                  Refrigerator Repair
-                </option>
-
-                <option value="Water Dispenser Repair">
-                  Water Dispenser Repair
-                </option>
-
-                <option value="Electrician Service">
-                  Electrician Service
-                </option>
-
-              </select>
+              <span>
+                Track your booking
+              </span>
 
             </div>
 
 
-            <div class="form-group">
+            <div class="booking-info-item">
 
-              <label>Area</label>
+              <span>🧾</span>
 
-              <input
-                type="text"
-                id="area"
-                required
-                placeholder="e.g. Gulshan, Nazimabad">
+              <span>
+                View / print invoice
+              </span>
 
             </div>
 
 
-            <div class="form-group full">
+            <div class="booking-info-item">
 
-              <label>Complete Address</label>
+              <span>⭐</span>
 
-              <textarea
-                id="address"
-                required
-                placeholder="Enter complete service address"></textarea>
-
-            </div>
-
-
-            <div class="form-group full">
-
-              <label>Problem / Description</label>
-
-              <textarea
-                id="problem"
-                required
-                placeholder="Tell us about the problem"></textarea>
+              <span>
+                Rate completed service
+              </span>
 
             </div>
 
@@ -1798,17 +2829,176 @@
           </div>
 
 
-          <button
-            type="submit"
-            class="btn btn-primary"
-            id="bookingBtn"
-            style="width:100%;">
+          <a
+            href="https://wa.me/923208463110?text=Assalam-o-Alaikum%20Smart%20Cool%20%26%20Refrigerator%2C%20mujhe%20service%20book%20karwani%20hai."
+            target="_blank"
+            class="btn whatsapp-btn"
+            style="margin-top:25px;width:100%;text-align:center;">
 
-            Submit Booking
+            🟢 Book Through WhatsApp
 
-          </button>
+          </a>
 
-        </form>
+        </div>
+
+
+        <div class="booking-box">
+
+          <div
+            id="bookingMessage"
+            class="message">
+          </div>
+
+
+          <div class="booking-note">
+
+            🔐 Please Login / Signup before booking a service.
+            Your booking will be securely saved in your account.
+
+          </div>
+
+
+          <form id="bookingForm">
+
+            <div class="form-grid">
+
+
+              <div class="form-group">
+
+                <label>
+                  Customer Name
+                </label>
+
+                <input
+                  type="text"
+                  id="customerName"
+                  required
+                  placeholder="Enter your name">
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label>
+                  Phone Number
+                </label>
+
+                <input
+                  type="tel"
+                  id="customerPhone"
+                  required
+                  placeholder="03XXXXXXXXX">
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label>
+                  Service
+                </label>
+
+                <select
+                  id="service"
+                  required>
+
+                  <option value="">
+                    Select Service
+                  </option>
+
+                  <option value="AC Repair">
+                    AC Repair
+                  </option>
+
+                  <option value="AC Service">
+                    AC Service
+                  </option>
+
+                  <option value="AC Gas Charging">
+                    AC Gas Charging
+                  </option>
+
+                  <option value="AC Installation">
+                    AC Installation
+                  </option>
+
+                  <option value="Refrigerator Repair">
+                    Refrigerator Repair
+                  </option>
+
+                  <option value="Water Dispenser Repair">
+                    Water Dispenser Repair
+                  </option>
+
+                  <option value="Electrician Service">
+                    Electrician Service
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label>
+                  Area
+                </label>
+
+                <input
+                  type="text"
+                  id="area"
+                  required
+                  placeholder="e.g. Gulshan, Nazimabad">
+
+              </div>
+
+
+              <div class="form-group full">
+
+                <label>
+                  Complete Address
+                </label>
+
+                <textarea
+                  id="address"
+                  required
+                  placeholder="Enter complete service address"></textarea>
+
+              </div>
+
+
+              <div class="form-group full">
+
+                <label>
+                  Problem / Description
+                </label>
+
+                <textarea
+                  id="problem"
+                  required
+                  placeholder="Tell us about the problem"></textarea>
+
+              </div>
+
+
+            </div>
+
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="bookingBtn"
+              style="width:100%;">
+
+              🔧 Submit Booking
+
+            </button>
+
+          </form>
+
+        </div>
 
       </div>
 
@@ -1817,16 +3007,32 @@
   </section>
 
 
-  <!-- =========================
-       ACCOUNT
-  ========================== -->
+  <!-- ACCOUNT -->
 
-  <section id="account" class="account-section">
+  <section
+    id="account"
+    class="account-section">
 
     <div class="section-container">
 
-      <div class="account-box">
+      <div class="section-title">
 
+        <span class="section-kicker">
+          CUSTOMER PORTAL
+        </span>
+
+        <h2>
+          Customer Account
+        </h2>
+
+        <p>
+          Login to manage your bookings and reviews.
+        </p>
+
+      </div>
+
+
+      <div class="account-box">
 
         <div class="account-logo">
 
@@ -1839,11 +3045,12 @@
 
 
         <h2 class="account-title">
-          Customer Account
+          Smart Cool Customer
         </h2>
 
 
-        <div id="authMessage"
+        <div
+          id="authMessage"
           class="message">
         </div>
 
@@ -1854,19 +3061,14 @@
             class="tab-btn active"
             id="loginTab"
             onclick="showLogin()">
-
             Login
-
           </button>
-
 
           <button
             class="tab-btn"
             id="signupTab"
             onclick="showSignup()">
-
             Signup
-
           </button>
 
         </div>
@@ -1878,7 +3080,9 @@
 
           <div class="form-group">
 
-            <label>Email</label>
+            <label>
+              Email
+            </label>
 
             <input
               type="email"
@@ -1890,7 +3094,9 @@
 
           <div class="form-group">
 
-            <label>Password</label>
+            <label>
+              Password
+            </label>
 
             <input
               type="password"
@@ -1905,7 +3111,7 @@
             style="width:100%;"
             onclick="loginUser()">
 
-            Login
+            🔐 Login
 
           </button>
 
@@ -1914,12 +3120,15 @@
 
         <!-- SIGNUP -->
 
-        <div id="signupFormBox"
+        <div
+          id="signupFormBox"
           class="hidden">
 
           <div class="form-group">
 
-            <label>Name</label>
+            <label>
+              Name
+            </label>
 
             <input
               type="text"
@@ -1931,7 +3140,9 @@
 
           <div class="form-group">
 
-            <label>Phone</label>
+            <label>
+              Phone
+            </label>
 
             <input
               type="tel"
@@ -1943,7 +3154,9 @@
 
           <div class="form-group">
 
-            <label>Email</label>
+            <label>
+              Email
+            </label>
 
             <input
               type="email"
@@ -1955,7 +3168,9 @@
 
           <div class="form-group">
 
-            <label>Password</label>
+            <label>
+              Password
+            </label>
 
             <input
               type="password"
@@ -1970,7 +3185,7 @@
             style="width:100%;"
             onclick="signupUser()">
 
-            Create Account
+            ✨ Create Account
 
           </button>
 
@@ -1979,12 +3194,14 @@
 
         <!-- LOGGED IN -->
 
-        <div id="loggedInBox"
+        <div
+          id="loggedInBox"
           class="hidden">
 
           <div style="text-align:center;">
 
-            <p id="loggedUserText"
+            <p
+              id="loggedUserText"
               style="margin-bottom:15px;color:#9db8d1;">
             </p>
 
@@ -1993,7 +3210,7 @@
               class="btn btn-primary"
               onclick="goToDashboard()">
 
-              My Bookings
+              📋 My Bookings
 
             </button>
 
@@ -2011,7 +3228,6 @@
 
         </div>
 
-
       </div>
 
     </div>
@@ -2019,22 +3235,24 @@
   </section>
 
 
-  <!-- =========================
-       DASHBOARD
-  ========================== -->
+  <!-- DASHBOARD -->
 
-  <section id="dashboard"
+  <section
+    id="dashboard"
     class="dashboard-section">
 
     <div class="section-container">
-
 
       <div class="dashboard-header">
 
         <div>
 
+          <span class="section-kicker">
+            CUSTOMER DASHBOARD
+          </span>
+
           <h2>
-            Welcome to Smart Cool & Refrigerator
+            My Bookings
           </h2>
 
           <div
@@ -2049,21 +3267,23 @@
           class="btn btn-secondary"
           onclick="loadCustomerBookings()">
 
-          Refresh
+          🔄 Refresh
 
         </button>
 
       </div>
 
 
-      <div id="dashboardMessage"
+      <div
+        id="dashboardMessage"
         class="message">
       </div>
 
 
       <!-- RATING PANEL -->
 
-      <div id="ratingPanel"
+      <div
+        id="ratingPanel"
         class="rating-panel hidden">
 
         <div
@@ -2162,7 +3382,8 @@
       </div>
 
 
-      <div id="bookingList"
+      <div
+        id="bookingList"
         class="booking-list">
 
         <div class="loading">
@@ -2176,55 +3397,68 @@
   </section>
 
 
-  <!-- =========================
-       ABOUT
-  ========================== -->
+  <!-- ABOUT -->
 
-  <section id="about">
+  <section
+    id="about"
+    class="about-section">
 
     <div class="section-container">
 
       <div class="section-title">
 
-        <h2>About Us</h2>
+        <span class="section-kicker">
+          ABOUT SMART COOL
+        </span>
+
+        <h2>
+          Service With Customer Focus
+        </h2>
 
         <p>
-          Reliable service for your home appliances
+          Reliable home appliance and electrical
+          services throughout Karachi.
         </p>
 
       </div>
 
 
-      <div style="
-        max-width:850px;
-        margin:auto;
-        text-align:center;
-        color:#9db8d1;
-        font-size:16px;
-      ">
-
-        <p>
-
-          <strong style="color:#38a0ff;">
-            Smart Cool & Refrigerator
-          </strong>
-
-          provides professional AC, refrigerator,
-          water dispenser and electrician services
-          all over Karachi.
-
-        </p>
+      <div class="about-box">
 
 
-        <br>
+        <div class="about-card">
+
+          <h3>
+            🧑‍🔧 Professional Home Service
+          </h3>
+
+          <p>
+            Smart Cool & Refrigerator provides
+            AC, refrigerator, water dispenser and
+            electrician services at your doorstep.
+            Our online booking system makes it
+            easier to submit and track your request.
+          </p>
+
+        </div>
 
 
-        <p>
+        <div class="about-card">
 
-          Our goal is to provide reliable service,
-          transparent pricing and customer satisfaction.
+          <h3>
+            🤝 Our Commitment
+          </h3>
 
-        </p>
+          <p>
+            Our goal is reliable workmanship,
+            transparent pricing, convenient
+            booking and customer satisfaction.
+            Eligible repair services include a
+            1 Month Warranty.
+          </p>
+
+        </div>
+
 
       </div>
 
@@ -2233,20 +3467,26 @@
   </section>
 
 
-  <!-- =========================
-       CUSTOMER REVIEWS
-  ========================== -->
+  <!-- REVIEWS -->
 
-  <section id="reviews" class="reviews-section">
+  <section
+    id="reviews"
+    class="reviews-section">
 
     <div class="section-container">
 
       <div class="section-title">
 
-        <h2>Customer Reviews</h2>
+        <span class="section-kicker">
+          CUSTOMER FEEDBACK
+        </span>
+
+        <h2>
+          Customer Reviews
+        </h2>
 
         <p>
-          See what our customers say about our service
+          See what our customers say about our service.
         </p>
 
       </div>
@@ -2292,20 +3532,26 @@
   </section>
 
 
-  <!-- =========================
-       FAQ
-  ========================== -->
+  <!-- FAQ -->
 
-  <section id="faq">
+  <section
+    id="faq"
+    class="faq-section">
 
     <div class="section-container">
 
       <div class="section-title">
 
-        <h2>Frequently Asked Questions</h2>
+        <span class="section-kicker">
+          FAQ
+        </span>
+
+        <h2>
+          Frequently Asked Questions
+        </h2>
 
         <p>
-          Common questions about our services
+          Common questions about our services.
         </p>
 
       </div>
@@ -2334,8 +3580,8 @@
           </summary>
 
           <div class="faq-answer">
-            Create an account, login and fill the
-            booking form above.
+            Create an account, login and fill
+            the booking form above.
           </div>
 
         </details>
@@ -2349,12 +3595,12 @@
 
           <div class="faq-answer">
 
-            After submitting your booking, you will receive
-            a Tracking ID. Use the
+            After submitting your booking, you will
+            receive a Tracking ID. Use the
             <strong style="color:#38a0ff;">
               Track Booking
             </strong>
-            option in the menu to check your booking status.
+            option in the menu.
 
           </div>
 
@@ -2400,22 +3646,79 @@
   </section>
 
 
-  <!-- =========================
-       CONTACT
-  ========================== -->
+  <!-- CTA -->
 
-  <section id="contact"
+  <section class="cta-section">
+
+    <div class="cta-box">
+
+      <h2>
+        Need AC or Appliance Service?
+      </h2>
+
+      <p>
+        Book online or contact us directly on WhatsApp.
+        Smart Cool & Refrigerator — All Over Karachi.
+      </p>
+
+
+      <div class="cta-buttons">
+
+        <a
+          href="#booking"
+          class="btn btn-primary">
+
+          🔧 Book Service
+
+        </a>
+
+
+        <a
+          href="https://wa.me/923208463110?text=Assalam-o-Alaikum%20Smart%20Cool%20%26%20Refrigerator%2C%20mujhe%20service%20book%20karwani%20hai."
+          target="_blank"
+          class="btn whatsapp-btn">
+
+          🟢 WhatsApp Now
+
+        </a>
+
+
+        <a
+          href="tracking.html"
+          class="btn btn-secondary">
+
+          🔎 Track Booking
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section
+    id="contact"
     class="contact-section">
 
     <div class="section-container">
 
-
       <div class="section-title">
 
-        <h2>Contact Us</h2>
+        <span class="section-kicker">
+          GET IN TOUCH
+        </span>
+
+        <h2>
+          Contact Us
+        </h2>
 
         <p>
           Contact Smart Cool & Refrigerator
+          for service booking.
         </p>
 
       </div>
@@ -2426,9 +3729,13 @@
 
         <div class="contact-card">
 
-          <div class="icon">👨‍🔧</div>
+          <div class="icon">
+            👨‍🔧
+          </div>
 
-          <h3>Muhammad Rizwan</h3>
+          <h3>
+            Muhammad Rizwan
+          </h3>
 
           <p>
             Service Owner
@@ -2439,12 +3746,18 @@
 
         <div class="contact-card">
 
-          <div class="icon">📞</div>
+          <div class="icon">
+            📞
+          </div>
 
-          <h3>0320 8463110</h3>
+          <h3>
+            0320 8463110
+          </h3>
 
           <p>
-            Call for Service
+            <a href="tel:03208463110">
+              Call for Service
+            </a>
           </p>
 
         </div>
@@ -2452,9 +3765,13 @@
 
         <div class="contact-card">
 
-          <div class="icon">💬</div>
+          <div class="icon">
+            💬
+          </div>
 
-          <h3>WhatsApp</h3>
+          <h3>
+            WhatsApp
+          </h3>
 
           <p>
 
@@ -2479,9 +3796,7 @@
   </section>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -2490,16 +3805,21 @@
 
       <div>
 
-        <h3>
+        <div class="footer-brand">
           Smart Cool & Refrigerator
-        </h3>
+        </div>
 
         <p>
-          AC • Refrigerator • Water Dispenser • Electrician
+          Professional AC • Refrigerator •
+          Water Dispenser • Electrician Services
         </p>
 
         <p style="margin-top:8px;">
           All Over Karachi
+        </p>
+
+        <p style="margin-top:8px;">
+          📞 0320 8463110
         </p>
 
       </div>
@@ -2507,7 +3827,9 @@
 
       <div>
 
-        <h3>Quick Links</h3>
+        <h3>
+          Quick Links
+        </h3>
 
         <p>
           <a href="#home">Home</a>
@@ -2526,9 +3848,7 @@
         </p>
 
         <p>
-          <a href="#reviews">
-            ⭐ Reviews
-          </a>
+          <a href="#reviews">⭐ Reviews</a>
         </p>
 
         <p>
@@ -2542,18 +3862,32 @@
 
       <div>
 
-        <h3>Contact</h3>
+        <h3>
+          Customer
+        </h3>
 
         <p>
-          Muhammad Rizwan
+          <a href="#account">
+            Login / Signup
+          </a>
         </p>
 
         <p>
-          0320 8463110
+          <a href="#dashboard">
+            My Bookings
+          </a>
         </p>
 
         <p>
-          Karachi, Pakistan
+          <a href="#faq">
+            FAQ
+          </a>
+        </p>
+
+        <p>
+          <a href="#contact">
+            Contact
+          </a>
         </p>
 
       </div>
@@ -2572,16 +3906,16 @@
   </footer>
 
 
-  <!-- =========================
+  <!-- =========================================================
        FIREBASE
-  ========================== -->
+       EXISTING FUNCTIONALITY PRESERVED
+  ========================================================= -->
 
   <script type="module">
 
     import {
       initializeApp
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
 
     import {
       getAuth,
@@ -2590,7 +3924,6 @@
       signOut,
       onAuthStateChanged
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
 
     import {
       getFirestore,
@@ -2601,10 +3934,6 @@
       where
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
-    /* =========================
-       FIREBASE CONFIG
-    ========================== */
 
     const firebaseConfig = {
       apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
@@ -2617,58 +3946,32 @@
     };
 
 
-    const app =
-      initializeApp(firebaseConfig);
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-    const auth =
-      getAuth(app);
-
-    const db =
-      getFirestore(app);
-
-
-    /* =========================
-       GLOBAL USER
-    ========================== */
 
     let currentUser = null;
-
     let customerReviewsCache = [];
-
     let selectedRatingBookingId = null;
-
     let selectedRating = 0;
 
 
-    /* =========================
-       MESSAGE
-    ========================== */
-
     function showMessage(id, text, type) {
 
-      const box =
-        document.getElementById(id);
+      const box = document.getElementById(id);
 
       if (!box) return;
 
       box.textContent = text;
-
-      box.className =
-        "message " + type;
+      box.className = "message " + type;
 
       setTimeout(() => {
-
-        box.className =
-          "message";
-
+        box.className = "message";
       }, 5000);
 
     }
 
-
-    /* =========================
-       MENU
-    ========================== */
 
     window.toggleMenu = function () {
 
@@ -2687,10 +3990,6 @@
 
     };
 
-
-    /* =========================
-       AUTH TABS
-    ========================== */
 
     window.showLogin = function () {
 
@@ -2714,13 +4013,11 @@
         .getElementById("signupTab")
         .classList.remove("active");
 
-
       document
         .getElementById("account")
         .scrollIntoView({
           behavior: "smooth"
         });
-
 
       setTimeout(() => {
 
@@ -2728,9 +4025,7 @@
           document.getElementById("loginEmail");
 
         if (emailField) {
-
           emailField.focus();
-
         }
 
       }, 150);
@@ -2760,13 +4055,11 @@
         .getElementById("loginTab")
         .classList.remove("active");
 
-
       document
         .getElementById("account")
         .scrollIntoView({
           behavior: "smooth"
         });
-
 
       setTimeout(() => {
 
@@ -2774,19 +4067,13 @@
           document.getElementById("signupName");
 
         if (nameField) {
-
           nameField.focus();
-
         }
 
       }, 150);
 
     };
 
-
-    /* =========================
-       SIGNUP
-    ========================== */
 
     window.signupUser = async function () {
 
@@ -2796,13 +4083,11 @@
           .value
           .trim();
 
-
       const phone =
         document
           .getElementById("signupPhone")
           .value
           .trim();
-
 
       const email =
         document
@@ -2810,19 +4095,12 @@
           .value
           .trim();
 
-
       const password =
         document
           .getElementById("signupPassword")
           .value;
 
-
-      if (
-        !name ||
-        !phone ||
-        !email ||
-        !password
-      ) {
+      if (!name || !phone || !email || !password) {
 
         showMessage(
           "authMessage",
@@ -2831,9 +4109,7 @@
         );
 
         return;
-
       }
-
 
       if (password.length < 6) {
 
@@ -2844,9 +4120,7 @@
         );
 
         return;
-
       }
-
 
       try {
 
@@ -2857,22 +4131,17 @@
             password
           );
 
-
-        await result.user
-          .getIdToken();
-
+        await result.user.getIdToken();
 
         localStorage.setItem(
           "smartCoolCustomerName",
           name
         );
 
-
         localStorage.setItem(
           "smartCoolCustomerPhone",
           phone
         );
-
 
         showMessage(
           "authMessage",
@@ -2880,100 +4149,37 @@
           "success"
         );
 
-
-        document
-          .getElementById("signupName")
-          .value = "";
-
-
-        document
-          .getElementById("signupPhone")
-          .value = "";
-
-
-        document
-          .getElementById("signupEmail")
-          .value = "";
-
-
-        document
-          .getElementById("signupPassword")
-          .value = "";
-
+        document.getElementById("signupName").value = "";
+        document.getElementById("signupPhone").value = "";
+        document.getElementById("signupEmail").value = "";
+        document.getElementById("signupPassword").value = "";
 
       } catch (error) {
 
-        console.error(
-          "SIGNUP ERROR:",
-          error
-        );
-
+        console.error("SIGNUP ERROR:", error);
 
         let msg =
           error.message ||
           "Account creation failed.";
 
-
-        if (
-          error.code ===
-          "auth/email-already-in-use"
-        ) {
-
-          msg =
-            "This email is already registered.";
-
+        if (error.code === "auth/email-already-in-use") {
+          msg = "This email is already registered.";
         }
-
-        else if (
-          error.code ===
-          "auth/invalid-email"
-        ) {
-
-          msg =
-            "Please enter a valid email.";
-
+        else if (error.code === "auth/invalid-email") {
+          msg = "Please enter a valid email.";
         }
-
-        else if (
-          error.code ===
-          "auth/weak-password"
-        ) {
-
-          msg =
-            "Password is too weak. Use at least 6 characters.";
-
+        else if (error.code === "auth/weak-password") {
+          msg = "Password is too weak. Use at least 6 characters.";
         }
-
-        else if (
-          error.code ===
-          "auth/operation-not-allowed"
-        ) {
-
-          msg =
-            "Email/Password login is disabled in Firebase Authentication.";
-
+        else if (error.code === "auth/operation-not-allowed") {
+          msg = "Email/Password login is disabled in Firebase Authentication.";
         }
-
-        else if (
-          error.code ===
-          "auth/unauthorized-domain"
-        ) {
-
-          msg =
-            "This website domain is not authorized in Firebase.";
-
+        else if (error.code === "auth/unauthorized-domain") {
+          msg = "This website domain is not authorized in Firebase.";
         }
-
-        else if (
-          error.code ===
-          "auth/network-request-failed"
-        ) {
-
-          msg =
-            "Network error. Please check your internet connection.";
-
+        else if (error.code === "auth/network-request-failed") {
+          msg = "Network error. Please check your internet connection.";
         }
-
 
         showMessage(
           "authMessage",
@@ -2986,10 +4192,6 @@
     };
 
 
-    /* =========================
-       LOGIN
-    ========================== */
-
     window.loginUser = async function () {
 
       const email =
@@ -2998,12 +4200,10 @@
           .value
           .trim();
 
-
       const password =
         document
           .getElementById("loginPassword")
           .value;
-
 
       if (!email || !password) {
 
@@ -3014,9 +4214,7 @@
         );
 
         return;
-
       }
-
 
       try {
 
@@ -3026,161 +4224,58 @@
           password
         );
 
-
         showMessage(
           "authMessage",
           "Login successful.",
           "success"
         );
 
-
-        document
-          .getElementById("loginEmail")
-          .value = "";
-
-
-        document
-          .getElementById("loginPassword")
-          .value = "";
-
+        document.getElementById("loginEmail").value = "";
+        document.getElementById("loginPassword").value = "";
 
       } catch (error) {
 
-        console.error(
-          "LOGIN ERROR:",
-          error
-        );
+        console.error("LOGIN ERROR:", error);
+        console.error("Firebase error code:", error.code);
+        console.error("Firebase error message:", error.message);
 
-
-        console.error(
-          "Firebase error code:",
-          error.code
-        );
-
-
-        console.error(
-          "Firebase error message:",
-          error.message
-        );
-
-
-        let msg =
-          "Login failed.";
-
+        let msg = "Login failed.";
 
         if (
-          error.code ===
-          "auth/invalid-credential" ||
-
-          error.code ===
-          "auth/wrong-password" ||
-
-          error.code ===
-          "auth/user-not-found"
+          error.code === "auth/invalid-credential" ||
+          error.code === "auth/wrong-password" ||
+          error.code === "auth/user-not-found"
         ) {
-
-          msg =
-            "Email or password is incorrect.";
-
+          msg = "Email or password is incorrect.";
         }
-
-
-        else if (
-          error.code ===
-          "auth/invalid-email"
-        ) {
-
-          msg =
-            "Please enter a valid email address.";
-
+        else if (error.code === "auth/invalid-email") {
+          msg = "Please enter a valid email address.";
         }
-
-
-        else if (
-          error.code ===
-          "auth/user-disabled"
-        ) {
-
-          msg =
-            "This account has been disabled.";
-
+        else if (error.code === "auth/user-disabled") {
+          msg = "This account has been disabled.";
         }
-
-
-        else if (
-          error.code ===
-          "auth/too-many-requests"
-        ) {
-
-          msg =
-            "Too many login attempts. Please wait and try again.";
-
+        else if (error.code === "auth/too-many-requests") {
+          msg = "Too many login attempts. Please wait and try again.";
         }
-
-
-        else if (
-          error.code ===
-          "auth/network-request-failed"
-        ) {
-
-          msg =
-            "Network error. Please check your internet connection.";
-
+        else if (error.code === "auth/network-request-failed") {
+          msg = "Network error. Please check your internet connection.";
         }
-
-
-        else if (
-          error.code ===
-          "auth/operation-not-allowed"
-        ) {
-
-          msg =
-            "Email/Password login is disabled in Firebase Authentication.";
-
+        else if (error.code === "auth/operation-not-allowed") {
+          msg = "Email/Password login is disabled in Firebase Authentication.";
         }
-
-
-        else if (
-          error.code ===
-          "auth/unauthorized-domain"
-        ) {
-
+        else if (error.code === "auth/unauthorized-domain") {
           msg =
             "This website domain is not authorized in Firebase. Add rizwanmughal63110-ux.github.io in Firebase Authorized Domains.";
-
         }
-
-
-        else if (
-          error.code ===
-          "auth/internal-error"
-        ) {
-
-          msg =
-            "Firebase internal error. Please try again.";
-
+        else if (error.code === "auth/internal-error") {
+          msg = "Firebase internal error. Please try again.";
         }
-
-
-        else if (
-          error.code ===
-          "auth/weak-password"
-        ) {
-
-          msg =
-            "Password is too weak.";
-
+        else if (error.code === "auth/weak-password") {
+          msg = "Password is too weak.";
         }
-
-
         else if (error.message) {
-
-          msg =
-            "Login failed: " +
-            error.message;
-
+          msg = "Login failed: " + error.message;
         }
-
 
         showMessage(
           "authMessage",
@@ -3193,18 +4288,13 @@
     };
 
 
-    /* =========================
-       LOGOUT
-    ========================== */
-
     window.logoutUser = async function () {
 
       try {
 
         await signOut(auth);
 
-        window.location.hash =
-          "#account";
+        window.location.hash = "#account";
 
       } catch (error) {
 
@@ -3215,106 +4305,53 @@
     };
 
 
-    /* =========================
-       AUTH STATE
-    ========================== */
-
     onAuthStateChanged(
       auth,
       async (user) => {
 
-        currentUser =
-          user;
-
+        currentUser = user;
 
         const loginBox =
-          document.getElementById(
-            "loginFormBox"
-          );
-
+          document.getElementById("loginFormBox");
 
         const signupBox =
-          document.getElementById(
-            "signupFormBox"
-          );
-
+          document.getElementById("signupFormBox");
 
         const loggedBox =
-          document.getElementById(
-            "loggedInBox"
-          );
-
+          document.getElementById("loggedInBox");
 
         const loggedText =
-          document.getElementById(
-            "loggedUserText"
-          );
-
+          document.getElementById("loggedUserText");
 
         if (user) {
 
-          loginBox
-            .classList
-            .add("hidden");
-
-
-          signupBox
-            .classList
-            .add("hidden");
-
-
-          loggedBox
-            .classList
-            .remove("hidden");
-
+          loginBox.classList.add("hidden");
+          signupBox.classList.add("hidden");
+          loggedBox.classList.remove("hidden");
 
           loggedText.textContent =
-            "Logged in as: " +
-            user.email;
-
+            "Logged in as: " + user.email;
 
           document
-            .getElementById(
-              "dashboardUser"
-            )
-            .textContent =
-            user.email;
-
+            .getElementById("dashboardUser")
+            .textContent = user.email;
 
           loadCustomerBookings();
 
         }
-
         else {
 
-          loginBox
-            .classList
-            .remove("hidden");
-
-
-          signupBox
-            .classList
-            .add("hidden");
-
-
-          loggedBox
-            .classList
-            .add("hidden");
-
+          loginBox.classList.remove("hidden");
+          signupBox.classList.add("hidden");
+          loggedBox.classList.add("hidden");
 
           document
-            .getElementById(
-              "dashboardUser"
-            )
+            .getElementById("dashboardUser")
             .textContent = "";
 
-
           document
-            .getElementById(
-              "bookingList"
-            )
+            .getElementById("bookingList")
             .innerHTML =
-
             '<div class="loading">Please login to see your bookings.</div>';
 
         }
@@ -3323,47 +4360,31 @@
     );
 
 
-    /* =========================
-       DASHBOARD
-    ========================== */
+    window.goToDashboard = function () {
 
-    window.goToDashboard =
-      function () {
+      document
+        .getElementById("dashboard")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
 
-        document
-          .getElementById(
-            "dashboard"
-          )
-          .scrollIntoView({
-            behavior: "smooth"
-          });
+      loadCustomerBookings();
 
+    };
 
-        loadCustomerBookings();
-
-      };
-
-
-    /* =========================
-       REVIEW DATE HELPER
-    ========================== */
 
     function getReviewDate(value) {
 
       try {
 
-        if (!value) {
-          return "—";
-        }
+        if (!value) return "—";
 
         if (
           value.toDate &&
           typeof value.toDate === "function"
         ) {
 
-          return value
-            .toDate()
-            .toLocaleDateString();
+          return value.toDate().toLocaleDateString();
 
         }
 
@@ -3378,33 +4399,18 @@
 
         }
 
-        if (
-          value instanceof Date
-        ) {
-
+        if (value instanceof Date) {
           return value.toLocaleDateString();
-
         }
 
-        if (
-          typeof value === "number"
-        ) {
-
-          return new Date(
-            value
-          ).toLocaleDateString();
-
+        if (typeof value === "number") {
+          return new Date(value).toLocaleDateString();
         }
 
-        const parsed =
-          new Date(value);
+        const parsed = new Date(value);
 
-        if (
-          !isNaN(parsed.getTime())
-        ) {
-
+        if (!isNaN(parsed.getTime())) {
           return parsed.toLocaleDateString();
-
         }
 
       } catch (error) {
@@ -3421,10 +4427,6 @@
     }
 
 
-    /* =========================
-       REVIEW STARS
-    ========================== */
-
     function makeStars(rating) {
 
       const value =
@@ -3436,14 +4438,9 @@
           )
         );
 
-
       let stars = "";
 
-      for (
-        let i = 1;
-        i <= 5;
-        i++
-      ) {
+      for (let i = 1; i <= 5; i++) {
 
         stars +=
           i <= value
@@ -3457,964 +4454,643 @@
     }
 
 
-    /* =========================
-       LOAD CUSTOMER REVIEWS
-    ========================== */
+    window.loadCustomerReviews = async function () {
 
-    window.loadCustomerReviews =
-      async function () {
+      const list =
+        document.getElementById("reviewsList");
 
-        const list =
-          document.getElementById(
-            "reviewsList"
+      if (!list) return;
+
+      list.innerHTML =
+        '<div class="loading">Loading customer reviews...</div>';
+
+      try {
+
+        const snapshot =
+          await getDocs(
+            collection(
+              db,
+              "customerReviews"
+            )
           );
 
+        const reviews = [];
 
-        if (!list) return;
+        snapshot.forEach(doc => {
 
+          const data = doc.data();
 
-        list.innerHTML =
-          '<div class="loading">Loading customer reviews...</div>';
+          if (data.approved !== false) {
 
-
-        try {
-
-          const snapshot =
-            await getDocs(
-              collection(
-                db,
-                "customerReviews"
-              )
-            );
-
-
-          const reviews = [];
-
-
-          snapshot.forEach(
-            doc => {
-
-              const data =
-                doc.data();
-
-
-              if (
-                data.approved !== false
-              ) {
-
-                reviews.push({
-
-                  id: doc.id,
-
-                  ...data
-
-                });
-
-              }
-
-            }
-          );
-
-
-          reviews.sort(
-            (a, b) => {
-
-              const aTime =
-                a.createdAt?.toMillis
-                  ? a.createdAt.toMillis()
-                  : new Date(
-                      a.createdAt || 0
-                    ).getTime() || 0;
-
-
-              const bTime =
-                b.createdAt?.toMillis
-                  ? b.createdAt.toMillis()
-                  : new Date(
-                      b.createdAt || 0
-                    ).getTime() || 0;
-
-
-              return bTime - aTime;
-
-            }
-          );
-
-
-          customerReviewsCache =
-            reviews;
-
-
-          const total =
-            reviews.length;
-
-
-          let average = 0;
-
-
-          if (total > 0) {
-
-            const sum =
-              reviews.reduce(
-                (
-                  totalRating,
-                  review
-                ) => {
-
-                  return totalRating +
-                    (
-                      Number(
-                        review.rating
-                      ) || 0
-                    );
-
-                },
-                0
-              );
-
-
-            average =
-              sum / total;
+            reviews.push({
+              id: doc.id,
+              ...data
+            });
 
           }
 
+        });
 
-          const averageBox =
-            document.getElementById(
-              "averageRating"
+        reviews.sort((a, b) => {
+
+          const aTime =
+            a.createdAt?.toMillis
+              ? a.createdAt.toMillis()
+              : new Date(a.createdAt || 0).getTime() || 0;
+
+          const bTime =
+            b.createdAt?.toMillis
+              ? b.createdAt.toMillis()
+              : new Date(b.createdAt || 0).getTime() || 0;
+
+          return bTime - aTime;
+
+        });
+
+        customerReviewsCache = reviews;
+
+        const total = reviews.length;
+
+        let average = 0;
+
+        if (total > 0) {
+
+          const sum =
+            reviews.reduce(
+              (totalRating, review) => {
+
+                return totalRating +
+                  (Number(review.rating) || 0);
+
+              },
+              0
             );
 
+          average = sum / total;
 
-          const averageStars =
-            document.getElementById(
-              "averageStars"
-            );
+        }
 
+        const averageBox =
+          document.getElementById("averageRating");
 
-          const reviewCount =
-            document.getElementById(
-              "reviewCount"
-            );
+        const averageStars =
+          document.getElementById("averageStars");
 
+        const reviewCount =
+          document.getElementById("reviewCount");
 
-          if (averageBox) {
+        if (averageBox) {
 
-            averageBox.textContent =
-              total > 0
-                ? average.toFixed(1)
-                : "0.0";
+          averageBox.textContent =
+            total > 0
+              ? average.toFixed(1)
+              : "0.0";
 
-          }
+        }
 
+        if (averageStars) {
 
-          if (averageStars) {
+          averageStars.textContent =
+            total > 0
+              ? makeStars(Math.round(average))
+              : "☆☆☆☆☆";
 
-            averageStars.textContent =
-              total > 0
-                ? makeStars(
-                    Math.round(average)
-                  )
-                : "☆☆☆☆☆";
+        }
 
-          }
+        if (reviewCount) {
 
+          reviewCount.textContent =
+            total === 0
+              ? "No reviews yet"
+              : total === 1
+                ? "1 Customer Review"
+                : total + " Customer Reviews";
 
-          if (reviewCount) {
+        }
 
-            reviewCount.textContent =
-              total === 0
-                ? "No reviews yet"
-                : total === 1
-                  ? "1 Customer Review"
-                  : total +
-                    " Customer Reviews";
-
-          }
-
-
-          if (total === 0) {
-
-            list.innerHTML = `
-
-              <div class="loading">
-
-                <h3 style="color:#dcecff;margin-bottom:8px;">
-                  No Customer Reviews Yet
-                </h3>
-
-                <p>
-                  Be the first customer to rate our service.
-                </p>
-
-              </div>
-
-            `;
-
-            return;
-
-          }
-
-
-          list.innerHTML = "";
-
-
-          reviews
-            .slice(0, 12)
-            .forEach(
-              review => {
-
-                const card =
-                  document.createElement(
-                    "div"
-                  );
-
-
-                card.className =
-                  "review-card";
-
-
-                const customerName =
-                  review.customerName ||
-                  "Customer";
-
-
-                const service =
-                  review.service ||
-                  "Service";
-
-
-                const rating =
-                  Number(
-                    review.rating
-                  ) || 0;
-
-
-                const reviewDate =
-                  getReviewDate(
-                    review.createdAt
-                  );
-
-
-                card.innerHTML = `
-
-                  <div class="review-header">
-
-                    <div class="review-name">
-
-                      ${escapeHtml(
-                        customerName
-                      )}
-
-                    </div>
-
-
-                    <div class="review-date">
-
-                      ${escapeHtml(
-                        reviewDate
-                      )}
-
-                    </div>
-
-                  </div>
-
-
-                  <div class="review-stars">
-
-                    ${makeStars(
-                      rating
-                    )}
-
-                  </div>
-
-
-                  <div class="review-service">
-
-                    ${escapeHtml(
-                      service
-                    )}
-
-                  </div>
-
-
-                  ${
-                    review.review
-                      ? `
-
-                        <div class="review-text">
-
-                          ${escapeHtml(
-                            review.review
-                          )}
-
-                        </div>
-
-                      `
-                      : `
-
-                        <div class="review-text">
-
-                          Customer rated our service.
-
-                        </div>
-
-                      `
-                  }
-
-                `;
-
-
-                list.appendChild(
-                  card
-                );
-
-              }
-            );
-
-
-        } catch (error) {
-
-          console.error(
-            "REVIEWS LOAD ERROR:",
-            error
-          );
-
+        if (total === 0) {
 
           list.innerHTML = `
 
-            <div
-              class="message error"
-              style="display:block;">
+            <div class="loading">
 
-              Unable to load customer reviews.
-              Please refresh and try again.
+              <h3 style="color:#dcecff;margin-bottom:8px;">
+                No Customer Reviews Yet
+              </h3>
+
+              <p>
+                Be the first customer to rate our service.
+              </p>
 
             </div>
 
           `;
 
+          return;
+
         }
 
-      };
+        list.innerHTML = "";
 
+        reviews.slice(0, 12).forEach(review => {
 
-    /* =========================
-       CHECK IF BOOKING REVIEWED
-    ========================== */
+          const card =
+            document.createElement("div");
 
-    function bookingAlreadyReviewed(
-      bookingId
-    ) {
+          card.className = "review-card";
 
-      if (!bookingId) {
-        return false;
+          const customerName =
+            review.customerName || "Customer";
+
+          const service =
+            review.service || "Service";
+
+          const rating =
+            Number(review.rating) || 0;
+
+          const reviewDate =
+            getReviewDate(review.createdAt);
+
+          card.innerHTML = `
+
+            <div class="review-header">
+
+              <div class="review-name">
+                ${escapeHtml(customerName)}
+              </div>
+
+              <div class="review-date">
+                ${escapeHtml(reviewDate)}
+              </div>
+
+            </div>
+
+            <div class="review-stars">
+              ${makeStars(rating)}
+            </div>
+
+            <div class="review-service">
+              ${escapeHtml(service)}
+            </div>
+
+            ${
+              review.review
+                ? `
+                  <div class="review-text">
+                    ${escapeHtml(review.review)}
+                  </div>
+                `
+                : `
+                  <div class="review-text">
+                    Customer rated our service.
+                  </div>
+                `
+            }
+
+          `;
+
+          list.appendChild(card);
+
+        });
+
+      } catch (error) {
+
+        console.error(
+          "REVIEWS LOAD ERROR:",
+          error
+        );
+
+        list.innerHTML = `
+
+          <div
+            class="message error"
+            style="display:block;">
+
+            Unable to load customer reviews.
+            Please refresh and try again.
+
+          </div>
+
+        `;
+
       }
 
+    };
+
+
+    function bookingAlreadyReviewed(bookingId) {
+
+      if (!bookingId) return false;
 
       return customerReviewsCache.some(
-        review => {
-
-          return (
-            review.bookingId ===
-            bookingId
-          );
-
-        }
+        review => review.bookingId === bookingId
       );
 
     }
 
 
-    /* =========================
-       OPEN RATING FORM
-    ========================== */
+    window.openRatingForm = function (bookingId) {
 
-    window.openRatingForm =
-      function (bookingId) {
+      if (!currentUser) {
 
-        if (!currentUser) {
+        showMessage(
+          "dashboardMessage",
+          "Please login before rating a service.",
+          "error"
+        );
 
-          showMessage(
-            "dashboardMessage",
-            "Please login before rating a service.",
-            "error"
-          );
+        return;
 
-          return;
+      }
+
+      const booking =
+        window.customerBookings?.[bookingId];
+
+      if (!booking) {
+
+        showMessage(
+          "dashboardMessage",
+          "Booking information not found.",
+          "error"
+        );
+
+        return;
+
+      }
+
+      const status =
+        String(booking.status || "").toLowerCase();
+
+      if (status !== "completed") {
+
+        showMessage(
+          "dashboardMessage",
+          "You can rate the service after it is completed.",
+          "error"
+        );
+
+        return;
+
+      }
+
+      if (bookingAlreadyReviewed(bookingId)) {
+
+        showMessage(
+          "dashboardMessage",
+          "You have already rated this booking.",
+          "success"
+        );
+
+        return;
+
+      }
+
+      selectedRatingBookingId = bookingId;
+      selectedRating = 0;
+
+      document.getElementById("reviewText").value = "";
+
+      document.getElementById("ratingHint").textContent =
+        "Select a rating";
+
+      updateStarButtons();
+
+      const trackingId =
+        booking.bookingId ||
+        booking.trackingId ||
+        booking.id;
+
+      document.getElementById("ratingBookingInfo").innerHTML = `
+
+        <strong>Rate Your Service</strong>
+
+        <br>
+
+        Service:
+        <strong>
+          ${escapeHtml(booking.service || "Service")}
+        </strong>
+
+        <br>
+
+        Tracking ID:
+        <strong>
+          ${escapeHtml(trackingId)}
+        </strong>
+
+      `;
+
+      document
+        .getElementById("ratingPanel")
+        .classList.remove("hidden");
+
+      document
+        .getElementById("ratingMessage")
+        .className = "message";
+
+      document
+        .getElementById("ratingPanel")
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+
+    };
+
+
+    window.selectRating = function (rating) {
+
+      rating = Number(rating);
+
+      if (rating < 1 || rating > 5) return;
+
+      selectedRating = rating;
+
+      updateStarButtons();
+
+      const labels = {
+        1: "Poor",
+        2: "Fair",
+        3: "Good",
+        4: "Very Good",
+        5: "Excellent"
+      };
+
+      document
+        .getElementById("ratingHint")
+        .textContent =
+        labels[rating] +
+        " (" +
+        rating +
+        "/5)";
+
+    };
+
+
+    function updateStarButtons() {
+
+      const buttons =
+        document.querySelectorAll(".star-btn");
+
+      buttons.forEach(button => {
+
+        const rating =
+          Number(button.dataset.rating);
+
+        if (rating <= selectedRating) {
+
+          button.classList.add("selected");
+
+        }
+        else {
+
+          button.classList.remove("selected");
 
         }
 
+      });
 
-        const booking =
-          window.customerBookings?.[
-            bookingId
-          ];
+    }
 
 
-        if (!booking) {
+    window.cancelRatingForm = function () {
 
-          showMessage(
-            "dashboardMessage",
-            "Booking information not found.",
-            "error"
-          );
+      selectedRatingBookingId = null;
+      selectedRating = 0;
 
-          return;
+      const panel =
+        document.getElementById("ratingPanel");
 
-        }
+      if (panel) {
+        panel.classList.add("hidden");
+      }
 
+      const text =
+        document.getElementById("reviewText");
 
-        const status =
-          String(
-            booking.status ||
-            ""
-          ).toLowerCase();
+      if (text) {
+        text.value = "";
+      }
 
+      updateStarButtons();
 
-        if (
-          status !== "completed"
-        ) {
-
-          showMessage(
-            "dashboardMessage",
-            "You can rate the service after it is completed.",
-            "error"
-          );
-
-          return;
-
-        }
+    };
 
 
-        if (
-          bookingAlreadyReviewed(
-            bookingId
-          )
-        ) {
+    window.submitReview = async function () {
 
-          showMessage(
-            "dashboardMessage",
-            "You have already rated this booking.",
-            "success"
-          );
+      if (!currentUser) {
 
-          return;
+        showMessage(
+          "ratingMessage",
+          "Please login first.",
+          "error"
+        );
 
-        }
+        return;
 
+      }
 
-        selectedRatingBookingId =
-          bookingId;
+      if (!selectedRatingBookingId) {
 
+        showMessage(
+          "ratingMessage",
+          "Please select a booking.",
+          "error"
+        );
 
-        selectedRating =
-          0;
+        return;
 
+      }
 
+      if (
+        selectedRating < 1 ||
+        selectedRating > 5
+      ) {
+
+        showMessage(
+          "ratingMessage",
+          "Please select a rating from 1 to 5 stars.",
+          "error"
+        );
+
+        return;
+
+      }
+
+      const booking =
+        window.customerBookings?.[
+          selectedRatingBookingId
+        ];
+
+      if (!booking) {
+
+        showMessage(
+          "ratingMessage",
+          "Booking information not found.",
+          "error"
+        );
+
+        return;
+
+      }
+
+      const status =
+        String(booking.status || "").toLowerCase();
+
+      if (status !== "completed") {
+
+        showMessage(
+          "ratingMessage",
+          "Only completed services can be rated.",
+          "error"
+        );
+
+        return;
+
+      }
+
+      if (
+        bookingAlreadyReviewed(
+          selectedRatingBookingId
+        )
+      ) {
+
+        showMessage(
+          "ratingMessage",
+          "This booking has already been rated.",
+          "error"
+        );
+
+        return;
+
+      }
+
+      const reviewText =
         document
-          .getElementById(
-            "reviewText"
-          )
-          .value = "";
+          .getElementById("reviewText")
+          .value
+          .trim();
 
+      const submitButton =
+        document.getElementById(
+          "submitReviewBtn"
+        );
 
-        document
-          .getElementById(
-            "ratingHint"
-          )
-          .textContent =
-          "Select a rating";
+      submitButton.disabled = true;
+      submitButton.textContent = "Submitting...";
 
-
-        updateStarButtons();
-
+      try {
 
         const trackingId =
           booking.bookingId ||
           booking.trackingId ||
           booking.id;
 
+        await addDoc(
+          collection(
+            db,
+            "customerReviews"
+          ),
+          {
 
-        document
-          .getElementById(
-            "ratingBookingInfo"
-          )
-          .innerHTML = `
+            bookingId:
+              selectedRatingBookingId,
 
-            <strong>Rate Your Service</strong>
+            trackingId:
+              trackingId,
 
-            <br>
+            customerUid:
+              currentUser.uid,
 
-            Service:
-            <strong>
-              ${escapeHtml(
-                booking.service ||
-                "Service"
-              )}
-            </strong>
+            customerName:
+              booking.customerName ||
+              localStorage.getItem(
+                "smartCoolCustomerName"
+              ) ||
+              "Customer",
 
-            <br>
+            customerEmail:
+              currentUser.email || "",
 
-            Tracking ID:
-            <strong>
-              ${escapeHtml(
-                trackingId
-              )}
-            </strong>
+            rating:
+              selectedRating,
 
-          `;
+            review:
+              reviewText,
 
+            service:
+              booking.service || "",
 
-        document
-          .getElementById(
-            "ratingPanel"
-          )
-          .classList
-          .remove("hidden");
+            approved:
+              true,
 
+            createdAt:
+              new Date()
 
-        document
-          .getElementById(
-            "ratingMessage"
-          )
-          .className =
-          "message";
-
-
-        document
-          .getElementById(
-            "ratingPanel"
-          )
-          .scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
-
-      };
-
-
-    /* =========================
-       SELECT RATING
-    ========================== */
-
-    window.selectRating =
-      function (rating) {
-
-        rating =
-          Number(rating);
-
-
-        if (
-          rating < 1 ||
-          rating > 5
-        ) {
-
-          return;
-
-        }
-
-
-        selectedRating =
-          rating;
-
-
-        updateStarButtons();
-
-
-        const labels = {
-          1: "Poor",
-          2: "Fair",
-          3: "Good",
-          4: "Very Good",
-          5: "Excellent"
-        };
-
-
-        document
-          .getElementById(
-            "ratingHint"
-          )
-          .textContent =
-          labels[rating] +
-          " (" +
-          rating +
-          "/5)";
-
-      };
-
-
-    /* =========================
-       UPDATE STAR BUTTONS
-    ========================== */
-
-    function updateStarButtons() {
-
-      const buttons =
-        document.querySelectorAll(
-          ".star-btn"
+          }
         );
 
+        showMessage(
+          "dashboardMessage",
+          "Thank you! Your rating and review have been submitted successfully.",
+          "success"
+        );
 
-      buttons.forEach(
-        button => {
+        selectedRatingBookingId = null;
+        selectedRating = 0;
 
-          const rating =
-            Number(
-              button.dataset.rating
-            );
+        document
+          .getElementById("ratingPanel")
+          .classList.add("hidden");
 
-
-          if (
-            rating <= selectedRating
-          ) {
-
-            button.classList.add(
-              "selected"
-            );
-
-          } else {
-
-            button.classList.remove(
-              "selected"
-            );
-
-          }
-
-        }
-      );
-
-    }
-
-
-    /* =========================
-       CANCEL RATING
-    ========================== */
-
-    window.cancelRatingForm =
-      function () {
-
-        selectedRatingBookingId =
-          null;
-
-
-        selectedRating =
-          0;
-
-
-        const panel =
-          document.getElementById(
-            "ratingPanel"
-          );
-
-
-        if (panel) {
-
-          panel.classList.add(
-            "hidden"
-          );
-
-        }
-
-
-        const text =
-          document.getElementById(
-            "reviewText"
-          );
-
-
-        if (text) {
-
-          text.value = "";
-
-        }
-
+        document
+          .getElementById("reviewText")
+          .value = "";
 
         updateStarButtons();
 
-      };
+        await loadCustomerReviews();
+        await loadCustomerBookings();
 
+        document
+          .getElementById("reviews")
+          .scrollIntoView({
+            behavior: "smooth"
+          });
 
-    /* =========================
-       SUBMIT REVIEW
-    ========================== */
+      } catch (error) {
 
-    window.submitReview =
-      async function () {
+        console.error(
+          "REVIEW SUBMIT ERROR:",
+          error
+        );
 
-        if (!currentUser) {
-
-          showMessage(
-            "ratingMessage",
-            "Please login first.",
-            "error"
-          );
-
-          return;
-
-        }
-
+        let msg =
+          "Unable to submit your review. Please try again.";
 
         if (
-          !selectedRatingBookingId
+          error.code === "permission-denied"
         ) {
 
-          showMessage(
-            "ratingMessage",
-            "Please select a booking.",
-            "error"
-          );
-
-          return;
+          msg =
+            "Firebase permission denied. Please check your Firestore Rules.";
 
         }
 
+        showMessage(
+          "ratingMessage",
+          msg,
+          "error"
+        );
 
-        if (
-          selectedRating < 1 ||
-          selectedRating > 5
-        ) {
+      }
 
-          showMessage(
-            "ratingMessage",
-            "Please select a rating from 1 to 5 stars.",
-            "error"
-          );
+      submitButton.disabled = false;
+      submitButton.textContent = "⭐ Submit Rating";
 
-          return;
+    };
 
-        }
-
-
-        const booking =
-          window.customerBookings?.[
-            selectedRatingBookingId
-          ];
-
-
-        if (!booking) {
-
-          showMessage(
-            "ratingMessage",
-            "Booking information not found.",
-            "error"
-          );
-
-          return;
-
-        }
-
-
-        const status =
-          String(
-            booking.status ||
-            ""
-          ).toLowerCase();
-
-
-        if (
-          status !== "completed"
-        ) {
-
-          showMessage(
-            "ratingMessage",
-            "Only completed services can be rated.",
-            "error"
-          );
-
-          return;
-
-        }
-
-
-        if (
-          bookingAlreadyReviewed(
-            selectedRatingBookingId
-          )
-        ) {
-
-          showMessage(
-            "ratingMessage",
-            "This booking has already been rated.",
-            "error"
-          );
-
-          return;
-
-        }
-
-
-        const reviewText =
-          document
-            .getElementById(
-              "reviewText"
-            )
-            .value
-            .trim();
-
-
-        const submitButton =
-          document.getElementById(
-            "submitReviewBtn"
-          );
-
-
-        submitButton.disabled =
-          true;
-
-
-        submitButton.textContent =
-          "Submitting...";
-
-
-        try {
-
-          const trackingId =
-            booking.bookingId ||
-            booking.trackingId ||
-            booking.id;
-
-
-          await addDoc(
-            collection(
-              db,
-              "customerReviews"
-            ),
-
-            {
-
-              bookingId:
-                selectedRatingBookingId,
-
-              trackingId:
-                trackingId,
-
-              customerUid:
-                currentUser.uid,
-
-              customerName:
-                booking.customerName ||
-                localStorage.getItem(
-                  "smartCoolCustomerName"
-                ) ||
-                "Customer",
-
-              customerEmail:
-                currentUser.email ||
-                "",
-
-              rating:
-                selectedRating,
-
-              review:
-                reviewText,
-
-              service:
-                booking.service ||
-                "",
-
-              approved:
-                true,
-
-              createdAt:
-                new Date()
-
-            }
-          );
-
-
-          showMessage(
-            "dashboardMessage",
-            "Thank you! Your rating and review have been submitted successfully.",
-            "success"
-          );
-
-
-          selectedRatingBookingId =
-            null;
-
-
-          selectedRating =
-            0;
-
-
-          document
-            .getElementById(
-              "ratingPanel"
-            )
-            .classList
-            .add("hidden");
-
-
-          document
-            .getElementById(
-              "reviewText"
-            )
-            .value = "";
-
-
-          updateStarButtons();
-
-
-          await loadCustomerReviews();
-
-
-          await loadCustomerBookings();
-
-
-          document
-            .getElementById(
-              "reviews"
-            )
-            .scrollIntoView({
-              behavior: "smooth"
-            });
-
-
-        } catch (error) {
-
-          console.error(
-            "REVIEW SUBMIT ERROR:",
-            error
-          );
-
-
-          let msg =
-            "Unable to submit your review. Please try again.";
-
-
-          if (
-            error.code ===
-            "permission-denied"
-          ) {
-
-            msg =
-              "Firebase permission denied. Please check your Firestore Rules.";
-
-          }
-
-
-          showMessage(
-            "ratingMessage",
-            msg,
-            "error"
-          );
-
-        }
-
-
-        submitButton.disabled =
-          false;
-
-
-        submitButton.textContent =
-          "⭐ Submit Rating";
-
-      };
-
-
-    /* =========================
-       LOAD BOOKINGS
-    ========================== */
 
     window.loadCustomerBookings =
       async function () {
@@ -4423,7 +5099,6 @@
           document.getElementById(
             "bookingList"
           );
-
 
         if (!currentUser) {
 
@@ -4434,10 +5109,8 @@
 
         }
 
-
         list.innerHTML =
           '<div class="loading">Loading your bookings...</div>';
-
 
         try {
 
@@ -4447,7 +5120,6 @@
                 db,
                 "serviceRequests"
               ),
-
               where(
                 "customerUid",
                 "==",
@@ -4455,56 +5127,39 @@
               )
             );
 
-
           const snapshot =
             await getDocs(q);
 
-
           const bookings = [];
 
+          snapshot.forEach(doc => {
 
-          snapshot.forEach(
-            doc => {
+            bookings.push({
+              id: doc.id,
+              ...doc.data()
+            });
 
-              bookings.push({
+          });
 
-                id: doc.id,
+          bookings.sort((a, b) => {
 
-                ...doc.data()
+            const aTime =
+              a.createdAt?.toMillis
+                ? a.createdAt.toMillis()
+                : 0;
 
-              });
+            const bTime =
+              b.createdAt?.toMillis
+                ? b.createdAt.toMillis()
+                : 0;
 
-            }
-          );
+            return bTime - aTime;
 
-
-          bookings.sort(
-            (a, b) => {
-
-              const aTime =
-                a.createdAt?.toMillis
-                  ? a.createdAt.toMillis()
-                  : 0;
-
-
-              const bTime =
-                b.createdAt?.toMillis
-                  ? b.createdAt.toMillis()
-                  : 0;
-
-
-              return bTime - aTime;
-
-            }
-          );
-
+          });
 
           window.customerBookings = {};
 
-
-          if (
-            bookings.length === 0
-          ) {
+          if (bookings.length === 0) {
 
             list.innerHTML = `
 
@@ -4526,273 +5181,232 @@
 
           }
 
-
           list.innerHTML = "";
 
+          bookings.forEach(booking => {
 
-          bookings.forEach(
-            booking => {
+            window.customerBookings[
+              booking.id
+            ] = booking;
 
-              window.customerBookings[
-                booking.id
-              ] =
-                booking;
+            const card =
+              document.createElement("div");
 
+            card.className = "booking-card";
 
-              const card =
-                document.createElement(
-                  "div"
-                );
+            let statusClass = "";
 
+            const status =
+              String(
+                booking.status || "Pending"
+              );
 
-              card.className =
-                "booking-card";
+            if (
+              status.toLowerCase() === "completed"
+            ) {
+              statusClass = "completed";
+            }
 
+            if (
+              status.toLowerCase() === "rejected"
+            ) {
+              statusClass = "rejected";
+            }
 
-              let statusClass =
-                "";
+            let dateText = "—";
 
+            if (booking.createdAt) {
 
-              const status =
-                String(
-                  booking.status ||
-                  "Pending"
-                );
+              try {
 
+                if (
+                  booking.createdAt.toDate
+                ) {
 
-              if (
-                status.toLowerCase() ===
-                "completed"
-              ) {
-
-                statusClass =
-                  "completed";
-
-              }
-
-
-              if (
-                status.toLowerCase() ===
-                "rejected"
-              ) {
-
-                statusClass =
-                  "rejected";
-
-              }
-
-
-              let dateText =
-                "—";
-
-
-              if (
-                booking.createdAt
-              ) {
-
-                try {
-
-                  if (
+                  dateText =
                     booking.createdAt
-                      .toDate
-                  ) {
+                      .toDate()
+                      .toLocaleString();
 
-                    dateText =
-                      booking.createdAt
-                        .toDate()
-                        .toLocaleString();
+                }
 
-                  }
+              } catch (e) {}
 
-                } catch (e) {}
+            }
 
-              }
+            const trackingId =
+              booking.bookingId ||
+              booking.trackingId ||
+              booking.id;
 
+            const amount =
+              Number(
+                booking.invoiceAmount || 0
+              );
 
-              const trackingId =
-                booking.bookingId ||
-                booking.trackingId ||
-                booking.id;
+            const isCompleted =
+              status.toLowerCase() ===
+              "completed";
 
+            const isReviewed =
+              bookingAlreadyReviewed(
+                booking.id
+              );
 
-              const amount =
-                Number(
-                  booking.invoiceAmount ||
-                  0
-                );
+            card.innerHTML = `
 
+              <div class="booking-card-top">
 
-              const isCompleted =
-                status.toLowerCase() ===
-                "completed";
+                <div>
 
+                  <div class="booking-id">
 
-              const isReviewed =
-                bookingAlreadyReviewed(
-                  booking.id
-                );
-
-
-              card.innerHTML = `
-
-                <div class="booking-card-top">
-
-                  <div>
-
-                    <div
-                      class="booking-id">
-                      Tracking ID:
-                      ${escapeHtml(trackingId)}
-                    </div>
-
-                    <small style="color:#7895b0;">
-                      ${escapeHtml(dateText)}
-                    </small>
+                    Tracking ID:
+                    ${escapeHtml(trackingId)}
 
                   </div>
 
+                  <small style="color:#7895b0;">
+                    ${escapeHtml(dateText)}
+                  </small>
 
-                  <span
-                    class="status ${statusClass}">
-                    ${escapeHtml(status)}
-                  </span>
+                </div>
+
+                <span class="status ${statusClass}">
+                  ${escapeHtml(status)}
+                </span>
+
+              </div>
+
+
+              <div class="booking-details">
+
+
+                <div class="detail-item">
+
+                  <small>
+                    Customer
+                  </small>
+
+                  <strong>
+                    ${escapeHtml(
+                      booking.customerName || "—"
+                    )}
+                  </strong>
 
                 </div>
 
 
-                <div class="booking-details">
+                <div class="detail-item">
 
-                  <div class="detail-item">
+                  <small>
+                    Phone
+                  </small>
 
-                    <small>
-                      Customer
-                    </small>
-
-                    <strong>
-                      ${escapeHtml(
-                        booking.customerName ||
-                        "—"
-                      )}
-                    </strong>
-
-                  </div>
-
-
-                  <div class="detail-item">
-
-                    <small>
-                      Phone
-                    </small>
-
-                    <strong>
-                      ${escapeHtml(
-                        booking.customerPhone ||
-                        "—"
-                      )}
-                    </strong>
-
-                  </div>
-
-
-                  <div class="detail-item">
-
-                    <small>
-                      Service
-                    </small>
-
-                    <strong>
-                      ${escapeHtml(
-                        booking.service ||
-                        "—"
-                      )}
-                    </strong>
-
-                  </div>
-
-
-                  <div class="detail-item">
-
-                    <small>
-                      Area
-                    </small>
-
-                    <strong>
-                      ${escapeHtml(
-                        booking.area ||
-                        "—"
-                      )}
-                    </strong>
-
-                  </div>
-
-
-                  <div
-                    class="detail-item"
-                    style="grid-column:1/-1;">
-
-                    <small>
-                      Address
-                    </small>
-
-                    <strong>
-                      ${escapeHtml(
-                        booking.address ||
-                        "—"
-                      )}
-                    </strong>
-
-                  </div>
-
-
-                  <div
-                    class="detail-item"
-                    style="grid-column:1/-1;">
-
-                    <small>
-                      Problem / Description
-                    </small>
-
-                    <strong>
-                      ${escapeHtml(
-                        booking.problem ||
-                        "—"
-                      )}
-                    </strong>
-
-                  </div>
+                  <strong>
+                    ${escapeHtml(
+                      booking.customerPhone || "—"
+                    )}
+                  </strong>
 
                 </div>
 
 
-                <div class="invoice-box">
+                <div class="detail-item">
 
-                  <div>
+                  <small>
+                    Service
+                  </small>
 
-                    <div style="
-                      color:#91aec9;
-                      font-size:12px;
-                      margin-bottom:3px;
-                    ">
-                      Invoice Amount
-                    </div>
+                  <strong>
+                    ${escapeHtml(
+                      booking.service || "—"
+                    )}
+                  </strong>
+
+                </div>
 
 
-                    <div class="invoice-amount">
+                <div class="detail-item">
 
-                      ${
-                        amount > 0
+                  <small>
+                    Area
+                  </small>
+
+                  <strong>
+                    ${escapeHtml(
+                      booking.area || "—"
+                    )}
+                  </strong>
+
+                </div>
+
+
+                <div
+                  class="detail-item"
+                  style="grid-column:1/-1;">
+
+                  <small>
+                    Address
+                  </small>
+
+                  <strong>
+                    ${escapeHtml(
+                      booking.address || "—"
+                    )}
+                  </strong>
+
+                </div>
+
+
+                <div
+                  class="detail-item"
+                  style="grid-column:1/-1;">
+
+                  <small>
+                    Problem / Description
+                  </small>
+
+                  <strong>
+                    ${escapeHtml(
+                      booking.problem || "—"
+                    )}
+                  </strong>
+
+                </div>
+
+
+              </div>
+
+
+              <div class="invoice-box">
+
+                <div>
+
+                  <div style="
+                    color:#91aec9;
+                    font-size:12px;
+                    margin-bottom:3px;
+                  ">
+                    Invoice Amount
+                  </div>
+
+                  <div class="invoice-amount">
+
+                    ${
+                      amount > 0
                         ? "Rs. " +
                           amount.toLocaleString()
                         : "Not Generated"
-                      }
-
-                    </div>
+                    }
 
                   </div>
 
+                </div>
 
-                  ${
-                    amount > 0
+
+                ${
+                  amount > 0
 
                     ? `
 
@@ -4819,62 +5433,54 @@
                       </div>
 
                     `
-                  }
-
-                </div>
-
-
-                ${
-                  isCompleted
-                    ? (
-
-                      isReviewed
-
-                        ? `
-
-                          <div class="rated-badge">
-
-                            ⭐ Rated
-
-                          </div>
-
-                        `
-
-                        : `
-
-                          <div style="margin-top:18px;">
-
-                            <button
-                              class="btn btn-primary"
-                              onclick="openRatingForm('${booking.id}')">
-
-                              ⭐ Rate Service
-
-                            </button>
-
-                          </div>
-
-                        `
-
-                    )
-                    : ""
                 }
 
-              `;
+              </div>
 
 
-              list.appendChild(
-                card
-              );
+              ${
+                isCompleted
+                  ? (
+                    isReviewed
 
-            }
-          );
+                      ? `
 
+                        <div class="rated-badge">
+
+                          ⭐ Rated
+
+                        </div>
+
+                      `
+
+                      : `
+
+                        <div style="margin-top:18px;">
+
+                          <button
+                            class="btn btn-primary"
+                            onclick="openRatingForm('${booking.id}')">
+
+                            ⭐ Rate Service
+
+                          </button>
+
+                        </div>
+
+                      `
+                  )
+                  : ""
+              }
+
+            `;
+
+            list.appendChild(card);
+
+          });
 
         } catch (error) {
 
           console.error(error);
-
 
           list.innerHTML = `
 
@@ -4894,20 +5500,17 @@
       };
 
 
-    /* =========================
-       BOOKING
-    ========================== */
+    /* =========================================================
+       BOOKING SUBMIT
+    ========================================================= */
 
     document
-      .getElementById(
-        "bookingForm"
-      )
+      .getElementById("bookingForm")
       .addEventListener(
         "submit",
         async function (event) {
 
           event.preventDefault();
-
 
           if (!currentUser) {
 
@@ -4917,87 +5520,58 @@
               "error"
             );
 
-
             document
-              .getElementById(
-                "account"
-              )
+              .getElementById("account")
               .scrollIntoView({
                 behavior: "smooth"
               });
 
-
             return;
 
           }
-
 
           const button =
             document.getElementById(
               "bookingBtn"
             );
 
-
-          button.disabled =
-            true;
-
-
-          button.textContent =
-            "Submitting...";
-
+          button.disabled = true;
+          button.textContent = "Submitting...";
 
           const customerName =
             document
-              .getElementById(
-                "customerName"
-              )
+              .getElementById("customerName")
               .value
               .trim();
-
 
           const customerPhone =
             document
-              .getElementById(
-                "customerPhone"
-              )
+              .getElementById("customerPhone")
               .value
               .trim();
-
 
           const service =
             document
-              .getElementById(
-                "service"
-              )
+              .getElementById("service")
               .value;
-
 
           const area =
             document
-              .getElementById(
-                "area"
-              )
+              .getElementById("area")
               .value
               .trim();
-
 
           const address =
             document
-              .getElementById(
-                "address"
-              )
+              .getElementById("address")
               .value
               .trim();
-
 
           const problem =
             document
-              .getElementById(
-                "problem"
-              )
+              .getElementById("problem")
               .value
               .trim();
-
 
           try {
 
@@ -5007,13 +5581,11 @@
                 .toString()
                 .slice(-8);
 
-
             await addDoc(
               collection(
                 db,
                 "serviceRequests"
               ),
-
               {
 
                 bookingId:
@@ -5053,8 +5625,7 @@
                   currentUser.uid,
 
                 customerEmail:
-                  currentUser.email ||
-                  "",
+                  currentUser.email || "",
 
                 invoiceAmount:
                   0,
@@ -5065,18 +5636,15 @@
               }
             );
 
-
             localStorage.setItem(
               "smartCoolCustomerName",
               customerName
             );
 
-
             localStorage.setItem(
               "smartCoolCustomerPhone",
               customerPhone
             );
-
 
             showMessage(
               "bookingMessage",
@@ -5085,40 +5653,25 @@
               "success"
             );
 
-
             document
-              .getElementById(
-                "bookingForm"
-              )
+              .getElementById("bookingForm")
               .reset();
-
 
             await loadCustomerBookings();
 
+            setTimeout(() => {
 
-            setTimeout(
-              () => {
+              document
+                .getElementById("dashboard")
+                .scrollIntoView({
+                  behavior: "smooth"
+                });
 
-                document
-                  .getElementById(
-                    "dashboard"
-                  )
-                  .scrollIntoView({
-                    behavior:
-                      "smooth"
-                  });
-
-              },
-              1200
-            );
-
+            }, 1200);
 
           } catch (error) {
 
-            console.error(
-              error
-            );
-
+            console.error(error);
 
             showMessage(
               "bookingMessage",
@@ -5128,31 +5681,22 @@
 
           }
 
-
-          button.disabled =
-            false;
-
-
-          button.textContent =
-            "Submit Booking";
+          button.disabled = false;
+          button.textContent = "🔧 Submit Booking";
 
         }
       );
 
 
-    /* =========================
+    /* =========================================================
        PRINT CUSTOMER INVOICE
-    ========================== */
+    ========================================================= */
 
     window.printCustomerInvoice =
       function (bookingId) {
 
         const booking =
-          window
-            .customerBookings?.[
-              bookingId
-            ];
-
+          window.customerBookings?.[bookingId];
 
         if (!booking) {
 
@@ -5164,13 +5708,10 @@
 
         }
 
-
         const amount =
           Number(
-            booking.invoiceAmount ||
-            0
+            booking.invoiceAmount || 0
           );
-
 
         if (amount <= 0) {
 
@@ -5182,15 +5723,10 @@
 
         }
 
-
         let invoiceDate =
-          new Date()
-            .toLocaleDateString();
+          new Date().toLocaleDateString();
 
-
-        if (
-          booking.createdAt?.toDate
-        ) {
+        if (booking.createdAt?.toDate) {
 
           invoiceDate =
             booking.createdAt
@@ -5199,12 +5735,10 @@
 
         }
 
-
         const trackingId =
           booking.bookingId ||
           booking.trackingId ||
           booking.id;
-
 
         const invoiceWindow =
           window.open(
@@ -5212,7 +5746,6 @@
             "_blank",
             "width=800,height=900"
           );
-
 
         invoiceWindow.document.write(`
 
@@ -5418,8 +5951,7 @@
 
                   <strong>
                     ${escapeHtml(
-                      booking.customerName ||
-                      "—"
+                      booking.customerName || "—"
                     )}
                   </strong>
 
@@ -5434,8 +5966,7 @@
 
                   <strong>
                     ${escapeHtml(
-                      booking.customerPhone ||
-                      "—"
+                      booking.customerPhone || "—"
                     )}
                   </strong>
 
@@ -5449,9 +5980,7 @@
                   </small>
 
                   <strong>
-                    ${escapeHtml(
-                      trackingId
-                    )}
+                    ${escapeHtml(trackingId)}
                   </strong>
 
                 </div>
@@ -5464,9 +5993,7 @@
                   </small>
 
                   <strong>
-                    ${escapeHtml(
-                      invoiceDate
-                    )}
+                    ${escapeHtml(invoiceDate)}
                   </strong>
 
                 </div>
@@ -5480,8 +6007,7 @@
 
                   <strong>
                     ${escapeHtml(
-                      booking.area ||
-                      "—"
+                      booking.area || "—"
                     )}
                   </strong>
 
@@ -5496,8 +6022,7 @@
 
                   <strong>
                     ${escapeHtml(
-                      booking.status ||
-                      "Completed"
+                      booking.status || "Completed"
                     )}
                   </strong>
 
@@ -5536,8 +6061,7 @@
 
                     <td>
                       ${escapeHtml(
-                        booking.service ||
-                        "Service"
+                        booking.service || "Service"
                       )}
                     </td>
 
@@ -5617,15 +6141,10 @@
 
         `);
 
-
         invoiceWindow.document.close();
 
       };
 
-
-    /* =========================
-       HTML ESCAPE
-    ========================== */
 
     function escapeHtml(value) {
 
@@ -5638,58 +6157,26 @@
 
       }
 
-
       return String(value)
-
-        .replace(
-          /&/g,
-          "&amp;"
-        )
-
-        .replace(
-          /</g,
-          "&lt;"
-        )
-
-        .replace(
-          />/g,
-          "&gt;"
-        )
-
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-
-        .replace(
-          /'/g,
-          "&#039;"
-        );
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
     }
 
-
-    /* =========================
-       MAKE FUNCTIONS AVAILABLE
-    ========================== */
 
     window.loadCustomerBookings =
       window.loadCustomerBookings;
 
 
-    /* =========================
-       LOAD PUBLIC REVIEWS
-    ========================== */
-
     loadCustomerReviews();
-
 
   </script>
 
 
-  <!-- =========================
-       AUTO FILL CUSTOMER DATA
-  ========================== -->
+  <!-- AUTO FILL CUSTOMER DATA -->
 
   <script>
 
@@ -5700,12 +6187,10 @@
           "smartCoolCustomerName"
         );
 
-
       const phone =
         localStorage.getItem(
           "smartCoolCustomerPhone"
         );
-
 
       if (name) {
 
@@ -5714,19 +6199,16 @@
             "customerName"
           );
 
-
         if (
           field &&
           !field.value
         ) {
 
-          field.value =
-            name;
+          field.value = name;
 
         }
 
       }
-
 
       if (phone) {
 
@@ -5735,21 +6217,18 @@
             "customerPhone"
           );
 
-
         if (
           field &&
           !field.value
         ) {
 
-          field.value =
-            phone;
+          field.value = phone;
 
         }
 
       }
 
     }
-
 
     setTimeout(
       fillCustomerData,
@@ -5762,3 +6241,4 @@
 </body>
 
 </html>
+```
