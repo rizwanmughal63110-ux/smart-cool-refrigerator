@@ -15,7 +15,7 @@
   <button id="menuBtn" class="menu-btn">☰</button>
   <nav id="mainMenu">
     <a href="#home">Home</a><a href="#services">Services</a><a href="#account">Account</a>
-    <a href="#booking">Book Service</a><a href="#contact">Contact</a>
+    <a href="#booking">Book Service</a><a href="#track">Track Booking</a><a href="#contact">Contact</a>
   </nav>
 </header>
 
@@ -87,6 +87,23 @@
 
 <section class="why section"><div class="section-head"><div class="eyebrow">WHY SMART COOL</div><h2>Service You Can <span>Trust</span></h2></div><div class="trust-cards"><div>✓<b>Experienced Technicians</b><small>Reliable appliance work</small></div><div>✓<b>Transparent Service</b><small>Clear communication</small></div><div>✓<b>All Over Karachi</b><small>Home service available</small></div></div></section>
 
+
+<section id="track" class="track section">
+  <div class="section-head">
+    <div class="eyebrow">SERVICE TRACKING</div>
+    <h2>Track Your <span>Booking</span></h2>
+    <p>Login to your customer account and enter your Tracking ID to check your service status.</p>
+  </div>
+  <div class="booking-card track-card">
+    <div class="track-input-row">
+      <input id="homeTrackingId" placeholder="Enter Tracking ID (e.g. TRK-12345678)">
+      <button id="homeTrackBtn" class="btn primary">🔎 Track Booking</button>
+    </div>
+    <p id="homeTrackMsg"></p>
+    <div id="homeTrackResult" class="glass-card hidden"></div>
+  </div>
+</section>
+
 <section id="contact" class="contact section"><div class="contact-card"><div><div class="eyebrow">GET IN TOUCH</div><h2>Need a technician?</h2><p>Call or WhatsApp Muhammad Rizwan for service all over Karachi.</p></div><div class="hero-actions"><a class="btn primary" href="https://wa.me/923208463110">💬 WhatsApp Us</a><a class="btn secondary" href="tel:+923208463110">📞 0320 8463110</a></div></div></section>
 </main>
 
@@ -96,7 +113,7 @@
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {getAuth,initializeAuth,indexedDBLocalPersistence,browserLocalPersistence,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import {getFirestore,doc,setDoc,getDoc,addDoc,collection,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {getFirestore,doc,setDoc,getDoc,addDoc,collection,serverTimestamp,query,where,limit,getDocs} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig={apiKey:"AIzaSyB9g0b9RzqYQvVhZ9dVQ0g7jKx2bYx2u0",authDomain:"smart-cool-6f513.firebaseapp.com",projectId:"smart-cool-6f513",storageBucket:"smart-cool-6f513.firebasestorage.app",messagingSenderId:"10468224529",appId:"1:10468224529:web:51026a5b4ac67a4ad40bb0",measurementId:"G-Y5SPBHP57C"};
 const app=initializeApp(firebaseConfig); let auth;
@@ -115,7 +132,53 @@ $("logoutBtn").onclick=()=>signOut(auth);
 
 onAuthStateChanged(auth,async user=>{if(user){$("authArea").classList.add("hidden");$("userPanel").classList.remove("hidden");$("userName").textContent=user.displayName||user.email.split("@")[0];$("userEmail").textContent=user.email;try{const s=await getDoc(doc(db,"customers",user.uid));if(s.exists()){const d=s.data();$("userName").textContent=d.name||$("userName").textContent;$("customerName").value=d.name||"";$("customerPhone").value=d.phone||""}}catch(e){}}else{$("authArea").classList.remove("hidden");$("userPanel").classList.add("hidden")}});
 
-$("bookingForm").onsubmit=async e=>{e.preventDefault();const user=auth.currentUser;if(!user){$("bookingMsg").textContent="Please login or create an account first.";location.hash="account";return}const id="BK-"+Math.floor(10000000+Math.random()*90000000);const data={bookingId:id,customerUid:user.uid,customerEmail:user.email,customerName:$("customerName").value,customerPhone:$("customerPhone").value,service:$("service").value,area:$("area").value,address:$("address").value,problem:$("problem").value,status:"pending",source:"website",createdAt:serverTimestamp()};$("bookingMsg").textContent="Submitting...";try{await addDoc(collection(db,"serviceRequests"),data);const text=`New Service Booking%0ABooking ID: ${id}%0AName: ${data.customerName}%0APhone: ${data.customerPhone}%0AService: ${data.service}%0AArea: ${data.area}%0AAddress: ${data.address}%0AProblem: ${data.problem}`;window.open(`https://wa.me/923208463110?text=${text}`,"_blank");$("bookingMsg").textContent=`Booking submitted! Your Booking ID is ${id}`;$("bookingForm").reset()}catch(err){$("bookingMsg").textContent=err.message}};
+$("bookingForm").onsubmit=async e=>{e.preventDefault();const user=auth.currentUser;if(!user){$("bookingMsg").textContent="Please login or create an account first.";location.hash="account";return}const id="BK-"+Math.floor(10000000+Math.random()*90000000);const trackingId="TRK-"+Math.floor(10000000+Math.random()*90000000);const data={bookingId:id,trackingId:trackingId,customerUid:user.uid,customerEmail:user.email,customerName:$("customerName").value,customerPhone:$("customerPhone").value,service:$("service").value,area:$("area").value,address:$("address").value,problem:$("problem").value,status:"pending",source:"website",createdAt:serverTimestamp()};$("bookingMsg").textContent="Submitting...";try{await addDoc(collection(db,"serviceRequests"),data);const text=`New Service Booking%0ABooking ID: ${id}%0ATracking ID: ${trackingId}%0AName: ${data.customerName}%0APhone: ${data.customerPhone}%0AService: ${data.service}%0AArea: ${data.area}%0AAddress: ${data.address}%0AProblem: ${data.problem}`;window.open(`https://wa.me/923208463110?text=${text}`,"_blank");$("bookingMsg").textContent=`Booking submitted! Booking ID: ${id} | Tracking ID: ${trackingId}`;$("bookingForm").reset()}catch(err){$("bookingMsg").textContent=err.message}};
+
+$("homeTrackBtn").onclick = async () => {
+  const id = $("homeTrackingId").value.trim();
+  const msg = $("homeTrackMsg");
+  const result = $("homeTrackResult");
+  const user = auth.currentUser;
+  result.classList.add("hidden");
+  if (!user) {
+    msg.textContent = "Please login to your customer account first.";
+    location.hash = "account";
+    return;
+  }
+  if (!id) {
+    msg.textContent = "Please enter your Tracking ID.";
+    return;
+  }
+  msg.textContent = "Checking your booking...";
+  try {
+    const q = query(collection(db, "serviceRequests"),
+      where("trackingId", "==", id),
+      where("customerUid", "==", user.uid),
+      limit(1));
+    const snap = await getDocs(q);
+    if (snap.empty) {
+      msg.textContent = "Tracking ID not found in your account.";
+      return;
+    }
+    const d = snap.docs[0].data();
+    result.innerHTML = `
+      <h3>Booking Status</h3>
+      <p><b>Tracking ID:</b> ${d.trackingId || "—"}</p>
+      <p><b>Booking ID:</b> ${d.bookingId || "—"}</p>
+      <p><b>Status:</b> <span class="status-pill">${d.status || "pending"}</span></p>
+      <p><b>Service:</b> ${d.service || "—"}</p>
+      <p><b>Customer:</b> ${d.customerName || "—"}</p>
+      <p><b>Area:</b> ${d.area || "—"}</p>
+      <p><b>Address:</b> ${d.address || "—"}</p>
+      <p><b>Problem:</b> ${d.problem || "—"}</p>
+    `;
+    result.classList.remove("hidden");
+    msg.textContent = "Booking found.";
+  } catch (e) {
+    msg.textContent = e.message;
+  }
+};
+
 </script>
 </body>
 </html>
