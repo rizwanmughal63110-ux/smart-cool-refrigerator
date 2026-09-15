@@ -29,6 +29,8 @@
     --purple:#7654d8;
     --purple-bg:#f2edff;
 
+    --blue-bg:#e8f7fc;
+
     --shadow:0 10px 35px rgba(17,76,96,.08);
 }
 
@@ -144,7 +146,7 @@ button{
 }
 
 .form-group{
-    margin-bottom:17px;
+    margin-bottom:15px;
 }
 
 .form-group label{
@@ -159,12 +161,17 @@ button{
 .form-group textarea,
 .form-group select{
     width:100%;
-    padding:13px;
+    padding:12px 13px;
     border:1px solid var(--border);
     border-radius:11px;
     outline:none;
     background:#fbfdfe;
     color:var(--text);
+}
+
+.form-group textarea{
+    resize:vertical;
+    min-height:85px;
 }
 
 .form-group input:focus,
@@ -820,26 +827,31 @@ button{
 }
 
 
-/* ================= PAYMENT BADGE ================= */
+/* ================= PAYMENT BADGES ================= */
 
-.payment-paid{
-    display:inline-block;
-    padding:5px 9px;
-    border-radius:20px;
-    background:var(--green-bg);
-    color:var(--green);
-    font-size:9px;
-    font-weight:800;
-}
-
+.payment-paid,
+.payment-partial,
 .payment-unpaid{
     display:inline-block;
     padding:5px 9px;
     border-radius:20px;
-    background:var(--red-bg);
-    color:var(--red);
     font-size:9px;
     font-weight:800;
+}
+
+.payment-paid{
+    background:var(--green-bg);
+    color:var(--green);
+}
+
+.payment-partial{
+    background:var(--yellow-bg);
+    color:var(--yellow);
+}
+
+.payment-unpaid{
+    background:var(--red-bg);
+    color:var(--red);
 }
 
 
@@ -907,7 +919,7 @@ button{
 }
 
 
-/* ================= MODAL ================= */
+/* ================= INVOICE MODAL ================= */
 
 .modal{
     position:fixed;
@@ -926,8 +938,8 @@ button{
 
 .modal-box{
     width:100%;
-    max-width:620px;
-    max-height:92vh;
+    max-width:820px;
+    max-height:94vh;
     overflow:auto;
 
     padding:25px;
@@ -993,6 +1005,136 @@ button{
     font-size:20px;
 }
 
+.invoice-section{
+    margin-bottom:20px;
+    padding:17px;
+
+    border:1px solid #e5eef2;
+    border-radius:15px;
+
+    background:#fbfdfe;
+}
+
+.invoice-section-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    margin-bottom:14px;
+
+    color:var(--primary-dark);
+
+    font-size:13px;
+    font-weight:850;
+}
+
+.invoice-section-title span{
+    display:inline-flex;
+    width:28px;
+    height:28px;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:#e8f7fc;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:13px;
+}
+
+.form-grid.three{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.full{
+    grid-column:1/-1;
+}
+
+.readonly{
+    background:#f0f6f8!important;
+    color:#5c7582!important;
+}
+
+.amount-box{
+    position:relative;
+}
+
+.amount-box span{
+    position:absolute;
+    left:13px;
+    top:50%;
+    transform:translateY(-3px);
+
+    color:#718096;
+    font-size:11px;
+    font-weight:700;
+}
+
+.amount-box input{
+    padding-left:48px;
+}
+
+.invoice-total-box{
+    padding:18px;
+    margin-top:15px;
+
+    border-radius:15px;
+
+    background:linear-gradient(
+        135deg,
+        #edfaff,
+        #f5fcff
+    );
+
+    border:1px solid #cdeaf2;
+}
+
+.total-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+
+    padding:7px 0;
+
+    color:#526b78;
+    font-size:12px;
+}
+
+.total-row strong{
+    color:#29475a;
+}
+
+.total-row.grand{
+    padding-top:13px;
+    margin-top:7px;
+
+    border-top:1px solid #cde0e6;
+
+    color:var(--primary-dark);
+    font-size:17px;
+    font-weight:850;
+}
+
+.total-row.grand strong{
+    color:var(--primary);
+    font-size:20px;
+}
+
+.balance-positive{
+    color:#d64545!important;
+}
+
+.balance-zero{
+    color:#0f9d72!important;
+}
+
 .payment-select{
     background:#fff;
 }
@@ -1030,6 +1172,11 @@ button{
 .print-btn{
     color:#475467;
     background:#f2f4f7;
+}
+
+.whatsapp-invoice-btn{
+    color:#12834d;
+    background:#e8f8ef;
 }
 
 .cancel-modal-btn{
@@ -1081,6 +1228,10 @@ button{
 @media(max-width:1050px){
 
     .booking-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .form-grid.three{
         grid-template-columns:repeat(2,1fr);
     }
 
@@ -1158,6 +1309,10 @@ button{
         display:none;
     }
 
+    .modal-box{
+        max-height:96vh;
+    }
+
 }
 
 @media(max-width:650px){
@@ -1183,6 +1338,15 @@ button{
 
     .stat-info .label{
         font-size:8px;
+    }
+
+    .form-grid,
+    .form-grid.three{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
     }
 
 }
@@ -1224,7 +1388,7 @@ button{
     }
 
     .modal-box{
-        padding:18px;
+        padding:16px;
         border-radius:18px;
     }
 
@@ -1259,7 +1423,8 @@ button{
 
 <body>
 
-<!-- LOGIN PAGE -->
+
+<!-- ================= LOGIN PAGE ================= -->
 
 <div id="loginPage" class="login-page">
 
@@ -1341,11 +1506,9 @@ button{
 </div>
 
 
-<!-- ADMIN PAGE -->
+<!-- ================= ADMIN PAGE ================= -->
 
 <div id="adminPage" class="admin-page hidden">
-
-    <!-- SIDEBAR -->
 
     <aside id="sidebar" class="sidebar">
 
@@ -1372,7 +1535,7 @@ button{
         <div class="sidebar-menu">
 
             <div class="menu-label">
-                Dashboard
+                DASHBOARD
             </div>
 
             <button
@@ -1433,11 +1596,7 @@ button{
     ></div>
 
 
-    <!-- MAIN CONTENT -->
-
     <div class="main-content">
-
-        <!-- TOPBAR -->
 
         <header class="topbar">
 
@@ -1481,14 +1640,10 @@ button{
         </header>
 
 
-        <!-- DASHBOARD -->
-
         <main
             id="dashboardTop"
             class="container"
         >
-
-            <!-- WELCOME -->
 
             <section class="welcome">
 
@@ -1510,8 +1665,6 @@ button{
 
             </section>
 
-
-            <!-- STATS -->
 
             <section class="stats">
 
@@ -1620,7 +1773,7 @@ button{
                     <div class="stat-info">
 
                         <div class="label">
-                            TOTAL AMOUNT
+                            TOTAL INVOICED
                         </div>
 
                         <div
@@ -1644,7 +1797,7 @@ button{
                     <div class="stat-info">
 
                         <div class="label">
-                            PAID AMOUNT
+                            AMOUNT RECEIVED
                         </div>
 
                         <div
@@ -1752,7 +1905,7 @@ button{
 </div>
 
 
-<!-- INVOICE MODAL -->
+<!-- ================= PROFESSIONAL INVOICE MODAL ================= -->
 
 <div
     id="invoiceModal"
@@ -1772,11 +1925,11 @@ button{
                 <div>
 
                     <h2>
-                        Service Invoice
+                        Professional Invoice
                     </h2>
 
                     <p>
-                        Create, save and print customer invoice
+                        Create, save, print & send customer invoice
                     </p>
 
                 </div>
@@ -1801,90 +1954,666 @@ button{
                 id="invoiceBookingId"
             >
 
-            <div class="form-group">
 
-                <label>
-                    Customer Name
-                </label>
+            <!-- INVOICE INFORMATION -->
 
-                <input
-                    type="text"
-                    id="invoiceCustomer"
-                    readonly
-                >
+            <div class="invoice-section">
 
-            </div>
+                <div class="invoice-section-title">
 
+                    <span>
+                        🧾
+                    </span>
 
-            <div class="form-group">
+                    Invoice Information
 
-                <label>
-                    Tracking ID
-                </label>
+                </div>
 
-                <input
-                    type="text"
-                    id="invoiceTracking"
-                    readonly
-                >
+                <div class="form-grid">
 
-            </div>
+                    <div class="form-group">
 
+                        <label>
+                            Invoice Number
+                        </label>
 
-            <div class="form-group">
+                        <input
+                            type="text"
+                            id="invoiceNumber"
+                            class="readonly"
+                            readonly
+                        >
 
-                <label>
-                    Invoice Amount (PKR)
-                </label>
-
-                <input
-                    type="number"
-                    id="invoiceAmount"
-                    min="0"
-                    placeholder="Enter total service amount"
-                >
-
-            </div>
+                    </div>
 
 
-            <div class="form-group">
+                    <div class="form-group">
 
-                <label>
-                    Payment Status
-                </label>
+                        <label>
+                            Invoice Date
+                        </label>
 
-                <select
-                    id="paymentStatus"
-                    class="payment-select"
-                >
+                        <input
+                            type="date"
+                            id="invoiceDate"
+                            required
+                        >
 
-                    <option value="unpaid">
-                        ❌ Unpaid
-                    </option>
+                    </div>
 
-                    <option value="paid">
-                        ✅ Paid
-                    </option>
-
-                </select>
+                </div>
 
             </div>
 
 
-            <div class="form-group">
+            <!-- CUSTOMER -->
 
-                <label>
-                    Invoice Note
-                </label>
+            <div class="invoice-section">
 
-                <textarea
-                    id="invoiceNote"
-                    rows="4"
-                    placeholder="Example: AC service completed. 1 month service warranty."
-                ></textarea>
+                <div class="invoice-section-title">
+
+                    <span>
+                        👤
+                    </span>
+
+                    Customer Information
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Customer Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="invoiceCustomer"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="invoicePhone"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Customer Address
+                        </label>
+
+                        <textarea
+                            id="invoiceAddress"
+                            rows="2"
+                            readonly
+                        ></textarea>
+
+                    </div>
+
+                </div>
 
             </div>
 
+
+            <!-- BOOKING / SERVICE -->
+
+            <div class="invoice-section">
+
+                <div class="invoice-section-title">
+
+                    <span>
+                        🔧
+                    </span>
+
+                    Service Details
+
+                </div>
+
+                <div class="form-grid three">
+
+                    <div class="form-group">
+
+                        <label>
+                            Booking ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="invoiceBookingDisplay"
+                            class="readonly"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Tracking ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="invoiceTracking"
+                            class="readonly"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Service Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="serviceDate"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Service / Appliance
+                        </label>
+
+                        <input
+                            type="text"
+                            id="invoiceService"
+                            placeholder="AC Repair"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            AC Ton / Model
+                        </label>
+
+                        <input
+                            type="text"
+                            id="invoiceModel"
+                            placeholder="1.5 Ton / Gree"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Technician
+                        </label>
+
+                        <input
+                            type="text"
+                            id="invoiceTechnician"
+                            placeholder="Technician name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Customer Problem / Complaint
+                        </label>
+
+                        <textarea
+                            id="invoiceProblem"
+                            rows="3"
+                            placeholder="Customer complaint..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Work Performed
+                        </label>
+
+                        <textarea
+                            id="workPerformed"
+                            rows="3"
+                            placeholder="Describe the work completed..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHARGES -->
+
+            <div class="invoice-section">
+
+                <div class="invoice-section-title">
+
+                    <span>
+                        💰
+                    </span>
+
+                    Charges
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Labour / Service Charges
+                        </label>
+
+                        <div class="amount-box">
+
+                            <span>
+                                PKR
+                            </span>
+
+                            <input
+                                type="number"
+                                id="labourAmount"
+                                min="0"
+                                step="1"
+                                value="0"
+                                oninput="calculateInvoice()"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Parts / Materials
+                        </label>
+
+                        <div class="amount-box">
+
+                            <span>
+                                PKR
+                            </span>
+
+                            <input
+                                type="number"
+                                id="partsAmount"
+                                min="0"
+                                step="1"
+                                value="0"
+                                oninput="calculateInvoice()"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Gas / Refrigerant
+                        </label>
+
+                        <div class="amount-box">
+
+                            <span>
+                                PKR
+                            </span>
+
+                            <input
+                                type="number"
+                                id="gasAmount"
+                                min="0"
+                                step="1"
+                                value="0"
+                                oninput="calculateInvoice()"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Additional Charges
+                        </label>
+
+                        <div class="amount-box">
+
+                            <span>
+                                PKR
+                            </span>
+
+                            <input
+                                type="number"
+                                id="additionalAmount"
+                                min="0"
+                                step="1"
+                                value="0"
+                                oninput="calculateInvoice()"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Discount
+                        </label>
+
+                        <div class="amount-box">
+
+                            <span>
+                                PKR
+                            </span>
+
+                            <input
+                                type="number"
+                                id="discountAmount"
+                                min="0"
+                                step="1"
+                                value="0"
+                                oninput="calculateInvoice()"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="invoice-total-box">
+
+                    <div class="total-row">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="invoiceSubtotal">
+                            PKR 0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="total-row">
+
+                        <span>
+                            Discount
+                        </span>
+
+                        <strong id="invoiceDiscount">
+                            PKR 0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="total-row grand">
+
+                        <span>
+                            GRAND TOTAL
+                        </span>
+
+                        <strong id="invoiceGrandTotal">
+                            PKR 0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT -->
+
+            <div class="invoice-section">
+
+                <div class="invoice-section-title">
+
+                    <span>
+                        💳
+                    </span>
+
+                    Payment Details
+
+                </div>
+
+                <div class="form-grid three">
+
+                    <div class="form-group">
+
+                        <label>
+                            Payment Status
+                        </label>
+
+                        <select
+                            id="paymentStatus"
+                            class="payment-select"
+                            onchange="calculateInvoice()"
+                        >
+
+                            <option value="unpaid">
+                                ❌ Unpaid
+                            </option>
+
+                            <option value="partial">
+                                🟡 Partial
+                            </option>
+
+                            <option value="paid">
+                                ✅ Paid
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Payment Method
+                        </label>
+
+                        <select
+                            id="paymentMethod"
+                            class="payment-select"
+                        >
+
+                            <option value="cash">
+                                💵 Cash
+                            </option>
+
+                            <option value="bank">
+                                🏦 Bank Transfer
+                            </option>
+
+                            <option value="easypaisa">
+                                📱 Easypaisa
+                            </option>
+
+                            <option value="jazzcash">
+                                📱 JazzCash
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Amount Paid
+                        </label>
+
+                        <div class="amount-box">
+
+                            <span>
+                                PKR
+                            </span>
+
+                            <input
+                                type="number"
+                                id="amountPaid"
+                                min="0"
+                                step="1"
+                                value="0"
+                                oninput="calculateInvoice()"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="invoice-total-box">
+
+                    <div class="total-row grand">
+
+                        <span>
+                            BALANCE DUE
+                        </span>
+
+                        <strong id="balanceDue">
+                            PKR 0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- WARRANTY / NOTES -->
+
+            <div class="invoice-section">
+
+                <div class="invoice-section-title">
+
+                    <span>
+                        🛡️
+                    </span>
+
+                    Warranty & Notes
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Warranty
+                        </label>
+
+                        <input
+                            type="text"
+                            id="warranty"
+                            value="1 Month Warranty"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Invoice Note
+                        </label>
+
+                        <input
+                            type="text"
+                            id="invoiceNote"
+                            placeholder="Example: Service completed successfully."
+                        >
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Customer Note
+                        </label>
+
+                        <textarea
+                            id="customerNote"
+                            rows="3"
+                            placeholder="Message visible on customer invoice..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Admin Note
+                        </label>
+
+                        <textarea
+                            id="adminNote"
+                            rows="3"
+                            placeholder="Internal admin note..."
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
 
             <div class="modal-actions">
 
@@ -1896,13 +2625,24 @@ button{
                     Close
                 </button>
 
+
+                <button
+                    type="button"
+                    class="modal-btn whatsapp-invoice-btn"
+                    onclick="sendInvoiceWhatsApp()"
+                >
+                    📱 WhatsApp Invoice
+                </button>
+
+
                 <button
                     type="button"
                     class="modal-btn print-btn"
                     onclick="printInvoice()"
                 >
-                    🖨️ Print Invoice
+                    🖨️ Print / PDF
                 </button>
+
 
                 <button
                     type="submit"
@@ -1928,7 +2668,7 @@ button{
 ></div>
 
 
-<!-- FIREBASE -->
+<!-- ================= FIREBASE ================= -->
 
 <script type="module">
 
@@ -1963,7 +2703,7 @@ import {
 const firebaseConfig = {
 
     apiKey:
-        "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
+        "AIzaSyAnVAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
 
     authDomain:
         "smart-cool-6f513.firebaseapp.com",
@@ -2013,29 +2753,19 @@ let allBookings = [];
 ========================================================= */
 
 const loginPage =
-    document.getElementById(
-        "loginPage"
-    );
+    document.getElementById("loginPage");
 
 const adminPage =
-    document.getElementById(
-        "adminPage"
-    );
+    document.getElementById("adminPage");
 
 const loginForm =
-    document.getElementById(
-        "loginForm"
-    );
+    document.getElementById("loginForm");
 
 const loginError =
-    document.getElementById(
-        "loginError"
-    );
+    document.getElementById("loginError");
 
 const bookingsContainer =
-    document.getElementById(
-        "bookingsContainer"
-    );
+    document.getElementById("bookingsContainer");
 
 
 /* =========================================================
@@ -2054,9 +2784,7 @@ onAuthStateChanged(
 
 
             if(
-                !ADMIN_EMAILS.includes(
-                    email
-                )
+                !ADMIN_EMAILS.includes(email)
             ){
 
                 await signOut(auth);
@@ -2070,13 +2798,9 @@ onAuthStateChanged(
             }
 
 
-            loginPage.classList.add(
-                "hidden"
-            );
+            loginPage.classList.add("hidden");
 
-            adminPage.classList.remove(
-                "hidden"
-            );
+            adminPage.classList.remove("hidden");
 
 
             document.getElementById(
@@ -2090,13 +2814,9 @@ onAuthStateChanged(
 
         }else{
 
-            loginPage.classList.remove(
-                "hidden"
-            );
+            loginPage.classList.remove("hidden");
 
-            adminPage.classList.add(
-                "hidden"
-            );
+            adminPage.classList.add("hidden");
 
         }
 
@@ -2114,8 +2834,7 @@ loginForm.addEventListener(
 
         e.preventDefault();
 
-        loginError.style.display =
-            "none";
+        loginError.style.display = "none";
 
 
         const email =
@@ -2169,11 +2888,9 @@ loginForm.addEventListener(
 
 function showLoginError(message){
 
-    loginError.textContent =
-        message;
+    loginError.textContent = message;
 
-    loginError.style.display =
-        "block";
+    loginError.style.display = "block";
 
 }
 
@@ -2185,9 +2902,7 @@ function getFirebaseError(error){
 
 
     if(
-        code.includes(
-            "invalid-credential"
-        )
+        code.includes("invalid-credential")
     ){
 
         return "Email or password is incorrect.";
@@ -2196,9 +2911,7 @@ function getFirebaseError(error){
 
 
     if(
-        code.includes(
-            "wrong-password"
-        )
+        code.includes("wrong-password")
     ){
 
         return "Password is incorrect.";
@@ -2207,9 +2920,7 @@ function getFirebaseError(error){
 
 
     if(
-        code.includes(
-            "user-not-found"
-        )
+        code.includes("user-not-found")
     ){
 
         return "Admin account not found.";
@@ -2218,9 +2929,7 @@ function getFirebaseError(error){
 
 
     if(
-        code.includes(
-            "too-many-requests"
-        )
+        code.includes("too-many-requests")
     ){
 
         return "Too many attempts. Please try again later.";
@@ -2420,63 +3129,39 @@ function updateStats(){
     const pending =
         allBookings.filter(
             b =>
-                normalizeStatus(
-                    b.status
-                ) === "pending"
+                normalizeStatus(b.status)
+                === "pending"
         ).length;
 
 
     const confirmed =
         allBookings.filter(
             b =>
-                normalizeStatus(
-                    b.status
-                ) === "confirmed"
+                normalizeStatus(b.status)
+                === "confirmed"
         ).length;
 
 
     const completed =
         allBookings.filter(
             b =>
-                normalizeStatus(
-                    b.status
-                ) === "completed"
+                normalizeStatus(b.status)
+                === "completed"
         ).length;
 
 
     const totalAmount =
         allBookings.reduce(
-            (sum,b) => {
-
-                return (
-                    sum +
-                    getInvoiceAmount(b)
-                );
-
-            },
+            (sum,b) =>
+                sum + getInvoiceAmount(b),
             0
         );
 
 
     const paidAmount =
         allBookings.reduce(
-            (sum,b) => {
-
-                if(
-                    getPaymentStatus(b)
-                    === "paid"
-                ){
-
-                    return (
-                        sum +
-                        getInvoiceAmount(b)
-                    );
-
-                }
-
-                return sum;
-
-            },
+            (sum,b) =>
+                sum + getAmountPaid(b),
             0
         );
 
@@ -2509,18 +3194,14 @@ function updateStats(){
         "totalAmount"
     ).textContent =
         "PKR " +
-        formatMoney(
-            totalAmount
-        );
+        formatMoney(totalAmount);
 
 
     document.getElementById(
         "paidAmount"
     ).textContent =
         "PKR " +
-        formatMoney(
-            paidAmount
-        );
+        formatMoney(paidAmount);
 
 }
 
@@ -2601,9 +3282,7 @@ function(){
                 .toLowerCase();
 
 
-                return text.includes(
-                    search
-                );
+                return text.includes(search);
 
             }
         );
@@ -2634,9 +3313,7 @@ function(){
 
     bookingsContainer.innerHTML =
         filtered
-        .map(
-            bookingCardHtml
-        )
+        .map(bookingCardHtml)
         .join("");
 
 };
@@ -2646,9 +3323,7 @@ function(){
    BOOKING CARD
 ========================================================= */
 
-function bookingCardHtml(
-    booking
-){
+function bookingCardHtml(booking){
 
     const customerName =
         booking.customerName ||
@@ -2657,17 +3332,7 @@ function bookingCardHtml(
 
 
     const phone =
-        booking.phone ||
-        booking.mobile ||
-        booking.whatsapp ||
-        booking.whatsappNumber ||
-        booking.phoneNumber ||
-        booking.customerPhone ||
-        booking.contactNumber ||
-        booking.contact ||
-        booking.customerMobile ||
-        booking.customerWhatsapp ||
-        "Not provided";
+        getCustomerPhone(booking);
 
 
     const service =
@@ -2704,9 +3369,7 @@ function bookingCardHtml(
     const trackingId =
         booking.trackingId ||
         booking.trackingID ||
-        generateDisplayId(
-            booking
-        );
+        generateDisplayId(booking);
 
 
     const rawBookingId =
@@ -2715,29 +3378,33 @@ function bookingCardHtml(
 
     const validBookingId =
         rawBookingId &&
-        rawBookingId !==
-            booking.firestoreId
-            ?
-            rawBookingId
-            :
-            "";
+        rawBookingId !== booking.firestoreId
+        ?
+        rawBookingId
+        :
+        "";
 
 
     const status =
-        normalizeStatus(
-            booking.status
-        );
+        normalizeStatus(booking.status);
 
 
     const invoiceAmount =
-        getInvoiceAmount(
-            booking
-        );
+        getInvoiceAmount(booking);
 
 
     const paymentStatus =
-        getPaymentStatus(
-            booking
+        getPaymentStatus(booking);
+
+
+    const paidAmount =
+        getAmountPaid(booking);
+
+
+    const balance =
+        Math.max(
+            invoiceAmount - paidAmount,
+            0
         );
 
 
@@ -2747,6 +3414,32 @@ function bookingCardHtml(
             .charAt(0)
             .toUpperCase()
         );
+
+
+    let paymentBadge = `
+        <span class="payment-unpaid">
+            ❌ UNPAID
+        </span>
+    `;
+
+
+    if(paymentStatus === "paid"){
+
+        paymentBadge = `
+            <span class="payment-paid">
+                ✅ PAID
+            </span>
+        `;
+
+    }else if(paymentStatus === "partial"){
+
+        paymentBadge = `
+            <span class="payment-partial">
+                🟡 PARTIAL
+            </span>
+        `;
+
+    }
 
 
     return `
@@ -2765,9 +3458,7 @@ function bookingCardHtml(
                     <div class="customer-info">
 
                         <h3>
-                            ${escapeHtml(
-                                customerName
-                            )}
+                            ${escapeHtml(customerName)}
                         </h3>
 
 
@@ -2780,9 +3471,7 @@ function bookingCardHtml(
                                 Booking ID:
 
                                 <strong>
-                                    ${escapeHtml(
-                                        validBookingId
-                                    )}
+                                    ${escapeHtml(validBookingId)}
                                 </strong>
 
                             </div>
@@ -2797,9 +3486,7 @@ function bookingCardHtml(
                             Tracking ID:
 
                             <strong>
-                                ${escapeHtml(
-                                    trackingId
-                                )}
+                                ${escapeHtml(trackingId)}
                             </strong>
 
                         </div>
@@ -2825,9 +3512,7 @@ function bookingCardHtml(
                 <span
                     class="status status-${statusClass(status)}"
                 >
-                    ${escapeHtml(
-                        statusLabel(status)
-                    )}
+                    ${escapeHtml(statusLabel(status))}
                 </span>
 
             </div>
@@ -2842,7 +3527,7 @@ function bookingCardHtml(
                     </div>
 
                     <div class="info-value">
-                        ${escapeHtml(phone)}
+                        ${escapeHtml(phone || "Not provided")}
                     </div>
 
                 </div>
@@ -2868,9 +3553,7 @@ function bookingCardHtml(
                     </div>
 
                     <div class="info-value">
-                        ${escapeHtml(
-                            preferredDate
-                        )}
+                        ${escapeHtml(preferredDate)}
                     </div>
 
                 </div>
@@ -2883,9 +3566,7 @@ function bookingCardHtml(
                     </div>
 
                     <div class="info-value">
-                        ${escapeHtml(
-                            preferredTime
-                        )}
+                        ${escapeHtml(preferredTime)}
                     </div>
 
                 </div>
@@ -2898,9 +3579,7 @@ function bookingCardHtml(
                     </div>
 
                     <div class="info-value">
-                        ${escapeHtml(
-                            address
-                        )}
+                        ${escapeHtml(address)}
                     </div>
 
                 </div>
@@ -2909,7 +3588,7 @@ function bookingCardHtml(
                 <div class="info-item">
 
                     <div class="info-label">
-                        Invoice Amount
+                        Invoice Total
                     </div>
 
                     <div class="info-value">
@@ -2918,9 +3597,7 @@ function bookingCardHtml(
                             invoiceAmount > 0
                             ?
                             "PKR " +
-                            formatMoney(
-                                invoiceAmount
-                            )
+                            formatMoney(invoiceAmount)
                             :
                             "Not created"
                         }
@@ -2937,21 +3614,27 @@ function bookingCardHtml(
                     </div>
 
                     <div class="info-value">
+                        ${paymentBadge}
+                    </div>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <div class="info-label">
+                        Balance Due
+                    </div>
+
+                    <div class="info-value">
 
                         ${
-                            paymentStatus === "paid"
+                            invoiceAmount > 0
                             ?
-                            `
-                            <span class="payment-paid">
-                                ✅ PAID
-                            </span>
-                            `
+                            "PKR " +
+                            formatMoney(balance)
                             :
-                            `
-                            <span class="payment-unpaid">
-                                ❌ UNPAID
-                            </span>
-                            `
+                            "—"
                         }
 
                     </div>
@@ -2959,7 +3642,7 @@ function bookingCardHtml(
                 </div>
 
 
-                <div class="info-item">
+                <div class="info-item problem">
 
                     <div class="info-label">
                         Customer Problem
@@ -3051,7 +3734,6 @@ function bookingCardHtml(
                     🗑️ Delete
                 </button>
 
-
             </div>
 
         </article>
@@ -3062,52 +3744,130 @@ function bookingCardHtml(
 
 
 /* =========================================================
-   GET INVOICE AMOUNT
+   PHONE
 ========================================================= */
 
-function getInvoiceAmount(
-    booking
-){
+function getCustomerPhone(booking){
 
-    const value =
-        Number(
-            booking?.invoiceAmount || 0
-        );
-
-
-    return isNaN(value)
-        ? 0
-        : value;
+    return (
+        booking.phone ||
+        booking.mobile ||
+        booking.whatsapp ||
+        booking.whatsappNumber ||
+        booking.phoneNumber ||
+        booking.customerPhone ||
+        booking.contactNumber ||
+        booking.contact ||
+        booking.customerMobile ||
+        booking.customerWhatsapp ||
+        ""
+    );
 
 }
 
 
 /* =========================================================
-   GET PAYMENT STATUS
+   INVOICE AMOUNT
 ========================================================= */
 
-function getPaymentStatus(
-    booking
-){
+function getInvoiceAmount(booking){
+
+    if(
+        booking?.invoice?.total != null
+    ){
+
+        return Number(
+            booking.invoice.total
+        ) || 0;
+
+    }
+
+
+    return Number(
+        booking?.invoiceAmount || 0
+    ) || 0;
+
+}
+
+
+/* =========================================================
+   AMOUNT PAID
+========================================================= */
+
+function getAmountPaid(booking){
+
+    if(
+        booking?.invoice?.amountPaid != null
+    ){
+
+        return Math.max(
+            Number(
+                booking.invoice.amountPaid
+            ) || 0,
+            0
+        );
+
+    }
+
+
+    const oldStatus =
+        getPaymentStatus(booking);
+
+
+    if(
+        oldStatus === "paid"
+    ){
+
+        return getInvoiceAmount(booking);
+
+    }
+
+
+    return Number(
+        booking?.amountPaid || 0
+    ) || 0;
+
+}
+
+
+/* =========================================================
+   PAYMENT STATUS
+========================================================= */
+
+function getPaymentStatus(booking){
 
     const value =
         String(
             booking?.paymentStatus ||
+            booking?.invoice?.paymentStatus ||
             "unpaid"
         )
         .toLowerCase()
         .trim();
 
 
-    return value === "paid"
-        ? "paid"
-        : "unpaid";
+    if(value === "paid"){
+        return "paid";
+    }
+
+
+    if(
+        value === "partial" ||
+        value === "partially paid"
+    ){
+
+        return "partial";
+
+    }
+
+
+    return "unpaid";
 
 }
 
 
 /* =========================================================
-   WHATSAPP STATUS MESSAGE
+   STATUS WHATSAPP
 ========================================================= */
 
 function getStatusWhatsAppMessage(
@@ -3152,8 +3912,6 @@ Tracking ID: ${trackingId}
 Track your booking here:
 ${trackingLink}
 
-Please use your Tracking ID to check your booking status.
-
 Our technician is working on your service request.
 
 Thank you for choosing Smart Cool & Refrigerator.`;
@@ -3172,7 +3930,7 @@ Tracking ID: ${trackingId}
 Track your booking here:
 ${trackingLink}
 
-Please use your Tracking ID to check your booking details.
+Your invoice can be provided by our team.
 
 Thank you for choosing Smart Cool & Refrigerator.
 
@@ -3191,8 +3949,6 @@ Tracking ID: ${trackingId}
 
 Track your booking here:
 ${trackingLink}
-
-Please use your Tracking ID to check your booking status.
 
 If you need any assistance or want to book again, please contact us.
 
@@ -3218,7 +3974,7 @@ Thank you for choosing Smart Cool & Refrigerator.`;
 
 
 /* =========================================================
-   UPDATE STATUS + WHATSAPP
+   UPDATE STATUS
 ========================================================= */
 
 window.updateBookingStatus =
@@ -3230,16 +3986,13 @@ async function(
     const booking =
         allBookings.find(
             item =>
-                item.firestoreId ===
-                firestoreId
+                item.firestoreId === firestoreId
         );
 
 
     if(!booking){
 
-        showToast(
-            "Booking not found."
-        );
+        showToast("Booking not found.");
 
         return;
 
@@ -3253,25 +4006,13 @@ async function(
 
 
     const phone =
-        booking.phone ||
-        booking.mobile ||
-        booking.whatsapp ||
-        booking.whatsappNumber ||
-        booking.phoneNumber ||
-        booking.customerPhone ||
-        booking.contactNumber ||
-        booking.contact ||
-        booking.customerMobile ||
-        booking.customerWhatsapp ||
-        "";
+        getCustomerPhone(booking);
 
 
     const trackingId =
         booking.trackingId ||
         booking.trackingID ||
-        generateDisplayId(
-            booking
-        );
+        generateDisplayId(booking);
 
 
     let whatsappWindow = null;
@@ -3298,9 +4039,7 @@ async function(
             ),
             {
                 status:newStatus,
-
-                updatedAt:
-                    serverTimestamp()
+                updatedAt:serverTimestamp()
             }
         );
 
@@ -3322,33 +4061,7 @@ async function(
         if(phone){
 
             let cleanPhone =
-                String(phone)
-                .replace(
-                    /\D/g,
-                    ""
-                );
-
-
-            if(
-                cleanPhone.startsWith("0")
-            ){
-
-                cleanPhone =
-                    "92" +
-                    cleanPhone.substring(1);
-
-            }
-
-
-            if(
-                !cleanPhone.startsWith("92")
-            ){
-
-                cleanPhone =
-                    "92" +
-                    cleanPhone;
-
-            }
+                normalizePhone(phone);
 
 
             const message =
@@ -3363,9 +4076,7 @@ async function(
                 "https://wa.me/" +
                 cleanPhone +
                 "?text=" +
-                encodeURIComponent(
-                    message
-                );
+                encodeURIComponent(message);
 
 
             if(
@@ -3386,7 +4097,6 @@ async function(
             }
 
         }
-
 
     }catch(error){
 
@@ -3427,8 +4137,7 @@ async function(
     const booking =
         allBookings.find(
             item =>
-                item.firestoreId ===
-                firestoreId
+                item.firestoreId === firestoreId
         );
 
 
@@ -3474,8 +4183,7 @@ async function(
         allBookings =
             allBookings.filter(
                 item =>
-                    item.firestoreId !==
-                    firestoreId
+                    item.firestoreId !== firestoreId
             );
 
 
@@ -3503,7 +4211,72 @@ async function(
 
 
 /* =========================================================
-   OPEN INVOICE MODAL
+   GENERATE INVOICE NUMBER
+========================================================= */
+
+function generateInvoiceNumber(){
+
+    const year =
+        new Date().getFullYear();
+
+
+    const prefix =
+        `SCR-${year}-`;
+
+
+    let highest =
+        0;
+
+
+    allBookings.forEach(
+        booking => {
+
+            const existing =
+                booking?.invoice?.invoiceNumber ||
+                booking?.invoiceNumber ||
+                "";
+
+
+            const match =
+                String(existing)
+                .match(
+                    new RegExp(
+                        "^SCR-" +
+                        year +
+                        "-(\\d+)$"
+                    )
+                );
+
+
+            if(match){
+
+                const number =
+                    Number(match[1]);
+
+
+                if(number > highest){
+
+                    highest = number;
+
+                }
+
+            }
+
+        }
+    );
+
+
+    return (
+        prefix +
+        String(highest + 1)
+        .padStart(4,"0")
+    );
+
+}
+
+
+/* =========================================================
+   OPEN INVOICE
 ========================================================= */
 
 window.openInvoiceModal =
@@ -3514,8 +4287,7 @@ function(
     const booking =
         allBookings.find(
             item =>
-                item.firestoreId ===
-                firestoreId
+                item.firestoreId === firestoreId
         );
 
 
@@ -3530,10 +4302,29 @@ function(
     }
 
 
+    const invoice =
+        booking.invoice || {};
+
+
     document.getElementById(
         "invoiceBookingId"
     ).value =
         firestoreId;
+
+
+    document.getElementById(
+        "invoiceNumber"
+    ).value =
+        invoice.invoiceNumber ||
+        booking.invoiceNumber ||
+        generateInvoiceNumber();
+
+
+    document.getElementById(
+        "invoiceDate"
+    ).value =
+        invoice.invoiceDate ||
+        getTodayInputDate();
 
 
     document.getElementById(
@@ -3545,47 +4336,254 @@ function(
 
 
     document.getElementById(
+        "invoicePhone"
+    ).value =
+        getCustomerPhone(booking);
+
+
+    document.getElementById(
+        "invoiceAddress"
+    ).value =
+        booking.address ||
+        booking.location ||
+        "";
+
+
+    document.getElementById(
+        "invoiceBookingDisplay"
+    ).value =
+        booking.bookingId &&
+        booking.bookingId !== booking.firestoreId
+        ?
+        booking.bookingId
+        :
+        booking.firestoreId;
+
+
+    document.getElementById(
         "invoiceTracking"
     ).value =
         booking.trackingId ||
         booking.trackingID ||
-        generateDisplayId(
-            booking
+        generateDisplayId(booking);
+
+
+    document.getElementById(
+        "serviceDate"
+    ).value =
+        invoice.serviceDate ||
+        normalizeDateInput(
+            booking.preferredDate ||
+            booking.date
+        ) ||
+        getTodayInputDate();
+
+
+    document.getElementById(
+        "invoiceService"
+    ).value =
+        invoice.service ||
+        booking.service ||
+        booking.serviceType ||
+        "";
+
+
+    document.getElementById(
+        "invoiceModel"
+    ).value =
+        invoice.model ||
+        booking.model ||
+        booking.acType ||
+        booking.ton ||
+        booking.tonnage ||
+        "";
+
+
+    document.getElementById(
+        "invoiceTechnician"
+    ).value =
+        invoice.technician ||
+        "";
+
+
+    document.getElementById(
+        "invoiceProblem"
+    ).value =
+        invoice.problem ||
+        booking.problem ||
+        booking.issue ||
+        booking.message ||
+        "";
+
+
+    document.getElementById(
+        "workPerformed"
+    ).value =
+        invoice.workPerformed ||
+        "";
+
+
+    document.getElementById(
+        "labourAmount"
+    ).value =
+        getInvoiceField(
+            booking,
+            "labour",
+            0
         );
 
 
     document.getElementById(
-        "invoiceAmount"
+        "partsAmount"
     ).value =
-        booking.invoiceAmount != null
-        ?
-        booking.invoiceAmount
-        :
-        "";
+        getInvoiceField(
+            booking,
+            "parts",
+            0
+        );
+
+
+    document.getElementById(
+        "gasAmount"
+    ).value =
+        getInvoiceField(
+            booking,
+            "gas",
+            0
+        );
+
+
+    document.getElementById(
+        "additionalAmount"
+    ).value =
+        getInvoiceField(
+            booking,
+            "additional",
+            0
+        );
+
+
+    document.getElementById(
+        "discountAmount"
+    ).value =
+        getInvoiceField(
+            booking,
+            "discount",
+            0
+        );
 
 
     document.getElementById(
         "paymentStatus"
     ).value =
-        getPaymentStatus(
-            booking
-        );
+        getPaymentStatus(booking);
+
+
+    document.getElementById(
+        "paymentMethod"
+    ).value =
+        invoice.paymentMethod ||
+        booking.paymentMethod ||
+        "cash";
+
+
+    document.getElementById(
+        "amountPaid"
+    ).value =
+        getAmountPaid(booking);
+
+
+    document.getElementById(
+        "warranty"
+    ).value =
+        invoice.warranty ||
+        booking.warranty ||
+        "1 Month Warranty";
 
 
     document.getElementById(
         "invoiceNote"
     ).value =
+        invoice.invoiceNote ||
         booking.invoiceNote ||
         "";
 
 
     document.getElementById(
+        "customerNote"
+    ).value =
+        invoice.customerNote ||
+        "";
+
+
+    document.getElementById(
+        "adminNote"
+    ).value =
+        invoice.adminNote ||
+        "";
+
+
+    calculateInvoice();
+
+
+    document.getElementById(
         "invoiceModal"
-    ).classList.remove(
-        "hidden"
-    );
+    ).classList.remove("hidden");
 
 };
+
+
+/* =========================================================
+   GET INVOICE FIELD
+========================================================= */
+
+function getInvoiceField(
+    booking,
+    field,
+    fallback
+){
+
+    if(
+        booking?.invoice &&
+        booking.invoice[field] != null
+    ){
+
+        return Number(
+            booking.invoice[field]
+        ) || 0;
+
+    }
+
+
+    const flatMap = {
+
+        labour:"labourAmount",
+
+        parts:"partsAmount",
+
+        gas:"gasAmount",
+
+        additional:"additionalAmount",
+
+        discount:"discountAmount"
+
+    };
+
+
+    if(
+        booking?.[flatMap[field]] != null
+    ){
+
+        return Number(
+            booking[flatMap[field]]
+        ) || 0;
+
+    }
+
+
+    return fallback;
+
+}
 
 
 /* =========================================================
@@ -3597,8 +4595,122 @@ function(){
 
     document.getElementById(
         "invoiceModal"
-    ).classList.add(
-        "hidden"
+    ).classList.add("hidden");
+
+};
+
+
+/* =========================================================
+   CALCULATE INVOICE
+========================================================= */
+
+window.calculateInvoice =
+function(){
+
+    const labour =
+        getInputNumber("labourAmount");
+
+
+    const parts =
+        getInputNumber("partsAmount");
+
+
+    const gas =
+        getInputNumber("gasAmount");
+
+
+    const additional =
+        getInputNumber("additionalAmount");
+
+
+    const discount =
+        getInputNumber("discountAmount");
+
+
+    const subtotal =
+        labour +
+        parts +
+        gas +
+        additional;
+
+
+    const safeDiscount =
+        Math.min(
+            discount,
+            subtotal
+        );
+
+
+    const total =
+        Math.max(
+            subtotal - safeDiscount,
+            0
+        );
+
+
+    let amountPaid =
+        getInputNumber("amountPaid");
+
+
+    if(amountPaid > total){
+
+        amountPaid = total;
+
+        document.getElementById(
+            "amountPaid"
+        ).value = total;
+
+    }
+
+
+    const balance =
+        Math.max(
+            total - amountPaid,
+            0
+        );
+
+
+    document.getElementById(
+        "invoiceSubtotal"
+    ).textContent =
+        "PKR " +
+        formatMoney(subtotal);
+
+
+    document.getElementById(
+        "invoiceDiscount"
+    ).textContent =
+        "PKR " +
+        formatMoney(safeDiscount);
+
+
+    document.getElementById(
+        "invoiceGrandTotal"
+    ).textContent =
+        "PKR " +
+        formatMoney(total);
+
+
+    const balanceElement =
+        document.getElementById(
+            "balanceDue"
+        );
+
+
+    balanceElement.textContent =
+        "PKR " +
+        formatMoney(balance);
+
+
+    balanceElement.classList.toggle(
+        "balance-positive",
+        balance > 0
+    );
+
+
+    balanceElement.classList.toggle(
+        "balance-zero",
+        balance === 0
     );
 
 };
@@ -3623,27 +4735,6 @@ document.getElementById(
             ).value;
 
 
-        const amount =
-            Number(
-                document.getElementById(
-                    "invoiceAmount"
-                ).value || 0
-            );
-
-
-        const paymentStatus =
-            document.getElementById(
-                "paymentStatus"
-            ).value;
-
-
-        const note =
-            document.getElementById(
-                "invoiceNote"
-            ).value
-            .trim();
-
-
         if(!firestoreId){
 
             showToast(
@@ -3653,6 +4744,221 @@ document.getElementById(
             return;
 
         }
+
+
+        const labour =
+            getInputNumber("labourAmount");
+
+
+        const parts =
+            getInputNumber("partsAmount");
+
+
+        const gas =
+            getInputNumber("gasAmount");
+
+
+        const additional =
+            getInputNumber("additionalAmount");
+
+
+        const discount =
+            getInputNumber("discountAmount");
+
+
+        const subtotal =
+            labour +
+            parts +
+            gas +
+            additional;
+
+
+        const safeDiscount =
+            Math.min(
+                discount,
+                subtotal
+            );
+
+
+        const total =
+            Math.max(
+                subtotal - safeDiscount,
+                0
+            );
+
+
+        const amountPaid =
+            Math.min(
+                getInputNumber("amountPaid"),
+                total
+            );
+
+
+        let paymentStatus =
+            document.getElementById(
+                "paymentStatus"
+            ).value;
+
+
+        if(total === 0){
+
+            paymentStatus = "unpaid";
+
+            document.getElementById(
+                "paymentStatus"
+            ).value = "unpaid";
+
+        }else if(amountPaid >= total){
+
+            paymentStatus = "paid";
+
+            document.getElementById(
+                "paymentStatus"
+            ).value = "paid";
+
+        }else if(amountPaid > 0){
+
+            paymentStatus = "partial";
+
+            document.getElementById(
+                "paymentStatus"
+            ).value = "partial";
+
+        }else{
+
+            paymentStatus = "unpaid";
+
+            document.getElementById(
+                "paymentStatus"
+            ).value = "unpaid";
+
+        }
+
+
+        const invoiceNumber =
+            document.getElementById(
+                "invoiceNumber"
+            ).value ||
+            generateInvoiceNumber();
+
+
+        const invoiceData = {
+
+            invoiceNumber,
+
+            invoiceDate:
+                document.getElementById(
+                    "invoiceDate"
+                ).value,
+
+            serviceDate:
+                document.getElementById(
+                    "serviceDate"
+                ).value,
+
+            customerName:
+                document.getElementById(
+                    "invoiceCustomer"
+                ).value.trim(),
+
+            phone:
+                document.getElementById(
+                    "invoicePhone"
+                ).value.trim(),
+
+            address:
+                document.getElementById(
+                    "invoiceAddress"
+                ).value.trim(),
+
+            bookingId:
+                document.getElementById(
+                    "invoiceBookingDisplay"
+                ).value.trim(),
+
+            trackingId:
+                document.getElementById(
+                    "invoiceTracking"
+                ).value.trim(),
+
+            service:
+                document.getElementById(
+                    "invoiceService"
+                ).value.trim(),
+
+            model:
+                document.getElementById(
+                    "invoiceModel"
+                ).value.trim(),
+
+            technician:
+                document.getElementById(
+                    "invoiceTechnician"
+                ).value.trim(),
+
+            problem:
+                document.getElementById(
+                    "invoiceProblem"
+                ).value.trim(),
+
+            workPerformed:
+                document.getElementById(
+                    "workPerformed"
+                ).value.trim(),
+
+            labour,
+
+            parts,
+
+            gas,
+
+            additional,
+
+            discount:safeDiscount,
+
+            subtotal,
+
+            total,
+
+            paymentStatus,
+
+            paymentMethod:
+                document.getElementById(
+                    "paymentMethod"
+                ).value,
+
+            amountPaid,
+
+            balanceDue:
+                Math.max(
+                    total - amountPaid,
+                    0
+                ),
+
+            warranty:
+                document.getElementById(
+                    "warranty"
+                ).value.trim(),
+
+            invoiceNote:
+                document.getElementById(
+                    "invoiceNote"
+                ).value.trim(),
+
+            customerNote:
+                document.getElementById(
+                    "customerNote"
+                ).value.trim(),
+
+            adminNote:
+                document.getElementById(
+                    "adminNote"
+                ).value.trim(),
+
+            updatedAt:
+                new Date().toISOString()
+
+        };
 
 
         try{
@@ -3665,14 +4971,24 @@ document.getElementById(
                 ),
                 {
 
-                    invoiceAmount:
-                        amount,
+                    invoice:invoiceData,
 
-                    paymentStatus:
-                        paymentStatus,
+                    invoiceNumber,
+
+                    invoiceAmount:total,
+
+                    paymentStatus,
+
+                    paymentMethod:
+                        invoiceData.paymentMethod,
+
+                    amountPaid,
+
+                    balanceDue:
+                        invoiceData.balanceDue,
 
                     invoiceNote:
-                        note,
+                        invoiceData.invoiceNote,
 
                     invoiceUpdatedAt:
                         serverTimestamp(),
@@ -3687,21 +5003,35 @@ document.getElementById(
             const booking =
                 allBookings.find(
                     item =>
-                        item.firestoreId ===
-                        firestoreId
+                        item.firestoreId === firestoreId
                 );
 
 
             if(booking){
 
+                booking.invoice =
+                    invoiceData;
+
+                booking.invoiceNumber =
+                    invoiceNumber;
+
                 booking.invoiceAmount =
-                    amount;
+                    total;
 
                 booking.paymentStatus =
                     paymentStatus;
 
+                booking.paymentMethod =
+                    invoiceData.paymentMethod;
+
+                booking.amountPaid =
+                    amountPaid;
+
+                booking.balanceDue =
+                    invoiceData.balanceDue;
+
                 booking.invoiceNote =
-                    note;
+                    invoiceData.invoiceNote;
 
             }
 
@@ -3710,24 +5040,28 @@ document.getElementById(
 
             renderBookings();
 
-            closeInvoiceModal();
-
-
             showToast(
-                paymentStatus === "paid"
-                ?
-                "Invoice saved & marked PAID."
-                :
-                "Invoice saved as UNPAID."
+                "Professional invoice saved successfully."
             );
+
+
+            document.getElementById(
+                "invoiceNumber"
+            ).value =
+                invoiceNumber;
 
 
         }catch(error){
 
-            console.error(error);
+            console.error(
+                "Invoice save error:",
+                error
+            );
+
 
             showToast(
-                "Invoice save failed."
+                "Invoice save failed: " +
+                (error.message || "")
             );
 
         }
@@ -3752,8 +5086,7 @@ function(){
     const booking =
         allBookings.find(
             item =>
-                item.firestoreId ===
-                firestoreId
+                item.firestoreId === firestoreId
         );
 
 
@@ -3768,128 +5101,26 @@ function(){
     }
 
 
-    const customerName =
-        booking.customerName ||
-        booking.name ||
-        "Customer";
+    const data =
+        collectInvoiceData(booking);
 
 
-    const phone =
-        booking.phone ||
-        booking.mobile ||
-        booking.whatsapp ||
-        booking.whatsappNumber ||
-        booking.phoneNumber ||
-        booking.customerPhone ||
-        booking.contactNumber ||
-        booking.contact ||
-        booking.customerMobile ||
-        booking.customerWhatsapp ||
-        "Not provided";
+    if(data.total <= 0){
 
-
-    const service =
-        booking.service ||
-        booking.serviceType ||
-        "Service";
-
-
-    const address =
-        booking.address ||
-        booking.location ||
-        "Not provided";
-
-
-    const preferredDate =
-        booking.preferredDate ||
-        booking.date ||
-        "Not provided";
-
-
-    const preferredTime =
-        booking.preferredTime ||
-        booking.time ||
-        "Not provided";
-
-
-    const problem =
-        booking.problem ||
-        booking.issue ||
-        booking.message ||
-        "Not provided";
-
-
-    const trackingId =
-        booking.trackingId ||
-        booking.trackingID ||
-        generateDisplayId(
-            booking
+        showToast(
+            "Please enter invoice charges first."
         );
 
+        return;
 
-    const bookingId =
-        booking.bookingId &&
-        booking.bookingId !==
-            booking.firestoreId
-        ?
-        booking.bookingId
-        :
-        "";
-
-
-    const amount =
-        Number(
-            document.getElementById(
-                "invoiceAmount"
-            ).value ||
-            booking.invoiceAmount ||
-            0
-        );
-
-
-    const paymentStatus =
-        document.getElementById(
-            "paymentStatus"
-        ).value ||
-        getPaymentStatus(
-            booking
-        );
-
-
-    const note =
-        document.getElementById(
-            "invoiceNote"
-        ).value
-        .trim() ||
-        booking.invoiceNote ||
-        "";
-
-
-    const invoiceDate =
-        new Date()
-        .toLocaleDateString(
-            "en-PK",
-            {
-                day:"2-digit",
-                month:"2-digit",
-                year:"numeric"
-            }
-        );
-
-
-    const paymentText =
-        paymentStatus === "paid"
-        ?
-        "PAID"
-        :
-        "UNPAID";
+    }
 
 
     const printWindow =
         window.open(
             "",
             "_blank",
-            "width=850,height=900"
+            "width=900,height=950"
         );
 
 
@@ -3904,7 +5135,257 @@ function(){
     }
 
 
-    printWindow.document.write(`
+    printWindow.document.write(
+        createPrintableInvoice(data)
+    );
+
+
+    printWindow.document.close();
+
+};
+
+
+/* =========================================================
+   COLLECT CURRENT INVOICE
+========================================================= */
+
+function collectInvoiceData(booking){
+
+    const labour =
+        getInputNumber("labourAmount");
+
+
+    const parts =
+        getInputNumber("partsAmount");
+
+
+    const gas =
+        getInputNumber("gasAmount");
+
+
+    const additional =
+        getInputNumber("additionalAmount");
+
+
+    const discount =
+        Math.min(
+            getInputNumber("discountAmount"),
+            labour + parts + gas + additional
+        );
+
+
+    const subtotal =
+        labour +
+        parts +
+        gas +
+        additional;
+
+
+    const total =
+        Math.max(
+            subtotal - discount,
+            0
+        );
+
+
+    const amountPaid =
+        Math.min(
+            getInputNumber("amountPaid"),
+            total
+        );
+
+
+    let paymentStatus =
+        document.getElementById(
+            "paymentStatus"
+        ).value;
+
+
+    if(amountPaid >= total && total > 0){
+
+        paymentStatus = "paid";
+
+    }else if(amountPaid > 0){
+
+        paymentStatus = "partial";
+
+    }else{
+
+        paymentStatus = "unpaid";
+
+    }
+
+
+    return {
+
+        invoiceNumber:
+            document.getElementById(
+                "invoiceNumber"
+            ).value,
+
+        invoiceDate:
+            document.getElementById(
+                "invoiceDate"
+            ).value,
+
+        serviceDate:
+            document.getElementById(
+                "serviceDate"
+            ).value,
+
+        customerName:
+            document.getElementById(
+                "invoiceCustomer"
+            ).value,
+
+        phone:
+            document.getElementById(
+                "invoicePhone"
+            ).value,
+
+        address:
+            document.getElementById(
+                "invoiceAddress"
+            ).value,
+
+        bookingId:
+            document.getElementById(
+                "invoiceBookingDisplay"
+            ).value,
+
+        trackingId:
+            document.getElementById(
+                "invoiceTracking"
+            ).value,
+
+        service:
+            document.getElementById(
+                "invoiceService"
+            ).value,
+
+        model:
+            document.getElementById(
+                "invoiceModel"
+            ).value,
+
+        technician:
+            document.getElementById(
+                "invoiceTechnician"
+            ).value,
+
+        problem:
+            document.getElementById(
+                "invoiceProblem"
+            ).value,
+
+        workPerformed:
+            document.getElementById(
+                "workPerformed"
+            ).value,
+
+        labour,
+
+        parts,
+
+        gas,
+
+        additional,
+
+        discount,
+
+        subtotal,
+
+        total,
+
+        paymentStatus,
+
+        paymentMethod:
+            document.getElementById(
+                "paymentMethod"
+            ).value,
+
+        amountPaid,
+
+        balanceDue:
+            Math.max(
+                total - amountPaid,
+                0
+            ),
+
+        warranty:
+            document.getElementById(
+                "warranty"
+            ).value,
+
+        invoiceNote:
+            document.getElementById(
+                "invoiceNote"
+            ).value,
+
+        customerNote:
+            document.getElementById(
+                "customerNote"
+            ).value,
+
+        adminNote:
+            document.getElementById(
+                "adminNote"
+            ).value
+
+    };
+
+}
+
+
+/* =========================================================
+   PRINT HTML
+========================================================= */
+
+function createPrintableInvoice(data){
+
+    const paymentText =
+        data.paymentStatus === "paid"
+        ?
+        "PAID"
+        :
+        data.paymentStatus === "partial"
+        ?
+        "PARTIALLY PAID"
+        :
+        "UNPAID";
+
+
+    const paymentColor =
+        data.paymentStatus === "paid"
+        ?
+        "#0f9d72"
+        :
+        data.paymentStatus === "partial"
+        ?
+        "#d99000"
+        :
+        "#d64545";
+
+
+    const paymentBg =
+        data.paymentStatus === "paid"
+        ?
+        "#e9faf4"
+        :
+        data.paymentStatus === "partial"
+        ?
+        "#fff7df"
+        :
+        "#fff0f0";
+
+
+    const method =
+        paymentMethodLabel(
+            data.paymentMethod
+        );
+
+
+    return `
 
 <!DOCTYPE html>
 
@@ -3915,7 +5396,7 @@ function(){
 <meta charset="UTF-8">
 
 <title>
-Smart Cool & Refrigerator - Invoice
+${escapeHtml(data.invoiceNumber)}
 </title>
 
 <style>
@@ -3926,7 +5407,7 @@ Smart Cool & Refrigerator - Invoice
 
 body{
     margin:0;
-    padding:35px;
+    padding:30px;
 
     font-family:
         Arial,
@@ -3939,24 +5420,26 @@ body{
 }
 
 .invoice{
-    max-width:800px;
+    max-width:850px;
 
     margin:auto;
 
     padding:35px;
 
     border:1px solid #dce8ed;
-    border-radius:10px;
+    border-radius:12px;
+
+    background:#fff;
 }
 
 .header{
     display:flex;
     justify-content:space-between;
 
-    gap:20px;
+    gap:25px;
 
-    padding-bottom:20px;
-    margin-bottom:25px;
+    padding-bottom:22px;
+    margin-bottom:24px;
 
     border-bottom:4px solid #087ea4;
 }
@@ -3966,7 +5449,7 @@ body{
 
     color:#087ea4;
 
-    font-size:27px;
+    font-size:28px;
 }
 
 .company p{
@@ -3984,39 +5467,59 @@ body{
 .invoice-title h2{
     margin:0;
 
-    font-size:27px;
+    font-size:28px;
+
+    letter-spacing:1px;
 }
 
-.invoice-title p{
-    margin:6px 0 0;
+.invoice-number{
+    margin-top:7px;
+
+    color:#087ea4;
+
+    font-size:12px;
+
+    font-weight:bold;
+}
+
+.invoice-date{
+    margin-top:5px;
 
     color:#718096;
 
-    font-size:12px;
+    font-size:11px;
 }
 
 .payment-status{
     display:inline-block;
 
-    margin-top:9px;
+    margin-top:10px;
 
-    padding:7px 13px;
+    padding:7px 14px;
 
     border-radius:20px;
 
-    font-size:11px;
+    font-size:10px;
 
     font-weight:bold;
 
-    background:
-        ${paymentStatus === "paid"
-            ? "#e9faf4"
-            : "#fff0f0"};
+    color:${paymentColor};
 
-    color:
-        ${paymentStatus === "paid"
-            ? "#0f9d72"
-            : "#d64545"};
+    background:${paymentBg};
+}
+
+.section-title{
+    margin:20px 0 9px;
+
+    color:#064861;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+
+    letter-spacing:.5px;
 }
 
 .info{
@@ -4024,17 +5527,19 @@ body{
 
     grid-template-columns:1fr 1fr;
 
-    gap:12px;
+    gap:10px;
 
-    margin-bottom:22px;
+    margin-bottom:18px;
 }
 
 .box{
-    padding:13px;
+    padding:12px;
 
     border:1px solid #e1edf1;
 
     border-radius:7px;
+
+    background:#fbfdfe;
 }
 
 .label{
@@ -4042,7 +5547,7 @@ body{
 
     color:#8196a0;
 
-    font-size:9px;
+    font-size:8px;
 
     font-weight:bold;
 
@@ -4052,11 +5557,13 @@ body{
 .value{
     color:#29475a;
 
-    font-size:13px;
+    font-size:12px;
 
     font-weight:bold;
 
     word-break:break-word;
+
+    line-height:1.45;
 }
 
 table{
@@ -4064,11 +5571,11 @@ table{
 
     border-collapse:collapse;
 
-    margin-top:15px;
+    margin-top:12px;
 }
 
 th{
-    padding:12px;
+    padding:11px;
 
     text-align:left;
 
@@ -4078,48 +5585,68 @@ th{
 
     border:1px solid #d7e7ec;
 
-    font-size:11px;
+    font-size:10px;
 }
 
 td{
-    padding:12px;
+    padding:11px;
 
     border:1px solid #d7e7ec;
 
-    font-size:12px;
+    font-size:11px;
 
     vertical-align:top;
 
     line-height:1.5;
 }
 
-.total{
-    margin-top:22px;
+.amount-table{
+    margin-top:18px;
 
-    text-align:right;
+    margin-left:auto;
+
+    width:55%;
+}
+
+.amount-table td{
+    padding:9px 11px;
+}
+
+.amount-table .total-row td{
+    background:#edf8fb;
 
     color:#087ea4;
 
-    font-size:23px;
+    font-size:16px;
 
     font-weight:bold;
 }
 
-.note{
-    margin-top:22px;
+.balance-row td{
+    background:#fff7df;
 
-    padding:14px;
+    color:#d99000;
 
-    background:#f6fafc;
+    font-weight:bold;
+}
+
+.description{
+    margin-top:18px;
+
+    padding:13px;
 
     border:1px solid #dfecef;
 
     border-radius:7px;
 
-    font-size:12px;
+    background:#f7fbfd;
+
+    font-size:11px;
+
+    line-height:1.6;
 }
 
-.note strong{
+.description strong{
     display:block;
 
     margin-bottom:6px;
@@ -4128,7 +5655,7 @@ td{
 }
 
 .footer{
-    margin-top:32px;
+    margin-top:30px;
 
     padding-top:18px;
 
@@ -4138,9 +5665,14 @@ td{
 
     color:#718096;
 
-    font-size:11px;
+    font-size:10px;
 
-    line-height:1.6;
+    line-height:1.7;
+}
+
+.footer strong{
+    color:#24566b;
+    font-size:12px;
 }
 
 @media print{
@@ -4174,11 +5706,15 @@ td{
             </h1>
 
             <p>
-                AC • Refrigerator • Electrician Services
+                AC • Refrigerator • Water Dispenser • Electrician
             </p>
 
             <p>
-                All over Karachi
+                All Over Karachi
+            </p>
+
+            <p>
+                Muhammad Rizwan • 03208463110
             </p>
 
         </div>
@@ -4190,12 +5726,16 @@ td{
                 INVOICE
             </h2>
 
-            <p>
-                Date:
+            <div class="invoice-number">
+                ${escapeHtml(data.invoiceNumber)}
+            </div>
+
+            <div class="invoice-date">
+                Invoice Date:
                 ${escapeHtml(
-                    invoiceDate
+                    formatDisplayDate(data.invoiceDate)
                 )}
-            </p>
+            </div>
 
             <div class="payment-status">
                 ${paymentText}
@@ -4203,6 +5743,11 @@ td{
 
         </div>
 
+    </div>
+
+
+    <div class="section-title">
+        Customer Information
     </div>
 
 
@@ -4215,9 +5760,7 @@ td{
             </div>
 
             <div class="value">
-                ${escapeHtml(
-                    customerName
-                )}
+                ${escapeHtml(data.customerName || "Customer")}
             </div>
 
         </div>
@@ -4230,35 +5773,23 @@ td{
             </div>
 
             <div class="value">
-                ${escapeHtml(
-                    phone
-                )}
+                ${escapeHtml(data.phone || "Not provided")}
             </div>
 
         </div>
 
 
-        ${
-            bookingId
-            ?
-            `
-            <div class="box">
+        <div class="box">
 
-                <div class="label">
-                    Booking ID
-                </div>
-
-                <div class="value">
-                    ${escapeHtml(
-                        bookingId
-                    )}
-                </div>
-
+            <div class="label">
+                Booking ID
             </div>
-            `
-            :
-            ""
-        }
+
+            <div class="value">
+                ${escapeHtml(data.bookingId || "—")}
+            </div>
+
+        </div>
 
 
         <div class="box">
@@ -4268,43 +5799,29 @@ td{
             </div>
 
             <div class="value">
-                ${escapeHtml(
-                    trackingId
-                )}
+                ${escapeHtml(data.trackingId || "—")}
             </div>
 
         </div>
 
 
-        <div class="box">
-
-            <div class="label">
-                Service
-            </div>
-
-            <div class="value">
-                ${escapeHtml(
-                    service
-                )}
-            </div>
-
-        </div>
-
-
-        <div class="box">
+        <div class="box" style="grid-column:1/-1;">
 
             <div class="label">
                 Address
             </div>
 
             <div class="value">
-                ${escapeHtml(
-                    address
-                )}
+                ${escapeHtml(data.address || "Not provided")}
             </div>
 
         </div>
 
+    </div>
+
+
+    <div class="section-title">
+        Service Details
     </div>
 
 
@@ -4315,15 +5832,19 @@ td{
             <tr>
 
                 <th>
-                    Service / Description
+                    Service
                 </th>
 
                 <th>
-                    Date
+                    Model / Ton
                 </th>
 
                 <th>
-                    Time
+                    Technician
+                </th>
+
+                <th>
+                    Service Date
                 </th>
 
             </tr>
@@ -4336,34 +5857,22 @@ td{
             <tr>
 
                 <td>
-
-                    <strong>
-                        ${escapeHtml(
-                            service
-                        )}
-                    </strong>
-
-                    <br><br>
-
-                    Problem:
-
-                    ${escapeHtml(
-                        problem
-                    )}
-
+                    ${escapeHtml(data.service || "Service")}
                 </td>
 
+                <td>
+                    ${escapeHtml(data.model || "—")}
+                </td>
+
+                <td>
+                    ${escapeHtml(data.technician || "—")}
+                </td>
 
                 <td>
                     ${escapeHtml(
-                        preferredDate
-                    )}
-                </td>
-
-
-                <td>
-                    ${escapeHtml(
-                        preferredTime
+                        formatDisplayDate(
+                            data.serviceDate
+                        )
                     )}
                 </td>
 
@@ -4374,29 +5883,235 @@ td{
     </table>
 
 
-    <div class="total">
+    ${
+        data.problem
+        ?
+        `
+        <div class="description">
 
-        Total:
-        PKR ${formatMoney(
-            amount
-        )}
+            <strong>
+                Customer Problem / Complaint
+            </strong>
+
+            ${escapeHtml(data.problem)}
+
+        </div>
+        `
+        :
+        ""
+    }
+
+
+    ${
+        data.workPerformed
+        ?
+        `
+        <div class="description">
+
+            <strong>
+                Work Performed
+            </strong>
+
+            ${escapeHtml(data.workPerformed)}
+
+        </div>
+        `
+        :
+        ""
+    }
+
+
+    <table class="amount-table">
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                    Labour / Service
+                </td>
+
+                <td>
+                    PKR ${formatMoney(data.labour)}
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Parts / Materials
+                </td>
+
+                <td>
+                    PKR ${formatMoney(data.parts)}
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Gas / Refrigerant
+                </td>
+
+                <td>
+                    PKR ${formatMoney(data.gas)}
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Additional Charges
+                </td>
+
+                <td>
+                    PKR ${formatMoney(data.additional)}
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Subtotal
+                </td>
+
+                <td>
+                    PKR ${formatMoney(data.subtotal)}
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Discount
+                </td>
+
+                <td>
+                    - PKR ${formatMoney(data.discount)}
+                </td>
+
+            </tr>
+
+
+            <tr class="total-row">
+
+                <td>
+                    GRAND TOTAL
+                </td>
+
+                <td>
+                    PKR ${formatMoney(data.total)}
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Amount Paid
+                </td>
+
+                <td>
+                    PKR ${formatMoney(data.amountPaid)}
+                </td>
+
+            </tr>
+
+
+            <tr class="balance-row">
+
+                <td>
+                    BALANCE DUE
+                </td>
+
+                <td>
+                    PKR ${formatMoney(data.balanceDue)}
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <div class="description">
+
+        <strong>
+            Payment Information
+        </strong>
+
+        Status:
+        ${escapeHtml(paymentText)}
+
+        <br>
+
+        Payment Method:
+        ${escapeHtml(method)}
 
     </div>
 
 
     ${
-        note
+        data.warranty
         ?
         `
-        <div class="note">
+        <div class="description">
+
+            <strong>
+                Warranty
+            </strong>
+
+            ${escapeHtml(data.warranty)}
+
+        </div>
+        `
+        :
+        ""
+    }
+
+
+    ${
+        data.invoiceNote
+        ?
+        `
+        <div class="description">
 
             <strong>
                 Invoice Note
             </strong>
 
-            ${escapeHtml(
-                note
-            )}
+            ${escapeHtml(data.invoiceNote)}
+
+        </div>
+        `
+        :
+        ""
+    }
+
+
+    ${
+        data.customerNote
+        ?
+        `
+        <div class="description">
+
+            <strong>
+                Customer Note
+            </strong>
+
+            ${escapeHtml(data.customerNote)}
 
         </div>
         `
@@ -4413,11 +6128,19 @@ td{
 
         <br>
 
-        AC • Refrigerator • Electrician Services
+        AC • Refrigerator • Water Dispenser • Electrician
 
         <br>
 
-        All over Karachi
+        All Over Karachi
+
+        <br>
+
+        Muhammad Rizwan • 03208463110
+
+        <br><br>
+
+        This is a computer-generated service invoice.
 
     </div>
 
@@ -4434,7 +6157,7 @@ window.onload=function(){
             window.print();
 
         },
-        400
+        500
     );
 
 };
@@ -4445,29 +6168,49 @@ window.onload=function(){
 
 </html>
 
-    `);
+    `;
 
-
-    printWindow.document.close();
-
-};
+}
 
 
 /* =========================================================
-   WHATSAPP
+   WHATSAPP INVOICE
 ========================================================= */
 
-window.openWhatsApp =
-function(
-    phone,
-    customerName,
-    trackingId
-){
+window.sendInvoiceWhatsApp =
+function(){
 
-    if(
-        !phone ||
-        phone === "Not provided"
-    ){
+    const firestoreId =
+        document.getElementById(
+            "invoiceBookingId"
+        ).value;
+
+
+    const booking =
+        allBookings.find(
+            item =>
+                item.firestoreId === firestoreId
+        );
+
+
+    if(!booking){
+
+        showToast(
+            "Booking not found."
+        );
+
+        return;
+
+    }
+
+
+    const phone =
+        document.getElementById(
+            "invoicePhone"
+        ).value;
+
+
+    if(!phone){
 
         showToast(
             "Customer phone number not available."
@@ -4478,12 +6221,95 @@ function(
     }
 
 
+    const data =
+        collectInvoiceData(booking);
+
+
+    if(data.total <= 0){
+
+        showToast(
+            "Please enter invoice charges first."
+        );
+
+        return;
+
+    }
+
+
+    const cleanPhone =
+        normalizePhone(phone);
+
+
+    const message =
+`Assalam o Alaikum ${data.customerName || "Customer"},
+
+Your Smart Cool & Refrigerator service invoice is ready. 🧾
+
+Invoice No: ${data.invoiceNumber}
+
+Service: ${data.service || "Service"}
+
+Tracking ID: ${data.trackingId}
+
+Total Amount: PKR ${formatMoney(data.total)}
+
+Amount Paid: PKR ${formatMoney(data.amountPaid)}
+
+Balance Due: PKR ${formatMoney(data.balanceDue)}
+
+Payment Status: ${
+    data.paymentStatus === "paid"
+    ? "PAID"
+    : data.paymentStatus === "partial"
+    ? "PARTIAL"
+    : "UNPAID"
+}
+
+Warranty: ${data.warranty || "As applicable"}
+
+Thank you for choosing Smart Cool & Refrigerator.
+
+AC • Refrigerator • Water Dispenser • Electrician
+All Over Karachi
+
+Muhammad Rizwan
+03208463110`;
+
+
+    const url =
+        "https://wa.me/" +
+        cleanPhone +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+};
+
+
+/* =========================================================
+   NORMALIZE PHONE
+========================================================= */
+
+function normalizePhone(phone){
+
     let cleanPhone =
         String(phone)
-        .replace(
-            /\D/g,
-            ""
-        );
+        .replace(/\D/g,"");
+
+
+    if(
+        cleanPhone.startsWith("00")
+    ){
+
+        cleanPhone =
+            cleanPhone.substring(2);
+
+    }
 
 
     if(
@@ -4508,8 +6334,42 @@ function(
     }
 
 
+    return cleanPhone;
+
+}
+
+
+/* =========================================================
+   GENERAL WHATSAPP
+========================================================= */
+
+window.openWhatsApp =
+function(
+    phone,
+    customerName,
+    trackingId
+){
+
+    if(
+        !phone ||
+        phone === "Not provided"
+    ){
+
+        showToast(
+            "Customer phone number not available."
+        );
+
+        return;
+
+    }
+
+
+    const cleanPhone =
+        normalizePhone(phone);
+
+
     const message =
-        `Assalam o Alaikum ${customerName},
+`Assalam o Alaikum ${customerName},
 
 This is Smart Cool & Refrigerator regarding your service booking.
 
@@ -4519,16 +6379,15 @@ Track your booking here:
 https://rizwanmughal63110-ux.github.io/smart-cool-refrigerator/tracking.html
 
 Thank you for choosing Smart Cool & Refrigerator.
-All over Karachi.`;
+
+All Over Karachi.`;
 
 
     const url =
         "https://wa.me/" +
         cleanPhone +
         "?text=" +
-        encodeURIComponent(
-            message
-        );
+        encodeURIComponent(message);
 
 
     window.open(
@@ -4540,12 +6399,39 @@ All over Karachi.`;
 
 
 /* =========================================================
+   PAYMENT METHOD LABEL
+========================================================= */
+
+function paymentMethodLabel(method){
+
+    const labels = {
+
+        cash:"Cash",
+
+        bank:"Bank Transfer",
+
+        easypaisa:"Easypaisa",
+
+        jazzcash:"JazzCash",
+
+        other:"Other"
+
+    };
+
+
+    return (
+        labels[method] ||
+        "Cash"
+    );
+
+}
+
+
+/* =========================================================
    STATUS HELPERS
 ========================================================= */
 
-function normalizeStatus(
-    status
-){
+function normalizeStatus(status){
 
     if(!status){
 
@@ -4561,6 +6447,24 @@ function normalizeStatus(
 
 
     if(
+        value === "new"
+    ){
+
+        return "pending";
+
+    }
+
+
+    if(
+        value === "accepted"
+    ){
+
+        return "confirmed";
+
+    }
+
+
+    if(
         value === "in progress" ||
         value === "in_progress" ||
         value === "progress"
@@ -4571,14 +6475,21 @@ function normalizeStatus(
     }
 
 
+    if(
+        value === "rejected"
+    ){
+
+        return "cancelled";
+
+    }
+
+
     return value;
 
 }
 
 
-function statusLabel(
-    status
-){
+function statusLabel(status){
 
     const labels = {
 
@@ -4603,9 +6514,7 @@ function statusLabel(
 }
 
 
-function statusClass(
-    status
-){
+function statusClass(status){
 
     if(
         status === "in-progress"
@@ -4634,9 +6543,7 @@ function statusClass(
    DATE HELPERS
 ========================================================= */
 
-function getTimestampMs(
-    value
-){
+function getTimestampMs(value){
 
     if(!value){
 
@@ -4648,8 +6555,7 @@ function getTimestampMs(
     try{
 
         if(
-            typeof value.toMillis ===
-            "function"
+            typeof value.toMillis === "function"
         ){
 
             return value.toMillis();
@@ -4657,12 +6563,11 @@ function getTimestampMs(
         }
 
 
-        if(value.seconds){
+        if(
+            value.seconds != null
+        ){
 
-            return (
-                value.seconds *
-                1000
-            );
+            return Number(value.seconds) * 1000;
 
         }
 
@@ -4688,9 +6593,7 @@ function getTimestampMs(
 }
 
 
-function formatDate(
-    value
-){
+function formatDate(value){
 
     const ms =
         getTimestampMs(value);
@@ -4726,13 +6629,129 @@ function formatDate(
 }
 
 
+function getTodayInputDate(){
+
+    const d =
+        new Date();
+
+
+    const year =
+        d.getFullYear();
+
+
+    const month =
+        String(
+            d.getMonth() + 1
+        ).padStart(2,"0");
+
+
+    const day =
+        String(
+            d.getDate()
+        ).padStart(2,"0");
+
+
+    return `${year}-${month}-${day}`;
+
+}
+
+
+function normalizeDateInput(value){
+
+    if(!value){
+
+        return "";
+
+    }
+
+
+    const string =
+        String(value)
+        .trim();
+
+
+    if(
+        /^\d{4}-\d{2}-\d{2}$/.test(string)
+    ){
+
+        return string;
+
+    }
+
+
+    const parsed =
+        new Date(string);
+
+
+    if(
+        isNaN(parsed.getTime())
+    ){
+
+        return "";
+
+    }
+
+
+    const year =
+        parsed.getFullYear();
+
+
+    const month =
+        String(
+            parsed.getMonth() + 1
+        ).padStart(2,"0");
+
+
+    const day =
+        String(
+            parsed.getDate()
+        ).padStart(2,"0");
+
+
+    return `${year}-${month}-${day}`;
+
+}
+
+
+function formatDisplayDate(value){
+
+    if(!value){
+
+        return "—";
+
+    }
+
+
+    const parsed =
+        new Date(value);
+
+
+    if(
+        isNaN(parsed.getTime())
+    ){
+
+        return String(value);
+
+    }
+
+
+    return parsed.toLocaleDateString(
+        "en-PK",
+        {
+            day:"2-digit",
+            month:"short",
+            year:"numeric"
+        }
+    );
+
+}
+
+
 /* =========================================================
    DISPLAY ID
 ========================================================= */
 
-function generateDisplayId(
-    booking
-){
+function generateDisplayId(booking){
 
     if(
         booking.trackingId
@@ -4778,14 +6797,38 @@ function generateDisplayId(
    MONEY
 ========================================================= */
 
-function formatMoney(
-    amount
-){
+function getInputNumber(id){
+
+    const value =
+        Number(
+            document.getElementById(id)?.value || 0
+        );
+
+
+    if(
+        !isFinite(value) ||
+        value < 0
+    ){
+
+        return 0;
+
+    }
+
+
+    return value;
+
+}
+
+
+function formatMoney(amount){
 
     return Number(
         amount || 0
     ).toLocaleString(
-        "en-PK"
+        "en-PK",
+        {
+            maximumFractionDigits:0
+        }
     );
 
 }
@@ -4795,33 +6838,16 @@ function formatMoney(
    ESCAPE HTML
 ========================================================= */
 
-function escapeHtml(
-    value
-){
+function escapeHtml(value){
 
     return String(
         value ?? ""
     )
-    .replace(
-        /&/g,
-        "&amp;"
-    )
-    .replace(
-        /</g,
-        "&lt;"
-    )
-    .replace(
-        />/g,
-        "&gt;"
-    )
-    .replace(
-        /"/g,
-        "&quot;"
-    )
-    .replace(
-        /'/g,
-        "&#039;"
-    );
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
@@ -4830,33 +6856,16 @@ function escapeHtml(
    ESCAPE JS
 ========================================================= */
 
-function escapeJs(
-    value
-){
+function escapeJs(value){
 
     return String(
         value ?? ""
     )
-    .replace(
-        /\\/g,
-        "\\\\"
-    )
-    .replace(
-        /'/g,
-        "\\'"
-    )
-    .replace(
-        /"/g,
-        '\\"'
-    )
-    .replace(
-        /\n/g,
-        "\\n"
-    )
-    .replace(
-        /\r/g,
-        "\\r"
-    );
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/"/g,'\\"')
+    .replace(/\n/g,"\\n")
+    .replace(/\r/g,"\\r");
 
 }
 
@@ -4865,14 +6874,10 @@ function escapeJs(
    TOAST
 ========================================================= */
 
-function showToast(
-    message
-){
+function showToast(message){
 
     const toast =
-        document.getElementById(
-            "toast"
-        );
+        document.getElementById("toast");
 
 
     toast.textContent =
@@ -4896,7 +6901,7 @@ function showToast(
                     "none";
 
             },
-            3000
+            3500
         );
 
 }
@@ -4910,21 +6915,13 @@ window.toggleSidebar =
 function(){
 
     document
-    .getElementById(
-        "sidebar"
-    )
-    .classList.toggle(
-        "open"
-    );
+    .getElementById("sidebar")
+    .classList.toggle("open");
 
 
     document
-    .getElementById(
-        "sidebarOverlay"
-    )
-    .classList.toggle(
-        "show"
-    );
+    .getElementById("sidebarOverlay")
+    .classList.toggle("show");
 
 };
 
@@ -4933,21 +6930,13 @@ window.closeSidebar =
 function(){
 
     document
-    .getElementById(
-        "sidebar"
-    )
-    .classList.remove(
-        "open"
-    );
+    .getElementById("sidebar")
+    .classList.remove("open");
 
 
     document
-    .getElementById(
-        "sidebarOverlay"
-    )
-    .classList.remove(
-        "show"
-    );
+    .getElementById("sidebarOverlay")
+    .classList.remove("show");
 
 };
 
@@ -4967,9 +6956,7 @@ window.focusBookings =
 function(){
 
     document
-    .getElementById(
-        "bookingsSection"
-    )
+    .getElementById("bookingsSection")
     .scrollIntoView({
         behavior:"smooth"
     });
@@ -4992,6 +6979,28 @@ document.getElementById(
         ){
 
             closeInvoiceModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(
+            e.key === "Escape"
+        ){
+
+            closeInvoiceModal();
+
+            closeSidebar();
 
         }
 
