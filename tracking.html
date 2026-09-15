@@ -5086,24 +5086,34 @@
     ========================== */
 
     window.saveInvoicePDF =
+  function() {
+
+    const invoice =
+      document.querySelector(
+        ".full-invoice"
+      );
+
+    if (!invoice) {
+
+      alert(
+        "Invoice load nahi hui."
+      );
+
+      return;
+
+    }
+
+    setTimeout(
       function() {
 
-        alert(
-          "PDF save karne ke liye Print screen mein 'Save as PDF' select karein."
-        );
+        window.print();
 
+      },
+      200
+    );
 
-        setTimeout(
-          function() {
-
-            window.print();
-
-          },
-          300
-        );
-
-      };
-
+  };
+    
 
     /* =========================
        AUTO OPEN INVOICE LINK
