@@ -886,6 +886,7 @@
     ========================================================= */
 
     .booking-section {
+      scroll-margin-top: 90px;
       background: #061a33;
     }
 
@@ -1847,7 +1848,55 @@
 
     }
 
-  </style>
+  
+
+    /* PROFESSIONAL UX POLISH — SAME EXISTING THEME */
+    .booking-box,
+    .booking-info,
+    .account-box,
+    .service-card,
+    .review-card,
+    .contact-card,
+    .about-card,
+    .process-card {
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+    }
+
+    .booking-box:hover,
+    .booking-info:hover {
+      box-shadow: 0 18px 45px rgba(0, 0, 0, .18);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #38a0ff !important;
+      box-shadow: 0 0 0 3px rgba(56, 160, 255, .12);
+    }
+
+    .booking-note {
+      line-height: 1.6;
+    }
+
+    .invoice-box {
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px) {
+      .invoice-box {
+        flex-direction: column;
+      }
+
+      .invoice-box .btn {
+        width: 100%;
+      }
+    }
+</style>
 </head>
 
 
@@ -2062,6 +2111,288 @@
     </div>
 
   </section>
+
+
+  <!-- QUICK BOOKING: MOVED TO THE TOP FOR EASY ACCESS -->
+
+<section
+    id="booking"
+    class="booking-section">
+
+    <div class="section-container">
+
+      <div class="section-title">
+
+        <span class="section-kicker">
+          ONLINE BOOKING
+        </span>
+
+        <h2>
+          Book a Service
+        </h2>
+
+        <p>
+          Tell us what service you need and our team
+          will handle your request.
+        </p>
+
+      </div>
+
+
+      <div class="booking-layout">
+
+
+        <div class="booking-info">
+
+          <h3>
+            Need a Technician?
+          </h3>
+
+          <p>
+            Submit your service request online.
+            Your booking will be saved securely
+            in your account.
+          </p>
+
+
+          <div class="booking-info-list">
+
+
+            <div class="booking-info-item">
+
+              <span>🔐</span>
+
+              <span>
+                Secure customer account
+              </span>
+
+            </div>
+
+
+            <div class="booking-info-item">
+
+              <span>📋</span>
+
+              <span>
+                Easy online booking
+              </span>
+
+            </div>
+
+
+            <div class="booking-info-item">
+
+              <span>🔎</span>
+
+              <span>
+                Track your booking
+              </span>
+
+            </div>
+
+
+            <div class="booking-info-item">
+
+              <span>🧾</span>
+
+              <span>
+                View / print invoice
+              </span>
+
+            </div>
+
+
+            <div class="booking-info-item">
+
+              <span>⭐</span>
+
+              <span>
+                Rate completed service
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+          <a
+            href="https://wa.me/923208463110?text=Assalam-o-Alaikum%20Smart%20Cool%20%26%20Refrigerator%2C%20mujhe%20service%20book%20karwani%20hai."
+            target="_blank"
+            class="btn whatsapp-btn"
+            style="margin-top:25px;width:100%;text-align:center;">
+
+            🟢 Book Through WhatsApp
+
+          </a>
+
+        </div>
+
+
+        <div class="booking-box">
+
+          <div
+            id="bookingMessage"
+            class="message">
+          </div>
+
+
+          <div class="booking-note">
+
+            🔐 Please Login / Signup before booking a service.
+            Your booking will be securely saved in your account.
+
+          </div>
+
+
+          <form id="bookingForm">
+
+            <div class="form-grid">
+
+
+              <div class="form-group">
+
+                <label>
+                  Customer Name
+                </label>
+
+                <input
+                  type="text"
+                  id="customerName"
+                  required
+                  placeholder="Enter your name">
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label>
+                  Phone Number
+                </label>
+
+                <input
+                  type="tel"
+                  id="customerPhone"
+                  required
+                  placeholder="03XXXXXXXXX">
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label>
+                  Service
+                </label>
+
+                <select
+                  id="service"
+                  required>
+
+                  <option value="">
+                    Select Service
+                  </option>
+
+                  <option value="AC Repair">
+                    AC Repair
+                  </option>
+
+                  <option value="AC Service">
+                    AC Service
+                  </option>
+
+                  <option value="AC Gas Charging">
+                    AC Gas Charging
+                  </option>
+
+                  <option value="AC Installation">
+                    AC Installation
+                  </option>
+
+                  <option value="Refrigerator Repair">
+                    Refrigerator Repair
+                  </option>
+
+                  <option value="Water Dispenser Repair">
+                    Water Dispenser Repair
+                  </option>
+
+                  <option value="Electrician Service">
+                    Electrician Service
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label>
+                  Area
+                </label>
+
+                <input
+                  type="text"
+                  id="area"
+                  required
+                  placeholder="e.g. Gulshan, Nazimabad">
+
+              </div>
+
+
+              <div class="form-group full">
+
+                <label>
+                  Complete Address
+                </label>
+
+                <textarea
+                  id="address"
+                  required
+                  placeholder="Enter complete service address"></textarea>
+
+              </div>
+
+
+              <div class="form-group full">
+
+                <label>
+                  Problem / Description
+                </label>
+
+                <textarea
+                  id="problem"
+                  required
+                  placeholder="Tell us about the problem"></textarea>
+
+              </div>
+
+
+            </div>
+
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="bookingBtn"
+              style="width:100%;">
+
+              🔧 Submit Booking
+
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
 
 
   <!-- STATS -->
@@ -2728,283 +3059,7 @@
 
   <!-- BOOKING -->
 
-  <section
-    id="booking"
-    class="booking-section">
-
-    <div class="section-container">
-
-      <div class="section-title">
-
-        <span class="section-kicker">
-          ONLINE BOOKING
-        </span>
-
-        <h2>
-          Book a Service
-        </h2>
-
-        <p>
-          Tell us what service you need and our team
-          will handle your request.
-        </p>
-
-      </div>
-
-
-      <div class="booking-layout">
-
-
-        <div class="booking-info">
-
-          <h3>
-            Need a Technician?
-          </h3>
-
-          <p>
-            Submit your service request online.
-            Your booking will be saved securely
-            in your account.
-          </p>
-
-
-          <div class="booking-info-list">
-
-
-            <div class="booking-info-item">
-
-              <span>🔐</span>
-
-              <span>
-                Secure customer account
-              </span>
-
-            </div>
-
-
-            <div class="booking-info-item">
-
-              <span>📋</span>
-
-              <span>
-                Easy online booking
-              </span>
-
-            </div>
-
-
-            <div class="booking-info-item">
-
-              <span>🔎</span>
-
-              <span>
-                Track your booking
-              </span>
-
-            </div>
-
-
-            <div class="booking-info-item">
-
-              <span>🧾</span>
-
-              <span>
-                View / print invoice
-              </span>
-
-            </div>
-
-
-            <div class="booking-info-item">
-
-              <span>⭐</span>
-
-              <span>
-                Rate completed service
-              </span>
-
-            </div>
-
-
-          </div>
-
-
-          <a
-            href="https://wa.me/923208463110?text=Assalam-o-Alaikum%20Smart%20Cool%20%26%20Refrigerator%2C%20mujhe%20service%20book%20karwani%20hai."
-            target="_blank"
-            class="btn whatsapp-btn"
-            style="margin-top:25px;width:100%;text-align:center;">
-
-            🟢 Book Through WhatsApp
-
-          </a>
-
-        </div>
-
-
-        <div class="booking-box">
-
-          <div
-            id="bookingMessage"
-            class="message">
-          </div>
-
-
-          <div class="booking-note">
-
-            🔐 Please Login / Signup before booking a service.
-            Your booking will be securely saved in your account.
-
-          </div>
-
-
-          <form id="bookingForm">
-
-            <div class="form-grid">
-
-
-              <div class="form-group">
-
-                <label>
-                  Customer Name
-                </label>
-
-                <input
-                  type="text"
-                  id="customerName"
-                  required
-                  placeholder="Enter your name">
-
-              </div>
-
-
-              <div class="form-group">
-
-                <label>
-                  Phone Number
-                </label>
-
-                <input
-                  type="tel"
-                  id="customerPhone"
-                  required
-                  placeholder="03XXXXXXXXX">
-
-              </div>
-
-
-              <div class="form-group">
-
-                <label>
-                  Service
-                </label>
-
-                <select
-                  id="service"
-                  required>
-
-                  <option value="">
-                    Select Service
-                  </option>
-
-                  <option value="AC Repair">
-                    AC Repair
-                  </option>
-
-                  <option value="AC Service">
-                    AC Service
-                  </option>
-
-                  <option value="AC Gas Charging">
-                    AC Gas Charging
-                  </option>
-
-                  <option value="AC Installation">
-                    AC Installation
-                  </option>
-
-                  <option value="Refrigerator Repair">
-                    Refrigerator Repair
-                  </option>
-
-                  <option value="Water Dispenser Repair">
-                    Water Dispenser Repair
-                  </option>
-
-                  <option value="Electrician Service">
-                    Electrician Service
-                  </option>
-
-                </select>
-
-              </div>
-
-
-              <div class="form-group">
-
-                <label>
-                  Area
-                </label>
-
-                <input
-                  type="text"
-                  id="area"
-                  required
-                  placeholder="e.g. Gulshan, Nazimabad">
-
-              </div>
-
-
-              <div class="form-group full">
-
-                <label>
-                  Complete Address
-                </label>
-
-                <textarea
-                  id="address"
-                  required
-                  placeholder="Enter complete service address"></textarea>
-
-              </div>
-
-
-              <div class="form-group full">
-
-                <label>
-                  Problem / Description
-                </label>
-
-                <textarea
-                  id="problem"
-                  required
-                  placeholder="Tell us about the problem"></textarea>
-
-              </div>
-
-
-            </div>
-
-
-            <button
-              type="submit"
-              class="btn btn-primary"
-              id="bookingBtn"
-              style="width:100%;">
-
-              🔧 Submit Booking
-
-            </button>
-
-          </form>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
+  
 
 
   <!-- ACCOUNT -->
@@ -5239,10 +5294,23 @@
               booking.trackingId ||
               booking.id;
 
+            const invoiceData =
+              booking.invoice || {};
+
             const amount =
               Number(
-                booking.invoiceAmount || 0
+                invoiceData.grandTotal ||
+                booking.invoiceTotal ||
+                booking.invoiceAmount ||
+                0
               );
+
+            const invoiceToken =
+              booking.invoiceToken ||
+              booking.publicInvoiceToken ||
+              invoiceData.invoiceToken ||
+              invoiceData.publicInvoiceToken ||
+              "";
 
             const isCompleted =
               status.toLowerCase() ===
@@ -5406,15 +5474,15 @@
 
 
                 ${
-                  amount > 0
+                  amount > 0 && invoiceToken
 
                     ? `
 
                       <button
                         class="btn btn-primary"
-                        onclick="printCustomerInvoice('${booking.id}')">
+                        onclick="window.open('tracking.html?invoice=${encodeURIComponent(invoiceToken)}','_blank')">
 
-                        🧾 View / Print Invoice
+                        🧾 View Invoice
 
                       </button>
 
@@ -5708,12 +5776,25 @@
 
         }
 
+        const invoiceData =
+          booking.invoice || {};
+
+        const invoiceToken =
+          booking.invoiceToken ||
+          booking.publicInvoiceToken ||
+          invoiceData.invoiceToken ||
+          invoiceData.publicInvoiceToken ||
+          "";
+
         const amount =
           Number(
-            booking.invoiceAmount || 0
+            invoiceData.grandTotal ||
+            booking.invoiceTotal ||
+            booking.invoiceAmount ||
+            0
           );
 
-        if (amount <= 0) {
+        if (!invoiceToken || amount <= 0) {
 
           alert(
             "Invoice has not been generated yet."
@@ -5723,427 +5804,17 @@
 
         }
 
-        let invoiceDate =
-          new Date().toLocaleDateString();
-
-        if (booking.createdAt?.toDate) {
-
-          invoiceDate =
-            booking.createdAt
-              .toDate()
-              .toLocaleDateString();
-
-        }
-
-        const trackingId =
-          booking.bookingId ||
-          booking.trackingId ||
-          booking.id;
-
-        const invoiceWindow =
-          window.open(
-            "",
-            "_blank",
-            "width=800,height=900"
-          );
-
-        invoiceWindow.document.write(`
-
-          <!DOCTYPE html>
-
-          <html>
-
-          <head>
-
-            <title>
-              Smart Cool Invoice - ${trackingId}
-            </title>
-
-            <style>
-
-              * {
-                box-sizing:border-box;
-              }
-
-              body {
-                font-family:Arial,Helvetica,sans-serif;
-                margin:0;
-                padding:30px;
-                background:#061a33;
-                color:#16345c;
-              }
-
-              .invoice {
-                max-width:750px;
-                margin:auto;
-                background:white;
-                padding:35px;
-                border-radius:12px;
-                box-shadow:0 5px 25px rgba(0,0,0,.08);
-              }
-
-              .header {
-                display:flex;
-                justify-content:space-between;
-                align-items:center;
-                border-bottom:2px solid #0876df;
-                padding-bottom:20px;
-                margin-bottom:25px;
-              }
-
-              .header h1 {
-                color:#0876df;
-                margin:0;
-              }
-
-              .header p {
-                margin:4px 0;
-                color:#607891;
-              }
-
-              .logo img {
-                width:85px;
-                height:85px;
-                object-fit:cover;
-                border-radius:50%;
-              }
-
-              .info {
-                display:grid;
-                grid-template-columns:1fr 1fr;
-                gap:12px;
-                margin-bottom:25px;
-              }
-
-              .box {
-                background:#f4f9ff;
-                padding:12px;
-                border-radius:7px;
-              }
-
-              .box small {
-                display:block;
-                color:#71879b;
-                margin-bottom:4px;
-              }
-
-              table {
-                width:100%;
-                border-collapse:collapse;
-                margin-top:20px;
-              }
-
-              th,
-              td {
-                border:1px solid #dceefa;
-                padding:13px;
-                text-align:left;
-              }
-
-              th {
-                background:#0876df;
-                color:white;
-              }
-
-              .total {
-                margin-top:20px;
-                text-align:right;
-                font-size:24px;
-                font-weight:bold;
-                color:#0876df;
-              }
-
-              .warranty {
-                margin-top:25px;
-                background:#e8f8ec;
-                color:#24733a;
-                padding:12px;
-                text-align:center;
-                border-radius:7px;
-                font-weight:bold;
-              }
-
-              .footer {
-                margin-top:30px;
-                border-top:1px solid #dceefa;
-                padding-top:18px;
-                text-align:center;
-                color:#607891;
-              }
-
-              .print-btn {
-                margin-top:25px;
-                background:#0876df;
-                color:white;
-                border:none;
-                padding:13px 22px;
-                border-radius:7px;
-                cursor:pointer;
-                font-weight:bold;
-              }
-
-              @media print {
-
-                body {
-                  padding:0;
-                  background:white;
-                }
-
-                .invoice {
-                  box-shadow:none;
-                  max-width:none;
-                }
-
-                .print-btn {
-                  display:none;
-                }
-
-              }
-
-            </style>
-
-          </head>
-
-
-          <body>
-
-            <div class="invoice">
-
-
-              <div class="header">
-
-                <div>
-
-                  <h1>
-                    Smart Cool & Refrigerator
-                  </h1>
-
-                  <p>
-                    AC • Refrigerator • Water Dispenser • Electrician
-                  </p>
-
-                  <p>
-                    All Over Karachi
-                  </p>
-
-                </div>
-
-
-                <div class="logo">
-
-                  <img
-                    src="Logo.png"
-                    alt="Logo">
-
-                </div>
-
-              </div>
-
-
-              <div class="info">
-
-
-                <div class="box">
-
-                  <small>
-                    Customer Name
-                  </small>
-
-                  <strong>
-                    ${escapeHtml(
-                      booking.customerName || "—"
-                    )}
-                  </strong>
-
-                </div>
-
-
-                <div class="box">
-
-                  <small>
-                    Phone
-                  </small>
-
-                  <strong>
-                    ${escapeHtml(
-                      booking.customerPhone || "—"
-                    )}
-                  </strong>
-
-                </div>
-
-
-                <div class="box">
-
-                  <small>
-                    Tracking / Booking ID
-                  </small>
-
-                  <strong>
-                    ${escapeHtml(trackingId)}
-                  </strong>
-
-                </div>
-
-
-                <div class="box">
-
-                  <small>
-                    Invoice Date
-                  </small>
-
-                  <strong>
-                    ${escapeHtml(invoiceDate)}
-                  </strong>
-
-                </div>
-
-
-                <div class="box">
-
-                  <small>
-                    Area
-                  </small>
-
-                  <strong>
-                    ${escapeHtml(
-                      booking.area || "—"
-                    )}
-                  </strong>
-
-                </div>
-
-
-                <div class="box">
-
-                  <small>
-                    Status
-                  </small>
-
-                  <strong>
-                    ${escapeHtml(
-                      booking.status || "Completed"
-                    )}
-                  </strong>
-
-                </div>
-
-
-              </div>
-
-
-              <table>
-
-                <thead>
-
-                  <tr>
-
-                    <th>
-                      Service
-                    </th>
-
-                    <th>
-                      Description
-                    </th>
-
-                    <th>
-                      Amount
-                    </th>
-
-                  </tr>
-
-                </thead>
-
-
-                <tbody>
-
-                  <tr>
-
-                    <td>
-                      ${escapeHtml(
-                        booking.service || "Service"
-                      )}
-                    </td>
-
-                    <td>
-                      ${escapeHtml(
-                        booking.problem ||
-                        "Service completed"
-                      )}
-                    </td>
-
-                    <td>
-                      Rs. ${amount.toLocaleString()}
-                    </td>
-
-                  </tr>
-
-                </tbody>
-
-              </table>
-
-
-              <div class="total">
-
-                Total:
-                Rs. ${amount.toLocaleString()}
-
-              </div>
-
-
-              <div class="warranty">
-
-                1 Month Warranty on eligible repair services
-
-              </div>
-
-
-              <div class="footer">
-
-                <strong>
-                  Muhammad Rizwan
-                </strong>
-
-                <br>
-
-                0320 8463110
-
-                <br>
-
-                All Over Karachi
-
-                <br><br>
-
-                Thank you for choosing
-                Smart Cool & Refrigerator.
-
-              </div>
-
-
-              <div style="text-align:center;">
-
-                <button
-                  class="print-btn"
-                  onclick="window.print()">
-
-                  Print / Save as PDF
-
-                </button>
-
-              </div>
-
-
-            </div>
-
-          </body>
-
-          </html>
-
-        `);
-
-        invoiceWindow.document.close();
+        window.open(
+          "tracking.html?invoice=" +
+          encodeURIComponent(invoiceToken),
+          "_blank"
+        );
 
       };
+
+
+    window.openCustomerInvoice =
+      window.printCustomerInvoice;
 
 
     function escapeHtml(value) {
