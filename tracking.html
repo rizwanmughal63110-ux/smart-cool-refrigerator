@@ -1938,140 +1938,147 @@
 
     }
 
-    /* =========================
-       PRINT / SAVE PDF
-    ========================== */
+/* =========================
+   PRINT / SAVE PDF
+========================= */
 
-    @media print {
+@media print {
 
-      html,
-      body {
+  html,
+  body {
+    background: #ffffff !important;
+    color: #172033 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: auto !important;
+  }
 
-        background: white !important;
+  /* Hide website elements */
+  .header,
+  .heading,
+  .track-form,
+  .how,
+  .whatsapp,
+  .footer,
+  .invoice-link-note,
+  .invoice-actions,
+  #message {
+    display: none !important;
+  }
 
-        color: #172033 !important;
+  .page {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
+  }
 
-        min-height: auto !important;
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-      }
+  /*
+   * IMPORTANT:
+   * Do NOT hide .track-box.
+   * The invoice is inside .track-box.
+   */
+  .track-box {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 
-      .header,
-      .track-box,
-      .heading,
-      .how,
-      .whatsapp,
-      .footer,
-      .invoice-link-note,
-      .invoice-actions,
-      #message {
+    background: #ffffff !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
 
-        display: none !important;
+  #result {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-      }
+  .full-invoice {
+    display: block !important;
 
-      .page {
+    width: 100% !important;
+    max-width: none !important;
 
-        padding: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 
-        min-height: auto !important;
+    background: #ffffff !important;
+    color: #172033 !important;
 
-      }
+    border-radius: 0 !important;
+    border: 0 !important;
 
-      .container {
+    box-shadow: none !important;
 
-        max-width: none !important;
+    overflow: visible !important;
+  }
 
-        width: 100% !important;
+  .invoice-header {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 
-        margin: 0 !important;
+  .invoice-table th {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 
-      }
+  .summary-total {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 
-      #result {
+  .invoice-table .grand-row td {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 
-        margin: 0 !important;
+  .invoice-info-box {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
 
-        padding: 0 !important;
+  .invoice-table tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
 
-      }
+  .invoice-notes {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
 
-      .full-invoice {
+  .invoice-status-row {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
 
-        display: block !important;
+  .invoice-footer {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
 
-        margin: 0 !important;
+  img {
+    max-width: 100% !important;
+  }
 
-        width: 100% !important;
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
 
-        max-width: none !important;
-
-        border-radius: 0 !important;
-
-        box-shadow: none !important;
-
-        overflow: visible !important;
-
-      }
-
-      .invoice-header {
-
-        -webkit-print-color-adjust: exact;
-
-        print-color-adjust: exact;
-
-      }
-
-      .invoice-table th {
-
-        -webkit-print-color-adjust: exact;
-
-        print-color-adjust: exact;
-
-      }
-
-      .summary-total {
-
-        -webkit-print-color-adjust: exact;
-
-        print-color-adjust: exact;
-
-      }
-
-      .invoice-table .grand-row td {
-
-        -webkit-print-color-adjust: exact;
-
-        print-color-adjust: exact;
-
-      }
-
-      .invoice-info-box {
-
-        break-inside: avoid;
-
-      }
-
-      .invoice-table tr {
-
-        break-inside: avoid;
-
-      }
-
-      .invoice-notes {
-
-        break-inside: avoid;
-
-      }
-
-      @page {
-
-        size: A4;
-
-        margin: 10mm;
-
-      }
-
-    }
+}
 
   </style>
 
