@@ -1,1149 +1,1232 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Smart Cool & Refrigerator | Admin Panel</title>
-
-<meta name="theme-color" content="#087ea4">
-
-<style>
-:root{
-  --primary:#087ea4;
-  --primary-dark:#064861;
-  --secondary:#12b8d4;
-  --bg:#f4f9fc;
-  --card:#ffffff;
-  --text:#17313b;
-  --muted:#6b7f87;
-  --border:#dce9ee;
-  --success:#16834b;
-  --warning:#b77900;
-  --danger:#c73737;
-  --shadow:0 10px 30px rgba(0,60,80,.10);
-  --radius:16px;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-
-button,
-input,
-select,
-textarea{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.hidden{
-  display:none!important;
-}
-
-/* LOGIN */
-
-#loginScreen{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  background:
-    radial-gradient(circle at top right,rgba(18,184,212,.22),transparent 35%),
-    linear-gradient(135deg,#064861,#087ea4);
-}
-
-.login-card{
-  width:100%;
-  max-width:430px;
-  background:#fff;
-  border-radius:24px;
-  padding:32px 26px;
-  box-shadow:0 25px 60px rgba(0,0,0,.20);
-}
-
-.login-logo{
-  width:90px;
-  height:90px;
-  object-fit:contain;
-  display:block;
-  margin:0 auto 15px;
-}
-
-.login-card h1{
-  text-align:center;
-  margin:0 0 7px;
-  font-size:25px;
-  color:var(--primary-dark);
-}
-
-.login-card .subtitle{
-  text-align:center;
-  color:var(--muted);
-  margin:0 0 25px;
-}
-
-.form-group{
-  margin-bottom:15px;
-}
-
-.form-group label{
-  display:block;
-  margin-bottom:7px;
-  font-size:14px;
-  font-weight:700;
-}
-
-.form-control{
-  width:100%;
-  padding:13px 14px;
-  border:1px solid var(--border);
-  border-radius:10px;
-  outline:none;
-  background:#fff;
-  color:var(--text);
-  transition:.2s;
-}
-
-.form-control:focus{
-  border-color:var(--secondary);
-  box-shadow:0 0 0 3px rgba(18,184,212,.12);
-}
-
-.primary-btn{
-  width:100%;
-  border:0;
-  border-radius:11px;
-  padding:14px;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  color:#fff;
-  font-weight:700;
-  transition:.2s;
-}
-
-.primary-btn:hover{
-  transform:translateY(-1px);
-}
-
-.error-box{
-  margin-top:15px;
-  padding:11px 13px;
-  border-radius:10px;
-  background:#fff0f0;
-  color:var(--danger);
-  border:1px solid #ffd0d0;
-  font-size:14px;
-}
-
-/* APP */
-
-#app{
-  min-height:100vh;
-}
-
-.topbar{
-  background:var(--primary-dark);
-  color:#fff;
-  padding:10px 18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  font-size:13px;
-}
-
-.topbar-right{
-  display:flex;
-  align-items:center;
-  gap:12px;
-}
-
-.logout-btn{
-  border:1px solid rgba(255,255,255,.35);
-  background:transparent;
-  color:#fff;
-  border-radius:8px;
-  padding:7px 11px;
-}
-
-.header{
-  background:#fff;
-  border-bottom:1px solid var(--border);
-  position:sticky;
-  top:0;
-  z-index:20;
-}
-
-.header-inner{
-  max-width:1400px;
-  margin:auto;
-  padding:14px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.brand img{
-  width:45px;
-  height:45px;
-  object-fit:contain;
-}
-
-.brand-title{
-  font-size:18px;
-  font-weight:800;
-  color:var(--primary-dark);
-}
-
-.brand-sub{
-  font-size:11px;
-  color:var(--muted);
-}
-
-.container{
-  width:min(1400px,calc(100% - 30px));
-  margin:24px auto;
-}
-
-/* DASHBOARD */
-
-.page-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  margin-bottom:20px;
-}
-
-.page-title h2{
-  margin:0;
-  color:var(--primary-dark);
-}
-
-.page-title p{
-  margin:5px 0 0;
-  color:var(--muted);
-  font-size:14px;
-}
-
-.refresh-btn{
-  border:1px solid var(--border);
-  background:#fff;
-  color:var(--primary-dark);
-  padding:10px 14px;
-  border-radius:10px;
-  font-weight:700;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:14px;
-  margin-bottom:22px;
-}
-
-.stat{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:18px;
-  box-shadow:var(--shadow);
-}
-
-.stat-label{
-  font-size:13px;
-  color:var(--muted);
-  margin-bottom:8px;
-}
-
-.stat-value{
-  font-size:27px;
-  font-weight:800;
-  color:var(--primary-dark);
-}
-
-/* TOOLBAR */
-
-.toolbar{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:15px;
-  display:grid;
-  grid-template-columns:1.5fr 1fr 1fr auto;
-  gap:10px;
-  margin-bottom:18px;
-  box-shadow:var(--shadow);
-}
-
-.toolbar input,
-.toolbar select{
-  width:100%;
-  padding:11px 12px;
-  border:1px solid var(--border);
-  border-radius:9px;
-  outline:none;
-}
-
-.clear-btn{
-  border:1px solid var(--border);
-  background:#fff;
-  border-radius:9px;
-  padding:10px 14px;
-}
-
-/* BOOKINGS */
-
-.booking-list{
-  display:grid;
-  gap:15px;
-}
-
-.booking-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:18px;
-  box-shadow:var(--shadow);
-}
-
-.booking-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:15px;
-  margin-bottom:14px;
-}
-
-.booking-id{
-  font-weight:800;
-  color:var(--primary-dark);
-}
-
-.booking-date{
-  font-size:12px;
-  color:var(--muted);
-  margin-top:4px;
-}
-
-.status{
-  display:inline-flex;
-  padding:6px 10px;
-  border-radius:30px;
-  font-size:12px;
-  font-weight:800;
-  white-space:nowrap;
-}
-
-.status-pending{
-  background:#fff4d8;
-  color:#9b6900;
-}
-
-.status-confirmed{
-  background:#e1f4ff;
-  color:#056a9a;
-}
-
-.status-progress{
-  background:#e9e4ff;
-  color:#6543a6;
-}
-
-.status-completed{
-  background:#dcf7e8;
-  color:#087343;
-}
-
-.status-cancelled{
-  background:#ffe4e4;
-  color:#ae2424;
-}
-
-.booking-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-bottom:15px;
-}
-
-.info-box{
-  background:#f7fbfd;
-  border-radius:10px;
-  padding:11px;
-}
-
-.info-label{
-  font-size:11px;
-  color:var(--muted);
-  margin-bottom:4px;
-}
-
-.info-value{
-  font-size:14px;
-  font-weight:700;
-  word-break:break-word;
-}
-
-.booking-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  border-top:1px solid var(--border);
-  padding-top:14px;
-}
-
-.btn{
-  border:0;
-  border-radius:9px;
-  padding:9px 13px;
-  font-weight:700;
-  font-size:13px;
-}
-
-.btn-primary{
-  background:var(--primary);
-  color:#fff;
-}
-
-.btn-success{
-  background:var(--success);
-  color:#fff;
-}
-
-.btn-warning{
-  background:#f4c34f;
-  color:#3d2c00;
-}
-
-.btn-danger{
-  background:var(--danger);
-  color:#fff;
-}
-
-.btn-light{
-  background:#edf5f8;
-  color:var(--primary-dark);
-}
-
-.status-select{
-  border:1px solid var(--border);
-  border-radius:9px;
-  padding:8px 10px;
-  background:#fff;
-}
-
-/* EMPTY / LOADING */
-
-.center-message{
-  text-align:center;
-  padding:45px 20px;
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  color:var(--muted);
-}
-
-/* MODAL */
-
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:100;
-  background:rgba(0,20,30,.68);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:15px;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal-box{
-  width:min(1100px,100%);
-  max-height:94vh;
-  overflow:auto;
-  background:#fff;
-  border-radius:20px;
-  box-shadow:0 25px 70px rgba(0,0,0,.3);
-}
-
-.modal-header{
-  position:sticky;
-  top:0;
-  z-index:2;
-  background:#fff;
-  border-bottom:1px solid var(--border);
-  padding:16px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-}
-
-.modal-header h3{
-  margin:0;
-  color:var(--primary-dark);
-}
-
-.close-btn{
-  width:36px;
-  height:36px;
-  border:0;
-  border-radius:50%;
-  background:#edf5f8;
-  color:var(--primary-dark);
-  font-size:20px;
-}
-
-.modal-body{
-  padding:20px;
-}
-
-/* INVOICE FORM */
-
-.invoice-section{
-  margin-bottom:22px;
-}
-
-.invoice-section h4{
-  margin:0 0 12px;
-  color:var(--primary-dark);
-  font-size:16px;
-  padding-bottom:8px;
-  border-bottom:1px solid var(--border);
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-
-.form-grid.two{
-  grid-template-columns:repeat(2,1fr);
-}
-
-.full{
-  grid-column:1/-1;
-}
-
-textarea.form-control{
-  min-height:90px;
-  resize:vertical;
-}
-
-.money-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-
-.total-box{
-  margin-top:15px;
-  background:#f1f9fc;
-  border:1px solid #cde9f1;
-  border-radius:14px;
-  padding:15px;
-}
-
-.total-row{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  padding:6px 0;
-}
-
-.total-row.grand{
-  border-top:2px solid #b9dfe8;
-  margin-top:7px;
-  padding-top:12px;
-  font-size:20px;
-  font-weight:900;
-  color:var(--primary-dark);
-}
-
-.balance-positive{
-  color:var(--danger);
-  font-weight:800;
-}
-
-.balance-zero{
-  color:var(--success);
-  font-weight:800;
-}
-
-.invoice-footer-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  justify-content:flex-end;
-  border-top:1px solid var(--border);
-  padding-top:17px;
-}
-
-/* INVOICE PRINT */
-
-#printArea{
-  display:none;
-}
-
-.invoice-paper{
-  width:210mm;
-  min-height:297mm;
-  background:#fff;
-  padding:15mm;
-  margin:auto;
-  color:#152a31;
-}
-
-.invoice-top{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  border-bottom:3px solid #087ea4;
-  padding-bottom:15px;
-}
-
-.invoice-company{
-  display:flex;
-  gap:12px;
-  align-items:center;
-}
-
-.invoice-company img{
-  width:70px;
-  height:70px;
-  object-fit:contain;
-}
-
-.invoice-company h1{
-  margin:0;
-  font-size:25px;
-  color:#064861;
-}
-
-.invoice-company p{
-  margin:4px 0;
-  font-size:12px;
-}
-
-.invoice-meta{
-  text-align:right;
-}
-
-.invoice-meta h2{
-  margin:0 0 7px;
-  color:#087ea4;
-}
-
-.invoice-meta p{
-  margin:3px 0;
-  font-size:12px;
-}
-
-.invoice-customer{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-  margin:20px 0;
-}
-
-.invoice-info{
-  border:1px solid #d9e6ea;
-  border-radius:8px;
-  padding:10px;
-}
-
-.invoice-info strong{
-  display:block;
-  color:#064861;
-  margin-bottom:6px;
-}
-
-.invoice-info p{
-  margin:3px 0;
-  font-size:12px;
-}
-
-.invoice-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-top:12px;
-}
-
-.invoice-table th,
-.invoice-table td{
-  border:1px solid #d7e3e7;
-  padding:8px;
-  font-size:12px;
-}
-
-.invoice-table th{
-  background:#eef7fa;
-  text-align:left;
-}
-
-.invoice-table td:last-child,
-.invoice-table th:last-child{
-  text-align:right;
-}
-
-.invoice-summary{
-  width:300px;
-  max-width:100%;
-  margin:15px 0 15px auto;
-}
-
-.invoice-summary-row{
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid #e3eaec;
-  padding:6px 0;
-  font-size:12px;
-}
-
-.invoice-summary-row.total{
-  font-size:17px;
-  font-weight:900;
-  color:#064861;
-  border-bottom:2px solid #087ea4;
-}
-
-.invoice-notes{
-  margin-top:20px;
-  border:1px solid #d9e6ea;
-  border-radius:8px;
-  padding:10px;
-}
-
-.invoice-notes h4{
-  margin:0 0 7px;
-  color:#064861;
-}
-
-.invoice-notes p{
-  white-space:pre-wrap;
-  font-size:12px;
-  margin:4px 0;
-}
-
-.invoice-thanks{
-  text-align:center;
-  margin-top:25px;
-  font-size:12px;
-  color:#64777e;
-}
-
-@media print{
-  body *{
-    visibility:hidden!important;
-  }
-
-  #printArea,
-  #printArea *{
-    visibility:visible!important;
-  }
-
-  #printArea{
-    display:block!important;
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-  }
-
-  .invoice-paper{
-    margin:0;
-    box-shadow:none;
-  }
-
-  @page{
-    size:A4;
-    margin:0;
-  }
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1050px){
-  .stats{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .booking-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .toolbar{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .money-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:700px){
-  .topbar{
-    padding:9px 12px;
-  }
-
-  .topbar-right{
-    flex-direction:column;
-    align-items:flex-end;
-    gap:5px;
-  }
-
-  .header-inner{
-    padding:11px 12px;
-  }
-
-  .brand-title{
-    font-size:15px;
-  }
-
-  .container{
-    width:min(100% - 20px,1400px);
-    margin:16px auto;
-  }
-
-  .stats{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .stat{
-    padding:14px;
-  }
-
-  .stat-value{
-    font-size:22px;
-  }
-
-  .page-title{
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .toolbar{
-    grid-template-columns:1fr;
-  }
-
-  .booking-head{
-    flex-direction:column;
-  }
-
-  .booking-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .form-grid,
-  .form-grid.two{
-    grid-template-columns:1fr;
-  }
-
-  .money-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .modal-body{
-    padding:14px;
-  }
-
-  .invoice-footer-actions{
-    justify-content:stretch;
-  }
-
-  .invoice-footer-actions .btn{
-    flex:1;
-  }
-}
-
-@media(max-width:450px){
-  .booking-grid{
-    grid-template-columns:1fr;
-  }
-
-  .money-grid{
-    grid-template-columns:1fr;
-  }
-
-  .stats{
-    grid-template-columns:1fr 1fr;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Smart Cool & Refrigerator | Admin Panel</title>
+
+  <meta name="description"
+    content="Smart Cool & Refrigerator Admin Panel - Manage bookings, invoices and customer service requests.">
+
+  <style>
+    :root {
+      --primary: #087ea4;
+      --primary-dark: #064861;
+      --secondary: #12b8d4;
+      --bg: #f4f9fc;
+      --white: #ffffff;
+      --text: #173042;
+      --muted: #718596;
+      --border: #dce8ef;
+      --success: #159957;
+      --warning: #e69a00;
+      --danger: #d83a3a;
+      --shadow: 0 10px 30px rgba(6, 72, 97, .10);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* =========================
+       LOGIN
+    ========================= */
+
+    .login-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background:
+        radial-gradient(circle at top left, rgba(18, 184, 212, .20), transparent 35%),
+        linear-gradient(135deg, #eaf8fc, #f7fbfd);
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 430px;
+      background: var(--white);
+      border-radius: 24px;
+      padding: 35px 28px;
+      box-shadow: 0 20px 60px rgba(6, 72, 97, .14);
+      border: 1px solid rgba(8, 126, 164, .08);
+    }
+
+    .login-logo {
+      display: block;
+      width: 110px;
+      height: 110px;
+      object-fit: contain;
+      margin: 0 auto 18px;
+    }
+
+    .login-title {
+      text-align: center;
+      color: var(--primary-dark);
+      font-size: 27px;
+      margin-bottom: 5px;
+    }
+
+    .login-subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .login-error {
+      background: #fff0f0;
+      color: var(--danger);
+      border: 1px solid #ffd0d0;
+      padding: 10px 12px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      font-size: 13px;
+    }
+
+    /* =========================
+       COMMON
+    ========================= */
+
+    .container {
+      width: min(1400px, calc(100% - 30px));
+      margin: auto;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 15px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: #edf6fa;
+      color: var(--primary-dark);
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: #fff;
+    }
+
+    .btn-warning {
+      background: var(--warning);
+      color: #fff;
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn-light {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-sm {
+      padding: 7px 10px;
+      font-size: 12px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #3c5363;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 12px;
+      outline: none;
+      background: #fff;
+      color: var(--text);
+      transition: .2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(18, 184, 212, .10);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 85px;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .topbar {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, .10);
+    }
+
+    .topbar-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 12px;
+      padding: 4px;
+    }
+
+    .brand h1 {
+      font-size: 19px;
+      line-height: 1.15;
+    }
+
+    .brand small {
+      opacity: .80;
+      font-size: 11px;
+    }
+
+    /* =========================
+       DASHBOARD
+    ========================= */
+
+    .dashboard {
+      padding: 25px 0 50px;
+    }
+
+    .welcome {
+      margin-bottom: 20px;
+    }
+
+    .welcome h2 {
+      color: var(--primary-dark);
+      margin-bottom: 3px;
+    }
+
+    .welcome p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .3px;
+    }
+
+    .stat-value {
+      color: var(--primary-dark);
+      font-size: 28px;
+      font-weight: 800;
+      margin-top: 4px;
+    }
+
+    .toolbar {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 15px;
+      display: grid;
+      grid-template-columns: 1.7fr .8fr auto;
+      gap: 10px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .bookings {
+      display: grid;
+      gap: 15px;
+    }
+
+    .booking-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .booking-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .booking-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .booking-id {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .status-pending {
+      background: #fff3d6;
+      color: #a96c00;
+    }
+
+    .status-confirmed {
+      background: #e5f5ff;
+      color: #087ea4;
+    }
+
+    .status-progress {
+      background: #e9e7ff;
+      color: #6256c9;
+    }
+
+    .status-completed {
+      background: #e3f8ec;
+      color: #137744;
+    }
+
+    .status-cancelled,
+    .status-rejected {
+      background: #ffe7e7;
+      color: #bd2929;
+    }
+
+    .booking-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .info-box {
+      background: #f7fbfd;
+      border: 1px solid #e5eff4;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .info-box span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .info-box strong {
+      font-size: 13px;
+      word-break: break-word;
+    }
+
+    .booking-message {
+      background: #f9fcfd;
+      border-left: 3px solid var(--secondary);
+      padding: 10px 12px;
+      border-radius: 7px;
+      margin-bottom: 15px;
+      font-size: 13px;
+    }
+
+    .booking-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .booking-actions select {
+      width: auto;
+      min-width: 145px;
+      padding: 8px 10px;
+    }
+
+    .invoice-mini {
+      margin-left: auto;
+      font-size: 12px;
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    .empty {
+      background: #fff;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 35, 48, .68);
+      z-index: 100;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 25px 15px;
+      overflow-y: auto;
+    }
+
+    .modal-box {
+      width: min(1050px, 100%);
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .25);
+      overflow: hidden;
+      margin: auto;
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #fff;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .modal-header h3 {
+      font-size: 20px;
+    }
+
+    .close-btn {
+      border: 0;
+      background: rgba(255, 255, 255, .15);
+      color: #fff;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      font-size: 22px;
+    }
+
+    .invoice-form {
+      padding: 20px;
+    }
+
+    .form-section {
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 17px;
+      margin-bottom: 15px;
+      background: #fff;
+    }
+
+    .section-title {
+      color: var(--primary-dark);
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 13px;
+      padding-bottom: 9px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+    }
+
+    /* =========================
+       PARTS
+    ========================= */
+
+    .parts-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .parts-header label {
+      font-size: 15px;
+      color: var(--primary-dark);
+    }
+
+    .part-row {
+      display: grid;
+      grid-template-columns: 45px 1fr 180px 42px;
+      gap: 8px;
+      align-items: center;
+      padding: 9px;
+      background: #f7fbfd;
+      border: 1px solid #e2edf2;
+      border-radius: 11px;
+      margin-bottom: 8px;
+    }
+
+    .part-number {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e6f5fa;
+      color: var(--primary-dark);
+      border-radius: 9px;
+      font-weight: 800;
+      font-size: 12px;
+    }
+
+    .part-row input {
+      background: #fff;
+    }
+
+    .remove-part {
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 9px;
+      background: #ffe9e9;
+      color: var(--danger);
+      font-weight: 800;
+      font-size: 17px;
+    }
+
+    .parts-total-box {
+      margin-top: 10px;
+      padding: 12px 14px;
+      background: #eaf8fc;
+      border: 1px solid #ccecf4;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .parts-total-box span {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .parts-total-box strong {
+      font-size: 17px;
+      color: var(--primary-dark);
+    }
+
+    /* =========================
+       TOTALS
+    ========================= */
+
+    .totals-box {
+      margin-top: 5px;
+      margin-left: auto;
+      width: min(430px, 100%);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 10px 14px;
+      border-bottom: 1px solid #edf2f5;
+      font-size: 13px;
+    }
+
+    .total-row:last-child {
+      border-bottom: 0;
+    }
+
+    .total-row.grand {
+      background: linear-gradient(135deg, #e7f8fc, #f5fcfe);
+      color: var(--primary-dark);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .total-row.balance {
+      background: #fff7e5;
+      color: #925d00;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .invoice-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      padding: 0 20px 20px;
+    }
+
+    /* =========================
+       PRINT AREA
+    ========================= */
+
+    #printArea {
+      display: none;
+    }
+
+    .invoice-paper {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: #fff;
+      color: #172f3d;
+      padding: 13mm;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .invoice-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      border-bottom: 3px solid #087ea4;
+      padding-bottom: 15px;
+      margin-bottom: 17px;
+    }
+
+    .invoice-company {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .invoice-company img {
+      width: 62px;
+      height: 62px;
+      object-fit: contain;
+    }
+
+    .invoice-company h1 {
+      color: #064861;
+      font-size: 23px;
+      margin-bottom: 2px;
+    }
+
+    .invoice-company p {
+      font-size: 11px;
+      color: #637a88;
+    }
+
+    .invoice-title {
+      text-align: right;
+    }
+
+    .invoice-title h2 {
+      color: #087ea4;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .invoice-badge {
+      display: inline-block;
+      margin-top: 5px;
+      background: #e8f7fb;
+      color: #087ea4;
+      border-radius: 6px;
+      padding: 5px 9px;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .invoice-meta {
+      margin-top: 7px;
+      font-size: 10px;
+      color: #657b87;
+    }
+
+    .print-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .print-card {
+      border: 1px solid #dce8ed;
+      border-radius: 9px;
+      padding: 11px;
+    }
+
+    .print-card h4 {
+      color: #087ea4;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      margin-bottom: 7px;
+    }
+
+    .print-card p {
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .print-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .print-table th {
+      background: #064861;
+      color: #fff;
+      padding: 8px;
+      text-align: left;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    .print-table td {
+      padding: 8px;
+      border-bottom: 1px solid #e1e8eb;
+      font-size: 11px;
+    }
+
+    .print-table th:last-child,
+    .print-table td:last-child {
+      text-align: right;
+    }
+
+    .print-table .section-row td {
+      background: #f1f8fa;
+      color: #064861;
+      font-weight: 800;
+      font-size: 10px;
+    }
+
+    .print-summary {
+      width: 45%;
+      margin: 15px 0 0 auto;
+      border: 1px solid #dce8ed;
+      border-radius: 9px;
+      overflow: hidden;
+    }
+
+    .print-summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 10px;
+      border-bottom: 1px solid #e7edef;
+      font-size: 11px;
+    }
+
+    .print-summary-row:last-child {
+      border-bottom: 0;
+    }
+
+    .print-summary-row.grand {
+      background: #eaf8fc;
+      color: #064861;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .print-summary-row.balance {
+      background: #fff5dd;
+      color: #8b5c00;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .print-note-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 17px;
+    }
+
+    .print-note {
+      border: 1px solid #dce8ed;
+      border-radius: 9px;
+      padding: 10px;
+      min-height: 65px;
+    }
+
+    .print-note h4 {
+      font-size: 10px;
+      color: #087ea4;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .print-note p {
+      font-size: 10px;
+      white-space: pre-wrap;
+    }
+
+    .warranty-box {
+      margin-top: 14px;
+      border: 1px solid #b9dfc8;
+      background: #effaf3;
+      border-radius: 8px;
+      padding: 9px 11px;
+      color: #176d3d;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .print-footer {
+      margin-top: 22px;
+      padding-top: 10px;
+      border-top: 1px solid #dce8ed;
+      text-align: center;
+      color: #71838c;
+      font-size: 9px;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1000px) {
+      .stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .booking-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 20px, 1400px);
+      }
+
+      .topbar-inner {
+        min-height: 65px;
+      }
+
+      .brand h1 {
+        font-size: 15px;
+      }
+
+      .brand small {
+        font-size: 9px;
+      }
+
+      .brand img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-top {
+        flex-direction: column;
+      }
+
+      .booking-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .booking-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .booking-actions select {
+        width: 100%;
+      }
+
+      .invoice-mini {
+        margin-left: 0;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .part-row {
+        grid-template-columns: 35px 1fr 42px;
+      }
+
+      .part-row .part-amount-wrap {
+        grid-column: 2 / 3;
+      }
+
+      .part-row .remove-part {
+        grid-column: 3;
+        grid-row: 1 / 3;
+      }
+
+      .modal {
+        padding: 8px;
+      }
+
+      .invoice-form {
+        padding: 12px;
+      }
+
+      .form-section {
+        padding: 13px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+
+      .stat-card {
+        padding: 13px;
+      }
+
+      .stat-value {
+        font-size: 22px;
+      }
+
+      .booking-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =========================
+       PRINT
+    ========================= */
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      body {
+        background: #fff !important;
+      }
+
+      body * {
+        visibility: hidden !important;
+      }
+
+      #printArea,
+      #printArea * {
+        visibility: visible !important;
+      }
+
+      #printArea {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+
+      .invoice-paper {
+        width: 210mm;
+        min-height: 297mm;
+        padding: 13mm;
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
+  <!-- =========================
+       LOGIN
+  ========================= -->
 
-<section id="loginScreen">
+  <section id="loginScreen" class="login-screen">
+    <div class="login-card">
 
-  <div class="login-card">
+      <img src="Logo.png" class="login-logo" alt="Smart Cool & Refrigerator">
 
-    <img src="Logo.png" class="login-logo" alt="Smart Cool">
+      <h1 class="login-title">Admin Panel</h1>
+      <p class="login-subtitle">Smart Cool & Refrigerator</p>
 
-    <h1>Owner Admin Panel</h1>
+      <div id="loginError" class="login-error hidden"></div>
 
-    <p class="subtitle">
-      Smart Cool & Refrigerator
-    </p>
+      <form id="loginForm">
 
-    <form id="loginForm">
+        <div class="form-group" style="margin-bottom:14px;">
+          <label for="loginEmail">Admin Email</label>
+          <input type="email" id="loginEmail" placeholder="Enter admin email" required>
+        </div>
 
-      <div class="form-group">
-        <label for="loginEmail">Admin Email</label>
-        <input
-          id="loginEmail"
-          class="form-control"
-          type="email"
-          autocomplete="username"
-          placeholder="Enter admin email"
-          required
-        >
+        <div class="form-group" style="margin-bottom:18px;">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;">
+          Login to Admin Panel
+        </button>
+
+      </form>
+
+    </div>
+  </section>
+
+
+  <!-- =========================
+       APP
+  ========================= -->
+
+  <div id="app" class="hidden">
+
+    <header class="topbar">
+      <div class="container topbar-inner">
+
+        <div class="brand">
+          <img src="Logo.png" alt="Logo">
+          <div>
+            <h1>Smart Cool & Refrigerator</h1>
+            <small>Admin Management Panel</small>
+          </div>
+        </div>
+
+        <button class="btn btn-light btn-sm" onclick="ownerLogout()">
+          Logout
+        </button>
+
+      </div>
+    </header>
+
+
+    <main class="dashboard">
+
+      <div class="container">
+
+        <div class="welcome">
+          <h2>Dashboard</h2>
+          <p>Manage bookings, service requests and professional invoices.</p>
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+          <div class="stat-card">
+            <div class="stat-label">Total Bookings</div>
+            <div class="stat-value" id="statTotal">0</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Pending</div>
+            <div class="stat-value" id="statPending">0</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">In Progress</div>
+            <div class="stat-value" id="statProgress">0</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Completed</div>
+            <div class="stat-value" id="statCompleted">0</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-label">Invoice Revenue</div>
+            <div class="stat-value" id="statRevenue">Rs 0</div>
+          </div>
+
+        </div>
+
+
+        <!-- TOOLBAR -->
+
+        <div class="toolbar">
+
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search customer, phone, tracking ID, service..."
+            oninput="renderRequests()">
+
+          <select id="statusFilter" onchange="renderRequests()">
+            <option value="">All Status</option>
+            <option value="Pending">Pending</option>
+            <option value="Confirmed">Confirmed</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+
+          <button class="btn btn-secondary" onclick="clearFilters()">
+            Clear
+          </button>
+
+        </div>
+
+
+        <div id="bookings" class="bookings">
+          <div class="empty">Loading bookings...</div>
+        </div>
+
       </div>
 
-      <div class="form-group">
-        <label for="loginPassword">Password</label>
-        <input
-          id="loginPassword"
-          class="form-control"
-          type="password"
-          autocomplete="current-password"
-          placeholder="Enter password"
-          required
-        >
-      </div>
-
-      <button class="primary-btn" type="submit" id="loginBtn">
-        Sign In
-      </button>
-
-      <div id="loginError" class="error-box hidden"></div>
-
-    </form>
+    </main>
 
   </div>
 
-</section>
 
+  <!-- =========================
+       INVOICE MODAL
+  ========================= -->
 
-<!-- ADMIN APP -->
+  <div id="invoiceModal" class="modal hidden">
 
-<div id="app" class="hidden">
+    <div class="modal-box">
 
-  <div class="topbar">
-    <div>
-      <strong>Smart Cool & Refrigerator</strong>
-      <span> — Owner Panel</span>
-    </div>
-
-    <div class="topbar-right">
-      <span id="loggedEmail"></span>
-      <button class="logout-btn" onclick="ownerLogout()">Logout</button>
-    </div>
-  </div>
-
-
-  <header class="header">
-
-    <div class="header-inner">
-
-      <div class="brand">
-        <img src="Logo.png" alt="Smart Cool Logo">
+      <div class="modal-header">
 
         <div>
-          <div class="brand-title">Smart Cool & Refrigerator</div>
-          <div class="brand-sub">AC • Refrigerator • Water Dispenser • Electrician</div>
+          <h3>Create / Edit Invoice</h3>
         </div>
+
+        <button class="close-btn" onclick="closeInvoice()">×</button>
+
       </div>
 
-    </div>
 
-  </header>
-
-
-  <main class="container">
-
-    <div class="page-title">
-
-      <div>
-        <h2>Admin Dashboard</h2>
-        <p>Manage customer bookings, services and invoices.</p>
-      </div>
-
-      <button class="refresh-btn" onclick="loadRequests()">
-        ↻ Refresh
-      </button>
-
-    </div>
-
-
-    <!-- STATS -->
-
-    <section class="stats">
-
-      <div class="stat">
-        <div class="stat-label">Total Bookings</div>
-        <div class="stat-value" id="statTotal">0</div>
-      </div>
-
-      <div class="stat">
-        <div class="stat-label">Pending</div>
-        <div class="stat-value" id="statPending">0</div>
-      </div>
-
-      <div class="stat">
-        <div class="stat-label">In Progress</div>
-        <div class="stat-value" id="statProgress">0</div>
-      </div>
-
-      <div class="stat">
-        <div class="stat-label">Completed</div>
-        <div class="stat-value" id="statCompleted">0</div>
-      </div>
-
-      <div class="stat">
-        <div class="stat-label">Invoice Revenue</div>
-        <div class="stat-value" id="statRevenue">Rs 0</div>
-      </div>
-
-    </section>
-
-
-    <!-- SEARCH -->
-
-    <section class="toolbar">
-
-      <input
-        id="searchInput"
-        type="search"
-        placeholder="Search name, phone, booking ID..."
-        oninput="renderRequests()"
-      >
-
-      <select id="statusFilter" onchange="renderRequests()">
-        <option value="">All Statuses</option>
-        <option value="Pending">Pending</option>
-        <option value="Confirmed">Confirmed</option>
-        <option value="In Progress">In Progress</option>
-        <option value="Completed">Completed</option>
-        <option value="Cancelled">Cancelled</option>
-      </select>
-
-      <select id="invoiceFilter" onchange="renderRequests()">
-        <option value="">All Invoices</option>
-        <option value="with">Invoice Created</option>
-        <option value="without">No Invoice</option>
-      </select>
-
-      <button class="clear-btn" onclick="clearFilters()">
-        Clear
-      </button>
-
-    </section>
-
-
-    <!-- BOOKINGS -->
-
-    <section id="bookingList" class="booking-list">
-
-      <div class="center-message">
-        Loading bookings...
-      </div>
-
-    </section>
-
-  </main>
-
-</div>
-
-
-<!-- INVOICE MODAL -->
-
-<div id="invoiceModal" class="modal">
-
-  <div class="modal-box">
-
-    <div class="modal-header">
-
-      <h3 id="invoiceModalTitle">Create Professional Invoice</h3>
-
-      <button class="close-btn" onclick="closeInvoice()">
-        ×
-      </button>
-
-    </div>
-
-
-    <div class="modal-body">
-
-      <form id="invoiceForm">
+      <form id="invoiceForm" class="invoice-form">
 
         <input type="hidden" id="invoiceBookingDocId">
-        <input type="hidden" id="invoiceExistingNumber">
 
 
-        <!-- BASIC -->
+        <!-- INVOICE INFO -->
 
-        <div class="invoice-section">
+        <div class="form-section">
 
-          <h4>Invoice Information</h4>
+          <div class="section-title">
+            Invoice Information
+          </div>
 
           <div class="form-grid">
 
             <div class="form-group">
               <label>Invoice Number</label>
-              <input
-                id="invoiceNumber"
-                class="form-control"
-                readonly
-              >
+              <input type="text" id="invoiceNumber">
             </div>
 
             <div class="form-group">
               <label>Invoice Date</label>
-              <input
-                id="invoiceDate"
-                class="form-control"
-                type="date"
-                required
-              >
+              <input type="date" id="invoiceDate">
             </div>
 
             <div class="form-group">
               <label>Service Date</label>
-              <input
-                id="serviceDate"
-                class="form-control"
-                type="date"
-              >
+              <input type="date" id="serviceDate">
             </div>
 
           </div>
@@ -1153,45 +1236,32 @@ textarea.form-control{
 
         <!-- CUSTOMER -->
 
-        <div class="invoice-section">
+        <div class="form-section">
 
-          <h4>Customer Details</h4>
+          <div class="section-title">
+            Customer Details
+          </div>
 
           <div class="form-grid">
 
             <div class="form-group">
               <label>Customer Name</label>
-              <input
-                id="customerName"
-                class="form-control"
-                type="text"
-              >
+              <input type="text" id="customerName" placeholder="Customer name">
             </div>
 
             <div class="form-group">
-              <label>Phone Number</label>
-              <input
-                id="customerPhone"
-                class="form-control"
-                type="text"
-              >
+              <label>Phone / WhatsApp</label>
+              <input type="text" id="customerPhone" placeholder="03xxxxxxxxx">
             </div>
 
             <div class="form-group">
-              <label>Booking / Tracking ID</label>
-              <input
-                id="trackingId"
-                class="form-control"
-                type="text"
-              >
+              <label>Tracking ID</label>
+              <input type="text" id="trackingId" placeholder="Tracking ID">
             </div>
 
             <div class="form-group full">
               <label>Customer Address</label>
-              <textarea
-                id="customerAddress"
-                class="form-control"
-              ></textarea>
+              <textarea id="customerAddress" placeholder="Customer address"></textarea>
             </div>
 
           </div>
@@ -1201,58 +1271,37 @@ textarea.form-control{
 
         <!-- SERVICE -->
 
-        <div class="invoice-section">
+        <div class="form-section">
 
-          <h4>Service Information</h4>
+          <div class="section-title">
+            Service Details
+          </div>
 
           <div class="form-grid">
 
             <div class="form-group">
               <label>Service / Appliance</label>
-              <input
-                id="serviceType"
-                class="form-control"
-                type="text"
-                placeholder="AC Repair / Refrigerator Repair..."
-              >
+              <input type="text" id="serviceType" placeholder="AC Repair">
             </div>
 
             <div class="form-group">
-              <label>AC Tonnage</label>
-              <select id="tonnage" class="form-control">
-                <option value="">Select</option>
-                <option value="1 Ton">1 Ton</option>
-                <option value="1.5 Ton">1.5 Ton</option>
-                <option value="2 Ton">2 Ton</option>
-                <option value="Other">Other</option>
-              </select>
+              <label>Ton / Capacity</label>
+              <input type="text" id="tonnage" placeholder="1 Ton">
             </div>
 
             <div class="form-group">
               <label>Model / Brand</label>
-              <input
-                id="modelBrand"
-                class="form-control"
-                type="text"
-              >
+              <input type="text" id="modelBrand" placeholder="Gree / Dawlance etc.">
             </div>
 
             <div class="form-group full">
               <label>Customer Complaint / Problem</label>
-              <textarea
-                id="customerProblem"
-                class="form-control"
-                placeholder="Customer reported problem..."
-              ></textarea>
+              <textarea id="customerProblem" placeholder="Customer complaint"></textarea>
             </div>
 
             <div class="form-group full">
               <label>Work Performed</label>
-              <textarea
-                id="workPerformed"
-                class="form-control"
-                placeholder="Describe work completed..."
-              ></textarea>
+              <textarea id="workPerformed" placeholder="Describe work completed"></textarea>
             </div>
 
           </div>
@@ -1262,91 +1311,103 @@ textarea.form-control{
 
         <!-- CHARGES -->
 
-        <div class="invoice-section">
+        <div class="form-section">
 
-          <h4>Charges</h4>
+          <div class="section-title">
+            Charges & Materials
+          </div>
 
-          <div class="money-grid">
+
+          <!-- LABOUR -->
+
+          <div class="form-grid" style="margin-bottom:15px;">
 
             <div class="form-group">
-              <label>Labour / Service (Rs)</label>
+              <label>Labour Charges</label>
               <input
+                type="number"
                 id="labour"
-                class="form-control money-input"
-                type="number"
                 min="0"
                 step="1"
-                value="0"
-              >
+                placeholder="Leave blank if none"
+                oninput="calculateInvoice()">
             </div>
 
             <div class="form-group">
-              <label>Parts / Materials (Rs)</label>
+              <label>Gas Charges</label>
               <input
-                id="parts"
-                class="form-control money-input"
                 type="number"
-                min="0"
-                step="1"
-                value="0"
-              >
-            </div>
-
-            <div class="form-group">
-              <label>Gas / Refrigerant (Rs)</label>
-              <input
                 id="gas"
-                class="form-control money-input"
-                type="number"
                 min="0"
                 step="1"
-                value="0"
-              >
+                placeholder="Leave blank if none"
+                oninput="calculateInvoice()">
             </div>
 
             <div class="form-group">
-              <label>Additional Charges (Rs)</label>
+              <label>Additional Charges</label>
               <input
+                type="number"
                 id="additional"
-                class="form-control money-input"
-                type="number"
                 min="0"
                 step="1"
-                value="0"
-              >
+                placeholder="Leave blank if none"
+                oninput="calculateInvoice()">
             </div>
 
           </div>
 
 
-          <div class="form-grid two">
+          <!-- PARTS -->
+
+          <div class="form-group full">
+
+            <div class="parts-header">
+
+              <label>
+                Parts / Materials
+              </label>
+
+              <button
+                type="button"
+                class="btn btn-primary btn-sm"
+                onclick="addPartRow()">
+                + Add Part
+              </button>
+
+            </div>
+
+            <div id="partsContainer"></div>
+
+            <div class="parts-total-box">
+              <span>Parts Total</span>
+              <strong id="partsTotalText">Rs 0</strong>
+            </div>
+
+          </div>
+
+
+          <!-- DISCOUNT -->
+
+          <div class="form-grid" style="margin-top:15px;">
 
             <div class="form-group">
-              <label>Discount (Rs)</label>
+              <label>Discount</label>
               <input
+                type="number"
                 id="discount"
-                class="form-control money-input"
-                type="number"
                 min="0"
                 step="1"
-                value="0"
-              >
-            </div>
-
-            <div class="form-group">
-              <label>Warranty</label>
-              <input
-                id="warranty"
-                class="form-control"
-                type="text"
-                value="1 Month Warranty"
-              >
+                placeholder="Leave blank if none"
+                oninput="calculateInvoice()">
             </div>
 
           </div>
 
 
-          <div class="total-box">
+          <!-- TOTALS -->
+
+          <div class="totals-box">
 
             <div class="total-row">
               <span>Subtotal</span>
@@ -1370,56 +1431,63 @@ textarea.form-control{
 
         <!-- PAYMENT -->
 
-        <div class="invoice-section">
+        <div class="form-section">
 
-          <h4>Payment Details</h4>
+          <div class="section-title">
+            Payment Details
+          </div>
 
           <div class="form-grid">
 
             <div class="form-group">
               <label>Payment Status</label>
-              <select id="paymentStatus" class="form-control">
+
+              <select id="paymentStatus" onchange="calculateInvoice()">
                 <option value="Unpaid">Unpaid</option>
-                <option value="Partial">Partial</option>
+                <option value="Partially Paid">Partially Paid</option>
                 <option value="Paid">Paid</option>
               </select>
+
             </div>
 
             <div class="form-group">
               <label>Payment Method</label>
-              <select id="paymentMethod" class="form-control">
-                <option value="">Select</option>
+
+              <select id="paymentMethod">
+                <option value="">Select Method</option>
                 <option value="Cash">Cash</option>
                 <option value="Bank Transfer">Bank Transfer</option>
-                <option value="Easypaisa">Easypaisa</option>
                 <option value="JazzCash">JazzCash</option>
-                <option value="Other">Other</option>
+                <option value="EasyPaisa">EasyPaisa</option>
+                <option value="Online">Online</option>
               </select>
+
             </div>
 
             <div class="form-group">
-              <label>Amount Paid (Rs)</label>
+              <label>Amount Paid</label>
+
               <input
-                id="amountPaid"
-                class="form-control money-input"
                 type="number"
+                id="amountPaid"
                 min="0"
                 step="1"
-                value="0"
-              >
+                placeholder="Leave blank if none"
+                oninput="calculateInvoice()">
+
             </div>
 
           </div>
 
 
-          <div class="total-box">
+          <div class="totals-box" style="margin-top:15px;">
 
             <div class="total-row">
-              <span>Amount Paid</span>
-              <strong id="paidText">Rs 0</strong>
+              <span>Grand Total</span>
+              <strong id="paymentGrandText">Rs 0</strong>
             </div>
 
-            <div class="total-row grand">
+            <div class="total-row balance">
               <span>Balance Due</span>
               <strong id="balanceText">Rs 0</strong>
             </div>
@@ -1431,2068 +1499,2805 @@ textarea.form-control{
 
         <!-- NOTES -->
 
-        <div class="invoice-section">
+        <div class="form-section">
 
-          <h4>Notes</h4>
+          <div class="section-title">
+            Warranty & Notes
+          </div>
 
           <div class="form-grid">
 
-            <div class="form-group full">
-              <label>Customer Note</label>
-              <textarea
-                id="customerNote"
-                class="form-control"
-                placeholder="Information for customer..."
-              ></textarea>
+            <div class="form-group">
+              <label>Warranty</label>
+
+              <select id="warranty">
+                <option value="">No Warranty Mentioned</option>
+                <option value="1 Month Warranty">1 Month Warranty</option>
+                <option value="7 Days Warranty">7 Days Warranty</option>
+                <option value="3 Months Warranty">3 Months Warranty</option>
+              </select>
+
             </div>
 
             <div class="form-group full">
-              <label>Admin / Internal Note</label>
-              <textarea
-                id="adminNote"
-                class="form-control"
-                placeholder="Internal note..."
-              ></textarea>
+              <label>Customer Note</label>
+              <textarea id="customerNote" placeholder="Note for customer"></textarea>
+            </div>
+
+            <div class="form-group full">
+              <label>Admin Note</label>
+              <textarea id="adminNote" placeholder="Internal admin note"></textarea>
             </div>
 
           </div>
-
-        </div>
-
-
-        <div class="invoice-footer-actions">
-
-          <button
-            type="button"
-            class="btn btn-light"
-            onclick="closeInvoice()"
-          >
-            Cancel
-          </button>
-
-          <button
-            type="button"
-            class="btn btn-primary"
-            onclick="saveInvoice()"
-          >
-            💾 Save Invoice
-          </button>
-
-          <button
-            type="button"
-            class="btn btn-success"
-            onclick="saveAndPrintInvoice()"
-          >
-            🖨️ Save & Print
-          </button>
-
-          <button
-            type="button"
-            class="btn btn-warning"
-            onclick="sendInvoiceWhatsApp()"
-          >
-            WhatsApp
-          </button>
 
         </div>
 
       </form>
 
-    </div>
 
-  </div>
-
-</div>
-
-
-<!-- PRINT AREA -->
-
-<div id="printArea"></div>
-
-
-<!-- FIREBASE -->
-
-<script type="module">
-
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  doc,
-  updateDoc,
-  deleteDoc,
-  query,
-  orderBy,
-  serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
-  authDomain: "smart-cool-6f513.firebaseapp.com",
-  projectId: "smart-cool-6f513",
-  storageBucket: "smart-cool-6f513.firebasestorage.app",
-  messagingSenderId: "10468224529",
-  appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
-  measurementId: "G-Y5SPBHP57C"
-};
-
-
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
-const db = getFirestore(app);
-
-
-const ADMIN_EMAILS = [
-  "qoutex798@gmail.com"
-];
-
-
-let allRequests = [];
-
-let currentInvoiceBooking = null;
-
-
-/* HELPERS */
-
-function el(id){
-  return document.getElementById(id);
-}
-
-
-function money(value){
-  const n = Number(value || 0);
-
-  return "Rs " + n.toLocaleString("en-PK");
-}
-
-
-function escapeHtml(value){
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
-
-
-function normalizeStatus(status){
-
-  const s = String(status || "").toLowerCase();
-
-  if(
-    s === "accepted" ||
-    s === "confirmed"
-  ){
-    return "Confirmed";
-  }
-
-  if(
-    s === "in progress" ||
-    s === "in-progress" ||
-    s === "progress"
-  ){
-    return "In Progress";
-  }
-
-  if(
-    s === "completed" ||
-    s === "complete"
-  ){
-    return "Completed";
-  }
-
-  if(
-    s === "rejected" ||
-    s === "cancelled" ||
-    s === "canceled"
-  ){
-    return "Cancelled";
-  }
-
-  return "Pending";
-}
-
-
-function statusClass(status){
-
-  switch(normalizeStatus(status)){
-
-    case "Confirmed":
-      return "status-confirmed";
-
-    case "In Progress":
-      return "status-progress";
-
-    case "Completed":
-      return "status-completed";
-
-    case "Cancelled":
-      return "status-cancelled";
-
-    default:
-      return "status-pending";
-  }
-}
-
-
-function dateValue(value){
-
-  if(!value){
-    return "";
-  }
-
-  try{
-
-    if(typeof value.toDate === "function"){
-      return value.toDate().toISOString().slice(0,10);
-    }
-
-    const d = new Date(value);
-
-    if(!Number.isNaN(d.getTime())){
-      return d.toISOString().slice(0,10);
-    }
-
-  }catch(e){}
-
-  return "";
-}
-
-
-function displayDate(value){
-
-  const d = dateValue(value);
-
-  if(!d){
-    return "—";
-  }
-
-  const parts = d.split("-");
-
-  return `${parts[2]}-${parts[1]}-${parts[0]}`;
-}
-
-
-/* LOGIN */
-
-el("loginForm").addEventListener("submit", async function(e){
-
-  e.preventDefault();
-
-  const email = el("loginEmail").value.trim();
-
-  const password = el("loginPassword").value;
-
-  const error = el("loginError");
-
-  const btn = el("loginBtn");
-
-
-  error.classList.add("hidden");
-
-  btn.disabled = true;
-
-  btn.textContent = "Signing in...";
-
-
-  try{
-
-    await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
-
-  }catch(err){
-
-    console.error(err);
-
-    let message = "Login failed. Please check email and password.";
-
-    if(err.code === "auth/invalid-credential"){
-      message = "Email ya password incorrect hai.";
-    }
-    else if(err.code === "auth/user-not-found"){
-      message = "Ye admin email Firebase Authentication mein nahi mili.";
-    }
-    else if(err.code === "auth/wrong-password"){
-      message = "Password incorrect hai.";
-    }
-    else if(err.code === "auth/too-many-requests"){
-      message = "Too many attempts. Kuch der baad dobara try karein.";
-    }
-
-    error.textContent = message;
-
-    error.classList.remove("hidden");
-
-  }finally{
-
-    btn.disabled = false;
-
-    btn.textContent = "Sign In";
-
-  }
-
-});
-
-
-/* AUTH STATE */
-
-onAuthStateChanged(auth, async(user)=>{
-
-  if(!user){
-
-    el("loginScreen").classList.remove("hidden");
-
-    el("app").classList.add("hidden");
-
-    return;
-  }
-
-
-  const email = String(user.email || "").toLowerCase();
-
-
-  if(!ADMIN_EMAILS.map(x=>x.toLowerCase()).includes(email)){
-
-    await signOut(auth);
-
-    el("loginError").textContent =
-      "Ye account admin list mein authorized nahi hai.";
-
-    el("loginError").classList.remove("hidden");
-
-    return;
-  }
-
-
-  el("loginScreen").classList.add("hidden");
-
-  el("app").classList.remove("hidden");
-
-  el("loggedEmail").textContent = email;
-
-
-  await loadRequests();
-
-});
-
-
-/* LOGOUT */
-
-window.ownerLogout = async function(){
-
-  await signOut(auth);
-
-};
-
-
-/* LOAD BOOKINGS */
-
-window.loadRequests = async function(){
-
-  const list = el("bookingList");
-
-  list.innerHTML =
-    `<div class="center-message">Loading bookings...</div>`;
-
-
-  try{
-
-    const q = query(
-      collection(db,"serviceRequests"),
-      orderBy("createdAt","desc")
-    );
-
-
-    const snap = await getDocs(q);
-
-
-    allRequests = snap.docs.map(d=>({
-
-      id:d.id,
-
-      ...d.data()
-
-    }));
-
-
-    updateStats();
-
-    renderRequests();
-
-
-  }catch(err){
-
-    console.error(err);
-
-    list.innerHTML = `
-      <div class="center-message">
-        <strong>Bookings load nahi ho sakin.</strong>
-        <br><br>
-        ${escapeHtml(err.message)}
-      </div>
-    `;
-
-  }
-
-};
-
-
-/* STATS */
-
-function updateStats(){
-
-  const total = allRequests.length;
-
-  const pending =
-    allRequests.filter(x=>
-      normalizeStatus(x.status)==="Pending"
-    ).length;
-
-  const progress =
-    allRequests.filter(x=>
-      normalizeStatus(x.status)==="In Progress"
-    ).length;
-
-  const completed =
-    allRequests.filter(x=>
-      normalizeStatus(x.status)==="Completed"
-    ).length;
-
-
-  const revenue =
-    allRequests.reduce((sum,x)=>{
-
-      const invoice = x.invoice || {};
-
-      return sum + Number(
-        invoice.grandTotal ??
-        invoice.total ??
-        0
-      );
-
-    },0);
-
-
-  el("statTotal").textContent = total;
-
-  el("statPending").textContent = pending;
-
-  el("statProgress").textContent = progress;
-
-  el("statCompleted").textContent = completed;
-
-  el("statRevenue").textContent = money(revenue);
-
-}
-
-
-/* RENDER */
-
-window.renderRequests = function(){
-
-  const search =
-    el("searchInput").value
-      .trim()
-      .toLowerCase();
-
-  const status =
-    el("statusFilter").value;
-
-  const invoiceFilter =
-    el("invoiceFilter").value;
-
-
-  let data = [...allRequests];
-
-
-  if(search){
-
-    data = data.filter(x=>{
-
-      const text = [
-
-        x.id,
-
-        x.bookingId,
-
-        x.trackingId,
-
-        x.name,
-
-        x.customerName,
-
-        x.phone,
-
-        x.customerPhone,
-
-        x.email,
-
-        x.service,
-
-        x.serviceType,
-
-        x.address
-
-      ]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase();
-
-
-      return text.includes(search);
-
-    });
-
-  }
-
-
-  if(status){
-
-    data = data.filter(x=>
-      normalizeStatus(x.status) === status
-    );
-
-  }
-
-
-  if(invoiceFilter === "with"){
-
-    data = data.filter(x=>
-      x.invoice &&
-      (
-        x.invoice.invoiceNumber ||
-        x.invoice.grandTotal !== undefined
-      )
-    );
-
-  }
-
-
-  if(invoiceFilter === "without"){
-
-    data = data.filter(x=>
-      !x.invoice
-    );
-
-  }
-
-
-  const list = el("bookingList");
-
-
-  if(!data.length){
-
-    list.innerHTML =
-      `<div class="center-message">No bookings found.</div>`;
-
-    return;
-
-  }
-
-
-  list.innerHTML = data.map(renderBooking).join("");
-
-};
-
-
-function renderBooking(x){
-
-  const status =
-    normalizeStatus(x.status);
-
-
-  const invoice =
-    x.invoice || null;
-
-
-  const invoiceTotal =
-    invoice
-      ? Number(invoice.grandTotal ?? invoice.total ?? 0)
-      : 0;
-
-
-  const invoiceButton = invoice
-    ? `
-      <button
-        class="btn btn-success"
-        onclick="openInvoice('${x.id}')"
-      >
-        🧾 Edit Invoice
-      </button>
-    `
-    : `
-      <button
-        class="btn btn-primary"
-        onclick="openInvoice('${x.id}')"
-      >
-        🧾 Create Invoice
-      </button>
-    `;
-
-
-  return `
-    <article class="booking-card">
-
-      <div class="booking-head">
-
-        <div>
-
-          <div class="booking-id">
-            Booking ID: ${escapeHtml(
-              x.bookingId ||
-              x.trackingId ||
-              x.id
-            )}
-          </div>
-
-          <div class="booking-date">
-            Created: ${escapeHtml(
-              displayDate(x.createdAt)
-            )}
-          </div>
-
-        </div>
-
-
-        <span class="status ${statusClass(status)}">
-          ${escapeHtml(status)}
-        </span>
-
-      </div>
-
-
-      <div class="booking-grid">
-
-        <div class="info-box">
-          <div class="info-label">Customer</div>
-          <div class="info-value">
-            ${escapeHtml(
-              x.customerName ||
-              x.name ||
-              "—"
-            )}
-          </div>
-        </div>
-
-
-        <div class="info-box">
-          <div class="info-label">Phone</div>
-          <div class="info-value">
-            ${escapeHtml(
-              x.customerPhone ||
-              x.phone ||
-              "—"
-            )}
-          </div>
-        </div>
-
-
-        <div class="info-box">
-          <div class="info-label">Service</div>
-          <div class="info-value">
-            ${escapeHtml(
-              x.serviceType ||
-              x.service ||
-              "—"
-            )}
-          </div>
-        </div>
-
-
-        <div class="info-box">
-          <div class="info-label">Invoice</div>
-          <div class="info-value">
-            ${
-              invoice
-                ? escapeHtml(invoice.invoiceNumber || "Created")
-                  + "<br>" + money(invoiceTotal)
-                : "Not Created"
-            }
-          </div>
-        </div>
-
-
-        <div class="info-box">
-          <div class="info-label">Address</div>
-          <div class="info-value">
-            ${escapeHtml(x.address || "—")}
-          </div>
-        </div>
-
-
-        <div class="info-box">
-          <div class="info-label">Preferred Date</div>
-          <div class="info-value">
-            ${escapeHtml(
-              displayDate(
-                x.preferredDate ||
-                x.serviceDate
-              )
-            )}
-          </div>
-        </div>
-
-
-        <div class="info-box">
-          <div class="info-label">Problem</div>
-          <div class="info-value">
-            ${escapeHtml(
-              x.problem ||
-              x.message ||
-              x.description ||
-              "—"
-            )}
-          </div>
-        </div>
-
-
-        <div class="info-box">
-          <div class="info-label">Customer Email</div>
-          <div class="info-value">
-            ${escapeHtml(x.email || "—")}
-          </div>
-        </div>
-
-      </div>
-
-
-      <div class="booking-actions">
-
-        <select
-          class="status-select"
-          onchange="changeStatus('${x.id}',this.value)"
-        >
-
-          ${[
-            "Pending",
-            "Confirmed",
-            "In Progress",
-            "Completed",
-            "Cancelled"
-          ].map(s=>`
-            <option
-              value="${s}"
-              ${s===status ? "selected" : ""}
-            >
-              ${s}
-            </option>
-          `).join("")}
-
-        </select>
-
-
-        ${invoiceButton}
-
-
-        ${
-          invoice
-          ? `
-            <button
-              class="btn btn-warning"
-              onclick="printSavedInvoice('${x.id}')"
-            >
-              🖨️ Print
-            </button>
-
-            <button
-              class="btn btn-light"
-              onclick="whatsappSavedInvoice('${x.id}')"
-            >
-              📱 WhatsApp
-            </button>
-          `
-          : ""
-        }
-
+      <div class="invoice-actions">
 
         <button
-          class="btn btn-danger"
-          onclick="deleteBooking('${x.id}')"
-        >
-          Delete
+          type="button"
+          class="btn btn-success"
+          onclick="saveInvoice()">
+          Save Invoice
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick="saveAndPrintInvoice()">
+          Save & Print
+        </button>
+
+        <button
+          type="button"
+          class="btn"
+          style="background:#25D366;color:#fff;"
+          onclick="sendInvoiceWhatsApp()">
+          WhatsApp Invoice
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-light"
+          onclick="closeInvoice()">
+          Cancel
         </button>
 
       </div>
 
-    </article>
-  `;
+    </div>
 
-}
-
-
-/* STATUS */
-
-window.changeStatus = async function(id,newStatus){
-
-  const booking =
-    allRequests.find(x=>x.id===id);
-
-  if(!booking){
-    return;
-  }
+  </div>
 
 
-  try{
+  <!-- =========================
+       PRINT AREA
+  ========================= -->
 
-    await updateDoc(
-      doc(db,"serviceRequests",id),
-      {
-        status:newStatus,
-        updatedAt:serverTimestamp()
+  <div id="printArea"></div>
+
+
+  <!-- =========================
+       FIREBASE
+  ========================= -->
+
+  <script type="module">
+
+    import {
+      initializeApp
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+    import {
+      getAuth,
+      signInWithEmailAndPassword,
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    import {
+      getFirestore,
+      collection,
+      query,
+      orderBy,
+      onSnapshot,
+      doc,
+      updateDoc,
+      deleteDoc,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+    /* =========================
+       FIREBASE CONFIG
+    ========================= */
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAvnAK6gje0ly5XtxNotNl_dJhEhJ9pSHg",
+      authDomain: "smart-cool-6f513.firebaseapp.com",
+      projectId: "smart-cool-6f513",
+      storageBucket: "smart-cool-6f513.firebasestorage.app",
+      messagingSenderId: "10468224529",
+      appId: "1:10468224529:web:51026a5b4ac67a4ad40bb0",
+      measurementId: "G-Y5SPBHP57C"
+    };
+
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+
+    /* =========================
+       ADMIN EMAILS
+    ========================= */
+
+    const ADMIN_EMAILS = [
+      "qoutex798@gmail.com"
+    ];
+
+
+    let allBookings = [];
+    let unsubscribeRequests = null;
+    let currentInvoiceBooking = null;
+    let partCounter = 0;
+
+
+    /* =========================
+       HELPERS
+    ========================= */
+
+    function el(id) {
+      return document.getElementById(id);
+    }
+
+
+    function money(value) {
+
+      const number = Number(value || 0);
+
+      return "Rs " + number.toLocaleString("en-PK");
+
+    }
+
+
+    function escapeHtml(value) {
+
+      if (value === null || value === undefined) {
+        return "";
       }
-    );
+
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
 
 
-    booking.status = newStatus;
+    function normalizeStatus(status) {
 
-    updateStats();
+      const s = String(status || "Pending").trim();
 
-    renderRequests();
+      if (s === "New") return "Pending";
+      if (s === "Accepted") return "Confirmed";
+      if (s === "Rejected") return "Cancelled";
 
+      return s || "Pending";
 
-  }catch(err){
-
-    alert(
-      "Status update nahi hua:\n" +
-      err.message
-    );
-
-    renderRequests();
-
-  }
-
-};
+    }
 
 
-/* DELETE */
+    function statusClass(status) {
 
-window.deleteBooking = async function(id){
+      const s = normalizeStatus(status);
 
-  const booking =
-    allRequests.find(x=>x.id===id);
+      if (s === "Pending") return "status-pending";
+      if (s === "Confirmed") return "status-confirmed";
+      if (s === "In Progress") return "status-progress";
+      if (s === "Completed") return "status-completed";
+      if (s === "Cancelled") return "status-cancelled";
 
-  if(!booking){
-    return;
-  }
+      return "status-pending";
 
-
-  const name =
-    booking.customerName ||
-    booking.name ||
-    "this booking";
+    }
 
 
-  if(!confirm(
-    `Kya aap "${name}" ki booking delete karna chahte hain?\n\nYe action undo nahi hoga.`
-  )){
-    return;
-  }
+    function dateValue(value) {
+
+      if (!value) return "";
+
+      try {
+
+        if (typeof value === "object" && value.seconds) {
+          return new Date(value.seconds * 1000)
+            .toISOString()
+            .slice(0, 10);
+        }
+
+        const d = new Date(value);
+
+        if (!isNaN(d.getTime())) {
+          return d.toISOString().slice(0, 10);
+        }
+
+      } catch (e) {}
+
+      return "";
+
+    }
 
 
-  try{
+    function displayDate(value) {
 
-    await deleteDoc(
-      doc(db,"serviceRequests",id)
-    );
+      const d = dateValue(value);
 
+      if (!d) return "-";
 
-    allRequests =
-      allRequests.filter(x=>x.id!==id);
+      const parts = d.split("-");
 
+      return `${parts[2]}-${parts[1]}-${parts[0]}`;
 
-    updateStats();
-
-    renderRequests();
+    }
 
 
-  }catch(err){
+    function todayISO() {
 
-    alert(
-      "Booking delete nahi hui:\n" +
-      err.message
-    );
+      const d = new Date();
 
-  }
+      return d.toISOString().slice(0, 10);
 
-};
+    }
 
 
-/* FILTER CLEAR */
+    /* =========================
+       LOGIN
+    ========================= */
 
-window.clearFilters = function(){
+    el("loginForm").addEventListener("submit", async function(e) {
 
-  el("searchInput").value = "";
+      e.preventDefault();
 
-  el("statusFilter").value = "";
+      const email = el("loginEmail").value.trim();
+      const password = el("loginPassword").value;
 
-  el("invoiceFilter").value = "";
+      el("loginError").classList.add("hidden");
 
-  renderRequests();
+      try {
 
-};
+        await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        el("loginError").textContent =
+          "Login failed. Please check your email and password.";
+
+        el("loginError").classList.remove("hidden");
+
+      }
+
+    });
 
 
-/* INVOICE NUMBER */
+    onAuthStateChanged(auth, async (user) => {
 
-function generateInvoiceNumber(){
+      if (!user) {
 
-  const year =
-    new Date().getFullYear();
+        el("loginScreen").classList.remove("hidden");
+        el("app").classList.add("hidden");
 
-  const used =
-    allRequests
-      .map(x=>x.invoice?.invoiceNumber)
-      .filter(Boolean);
+        return;
+      }
 
 
-  let max = 0;
+      if (!ADMIN_EMAILS.includes(user.email)) {
+
+        await signOut(auth);
+
+        el("loginError").textContent =
+          "This account is not authorized as admin.";
+
+        el("loginError").classList.remove("hidden");
+
+        return;
+      }
 
 
-  used.forEach(number=>{
+      el("loginScreen").classList.add("hidden");
+      el("app").classList.remove("hidden");
 
-    const match =
-      String(number).match(
-        /SCR-\d{4}-(\d+)/
+      loadRequests();
+
+    });
+
+
+    window.ownerLogout = async function() {
+
+      try {
+        await signOut(auth);
+      } catch (e) {
+        console.error(e);
+      }
+
+    };
+
+
+    /* =========================
+       LOAD BOOKINGS
+    ========================= */
+
+    function loadRequests() {
+
+      if (unsubscribeRequests) {
+        unsubscribeRequests();
+      }
+
+      const q = query(
+        collection(db, "serviceRequests"),
+        orderBy("createdAt", "desc")
       );
 
-    if(match){
 
-      max =
-        Math.max(
-          max,
-          Number(match[1])
+      unsubscribeRequests = onSnapshot(
+        q,
+        (snapshot) => {
+
+          allBookings = snapshot.docs.map(item => ({
+            id: item.id,
+            ...item.data()
+          }));
+
+          updateStats();
+          renderRequests();
+
+        },
+        (error) => {
+
+          console.error(error);
+
+          el("bookings").innerHTML = `
+            <div class="empty">
+              Unable to load bookings.<br>
+              <small>${escapeHtml(error.message)}</small>
+            </div>
+          `;
+
+        }
+      );
+
+    }
+
+
+    /* =========================
+       STATS
+    ========================= */
+
+    function updateStats() {
+
+      let pending = 0;
+      let progress = 0;
+      let completed = 0;
+      let revenue = 0;
+
+
+      allBookings.forEach(booking => {
+
+        const status = normalizeStatus(
+          booking.status
+        );
+
+        if (status === "Pending") {
+          pending++;
+        }
+
+        if (status === "In Progress") {
+          progress++;
+        }
+
+        if (status === "Completed") {
+          completed++;
+        }
+
+
+        if (booking.invoice) {
+
+          revenue += Number(
+            booking.invoice.grandTotal ||
+            booking.invoiceTotal ||
+            0
+          );
+
+        } else {
+
+          revenue += Number(
+            booking.invoiceTotal || 0
+          );
+
+        }
+
+      });
+
+
+      el("statTotal").textContent = allBookings.length;
+      el("statPending").textContent = pending;
+      el("statProgress").textContent = progress;
+      el("statCompleted").textContent = completed;
+      el("statRevenue").textContent = money(revenue);
+
+    }
+
+
+    /* =========================
+       RENDER BOOKINGS
+    ========================= */
+
+    window.renderRequests = function() {
+
+      const search = el("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+      const statusFilter =
+        el("statusFilter").value;
+
+
+      const filtered = allBookings.filter(booking => {
+
+        const status = normalizeStatus(
+          booking.status
+        );
+
+
+        if (
+          statusFilter &&
+          status !== statusFilter
+        ) {
+          return false;
+        }
+
+
+        if (!search) {
+          return true;
+        }
+
+
+        const text = [
+
+          booking.name,
+          booking.customerName,
+          booking.phone,
+          booking.customerPhone,
+          booking.trackingId,
+          booking.service,
+          booking.serviceType,
+          booking.appliance,
+          booking.address,
+          booking.message,
+          booking.problem
+
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+
+
+        return text.includes(search);
+
+      });
+
+
+      if (!filtered.length) {
+
+        el("bookings").innerHTML = `
+          <div class="empty">
+            No bookings found.
+          </div>
+        `;
+
+        return;
+      }
+
+
+      el("bookings").innerHTML =
+        filtered.map(renderBooking).join("");
+
+    };
+
+
+    function renderBooking(booking) {
+
+      const status = normalizeStatus(
+        booking.status
+      );
+
+
+      const name =
+        booking.name ||
+        booking.customerName ||
+        "Unknown Customer";
+
+
+      const phone =
+        booking.phone ||
+        booking.customerPhone ||
+        "-";
+
+
+      const service =
+        booking.service ||
+        booking.serviceType ||
+        booking.appliance ||
+        "-";
+
+
+      const address =
+        booking.address ||
+        booking.customerAddress ||
+        "-";
+
+
+      const tracking =
+        booking.trackingId ||
+        booking.trackingID ||
+        booking.id;
+
+
+      const problem =
+        booking.message ||
+        booking.problem ||
+        booking.customerProblem ||
+        "-";
+
+
+      const bookingDate =
+        booking.serviceDate ||
+        booking.date ||
+        booking.createdAt;
+
+
+      const invoiceExists =
+        !!booking.invoice;
+
+
+      const invoiceTotal =
+        booking.invoice?.grandTotal ||
+        booking.invoiceTotal ||
+        0;
+
+
+      return `
+
+        <div class="booking-card">
+
+          <div class="booking-top">
+
+            <div>
+
+              <div class="booking-name">
+                ${escapeHtml(name)}
+              </div>
+
+              <div class="booking-id">
+                Tracking ID: ${escapeHtml(tracking)}
+              </div>
+
+            </div>
+
+            <span class="status ${statusClass(status)}">
+              ${escapeHtml(status)}
+            </span>
+
+          </div>
+
+
+          <div class="booking-grid">
+
+            <div class="info-box">
+              <span>Phone</span>
+              <strong>${escapeHtml(phone)}</strong>
+            </div>
+
+            <div class="info-box">
+              <span>Service</span>
+              <strong>${escapeHtml(service)}</strong>
+            </div>
+
+            <div class="info-box">
+              <span>Service Date</span>
+              <strong>${escapeHtml(displayDate(bookingDate))}</strong>
+            </div>
+
+            <div class="info-box">
+              <span>Invoice</span>
+              <strong>
+                ${invoiceExists ? money(invoiceTotal) : "Not Created"}
+              </strong>
+            </div>
+
+          </div>
+
+
+          <div class="booking-message">
+            <strong>Address:</strong>
+            ${escapeHtml(address)}
+            <br>
+            <strong>Problem:</strong>
+            ${escapeHtml(problem)}
+          </div>
+
+
+          <div class="booking-actions">
+
+            <select
+              onchange="changeStatus('${booking.id}', this.value)">
+
+              <option
+                value="Pending"
+                ${status === "Pending" ? "selected" : ""}>
+                Pending
+              </option>
+
+              <option
+                value="Confirmed"
+                ${status === "Confirmed" ? "selected" : ""}>
+                Confirmed
+              </option>
+
+              <option
+                value="In Progress"
+                ${status === "In Progress" ? "selected" : ""}>
+                In Progress
+              </option>
+
+              <option
+                value="Completed"
+                ${status === "Completed" ? "selected" : ""}>
+                Completed
+              </option>
+
+              <option
+                value="Cancelled"
+                ${status === "Cancelled" ? "selected" : ""}>
+                Cancelled
+              </option>
+
+            </select>
+
+
+            <button
+              class="btn btn-primary btn-sm"
+              onclick="openInvoice('${booking.id}')">
+              ${invoiceExists ? "Edit Invoice" : "Create Invoice"}
+            </button>
+
+
+            ${
+              invoiceExists
+              ?
+              `
+                <button
+                  class="btn btn-secondary btn-sm"
+                  onclick="printSavedInvoice('${booking.id}')">
+                  Print Invoice
+                </button>
+
+                <button
+                  class="btn btn-sm"
+                  style="background:#25D366;color:#fff;"
+                  onclick="sendWhatsAppForBooking('${booking.id}')">
+                  WhatsApp
+                </button>
+              `
+              :
+              ""
+            }
+
+
+            <button
+              class="btn btn-danger btn-sm"
+              onclick="deleteBooking('${booking.id}')">
+              Delete
+            </button>
+
+
+            ${
+              invoiceExists
+              ?
+              `<span class="invoice-mini">
+                Invoice #${escapeHtml(booking.invoice.invoiceNumber || booking.invoiceNumber || "")}
+              </span>`
+              :
+              ""
+            }
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    window.changeStatus = async function(id, newStatus) {
+
+      try {
+
+        await updateDoc(
+          doc(db, "serviceRequests", id),
+          {
+            status: newStatus,
+            updatedAt: serverTimestamp()
+          }
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        alert(
+          "Status update failed.\n" +
+          error.message
+        );
+
+      }
+
+    };
+
+
+    /* =========================
+       DELETE
+    ========================= */
+
+    window.deleteBooking = async function(id) {
+
+      const yes = confirm(
+        "Are you sure you want to delete this booking?"
+      );
+
+      if (!yes) return;
+
+
+      try {
+
+        await deleteDoc(
+          doc(db, "serviceRequests", id)
+        );
+
+      } catch (error) {
+
+        console.error(error);
+
+        alert(
+          "Delete failed.\n" +
+          error.message
+        );
+
+      }
+
+    };
+
+
+    /* =========================
+       FILTER CLEAR
+    ========================= */
+
+    window.clearFilters = function() {
+
+      el("searchInput").value = "";
+      el("statusFilter").value = "";
+
+      renderRequests();
+
+    };
+
+
+    /* =========================
+       INVOICE NUMBER
+    ========================= */
+
+    function generateInvoiceNumber() {
+
+      const now = new Date();
+
+      const year = now.getFullYear();
+
+      const month =
+        String(now.getMonth() + 1)
+          .padStart(2, "0");
+
+      const day =
+        String(now.getDate())
+          .padStart(2, "0");
+
+      const random =
+        Math.floor(
+          1000 + Math.random() * 9000
+        );
+
+      return `SC-${year}${month}${day}-${random}`;
+
+    }
+
+
+    /* =========================
+       PARTS
+    ========================= */
+
+    window.addPartRow = function(
+      name = "",
+      amount = ""
+    ) {
+
+      const container =
+        el("partsContainer");
+
+      partCounter++;
+
+
+      const row =
+        document.createElement("div");
+
+      row.className = "part-row";
+
+      row.dataset.index = partCounter;
+
+
+      row.innerHTML = `
+
+        <div class="part-number">
+          ${container.children.length + 1}
+        </div>
+
+        <div>
+          <input
+            type="text"
+            class="part-name"
+            placeholder="Part name e.g. Capacitor"
+            value="${escapeHtml(name)}"
+            oninput="calculateInvoice()">
+        </div>
+
+        <div class="part-amount-wrap">
+
+          <input
+            type="number"
+            class="part-amount"
+            min="0"
+            step="1"
+            placeholder="Amount"
+            value="${amount !== "" ? Number(amount) : ""}"
+            oninput="calculateInvoice()">
+
+        </div>
+
+        <button
+          type="button"
+          class="remove-part"
+          onclick="removePartRow(this)"
+          title="Remove part">
+          ×
+        </button>
+
+      `;
+
+
+      container.appendChild(row);
+
+      refreshPartNumbers();
+
+      calculateInvoice();
+
+    };
+
+
+    window.removePartRow = function(button) {
+
+      const row =
+        button.closest(".part-row");
+
+      if (row) {
+        row.remove();
+      }
+
+
+      if (
+        !el("partsContainer")
+          .querySelector(".part-row")
+      ) {
+
+        addPartRow();
+
+      }
+
+
+      refreshPartNumbers();
+      calculateInvoice();
+
+    };
+
+
+    function refreshPartNumbers() {
+
+      const rows =
+        document.querySelectorAll(
+          "#partsContainer .part-row"
+        );
+
+
+      rows.forEach((row, index) => {
+
+        const number =
+          row.querySelector(".part-number");
+
+        if (number) {
+          number.textContent = index + 1;
+        }
+
+      });
+
+    }
+
+
+    function getPartsItems() {
+
+      const rows =
+        document.querySelectorAll(
+          "#partsContainer .part-row"
+        );
+
+
+      const items = [];
+
+
+      rows.forEach(row => {
+
+        const nameInput =
+          row.querySelector(".part-name");
+
+        const amountInput =
+          row.querySelector(".part-amount");
+
+
+        const name =
+          nameInput?.value.trim() || "";
+
+
+        const rawAmount =
+          amountInput?.value;
+
+
+        const amount =
+          rawAmount === ""
+            ? 0
+            : Math.max(0, Number(rawAmount) || 0);
+
+
+        /*
+          Important:
+          Completely blank row is NOT saved.
+        */
+
+        if (name && amount > 0) {
+
+          items.push({
+            name,
+            amount
+          });
+
+        }
+
+      });
+
+
+      return items;
+
+    }
+
+
+    function getPartsTotal() {
+
+      return getPartsItems()
+        .reduce(
+          (sum, item) =>
+            sum + Number(item.amount || 0),
+          0
         );
 
     }
 
-  });
 
+    function loadPartsItems(
+      items,
+      legacyParts
+    ) {
 
-  return `SCR-${year}-${String(max+1).padStart(4,"0")}`;
+      const container =
+        el("partsContainer");
 
-}
+      container.innerHTML = "";
 
 
-/* OPEN INVOICE */
+      const validItems =
+        Array.isArray(items)
+          ? items.filter(item =>
+              item &&
+              String(item.name || "").trim() &&
+              Number(item.amount || 0) > 0
+            )
+          : [];
 
-window.openInvoice = function(id){
 
-  const booking =
-    allRequests.find(x=>x.id===id);
+      if (validItems.length) {
 
-  if(!booking){
-    alert("Booking not found.");
-    return;
-  }
+        validItems.forEach(item => {
 
+          addPartRow(
+            item.name || "",
+            Number(item.amount || 0)
+          );
 
-  currentInvoiceBooking = booking;
+        });
 
+      } else if (
+        Number(legacyParts || 0) > 0
+      ) {
 
-  const invoice =
-    booking.invoice || {};
+        /*
+          Backward compatibility with
+          old invoices that had one
+          "Parts / Materials" amount.
+        */
 
+        addPartRow(
+          "Parts / Materials",
+          Number(legacyParts)
+        );
 
-  el("invoiceBookingDocId").value =
-    booking.id;
+      } else {
 
+        addPartRow();
 
-  el("invoiceExistingNumber").value =
-    invoice.invoiceNumber || "";
-
-
-  el("invoiceModalTitle").textContent =
-    invoice.invoiceNumber
-      ? "Edit Professional Invoice"
-      : "Create Professional Invoice";
-
-
-  el("invoiceNumber").value =
-    invoice.invoiceNumber ||
-    generateInvoiceNumber();
-
-
-  el("invoiceDate").value =
-    invoice.invoiceDate ||
-    dateValue(new Date());
-
-
-  el("serviceDate").value =
-    invoice.serviceDate ||
-    dateValue(
-      booking.preferredDate ||
-      booking.serviceDate ||
-      new Date()
-    );
-
-
-  el("customerName").value =
-    invoice.customerName ||
-    booking.customerName ||
-    booking.name ||
-    "";
-
-
-  el("customerPhone").value =
-    invoice.customerPhone ||
-    booking.customerPhone ||
-    booking.phone ||
-    "";
-
-
-  el("trackingId").value =
-    invoice.trackingId ||
-    booking.trackingId ||
-    booking.bookingId ||
-    booking.id ||
-    "";
-
-
-  el("customerAddress").value =
-    invoice.customerAddress ||
-    booking.address ||
-    "";
-
-
-  el("serviceType").value =
-    invoice.serviceType ||
-    booking.serviceType ||
-    booking.service ||
-    "";
-
-
-  el("tonnage").value =
-    invoice.tonnage ||
-    booking.tonnage ||
-    "";
-
-
-  el("modelBrand").value =
-    invoice.modelBrand ||
-    booking.model ||
-    booking.brand ||
-    "";
-
-
-  el("customerProblem").value =
-    invoice.customerProblem ||
-    booking.problem ||
-    booking.message ||
-    booking.description ||
-    "";
-
-
-  el("workPerformed").value =
-    invoice.workPerformed ||
-    "";
-
-
-  el("labour").value =
-    invoice.labour ?? 0;
-
-
-  el("parts").value =
-    invoice.parts ?? 0;
-
-
-  el("gas").value =
-    invoice.gas ?? 0;
-
-
-  el("additional").value =
-    invoice.additional ?? 0;
-
-
-  el("discount").value =
-    invoice.discount ?? 0;
-
-
-  el("warranty").value =
-    invoice.warranty ||
-    "1 Month Warranty";
-
-
-  el("paymentStatus").value =
-    invoice.paymentStatus ||
-    "Unpaid";
-
-
-  el("paymentMethod").value =
-    invoice.paymentMethod ||
-    "";
-
-
-  el("amountPaid").value =
-    invoice.amountPaid ?? 0;
-
-
-  el("customerNote").value =
-    invoice.customerNote ||
-    "";
-
-
-  el("adminNote").value =
-    invoice.adminNote ||
-    "";
-
-
-  calculateInvoice();
-
-
-  el("invoiceModal").classList.add("show");
-
-};
-
-
-/* CLOSE INVOICE */
-
-window.closeInvoice = function(){
-
-  el("invoiceModal").classList.remove("show");
-
-  currentInvoiceBooking = null;
-
-};
-
-
-/* CALCULATE */
-
-function calculateInvoice(){
-
-  const labour =
-    Number(el("labour").value || 0);
-
-  const parts =
-    Number(el("parts").value || 0);
-
-  const gas =
-    Number(el("gas").value || 0);
-
-  const additional =
-    Number(el("additional").value || 0);
-
-  const discount =
-    Number(el("discount").value || 0);
-
-  const paid =
-    Number(el("amountPaid").value || 0);
-
-
-  const subtotal =
-    labour +
-    parts +
-    gas +
-    additional;
-
-
-  const total =
-    Math.max(
-      0,
-      subtotal - discount
-    );
-
-
-  const balance =
-    Math.max(
-      0,
-      total - paid
-    );
-
-
-  el("subtotalText").textContent =
-    money(subtotal);
-
-  el("discountText").textContent =
-    money(discount);
-
-  el("grandTotalText").textContent =
-    money(total);
-
-  el("paidText").textContent =
-    money(paid);
-
-  el("balanceText").textContent =
-    money(balance);
-
-
-  el("balanceText").className =
-    balance > 0
-      ? "balance-positive"
-      : "balance-zero";
-
-
-  return {
-    labour,
-    parts,
-    gas,
-    additional,
-    discount,
-    subtotal,
-    grandTotal:total,
-    amountPaid:paid,
-    balance
-  };
-
-}
-
-
-/* LIVE CALCULATION */
-
-document.addEventListener("input",function(e){
-
-  if(
-    e.target.classList &&
-    e.target.classList.contains("money-input")
-  ){
-
-    calculateInvoice();
-
-  }
-
-});
-
-
-/* PAYMENT STATUS AUTO */
-
-el("paymentStatus").addEventListener(
-  "change",
-  function(){
-
-    const total =
-      calculateInvoice().grandTotal;
-
-
-    if(this.value === "Paid"){
-
-      el("amountPaid").value =
-        total;
-
-    }
-
-    else if(this.value === "Unpaid"){
-
-      el("amountPaid").value =
-        0;
-
-    }
-
-
-    calculateInvoice();
-
-  }
-);
-
-
-/* FILTER ESCAPE */
-
-window.addEventListener("keydown",function(e){
-
-  if(e.key==="Escape"){
-
-    el("invoiceModal").classList.remove("show");
-
-  }
-
-});
-
-
-/* SAVE INVOICE */
-
-window.saveInvoice = async function(){
-
-  if(!currentInvoiceBooking){
-    alert("Booking select nahi hui.");
-    return false;
-  }
-
-
-  const totals =
-    calculateInvoice();
-
-
-  const paymentStatus =
-    el("paymentStatus").value;
-
-
-  if(paymentStatus === "Paid"){
-
-    el("amountPaid").value =
-      totals.grandTotal;
-
-  }
-
-
-  const finalTotals =
-    calculateInvoice();
-
-
-  const invoice = {
-
-    invoiceNumber:
-      el("invoiceNumber").value.trim(),
-
-    invoiceDate:
-      el("invoiceDate").value,
-
-    serviceDate:
-      el("serviceDate").value,
-
-    customerName:
-      el("customerName").value.trim(),
-
-    customerPhone:
-      el("customerPhone").value.trim(),
-
-    trackingId:
-      el("trackingId").value.trim(),
-
-    customerAddress:
-      el("customerAddress").value.trim(),
-
-    serviceType:
-      el("serviceType").value.trim(),
-
-    tonnage:
-      el("tonnage").value,
-
-    modelBrand:
-      el("modelBrand").value.trim(),
-
-    customerProblem:
-      el("customerProblem").value.trim(),
-
-    workPerformed:
-      el("workPerformed").value.trim(),
-
-    labour:
-      finalTotals.labour,
-
-    parts:
-      finalTotals.parts,
-
-    gas:
-      finalTotals.gas,
-
-    additional:
-      finalTotals.additional,
-
-    discount:
-      finalTotals.discount,
-
-    subtotal:
-      finalTotals.subtotal,
-
-    grandTotal:
-      finalTotals.grandTotal,
-
-    paymentStatus:
-      el("paymentStatus").value,
-
-    paymentMethod:
-      el("paymentMethod").value,
-
-    amountPaid:
-      finalTotals.amountPaid,
-
-    balance:
-      finalTotals.balance,
-
-    warranty:
-      el("warranty").value.trim(),
-
-    customerNote:
-      el("customerNote").value.trim(),
-
-    adminNote:
-      el("adminNote").value.trim(),
-
-    updatedAt:
-      new Date().toISOString()
-
-  };
-
-
-  try{
-
-    await updateDoc(
-      doc(
-        db,
-        "serviceRequests",
-        currentInvoiceBooking.id
-      ),
-      {
-        invoice:invoice,
-
-        invoiceNumber:
-          invoice.invoiceNumber,
-
-        invoiceTotal:
-          invoice.grandTotal,
-
-        invoiceStatus:
-          invoice.paymentStatus,
-
-        invoiceUpdatedAt:
-          serverTimestamp(),
-
-        updatedAt:
-          serverTimestamp()
       }
-    );
 
 
-    const index =
-      allRequests.findIndex(
-        x=>x.id===currentInvoiceBooking.id
+      refreshPartNumbers();
+      calculateInvoice();
+
+    }
+
+
+    /* =========================
+       CALCULATE INVOICE
+    ========================= */
+
+    window.calculateInvoice = function() {
+
+      const partsTotal =
+        getPartsTotal();
+
+
+      const labour =
+        Math.max(
+          0,
+          Number(el("labour").value || 0)
+        );
+
+
+      const gas =
+        Math.max(
+          0,
+          Number(el("gas").value || 0)
+        );
+
+
+      const additional =
+        Math.max(
+          0,
+          Number(el("additional").value || 0)
+        );
+
+
+      const discount =
+        Math.max(
+          0,
+          Number(el("discount").value || 0)
+        );
+
+
+      const subtotal =
+        labour +
+        partsTotal +
+        gas +
+        additional;
+
+
+      const grandTotal =
+        Math.max(
+          0,
+          subtotal - discount
+        );
+
+
+      const amountPaid =
+        Math.min(
+          grandTotal,
+          Math.max(
+            0,
+            Number(el("amountPaid").value || 0)
+          )
+        );
+
+
+      const balance =
+        Math.max(
+          0,
+          grandTotal - amountPaid
+        );
+
+
+      el("partsTotalText").textContent =
+        money(partsTotal);
+
+      el("subtotalText").textContent =
+        money(subtotal);
+
+      el("discountText").textContent =
+        money(discount);
+
+      el("grandTotalText").textContent =
+        money(grandTotal);
+
+      el("paymentGrandText").textContent =
+        money(grandTotal);
+
+      el("balanceText").textContent =
+        money(balance);
+
+
+      return {
+        labour,
+        parts: partsTotal,
+        gas,
+        additional,
+        discount,
+        subtotal,
+        grandTotal,
+        amountPaid,
+        balance
+      };
+
+    };
+
+
+    /* =========================
+       OPEN INVOICE
+    ========================= */
+
+    window.openInvoice = function(id) {
+
+      const booking =
+        allBookings.find(
+          item => item.id === id
+        );
+
+
+      if (!booking) {
+
+        alert("Booking not found.");
+        return;
+
+      }
+
+
+      currentInvoiceBooking = booking;
+
+
+      const invoice =
+        booking.invoice || {};
+
+
+      el("invoiceBookingDocId").value =
+        id;
+
+
+      el("invoiceNumber").value =
+        invoice.invoiceNumber ||
+        booking.invoiceNumber ||
+        generateInvoiceNumber();
+
+
+      el("invoiceDate").value =
+        dateValue(
+          invoice.invoiceDate
+        ) ||
+        todayISO();
+
+
+      el("serviceDate").value =
+        dateValue(
+          invoice.serviceDate
+        ) ||
+        dateValue(
+          booking.serviceDate ||
+          booking.date
+        ) ||
+        todayISO();
+
+
+      el("customerName").value =
+        invoice.customerName ||
+        booking.name ||
+        booking.customerName ||
+        "";
+
+
+      el("customerPhone").value =
+        invoice.customerPhone ||
+        booking.phone ||
+        booking.customerPhone ||
+        "";
+
+
+      el("trackingId").value =
+        invoice.trackingId ||
+        booking.trackingId ||
+        booking.trackingID ||
+        booking.id;
+
+
+      el("customerAddress").value =
+        invoice.customerAddress ||
+        booking.address ||
+        booking.customerAddress ||
+        "";
+
+
+      el("serviceType").value =
+        invoice.serviceType ||
+        booking.service ||
+        booking.serviceType ||
+        booking.appliance ||
+        "";
+
+
+      el("tonnage").value =
+        invoice.tonnage ||
+        booking.tonnage ||
+        booking.capacity ||
+        "";
+
+
+      el("modelBrand").value =
+        invoice.modelBrand ||
+        booking.modelBrand ||
+        booking.brand ||
+        booking.model ||
+        "";
+
+
+      el("customerProblem").value =
+        invoice.customerProblem ||
+        booking.problem ||
+        booking.message ||
+        booking.customerProblem ||
+        "";
+
+
+      el("workPerformed").value =
+        invoice.workPerformed ||
+        "";
+
+
+      el("labour").value =
+        invoice.labour !== undefined &&
+        invoice.labour !== null &&
+        Number(invoice.labour) > 0
+          ? Number(invoice.labour)
+          : "";
+
+
+      el("gas").value =
+        invoice.gas !== undefined &&
+        invoice.gas !== null &&
+        Number(invoice.gas) > 0
+          ? Number(invoice.gas)
+          : "";
+
+
+      el("additional").value =
+        invoice.additional !== undefined &&
+        invoice.additional !== null &&
+        Number(invoice.additional) > 0
+          ? Number(invoice.additional)
+          : "";
+
+
+      el("discount").value =
+        invoice.discount !== undefined &&
+        invoice.discount !== null &&
+        Number(invoice.discount) > 0
+          ? Number(invoice.discount)
+          : "";
+
+
+      el("paymentStatus").value =
+        invoice.paymentStatus ||
+        "Unpaid";
+
+
+      el("paymentMethod").value =
+        invoice.paymentMethod ||
+        "";
+
+
+      el("amountPaid").value =
+        invoice.amountPaid !== undefined &&
+        invoice.amountPaid !== null &&
+        Number(invoice.amountPaid) > 0
+          ? Number(invoice.amountPaid)
+          : "";
+
+
+      el("warranty").value =
+        invoice.warranty ||
+        "";
+
+
+      el("customerNote").value =
+        invoice.customerNote ||
+        "";
+
+
+      el("adminNote").value =
+        invoice.adminNote ||
+        "";
+
+
+      loadPartsItems(
+        invoice.partsItems,
+        invoice.parts
       );
 
 
-    if(index !== -1){
+      calculateInvoice();
 
-      allRequests[index] = {
 
-        ...allRequests[index],
+      el("invoiceModal")
+        .classList.remove("hidden");
 
-        invoice:invoice,
+    };
+
+
+    /* =========================
+       CLOSE INVOICE
+    ========================= */
+
+    window.closeInvoice = function() {
+
+      el("invoiceModal")
+        .classList.add("hidden");
+
+      currentInvoiceBooking = null;
+
+    };
+
+
+    /* =========================
+       BUILD INVOICE OBJECT
+    ========================= */
+
+    function getInvoiceData() {
+
+      const totals =
+        calculateInvoice();
+
+
+      const partsItems =
+        getPartsItems();
+
+
+      return {
 
         invoiceNumber:
-          invoice.invoiceNumber,
+          el("invoiceNumber").value.trim(),
 
-        invoiceTotal:
-          invoice.grandTotal,
+        invoiceDate:
+          el("invoiceDate").value,
 
-        invoiceStatus:
-          invoice.paymentStatus
+        serviceDate:
+          el("serviceDate").value,
+
+        customerName:
+          el("customerName").value.trim(),
+
+        customerPhone:
+          el("customerPhone").value.trim(),
+
+        trackingId:
+          el("trackingId").value.trim(),
+
+        customerAddress:
+          el("customerAddress").value.trim(),
+
+        serviceType:
+          el("serviceType").value.trim(),
+
+        tonnage:
+          el("tonnage").value.trim(),
+
+        modelBrand:
+          el("modelBrand").value.trim(),
+
+        customerProblem:
+          el("customerProblem").value.trim(),
+
+        workPerformed:
+          el("workPerformed").value.trim(),
+
+
+        /*
+          Dynamic parts list
+        */
+
+        partsItems,
+
+
+        /*
+          Keep numeric parts total
+          for old dashboard/stat
+          compatibility.
+        */
+
+        parts:
+          totals.parts,
+
+
+        labour:
+          totals.labour,
+
+        gas:
+          totals.gas,
+
+        additional:
+          totals.additional,
+
+        discount:
+          totals.discount,
+
+        subtotal:
+          totals.subtotal,
+
+        grandTotal:
+          totals.grandTotal,
+
+        paymentStatus:
+          el("paymentStatus").value,
+
+        paymentMethod:
+          el("paymentMethod").value,
+
+        amountPaid:
+          totals.amountPaid,
+
+        balance:
+          totals.balance,
+
+        warranty:
+          el("warranty").value,
+
+        customerNote:
+          el("customerNote").value.trim(),
+
+        adminNote:
+          el("adminNote").value.trim(),
+
+        updatedAt:
+          serverTimestamp()
 
       };
-
-      currentInvoiceBooking =
-        allRequests[index];
 
     }
 
 
-    updateStats();
+    /* =========================
+       SAVE INVOICE
+    ========================= */
 
-    renderRequests();
+    window.saveInvoice = async function() {
 
+      const id =
+        el("invoiceBookingDocId").value;
 
-    alert(
-      "Invoice successfully save ho gaya."
-    );
 
+      if (!id) {
 
-    return true;
+        alert("Booking ID missing.");
+        return false;
 
-
-  }catch(err){
-
-    console.error(err);
-
-    alert(
-      "Invoice save nahi hua:\n\n" +
-      err.message
-    );
-
-    return false;
-
-  }
-
-};
-
-
-/* SAVE + PRINT */
-
-window.saveAndPrintInvoice = async function(){
-
-  const saved =
-    await saveInvoice();
-
-  if(!saved){
-    return;
-  }
-
-
-  closeInvoice();
-
-  printSavedInvoice(
-    currentInvoiceBooking?.id ||
-    el("invoiceBookingDocId").value
-  );
-
-};
-
-
-/* BUILD PRINT INVOICE */
-
-function buildInvoiceHTML(booking){
-
-  const invoice =
-    booking.invoice || {};
-
-
-  const company =
-    "Smart Cool & Refrigerator";
-
-
-  const total =
-    Number(
-      invoice.grandTotal ??
-      invoice.total ??
-      0
-    );
-
-
-  const paid =
-    Number(
-      invoice.amountPaid || 0
-    );
-
-
-  const balance =
-    Math.max(
-      0,
-      total - paid
-    );
-
-
-  const customer =
-    invoice.customerName ||
-    booking.customerName ||
-    booking.name ||
-    "";
-
-
-  return `
-
-    <div class="invoice-paper">
-
-      <div class="invoice-top">
-
-        <div class="invoice-company">
-
-          <img src="Logo.png" alt="Logo">
-
-          <div>
-
-            <h1>${escapeHtml(company)}</h1>
-
-            <p>
-              AC • Refrigerator • Water Dispenser • Electrician
-            </p>
-
-            <p>
-              All Over Karachi
-            </p>
-
-            <p>
-              Muhammad Rizwan | 03208463110
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="invoice-meta">
-
-          <h2>INVOICE</h2>
-
-          <p>
-            <strong>Invoice No:</strong>
-            ${escapeHtml(invoice.invoiceNumber || "—")}
-          </p>
-
-          <p>
-            <strong>Invoice Date:</strong>
-            ${escapeHtml(
-              displayDate(invoice.invoiceDate)
-            )}
-          </p>
-
-          <p>
-            <strong>Service Date:</strong>
-            ${escapeHtml(
-              displayDate(invoice.serviceDate)
-            )}
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="invoice-customer">
-
-        <div class="invoice-info">
-
-          <strong>Bill To</strong>
-
-          <p>
-            <b>Name:</b>
-            ${escapeHtml(customer || "—")}
-          </p>
-
-          <p>
-            <b>Phone:</b>
-            ${escapeHtml(
-              invoice.customerPhone ||
-              booking.customerPhone ||
-              booking.phone ||
-              "—"
-            )}
-          </p>
-
-          <p>
-            <b>Address:</b>
-            ${escapeHtml(
-              invoice.customerAddress ||
-              booking.address ||
-              "—"
-            )}
-          </p>
-
-        </div>
-
-
-        <div class="invoice-info">
-
-          <strong>Service Details</strong>
-
-          <p>
-            <b>Booking ID:</b>
-            ${escapeHtml(
-              invoice.trackingId ||
-              booking.bookingId ||
-              booking.trackingId ||
-              booking.id
-            )}
-          </p>
-
-          <p>
-            <b>Service:</b>
-            ${escapeHtml(
-              invoice.serviceType || "—"
-            )}
-          </p>
-
-          <p>
-            <b>Tonnage:</b>
-            ${escapeHtml(
-              invoice.tonnage || "—"
-            )}
-          </p>
-
-          <p>
-            <b>Model/Brand:</b>
-            ${escapeHtml(
-              invoice.modelBrand || "—"
-            )}
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <table class="invoice-table">
-
-        <thead>
-
-          <tr>
-            <th>Description</th>
-            <th>Amount</th>
-          </tr>
-
-        </thead>
-
-        <tbody>
-
-          <tr>
-            <td>Labour / Service Charges</td>
-            <td>${money(invoice.labour)}</td>
-          </tr>
-
-          <tr>
-            <td>Parts / Materials</td>
-            <td>${money(invoice.parts)}</td>
-          </tr>
-
-          <tr>
-            <td>Gas / Refrigerant</td>
-            <td>${money(invoice.gas)}</td>
-          </tr>
-
-          <tr>
-            <td>Additional Charges</td>
-            <td>${money(invoice.additional)}</td>
-          </tr>
-
-        </tbody>
-
-      </table>
-
-
-      <div class="invoice-summary">
-
-        <div class="invoice-summary-row">
-          <span>Subtotal</span>
-          <strong>${money(invoice.subtotal)}</strong>
-        </div>
-
-        <div class="invoice-summary-row">
-          <span>Discount</span>
-          <strong>${money(invoice.discount)}</strong>
-        </div>
-
-        <div class="invoice-summary-row total">
-          <span>Grand Total</span>
-          <strong>${money(total)}</strong>
-        </div>
-
-        <div class="invoice-summary-row">
-          <span>Paid</span>
-          <strong>${money(paid)}</strong>
-        </div>
-
-        <div class="invoice-summary-row">
-          <span>Balance Due</span>
-          <strong>${money(balance)}</strong>
-        </div>
-
-      </div>
-
-
-      <div class="invoice-notes">
-
-        <h4>Service Report</h4>
-
-        <p>
-          <b>Customer Complaint:</b>
-          ${escapeHtml(
-            invoice.customerProblem || "—"
-          )}
-        </p>
-
-        <p>
-          <b>Work Performed:</b>
-          ${escapeHtml(
-            invoice.workPerformed || "—"
-          )}
-        </p>
-
-        <p>
-          <b>Warranty:</b>
-          ${escapeHtml(
-            invoice.warranty || "—"
-          )}
-        </p>
-
-        <p>
-          <b>Payment:</b>
-          ${escapeHtml(
-            invoice.paymentStatus || "Unpaid"
-          )}
-          ${invoice.paymentMethod
-            ? " — " + escapeHtml(invoice.paymentMethod)
-            : ""
-          }
-        </p>
-
-      </div>
-
-
-      ${
-        invoice.customerNote
-        ? `
-          <div class="invoice-notes">
-
-            <h4>Customer Note</h4>
-
-            <p>
-              ${escapeHtml(invoice.customerNote)}
-            </p>
-
-          </div>
-        `
-        : ""
       }
 
 
-      <div class="invoice-thanks">
-
-        Thank you for choosing Smart Cool & Refrigerator.
-
-        <br>
-
-        For service & booking:
-        03208463110
-
-      </div>
-
-    </div>
-
-  `;
-
-}
+      const invoice =
+        getInvoiceData();
 
 
-/* PRINT SAVED */
+      if (!invoice.invoiceNumber) {
 
-window.printSavedInvoice = function(id){
+        alert("Please enter invoice number.");
+        return false;
 
-  const booking =
-    allRequests.find(x=>x.id===id);
-
-  if(
-    !booking ||
-    !booking.invoice
-  ){
-
-    alert("Is booking ka invoice available nahi hai.");
-
-    return;
-
-  }
+      }
 
 
-  el("printArea").innerHTML =
-    buildInvoiceHTML(booking);
+      if (!invoice.customerName) {
+
+        alert("Please enter customer name.");
+        return false;
+
+      }
 
 
-  setTimeout(()=>{
+      try {
 
-    window.print();
+        await updateDoc(
+          doc(db, "serviceRequests", id),
+          {
 
-  },200);
+            invoice,
 
-};
+            invoiceNumber:
+              invoice.invoiceNumber,
 
+            invoiceTotal:
+              invoice.grandTotal,
 
-/* WHATSAPP SAVED */
+            invoiceStatus:
+              invoice.paymentStatus,
 
-window.whatsappSavedInvoice = function(id){
+            invoiceUpdatedAt:
+              serverTimestamp(),
 
-  const booking =
-    allRequests.find(x=>x.id===id);
+            updatedAt:
+              serverTimestamp()
 
-  if(
-    !booking ||
-    !booking.invoice
-  ){
-
-    alert("Invoice available nahi hai.");
-
-    return;
-
-  }
-
-
-  sendWhatsAppForBooking(booking);
-
-};
+          }
+        );
 
 
-/* SEND WHATSAPP */
+        alert("Invoice saved successfully.");
 
-window.sendInvoiceWhatsApp = function(){
+        return true;
 
-  if(!currentInvoiceBooking){
+      } catch (error) {
 
-    alert("Booking select nahi hui.");
+        console.error(error);
 
-    return;
+        alert(
+          "Invoice save failed.\n" +
+          error.message
+        );
 
-  }
+        return false;
 
+      }
 
-  const totals =
-    calculateInvoice();
-
-
-  const phone =
-    el("customerPhone").value.trim();
-
-
-  if(!phone){
-
-    alert("Customer phone number missing hai.");
-
-    return;
-
-  }
+    };
 
 
-  const message = `
+    /* =========================
+       SAVE & PRINT
+    ========================= */
 
-Smart Cool & Refrigerator
+    window.saveAndPrintInvoice = async function() {
 
-INVOICE
-Invoice No: ${el("invoiceNumber").value}
-Booking ID: ${el("trackingId").value}
+      const id =
+        el("invoiceBookingDocId").value;
 
-Customer: ${el("customerName").value}
-Service: ${el("serviceType").value}
 
-Total: Rs ${totals.grandTotal.toLocaleString("en-PK")}
-Paid: Rs ${totals.amountPaid.toLocaleString("en-PK")}
-Balance: Rs ${totals.balance.toLocaleString("en-PK")}
+      const saved =
+        await saveInvoice();
 
-Warranty: ${el("warranty").value}
 
-Thank you for choosing Smart Cool & Refrigerator.
+      if (!saved) return;
+
+
+      closeInvoice();
+
+
+      setTimeout(() => {
+
+        printSavedInvoice(id);
+
+      }, 250);
+
+    };
+
+
+    /* =========================
+       PRINT INVOICE
+    ========================= */
+
+    window.printSavedInvoice = function(id) {
+
+      const booking =
+        allBookings.find(
+          item => item.id === id
+        );
+
+
+      if (!booking || !booking.invoice) {
+
+        alert("Invoice not found.");
+        return;
+
+      }
+
+
+      const html =
+        buildInvoiceHTML(
+          booking.invoice
+        );
+
+
+      el("printArea").innerHTML =
+        html;
+
+
+      setTimeout(() => {
+
+        window.print();
+
+      }, 100);
+
+    };
+
+
+    /* =========================
+       ITEMIZED PRINT ROWS
+    ========================= */
+
+    function buildChargeRows(invoice) {
+
+      let rows = "";
+      let serial = 1;
+
+
+      /*
+        Labour
+      */
+
+      if (Number(invoice.labour || 0) > 0) {
+
+        rows += `
+          <tr>
+            <td>${serial++}</td>
+            <td>Labour / Service Charges</td>
+            <td>${money(invoice.labour)}</td>
+          </tr>
+        `;
+
+      }
+
+
+      /*
+        Parts
+      */
+
+      const parts =
+        Array.isArray(invoice.partsItems)
+          ? invoice.partsItems
+          : [];
+
+
+      parts.forEach(part => {
+
+        const amount =
+          Number(part.amount || 0);
+
+
+        const name =
+          String(
+            part.name || "Part / Material"
+          ).trim();
+
+
+        /*
+          IMPORTANT:
+          Blank/zero amount is NOT shown.
+        */
+
+        if (name && amount > 0) {
+
+          rows += `
+            <tr>
+              <td>${serial++}</td>
+              <td>${escapeHtml(name)}</td>
+              <td>${money(amount)}</td>
+            </tr>
+          `;
+
+        }
+
+      });
+
+
+      /*
+        Old invoice compatibility
+      */
+
+      if (
+        parts.length === 0 &&
+        Number(invoice.parts || 0) > 0
+      ) {
+
+        rows += `
+          <tr>
+            <td>${serial++}</td>
+            <td>Parts / Materials</td>
+            <td>${money(invoice.parts)}</td>
+          </tr>
+        `;
+
+      }
+
+
+      /*
+        Gas
+      */
+
+      if (Number(invoice.gas || 0) > 0) {
+
+        rows += `
+          <tr>
+            <td>${serial++}</td>
+            <td>Gas Charges</td>
+            <td>${money(invoice.gas)}</td>
+          </tr>
+        `;
+
+      }
+
+
+      /*
+        Additional
+      */
+
+      if (
+        Number(invoice.additional || 0) > 0
+      ) {
+
+        rows += `
+          <tr>
+            <td>${serial++}</td>
+            <td>Additional Charges</td>
+            <td>${money(invoice.additional)}</td>
+          </tr>
+        `;
+
+      }
+
+
+      /*
+        If nothing was entered
+      */
+
+      if (!rows) {
+
+        rows = `
+          <tr>
+            <td colspan="3" style="text-align:center;color:#71838c;">
+              No charges added
+            </td>
+          </tr>
+        `;
+
+      }
+
+
+      return rows;
+
+    }
+
+
+    /* =========================
+       PROFESSIONAL INVOICE HTML
+    ========================= */
+
+    function buildInvoiceHTML(invoice) {
+
+      const parts =
+        Array.isArray(invoice.partsItems)
+          ? invoice.partsItems
+          : [];
+
+
+      const cleanParts =
+        parts.filter(
+          item =>
+            String(item.name || "").trim() &&
+            Number(item.amount || 0) > 0
+        );
+
+
+      let partsSummary = "";
+
+
+      if (cleanParts.length) {
+
+        partsSummary =
+          cleanParts
+            .map(
+              item =>
+                `${escapeHtml(item.name)} — ${money(item.amount)}`
+            )
+            .join("<br>");
+
+      } else if (
+        Number(invoice.parts || 0) > 0
+      ) {
+
+        partsSummary =
+          `Parts / Materials — ${money(invoice.parts)}`;
+
+      } else {
+
+        partsSummary =
+          "No parts / materials";
+
+      }
+
+
+      const paymentStatus =
+        invoice.paymentStatus ||
+        "Unpaid";
+
+
+      const balance =
+        Number(invoice.balance || 0);
+
+
+      const paymentBadge =
+        paymentStatus === "Paid"
+          ? "Paid"
+          : paymentStatus === "Partially Paid"
+            ? "Partially Paid"
+            : "Unpaid";
+
+
+      return `
+
+        <div class="invoice-paper">
+
+          <div class="invoice-head">
+
+            <div class="invoice-company">
+
+              <img
+                src="Logo.png"
+                alt="Smart Cool & Refrigerator">
+
+              <div>
+
+                <h1>
+                  Smart Cool & Refrigerator
+                </h1>
+
+                <p>
+                  AC • Refrigerator • Water Dispenser
+                </p>
+
+                <p>
+                  All Over Karachi
+                </p>
+
+                <p>
+                  Muhammad Rizwan • 03208463110
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <div class="invoice-title">
+
+              <h2>INVOICE</h2>
+
+              <span class="invoice-badge">
+                ${escapeHtml(paymentBadge)}
+              </span>
+
+              <div class="invoice-meta">
+
+                Invoice No:
+                <strong>
+                  ${escapeHtml(invoice.invoiceNumber || "-")}
+                </strong>
+                <br>
+
+                Invoice Date:
+                ${escapeHtml(displayDate(invoice.invoiceDate))}
+                <br>
+
+                Service Date:
+                ${escapeHtml(displayDate(invoice.serviceDate))}
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="print-cards">
+
+            <div class="print-card">
+
+              <h4>Bill To</h4>
+
+              <p>
+
+                <strong>
+                  ${escapeHtml(invoice.customerName || "-")}
+                </strong>
+
+                <br>
+
+                Phone:
+                ${escapeHtml(invoice.customerPhone || "-")}
+
+                <br>
+
+                Address:
+                ${escapeHtml(invoice.customerAddress || "-")}
+
+                <br>
+
+                Tracking ID:
+                ${escapeHtml(invoice.trackingId || "-")}
+
+              </p>
+
+            </div>
+
+
+            <div class="print-card">
+
+              <h4>Service Details</h4>
+
+              <p>
+
+                <strong>
+                  ${escapeHtml(invoice.serviceType || "-")}
+                </strong>
+
+                ${
+                  invoice.tonnage
+                    ? `<br>Capacity: ${escapeHtml(invoice.tonnage)}`
+                    : ""
+                }
+
+                ${
+                  invoice.modelBrand
+                    ? `<br>Model / Brand: ${escapeHtml(invoice.modelBrand)}`
+                    : ""
+                }
+
+                ${
+                  invoice.customerProblem
+                    ? `<br>Problem: ${escapeHtml(invoice.customerProblem)}`
+                    : ""
+                }
+
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <table class="print-table">
+
+            <thead>
+
+              <tr>
+                <th style="width:45px;">#</th>
+                <th>Description</th>
+                <th style="width:150px;">Amount</th>
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              ${buildChargeRows(invoice)}
+
+            </tbody>
+
+          </table>
+
+
+          ${
+            cleanParts.length
+              ?
+              `
+                <div style="
+                  margin-top:12px;
+                  border:1px solid #dce8ed;
+                  border-radius:9px;
+                  padding:9px;
+                  font-size:10px;
+                ">
+
+                  <strong style="color:#064861;">
+                    Parts / Materials Used
+                  </strong>
+
+                  <div style="margin-top:5px;line-height:1.7;">
+                    ${partsSummary}
+                  </div>
+
+                </div>
+              `
+              :
+              ""
+          }
+
+
+          <div class="print-summary">
+
+            <div class="print-summary-row">
+              <span>Subtotal</span>
+              <strong>
+                ${money(invoice.subtotal)}
+              </strong>
+            </div>
+
+
+            ${
+              Number(invoice.discount || 0) > 0
+                ?
+                `
+                  <div class="print-summary-row">
+                    <span>Discount</span>
+                    <strong>
+                      - ${money(invoice.discount)}
+                    </strong>
+                  </div>
+                `
+                :
+                ""
+            }
+
+
+            <div class="print-summary-row grand">
+              <span>Grand Total</span>
+              <strong>
+                ${money(invoice.grandTotal)}
+              </strong>
+            </div>
+
+
+            ${
+              Number(invoice.amountPaid || 0) > 0
+                ?
+                `
+                  <div class="print-summary-row">
+                    <span>Amount Paid</span>
+                    <strong>
+                      ${money(invoice.amountPaid)}
+                    </strong>
+                  </div>
+                `
+                :
+                ""
+            }
+
+
+            ${
+              balance > 0
+                ?
+                `
+                  <div class="print-summary-row balance">
+                    <span>Balance Due</span>
+                    <strong>
+                      ${money(balance)}
+                    </strong>
+                  </div>
+                `
+                :
+                ""
+            }
+
+          </div>
+
+
+          ${
+            invoice.paymentMethod
+              ?
+              `
+                <div style="
+                  margin-top:10px;
+                  font-size:10px;
+                  text-align:right;
+                  color:#657b87;
+                ">
+                  Payment Method:
+                  <strong>
+                    ${escapeHtml(invoice.paymentMethod)}
+                  </strong>
+                </div>
+              `
+              :
+              ""
+          }
+
+
+          <div class="print-note-grid">
+
+            ${
+              invoice.workPerformed
+                ?
+                `
+                  <div class="print-note">
+
+                    <h4>Work Performed</h4>
+
+                    <p>
+                      ${escapeHtml(invoice.workPerformed)}
+                    </p>
+
+                  </div>
+                `
+                :
+                ""
+            }
+
+
+            ${
+              invoice.customerNote
+                ?
+                `
+                  <div class="print-note">
+
+                    <h4>Customer Note</h4>
+
+                    <p>
+                      ${escapeHtml(invoice.customerNote)}
+                    </p>
+
+                  </div>
+                `
+                :
+                ""
+            }
+
+          </div>
+
+
+          ${
+            invoice.warranty
+              ?
+              `
+                <div class="warranty-box">
+
+                  Warranty:
+                  ${escapeHtml(invoice.warranty)}
+
+                  <br>
+
+                  Warranty applies only to eligible repair work
+                  and does not cover physical damage,
+                  voltage issues or misuse.
+
+                </div>
+              `
+              :
+              ""
+          }
+
+
+          <div class="print-footer">
+
+            <strong>
+              Smart Cool & Refrigerator
+            </strong>
+
+            <br>
+
+            AC • Refrigerator • Water Dispenser • Electrician
+
+            <br>
+
+            Muhammad Rizwan:
+            03208463110
+
+            <br>
+
+            Thank you for choosing Smart Cool & Refrigerator.
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =========================
+       WHATSAPP
+    ========================= */
+
+    window.sendInvoiceWhatsApp = function() {
+
+      const invoice =
+        getInvoiceData();
+
+
+      const phone =
+        invoice.customerPhone
+          .replace(/\D/g, "");
+
+
+      if (!phone) {
+
+        alert(
+          "Customer phone number is missing."
+        );
+
+        return;
+
+      }
+
+
+      let message =
+`*SMART COOL & REFRIGERATOR*
+━━━━━━━━━━━━━━━━━━
+*INVOICE*
+
+Invoice No: ${invoice.invoiceNumber}
+Invoice Date: ${displayDate(invoice.invoiceDate)}
+Service Date: ${displayDate(invoice.serviceDate)}
+
+*Customer*
+Name: ${invoice.customerName}
+Phone: ${invoice.customerPhone}
+Tracking ID: ${invoice.trackingId}
+Address: ${invoice.customerAddress}
+
+*Service*
+${invoice.serviceType || "-"}${invoice.tonnage ? ` | ${invoice.tonnage}` : ""}
+${invoice.modelBrand ? `Model/Brand: ${invoice.modelBrand}` : ""}
+
+`;
+
+
+      if (invoice.customerProblem) {
+
+        message +=
+`*Problem:*
+${invoice.customerProblem}
+
+`;
+
+      }
+
+
+      if (invoice.workPerformed) {
+
+        message +=
+`*Work Performed:*
+${invoice.workPerformed}
+
+`;
+
+      }
+
+
+      /*
+        LABOUR
+      */
+
+      if (Number(invoice.labour || 0) > 0) {
+
+        message +=
+`Labour: ${money(invoice.labour)}
+`;
+
+      }
+
+
+      /*
+        PARTS
+      */
+
+      if (
+        Array.isArray(invoice.partsItems) &&
+        invoice.partsItems.length
+      ) {
+
+        message +=
+`
+*Parts / Materials:*
+`;
+
+        invoice.partsItems.forEach(
+          (part, index) => {
+
+            if (
+              part.name &&
+              Number(part.amount || 0) > 0
+            ) {
+
+              message +=
+`${index + 1}. ${part.name}: ${money(part.amount)}
+`;
+
+            }
+
+          }
+        );
+
+      } else if (
+        Number(invoice.parts || 0) > 0
+      ) {
+
+        message +=
+`Parts / Materials: ${money(invoice.parts)}
+`;
+
+      }
+
+
+      /*
+        GAS
+      */
+
+      if (Number(invoice.gas || 0) > 0) {
+
+        message +=
+`Gas Charges: ${money(invoice.gas)}
+`;
+
+      }
+
+
+      /*
+        ADDITIONAL
+      */
+
+      if (
+        Number(invoice.additional || 0) > 0
+      ) {
+
+        message +=
+`Additional: ${money(invoice.additional)}
+`;
+
+      }
+
+
+      /*
+        TOTAL
+      */
+
+      message +=
+`
+━━━━━━━━━━━━━━━━━━
+Subtotal: ${money(invoice.subtotal)}
+`;
+
+
+      if (Number(invoice.discount || 0) > 0) {
+
+        message +=
+`Discount: - ${money(invoice.discount)}
+`;
+
+      }
+
+
+      message +=
+`*GRAND TOTAL: ${money(invoice.grandTotal)}*
+`;
+
+
+      if (Number(invoice.amountPaid || 0) > 0) {
+
+        message +=
+`Paid: ${money(invoice.amountPaid)}
+`;
+
+      }
+
+
+      if (Number(invoice.balance || 0) > 0) {
+
+        message +=
+`*Balance Due: ${money(invoice.balance)}*
+`;
+
+      }
+
+
+      if (invoice.paymentMethod) {
+
+        message +=
+`Payment Method: ${invoice.paymentMethod}
+`;
+
+      }
+
+
+      if (invoice.warranty) {
+
+        message +=
+`
+Warranty: ${invoice.warranty}
+`;
+
+      }
+
+
+      if (invoice.customerNote) {
+
+        message +=
+`
+Note:
+${invoice.customerNote}
+`;
+
+      }
+
+
+      message +=
+`
+━━━━━━━━━━━━━━━━━━
+*Smart Cool & Refrigerator*
 Muhammad Rizwan
 03208463110
-
-  `.trim();
-
-
-  const cleanPhone =
-    phone.replace(/\D/g,"");
+All Over Karachi
+`;
 
 
-  const internationalPhone =
-    cleanPhone.startsWith("0")
-      ? "92" + cleanPhone.slice(1)
-      : cleanPhone;
+      const url =
+        `https://wa.me/${phone}?text=` +
+        encodeURIComponent(message);
 
 
-  const url =
-    `https://wa.me/${internationalPhone}?text=` +
-    encodeURIComponent(message);
+      window.open(
+        url,
+        "_blank"
+      );
+
+    };
 
 
-  window.open(url,"_blank");
+    /* =========================
+       WHATSAPP SAVED BOOKING
+    ========================= */
 
-};
+    window.sendWhatsAppForBooking =
+      function(id) {
 
-
-/* WHATSAPP SAVED BOOKING */
-
-function sendWhatsAppForBooking(booking){
-
-  const invoice =
-    booking.invoice || {};
-
-
-  const phone =
-    invoice.customerPhone ||
-    booking.customerPhone ||
-    booking.phone ||
-    "";
+        const booking =
+          allBookings.find(
+            item => item.id === id
+          );
 
 
-  if(!phone){
+        if (
+          !booking ||
+          !booking.invoice
+        ) {
 
-    alert("Customer phone number missing hai.");
+          alert("Invoice not found.");
+          return;
 
-    return;
-
-  }
-
-
-  const total =
-    Number(
-      invoice.grandTotal ??
-      invoice.total ??
-      0
-    );
+        }
 
 
-  const paid =
-    Number(
-      invoice.amountPaid || 0
-    );
+        const invoice =
+          booking.invoice;
 
 
-  const balance =
-    Math.max(
-      0,
-      total-paid
-    );
+        const phone =
+          String(
+            invoice.customerPhone ||
+            booking.phone ||
+            booking.customerPhone ||
+            ""
+          ).replace(/\D/g, "");
 
 
-  const message = `
+        if (!phone) {
 
-Smart Cool & Refrigerator
+          alert(
+            "Customer phone number is missing."
+          );
 
-INVOICE
-Invoice No: ${invoice.invoiceNumber || "—"}
-Booking ID: ${
-    invoice.trackingId ||
-    booking.bookingId ||
-    booking.id
-  }
+          return;
 
-Customer: ${
-    invoice.customerName ||
-    booking.customerName ||
-    booking.name ||
-    "—"
-  }
+        }
 
-Service: ${invoice.serviceType || "—"}
 
-Grand Total: Rs ${total.toLocaleString("en-PK")}
-Paid: Rs ${paid.toLocaleString("en-PK")}
-Balance: Rs ${balance.toLocaleString("en-PK")}
+        let message =
+`*SMART COOL & REFRIGERATOR*
+━━━━━━━━━━━━━━━━━━
+*INVOICE*
 
-Warranty: ${invoice.warranty || "—"}
+Invoice No: ${invoice.invoiceNumber || "-"}
+Invoice Date: ${displayDate(invoice.invoiceDate)}
+Service Date: ${displayDate(invoice.serviceDate)}
 
+*Customer*
+Name: ${invoice.customerName || "-"}
+Phone: ${invoice.customerPhone || "-"}
+Tracking ID: ${invoice.trackingId || "-"}
+
+*Service*
+${invoice.serviceType || "-"}`;
+
+        
+        if (invoice.tonnage) {
+          message +=
+`\nCapacity: ${invoice.tonnage}`;
+        }
+
+
+        if (invoice.modelBrand) {
+          message +=
+`\nModel/Brand: ${invoice.modelBrand}`;
+        }
+
+
+        if (invoice.customerProblem) {
+
+          message +=
+`
+
+*Problem:*
+${invoice.customerProblem}`;
+
+        }
+
+
+        if (invoice.workPerformed) {
+
+          message +=
+`
+
+*Work Performed:*
+${invoice.workPerformed}`;
+
+        }
+
+
+        if (Number(invoice.labour || 0) > 0) {
+
+          message +=
+`
+
+Labour: ${money(invoice.labour)}`;
+
+        }
+
+
+        const parts =
+          Array.isArray(invoice.partsItems)
+            ? invoice.partsItems
+            : [];
+
+
+        const validParts =
+          parts.filter(
+            p =>
+              p.name &&
+              Number(p.amount || 0) > 0
+          );
+
+
+        if (validParts.length) {
+
+          message +=
+`
+
+*Parts / Materials:*`;
+
+          validParts.forEach(
+            (part, index) => {
+
+              message +=
+`
+${index + 1}. ${part.name}: ${money(part.amount)}`;
+
+            }
+          );
+
+        } else if (
+          Number(invoice.parts || 0) > 0
+        ) {
+
+          message +=
+`
+Parts / Materials: ${money(invoice.parts)}`;
+
+        }
+
+
+        if (Number(invoice.gas || 0) > 0) {
+
+          message +=
+`
+Gas Charges: ${money(invoice.gas)}`;
+
+        }
+
+
+        if (
+          Number(invoice.additional || 0) > 0
+        ) {
+
+          message +=
+`
+Additional: ${money(invoice.additional)}`;
+
+        }
+
+
+        message +=
+`
+
+━━━━━━━━━━━━━━━━━━
+Subtotal: ${money(invoice.subtotal)}`;
+
+
+        if (Number(invoice.discount || 0) > 0) {
+
+          message +=
+`
+Discount: - ${money(invoice.discount)}`;
+
+        }
+
+
+        message +=
+`
+*GRAND TOTAL: ${money(invoice.grandTotal)}*`;
+
+
+        if (Number(invoice.amountPaid || 0) > 0) {
+
+          message +=
+`
+Paid: ${money(invoice.amountPaid)}`;
+
+        }
+
+
+        if (Number(invoice.balance || 0) > 0) {
+
+          message +=
+`
+*Balance Due: ${money(invoice.balance)}*`;
+
+        }
+
+
+        if (invoice.paymentMethod) {
+
+          message +=
+`
+Payment Method: ${invoice.paymentMethod}`;
+
+        }
+
+
+        if (invoice.warranty) {
+
+          message +=
+`
+Warranty: ${invoice.warranty}`;
+
+        }
+
+
+        if (invoice.customerNote) {
+
+          message +=
+`
+
+Note:
+${invoice.customerNote}`;
+
+        }
+
+
+        message +=
+`
+
+━━━━━━━━━━━━━━━━━━
+*Smart Cool & Refrigerator*
 Muhammad Rizwan
 03208463110
-
-Thank you for choosing Smart Cool & Refrigerator.
-
-  `.trim();
+All Over Karachi`;
 
 
-  const clean =
-    String(phone).replace(/\D/g,"");
+        const url =
+          `https://wa.me/${phone}?text=` +
+          encodeURIComponent(message);
 
 
-  const international =
-    clean.startsWith("0")
-      ? "92"+clean.slice(1)
-      : clean;
+        window.open(
+          url,
+          "_blank"
+        );
+
+      };
 
 
-  window.open(
-    `https://wa.me/${international}?text=`+
-    encodeURIComponent(message),
-    "_blank"
-  );
+    /* =========================
+       ESC KEY
+    ========================= */
 
-};
+    document.addEventListener(
+      "keydown",
+      function(e) {
+
+        if (
+          e.key === "Escape" &&
+          !el("invoiceModal")
+            .classList.contains("hidden")
+        ) {
+
+          closeInvoice();
+
+        }
+
+      }
+    );
 
 
-/* INITIAL */
+    /* =========================
+       CLICK OUTSIDE MODAL
+    ========================= */
 
-window.addEventListener("beforeunload",()=>{
+    el("invoiceModal")
+      .addEventListener(
+        "click",
+        function(e) {
 
-  // Firebase state handles login persistence.
+          if (
+            e.target === el("invoiceModal")
+          ) {
 
-});
+            closeInvoice();
 
-</script>
+          }
+
+        }
+      );
+
+  </script>
 
 </body>
+
 </html>
