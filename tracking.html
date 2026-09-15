@@ -1362,6 +1362,87 @@
     }
 
     /* =========================
+       INVOICE ACTION BUTTONS
+    ========================== */
+
+    .invoice-actions {
+
+      margin:
+        0 25px 25px;
+
+      padding: 16px;
+
+      display: flex;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+
+      background: #f7f9fc;
+
+      border:
+        1px solid #e3e7ed;
+
+      border-radius: 10px;
+
+    }
+
+    .invoice-action-btn {
+
+      flex: 1;
+
+      min-width: 180px;
+
+      border: none;
+
+      border-radius: 9px;
+
+      padding:
+        12px 16px;
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition: .25s;
+
+    }
+
+    .invoice-print-btn {
+
+      background: #0876df;
+
+      color: white;
+
+    }
+
+    .invoice-pdf-btn {
+
+      background: #061a33;
+
+      color: white;
+
+    }
+
+    .invoice-action-btn:hover {
+
+      transform:
+        translateY(-1px);
+
+      opacity: .92;
+
+    }
+
+    .invoice-action-btn:active {
+
+      transform:
+        translateY(0);
+
+    }
+
+    /* =========================
        LOADING
     ========================== */
 
@@ -1829,11 +1910,164 @@
 
       }
 
+      .invoice-actions {
+
+        margin-left: 18px;
+
+        margin-right: 18px;
+
+        flex-direction: column;
+
+      }
+
+      .invoice-action-btn {
+
+        width: 100%;
+
+        min-width: 0;
+
+      }
+
       .footer {
 
         font-size: 13px;
 
         line-height: 1.6;
+
+      }
+
+    }
+
+    /* =========================
+       PRINT / SAVE PDF
+    ========================== */
+
+    @media print {
+
+      html,
+      body {
+
+        background: white !important;
+
+        color: #172033 !important;
+
+        min-height: auto !important;
+
+      }
+
+      .header,
+      .track-box,
+      .heading,
+      .how,
+      .whatsapp,
+      .footer,
+      .invoice-link-note,
+      .invoice-actions,
+      #message {
+
+        display: none !important;
+
+      }
+
+      .page {
+
+        padding: 0 !important;
+
+        min-height: auto !important;
+
+      }
+
+      .container {
+
+        max-width: none !important;
+
+        width: 100% !important;
+
+        margin: 0 !important;
+
+      }
+
+      #result {
+
+        margin: 0 !important;
+
+        padding: 0 !important;
+
+      }
+
+      .full-invoice {
+
+        display: block !important;
+
+        margin: 0 !important;
+
+        width: 100% !important;
+
+        max-width: none !important;
+
+        border-radius: 0 !important;
+
+        box-shadow: none !important;
+
+        overflow: visible !important;
+
+      }
+
+      .invoice-header {
+
+        -webkit-print-color-adjust: exact;
+
+        print-color-adjust: exact;
+
+      }
+
+      .invoice-table th {
+
+        -webkit-print-color-adjust: exact;
+
+        print-color-adjust: exact;
+
+      }
+
+      .summary-total {
+
+        -webkit-print-color-adjust: exact;
+
+        print-color-adjust: exact;
+
+      }
+
+      .invoice-table .grand-row td {
+
+        -webkit-print-color-adjust: exact;
+
+        print-color-adjust: exact;
+
+      }
+
+      .invoice-info-box {
+
+        break-inside: avoid;
+
+      }
+
+      .invoice-table tr {
+
+        break-inside: avoid;
+
+      }
+
+      .invoice-notes {
+
+        break-inside: avoid;
+
+      }
+
+      @page {
+
+        size: A4;
+
+        margin: 10mm;
 
       }
 
@@ -2720,14 +2954,28 @@
 
 
     /* =========================
-       AMOUNT FROM OLD BOOKING
+       AMOUNT
     ========================== */
 
     function getAmount(
       booking
     ) {
 
+      const invoice =
+        booking?.invoice || {};
+
+
       const possibleAmounts = [
+
+        invoice?.grandTotal,
+
+        invoice?.invoiceTotal,
+
+        invoice?.totalAmount,
+
+        invoice?.amount,
+
+        booking?.invoiceTotal,
 
         booking?.invoiceAmount,
 
@@ -2777,113 +3025,30 @@
 
 
     /* =========================
-       FIND BOOKING
+       INVOICE TOKEN
     ========================== */
 
-    async function findBooking(
-      trackingId
+    function getInvoiceToken(
+      booking
     ) {
 
-      const cleanId =
-        String(
-          trackingId || ""
-        ).trim();
+      const invoice =
+        booking?.invoice || {};
 
 
-      const variants =
-        [
-          cleanId,
-          cleanId.toUpperCase(),
-          cleanId.toLowerCase()
-        ];
+      return String(
 
+        booking?.invoiceToken ||
 
-      const uniqueVariants =
-        [
-          ...new Set(
-            variants
-          )
-        ];
+        booking?.publicInvoiceToken ||
 
+        invoice?.invoiceToken ||
 
-      for (
-        const value of uniqueVariants
-      ) {
+        invoice?.publicInvoiceToken ||
 
+        ""
 
-        let q =
-          query(
-            collection(
-              db,
-              "serviceRequests"
-            ),
-            where(
-              "trackingId",
-              "==",
-              value
-            )
-          );
-
-
-        let snapshot =
-          await getDocs(q);
-
-
-        if (
-          !snapshot.empty
-        ) {
-
-          return {
-
-            id:
-              snapshot.docs[0].id,
-
-            data:
-              snapshot.docs[0].data()
-
-          };
-
-        }
-
-
-        q =
-          query(
-            collection(
-              db,
-              "serviceRequests"
-            ),
-            where(
-              "bookingId",
-              "==",
-              value
-            )
-          );
-
-
-        snapshot =
-          await getDocs(q);
-
-
-        if (
-          !snapshot.empty
-        ) {
-
-          return {
-
-            id:
-              snapshot.docs[0].id,
-
-            data:
-              snapshot.docs[0].data()
-
-          };
-
-        }
-
-      }
-
-
-      return null;
+      ).trim();
 
     }
 
@@ -3612,6 +3777,12 @@
       }
 
 
+      const invoiceRows =
+        buildInvoiceRows(
+          invoice
+        );
+
+
       return `
 
         <div class="full-invoice">
@@ -3834,14 +4005,8 @@
               <tbody>
 
                 ${
-                  buildInvoiceRows(
-                    invoice
-                  )
-                }
-
-                ${
-                  !buildInvoiceRows(invoice)
-                  ?
+                  invoiceRows
+                  ||
                   `
                     <tr>
 
@@ -3857,8 +4022,6 @@
 
                     </tr>
                   `
-                  :
-                  ""
                 }
 
               </tbody>
@@ -3945,6 +4108,30 @@
 
         </div>
 
+
+        <div class="invoice-actions">
+
+          <button
+            type="button"
+            class="invoice-action-btn invoice-print-btn"
+            onclick="printInvoicePage()">
+
+            🖨️ Print Invoice
+
+          </button>
+
+
+          <button
+            type="button"
+            class="invoice-action-btn invoice-pdf-btn"
+            onclick="saveInvoicePDF()">
+
+            📥 Save / Download PDF
+
+          </button>
+
+        </div>
+
       `;
 
     }
@@ -3981,11 +4168,6 @@
       `;
 
 
-      /*
-       * Public invoice is stored using
-       * the secure token as document ID.
-       */
-
       const invoiceRef =
         doc(
           db,
@@ -4021,7 +4203,7 @@
 
 
       /*
-       * Supports both:
+       * Supports:
        *
        * publicInvoices/TOKEN
        * {
@@ -4047,6 +4229,16 @@
       ) {
 
         invoice.invoiceToken =
+          token;
+
+      }
+
+
+      if (
+        !invoice.publicInvoiceToken
+      ) {
+
+        invoice.publicInvoiceToken =
           token;
 
       }
@@ -4339,9 +4531,15 @@
             );
 
 
+          const invoiceToken =
+            getInvoiceToken(
+              booking
+            );
+
+
           const paymentInfo =
             getPaymentStatus(
-              booking
+              booking?.invoice || booking
             );
 
 
@@ -4617,6 +4815,36 @@
                     }
 
 
+                    ${
+                      invoiceToken
+                      ?
+                      `
+
+                        <div style="
+                          margin-top:15px;
+                          display:flex;
+                          gap:10px;
+                          flex-wrap:wrap;
+                        ">
+
+                          <button
+                            type="button"
+                            class="track-button"
+                            style="height:46px;padding:0 18px;"
+                            onclick="window.open('tracking.html?invoice=${encodeURIComponent(invoiceToken)}','_blank')">
+
+                            🧾 View Full Invoice
+
+                          </button>
+
+                        </div>
+
+                      `
+                      :
+                      ""
+                    }
+
+
                   </div>
 
                 `
@@ -4723,6 +4951,154 @@
 
 
     /* =========================
+       FIND BOOKING
+    ========================== */
+
+    async function findBooking(
+      trackingId
+    ) {
+
+      const cleanId =
+        String(
+          trackingId || ""
+        ).trim();
+
+
+      const variants =
+        [
+          cleanId,
+          cleanId.toUpperCase(),
+          cleanId.toLowerCase()
+        ];
+
+
+      const uniqueVariants =
+        [
+          ...new Set(
+            variants
+          )
+        ];
+
+
+      for (
+        const value of uniqueVariants
+      ) {
+
+
+        let q =
+          query(
+            collection(
+              db,
+              "serviceRequests"
+            ),
+            where(
+              "trackingId",
+              "==",
+              value
+            )
+          );
+
+
+        let snapshot =
+          await getDocs(q);
+
+
+        if (
+          !snapshot.empty
+        ) {
+
+          return {
+
+            id:
+              snapshot.docs[0].id,
+
+            data:
+              snapshot.docs[0].data()
+
+          };
+
+        }
+
+
+        q =
+          query(
+            collection(
+              db,
+              "serviceRequests"
+            ),
+            where(
+              "bookingId",
+              "==",
+              value
+            )
+          );
+
+
+        snapshot =
+          await getDocs(q);
+
+
+        if (
+          !snapshot.empty
+        ) {
+
+          return {
+
+            id:
+              snapshot.docs[0].id,
+
+            data:
+              snapshot.docs[0].data()
+
+          };
+
+        }
+
+      }
+
+
+      return null;
+
+    }
+
+
+    /* =========================
+       PRINT INVOICE
+    ========================== */
+
+    window.printInvoicePage =
+      function() {
+
+        window.print();
+
+      };
+
+
+    /* =========================
+       SAVE / DOWNLOAD PDF
+    ========================== */
+
+    window.saveInvoicePDF =
+      function() {
+
+        alert(
+          "PDF save karne ke liye Print screen mein 'Save as PDF' select karein."
+        );
+
+
+        setTimeout(
+          function() {
+
+            window.print();
+
+          },
+          300
+        );
+
+      };
+
+
+    /* =========================
        AUTO OPEN INVOICE LINK
     ========================== */
 
@@ -4773,7 +5149,7 @@
         ) {
 
           showMessage(
-            "Invoice link is valid, but Firebase permission is not configured yet. We will connect this when the admin invoice system is updated.",
+            "Invoice link is valid, but Firebase permission is not configured yet. Please check publicInvoices Firestore rules.",
             "error"
           );
 
