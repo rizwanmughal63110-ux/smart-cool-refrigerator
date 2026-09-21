@@ -596,7 +596,7 @@
 
     .charges-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 13px;
     }
 
@@ -727,7 +727,7 @@
       }
 
       .charges-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -1104,6 +1104,14 @@
 
             <div class="form-group">
 
+              <label>Invoice Time</label>
+
+              <input id="invoiceTime" type="time">
+
+            </div>
+
+            <div class="form-group">
+
               <label>Service Date</label>
 
               <input id="invoiceServiceDate" type="date">
@@ -1330,6 +1338,22 @@
 
             </div>
 
+            <div class="form-group">
+
+              <label>Customer Exchange / Return (Less)</label>
+
+              <input
+                id="invoiceExchange"
+                type="number"
+                min="0"
+                step="1"
+                value="0"
+                placeholder="Amount to subtract"
+                oninput="calculateInvoice()"
+              >
+
+            </div>
+
           </div>
 
 
@@ -1390,6 +1414,16 @@
               <span>Discount</span>
 
               <strong id="summaryDiscount">
+                Rs 0
+              </strong>
+
+            </div>
+
+            <div class="total-line">
+
+              <span>Customer Exchange / Return</span>
+
+              <strong id="summaryExchange">
                 Rs 0
               </strong>
 
@@ -2575,6 +2609,70 @@ const firebaseConfig = {
     };
 
 
+    /* PAKISTAN DATE / TIME */
+
+    function getPakistanDateTime() {
+
+      const now = new Date();
+
+      const dateParts =
+        new Intl.DateTimeFormat("en-CA", {
+          timeZone: "Asia/Karachi",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+        }).formatToParts(now);
+
+      const timeParts =
+        new Intl.DateTimeFormat("en-GB", {
+          timeZone: "Asia/Karachi",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false
+        }).formatToParts(now);
+
+      const getPart = (parts, type) =>
+        parts.find(p => p.type === type)?.value || "";
+
+      return {
+        date:
+          getPart(dateParts, "year") +
+          "-" +
+          getPart(dateParts, "month") +
+          "-" +
+          getPart(dateParts, "day"),
+
+        time:
+          getPart(timeParts, "hour") +
+          ":" +
+          getPart(timeParts, "minute")
+      };
+
+    }
+
+
+    function formatInvoiceTime(value) {
+
+      if (!value) return "-";
+
+      const match =
+        String(value).match(/^(\d{1,2}):(\d{2})$/);
+
+      if (!match) return String(value);
+
+      let hour = Number(match[1]);
+      const minute = match[2];
+
+      const suffix =
+        hour >= 12 ? "PM" : "AM";
+
+      hour = hour % 12 || 12;
+
+      return `${hour}:${minute} ${suffix}`;
+
+    }
+
+
     /* OPEN INVOICE */
 
     window.openInvoice = function(id) {
@@ -2598,8 +2696,11 @@ const firebaseConfig = {
           : "Create Professional Invoice";
 
 
+      const pakistanNow =
+        getPakistanDateTime();
+
       const today =
-        new Date().toISOString().split("T")[0];
+        pakistanNow.date;
 
 
       document.getElementById("invoiceNumber").value =
@@ -2610,6 +2711,11 @@ const firebaseConfig = {
       document.getElementById("invoiceDate").value =
         invoice.invoiceDate ||
         today;
+
+
+      document.getElementById("invoiceTime").value =
+        invoice.invoiceTime ||
+        pakistanNow.time;
 
 
       document.getElementById("invoiceServiceDate").value =
@@ -2690,6 +2796,13 @@ const firebaseConfig = {
 
       document.getElementById("invoiceDiscount").value =
         invoice.discount ?? 0;
+
+
+      document.getElementById("invoiceExchange").value =
+        invoice.customerExchange ??
+        invoice.exchangeAmount ??
+        invoice.customerReturn ??
+        0;
 
 
       document.getElementById("invoicePaymentStatus").value =
@@ -3044,6 +3157,16 @@ const firebaseConfig = {
         );
 
 
+      const exchange =
+        Math.max(
+          0,
+          Number(
+            document.getElementById("invoiceExchange")
+              .value || 0
+          )
+        );
+
+
       const subtotal =
         parts +
         labour +
@@ -3054,7 +3177,7 @@ const firebaseConfig = {
       const grandTotal =
         Math.max(
           0,
-          subtotal - discount
+          subtotal - discount - exchange
         );
 
 
@@ -3108,6 +3231,10 @@ const firebaseConfig = {
 
       document.getElementById("summaryDiscount").textContent =
         money(discount);
+
+
+      document.getElementById("summaryExchange").textContent =
+        money(exchange);
 
 
       document.getElementById("summaryGrandTotal").textContent =
@@ -3197,6 +3324,16 @@ const firebaseConfig = {
         );
 
 
+      const exchange =
+        Math.max(
+          0,
+          Number(
+            document.getElementById("invoiceExchange")
+              .value || 0
+          )
+        );
+
+
       const subtotal =
         parts +
         labour +
@@ -3207,7 +3344,7 @@ const firebaseConfig = {
       const grandTotal =
         Math.max(
           0,
-          subtotal - discount
+          subtotal - discount - exchange
         );
 
 
@@ -3257,6 +3394,10 @@ const firebaseConfig = {
         invoiceDate:
           document.getElementById("invoiceDate").value,
 
+        invoiceTime:
+          document.getElementById("invoiceTime").value ||
+          getPakistanDateTime().time,
+
         serviceDate:
           document.getElementById("invoiceServiceDate").value,
 
@@ -3301,6 +3442,9 @@ const firebaseConfig = {
         additional,
 
         discount,
+
+        customerExchange:
+          exchange,
 
         subtotal,
 
@@ -3377,6 +3521,9 @@ const firebaseConfig = {
           invoiceDate:
             invoice.invoiceDate,
 
+          invoiceTime:
+            invoice.invoiceTime || "",
+
           serviceDate:
             invoice.serviceDate,
 
@@ -3427,6 +3574,9 @@ const firebaseConfig = {
 
           discount:
             invoice.discount || 0,
+
+          customerExchange:
+            invoice.customerExchange || 0,
 
           grandTotal:
             invoice.grandTotal || 0,
@@ -4161,6 +4311,15 @@ const firebaseConfig = {
                 ${escapeHTML(formatDate(invoice.invoiceDate))}
               </div>
 
+              <div style="
+                font-size:12px;
+                color:#666;
+                margin-top:4px;
+              ">
+                Time:
+                ${escapeHTML(formatInvoiceTime(invoice.invoiceTime))}
+              </div>
+
             </div>
 
           </div>
@@ -4358,6 +4517,21 @@ const firebaseConfig = {
 
                 <strong>
                   ${money(invoice.discount)}
+                </strong>
+
+              </div>
+
+
+              <div style="
+                display:flex;
+                justify-content:space-between;
+                padding:6px 0;
+              ">
+
+                <span>Customer Exchange / Return</span>
+
+                <strong>
+                  ${money(invoice.customerExchange || invoice.exchangeAmount || 0)}
                 </strong>
 
               </div>
